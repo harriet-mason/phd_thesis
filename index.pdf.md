@@ -11,8 +11,6 @@ A thesis submitted for the degree of {{< meta degreetype >}} at Monash Universit
 
 
 
-
-
 Produced on 11 July 2025.
 
 © {{< meta author >}} (2025).
@@ -22,46 +20,15 @@ Produced on 11 July 2025.
 
 
 
-
-
 # Abstract {-}
 
-The abstract should outline the main approach and findings of the thesis and must not be more than 500 words.
+*Do at the end. Future me problem, not current me problem.*
 
 <!-- 
 For an honours thesis, you can remove the rest of this file apart from the last couple of lines. 
 -->
 
 # Declaration {-}
-
-> Use only one of the following declarations (Standard thesis or Thesis including published works declaration) and remove the other.
-
-### Standard thesis
-
-This thesis is an original work of my research and contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
-
-Student name:
-
-Student signature:
-
-Date:
-
-#### Publications during enrolment {-}
-
-> Remove this section if you do not have publications.
-
-The material in  has been submitted to the journal *Journal of Impossible Results* for possible publication.
-
-The contribution in __ of this thesis was presented in the International Symposium on Nonsense held in Dublin, Ireland, in July 2022.
-
-#### Reproducibility statement
-
-This thesis is written using Quarto with renv [@renv] to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository [`github.com/SusanSu/thesis`](https://github.com/SusanSu/thesis).
-
-This work is licensed under a [Creative Commons  Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
-
-### Thesis including published works declaration
-
 I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
 
 This thesis includes ?? original papers published in peer reviewed journals and ?? submitted publications. The core theme of the thesis is ??. The ideas, development and writing up of all the papers in the thesis were the principal responsibility of myself, the student, working within the Department of Econometrics & Business Statistics under the supervision of ??
@@ -76,13 +43,9 @@ In the case of (??insert chapter numbers) my contribution to the work involved t
 
 
 
-
-
 ::: {.cell}
 
 :::
-
-
 
 
 
@@ -96,8 +59,6 @@ In the case of (??insert chapter numbers) my contribution to the work involved t
 
 
 
-
-
 ::: {.cell}
 ::: {.cell-output-display}
 
@@ -105,15 +66,13 @@ In the case of (??insert chapter numbers) my contribution to the work involved t
 \toprule
 \multicolumn{1}{l}{Thesis chapter} & \multicolumn{1}{l}{Publication title} & \multicolumn{1}{l}{Status} & \multicolumn{1}{l}{Nature and \% of student contribution} & \multicolumn{1}{l}{Nature and \% of coauthors' contribution} & \multicolumn{1}{l}{Coauthors are Monash students}\\
 \midrule
-2 & The life cycle of Mongolian crickets & Submitted & Concept and data analysis, writing first draft: 60\% & Shu Xu, input into manuscript: 25\%; Eddie Betts, input into manuscript: 15\% & Shu Xu: No; Eddie Betts: Yes\\
+2 & The Noisy Work of Uncertainty Visualisation: A Review & Invited Contribusion & ?? & Dianne Cook, (help): ??\%; Sarah Goodwin, (help): ??\%; Emi Tanaka, (help): ??\%; Susan Vanderplas, (help): ??\% & No\\
 \bottomrule
 \end{longtable}
 
 
 :::
 :::
-
-
 
 
 
@@ -129,8 +88,6 @@ In the case of (??insert chapter numbers) my contribution to the work involved t
 
 
 
-
-
 ::: {.cell}
 ::: {.cell-output-display}
 \begingroup\fontsize{10}{12}\selectfont
@@ -140,7 +97,7 @@ In the case of (??insert chapter numbers) my contribution to the work involved t
 \toprule
 \multicolumn{1}{>{\raggedright\arraybackslash}p{1.2cm}}{\textbf{Thesis chapter}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Publication title}} & \multicolumn{1}{l}{\textbf{Status}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Nature and \% of student contribution}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Nature and \% of coauthors' contribution}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Coauthors are Monash students}}\\
 \midrule
-2 & The life cycle of Mongolian crickets & Submitted & Concept and data analysis, writing first draft: 60\% & Shu Xu, input into manuscript: 25\%; Eddie Betts, input into manuscript: 15\% & Shu Xu: No; Eddie Betts: Yes\\
+2 & The Noisy Work of Uncertainty Visualisation: A Review & Invited Contribusion & ?? & Dianne Cook, (help): ??\%; Sarah Goodwin, (help): ??\%; Emi Tanaka, (help): ??\%; Susan Vanderplas, (help): ??\% & No\\
 \bottomrule
 \end{tabu}}
 \endgroup{}
@@ -148,8 +105,6 @@ In the case of (??insert chapter numbers) my contribution to the work involved t
 
 :::
 :::
-
-
 
 
 
@@ -174,16 +129,24 @@ Main Supervisor signature:
 
 Date:
 
+
+#### Reproducibility statement
+
+This thesis is written using Quarto with renv [@renv] to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository [`github.com/harriet-mason/phd_thesis`](https://github.com/harriet-mason/phd_thesis).
+
+This work is licensed under a [Creative Commons  Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+
 # Acknowledgements {-}
 
-I would like to thank my pet goldfish for ...
+I would like to thank 
+- supervisors
+- phd homies
+- panel
+- zema/aemo
+- my enemies
 
 
-> Free text section for you to record your acknowledgment and gratitude for the more general academic input and support such as financial support from grants and scholarships and the non-academic support you have received during the course of your enrolment. If you are a recipient of the “Australian Government Research Training Program Scholarship”, you are required to include the following statement:
-
-> > “This research was supported by an Australian Government Research Training Program (RTP) Scholarship.”
-
-> You may also wish to acknowledge significant and substantial contribution made by others to the research, work and writing represented and/or reported in the thesis. These could include significant contributions to: the conception and design of the project; non-routine technical work; analysis and interpretation of research data; drafting significant parts of the work or critically revising it to contribute to the interpretation.
 
 <!--
 The following line is required to re-set page numbering after preliminary material in the pdf output. Do not remove

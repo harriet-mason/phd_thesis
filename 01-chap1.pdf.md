@@ -12,10 +12,6 @@
 
 
 
-
-
-
-
 - overview of thesis
 - what is this thesis about (what problem is it solving)
 - how do the chapters fit together
@@ -56,7 +52,4 @@ The thesis is structured as follows.
 
 @sec-third-paper presents a user study, motivated by problems faced by the Australian Energy Market Operator (AEMO), that evaluates the effectiveness of different uncertainty visualisations. @sec-first-paper highlighted the difficulty in evaluating uncertainty visualisations, as the uncertainty must be evaluated as noise rather than signal, and provides some suggestions for experimental methods. This section applies the suggested experimental methods and identifies which graphics, implemented by the ggdibbler software introduced in @sec-second-paper, are effective tools for signal suppression. The experiment in this section is motivated by a case study specific to problems faced by AEMO. The transition to renewable energy results in a large amount of uncertainty in Australia's energy demands, which also demands better understanding of the uncertainty if we are to make the transition without issue.
 
-@sec-first-paper is an invited contribution to Volume 14 of *Annual Reviews of Statistics and it's Applications*. The ggdibbler software introduced in @sec-second-paper has been submitted to CRAN, and the associated paper will be submitted to the Journal of Computational and Graphical Statistics upon it's completion. 
-
-
-
+The material in @sec-first-paper was submitted to the journal *Annual Reviews of Statistics and It's Applications* for publication, and is now an invited contribution to Volume 14 of the Journal.The `ggdibbler` software outlined in @sec-second-paper has been submitted to CRAN. The contribution in @sec-second-paper of this thesis was presented at useR! 2025 in Durham, North Carolina in August 2025.
