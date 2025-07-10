@@ -13,27 +13,23 @@ library(ggplot2)
 - in actual thesis have to do declaration, still worth it to put it in chapter 1
 
 ## Thesis Outline
+The thesis is structured as follows.
 
 @sec-first-paper provides a comprehensive review of the uncertainty visualsiation literature. Existing reviews in the field take the purpose of an uncertainty visualisation to be self evident which results in a large amount of conflicting information.  The most common approach communicates uncertainty as a probability or a distribution, and focus on showing the uncertainty as an isolated variable disconnected from its context. We contrast these visualisations with approaches that view uncertainty as noise that should be incorporated to give a holistic view of our data. We coin the term “signal suppression” to describe a visualisation that is designed for preventing false conclusions, as the approach demands that the signal (i.e. the conclusions drawn from the estimates) is suppressed by the noise (i.e. the variance on those estimates). We provide motivation for viewing signal supression as the most worthwhile goal in uncertainty visualisation, and argue that visualisations that display uncertainty as an isolated variable should not be considered uncertainty visualisations at all. We further discuss difficulties in creating and evaluating the effectiveness of these plots, which further motivates the following chapters of this thesis.
+ 
+@sec-second-paper introduces a new R package, ggdibbler. In @sec-first-paper we discussed the run on effects of the ambiguous definition of uncertainty. These problems included difficulty incorperating uncertainty into the grammar of graphics framework, which leads to software that does not always behave in ways that users would expect. @sec-second-paper closes this gap by discussing the theoretical implications of including uncertainty in the grammar of graphics, and introducing ggdibbler, a ggplot extension that allows us to visualise uncertainty holistically and prevent false signals. We illustrate how ggdibbler can be seamlessly integrated into existing visualisation workflows and demonstrate its usefulness by looking at examples that use ggdibbler to incorporate uncertainty into a choropleth map.
 
-@sec-first-paper was submitted to Annual Reviews of Statistics and it's Applications, and is now an invited paper.
+@sec-third-paper presents a user study, motivated by problems faced by the Australian Energy Market Operator (AEMO), that evaluates the effectiveness of different uncertainty visualisations. @sec-first-paper highlighted the difficulty in evaluating uncertainty visualisations, as the uncertainty must be evaluated as noise rather than signal, and provides some suggestions for experimental methods. This section applies the suggested experimental methods and identifies which graphics, implemented by the ggdibbler software introduced in @sec-second-paper, are effective tools for signal suppression. The experiment in this section is motivated by a case study specific to problems faced by AEMO. The transition to renewable energy results in a large amount of uncertainty in Australia's energy demands, which also demands better understanding of the uncertainty if we are to make the transition without issue.
 
-
-@sec-second-paper 
-
-Successfully communicating uncertainty requires us to convey an estimate and its uncertainty together as a single “validity of signal” variable, something which has proven to be difficult with current graphical tools. In this talk, we will introduce ggdibbler, a ggplot extension that allows us to visualise uncertainty holistically and prevent false signals. We illustrate how ggdibbler can be seamlessly integrated into existing visualisation workflows and demonstrate its usefulness by looking at examples that use ggdibbler to incorporate uncertainty into a choropleth map. In working through these examples, we will discuss which uncertainty visualisation approaches work (or don’t work) for communicating uncertainty, and why.
-
+@sec-first-paper is an invited contribution to Volume 14 of *Annual Reviews of Statistics and it's Applications*. @sec-second-paper will be submitted to the Journal of Computational and Graphical Statistics. We will decide on a venue for @sec-third-paper opin the completion of the experiment. 
 
 
 
- Paper 2 - introduces a new R package, ggdibbler, Software paper for ggdibbler. Discuss the theoretical implications of incorperating uncertainty into the grammar of graphics. 
+
+
+
  
  
-Paper 3 - User study. Want to base it around a case study specific to a problem faced by AEMO. They now have a research partnerships lead, who is helping me locate an AEMO subject matter expert so we can identify a case study to base the third chapter around. 
 
 
 
-
-@sec-second-paper introduces a computer vision model to automate the assessment of residual plots, addressing the scalability limitations of human-based visual inference. This model is trained to predict a distance measure based on Kullback-Leibler divergence, quantifying the disparity between the residual distribution of a fitted classical normal linear regression model and the reference distribution. Performance of the model is evaluated on the human subject experiment data collected in @sec-first-paper. A comprehensive literature review of data plots reading with computer vision models is contained in the chapter.
-
-@sec-third-paper introduces a new R package, autovi, and its accompanying web interface, autovi.web, designed to automate the assessment of residual plots in regression analysis. The package uses a computer vision model built in @sec-second-paper to predict a measure of visual signal strength (VSS) and provides supporting information to assist analysts in diagnosing model fit. By automating this process, autovi and autovi.web improve the efficiency and consistency of model evaluation, making advanced diagnostic tools accessible to a broader audience.
