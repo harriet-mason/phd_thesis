@@ -9,8 +9,33 @@ library(ggplot2)
 - overview of thesis
 - what is this thesis about (what problem is it solving)
 - how do the chapters fit together
-- lay out which parts have been submitted to journals and which parts have been submitted to software archives
-- in actual thesis have to do declaration, still worth it to put it in chapter 1
+
+- Uncertainty visualisation is important
+  - Decision making
+  - correctly hedge conclusions drawn from graphics
+  
+- Uncertainty visualisation is a relatively new field, but it has been poorly defined
+- Uncertainty itself is a vague term, each paper seems to take the meaning of it as a given, so the visualisation of it is fraught with disagreement
+- Two distinct camps have established themselves in the literature. The first view uncertainty visualisation as a visualisation of an error, probability, or distribution. They treat uncertainty as a variable of interest, distinct from its estimate. Examples of this approach include ___. 
+- The second camp sees uncertainty as noise. They believe uncertainties role in visualisation is to dampen misleading or false conclusions, and amplify correct conclusions. They treat uncertainty as a necessary nuisance that should be communicated alongside it's estimate. Examples of this approach include ___. 
+- These distinct camps create several gaps in the literature
+- Uncertainty visualisation are often bespoke and are not properly integrated into the grammar of graphics. The elusive definition of uncertainty prevents it from being integrated into the grammar of grpahics, which means its role in a visualisation is never clear. 
+- This leads to visualisation approaches that jump randomly between viewing uncertainty as a variable in or itself, or as a necessary nuisance required to property visualise an estimate. This leads software that visualise uncertainty behaving inconsistently when deciding how to display uncertainty in the graphic. Authors of the software are often unaware of the distinction between the two methods.
+- The conflicting motivations also make it difficult to evaluate uncertainty visualisations
+- In graphics research, user studies are king and allow us to understand which graphics convey information most effectively
+- Uncertainty visualisation presents a unique issue. Most research tries to evaluate users ability to effectively extract information from a plot to establish a hierarchy of visualisation techniques
+- Uncertainty visualisation requires signal amplification when uncertainty is low, and obfuscation when uncertainty is high. This means that the best visualisation technique is not one that allows for the most accurate statistic extraction.
+- Some papers have specifically tried to evaluate uncertainty, but without a clear definition of uncertainty, this have proven to be difficult. 
+
+
+- This thesis attempts to close these gaps by providing a comprehensive analysis of uncertainty visualisation, including their definition, practical application, and evaluation.
+  - First we comb the literature and discuss the motivations behind uncertainty visualisation, and identify motivations for the field.
+  - Next, we formalise uncertainty visualisation, by identifying the two fields, discussing their difference and which is more appropriate to be considered "uncertainty visualisation"
+  - Then, we formalise the second camp and coin the term "signal supression" to describe visualisation approaches that fall within it.
+  - Then we discuss uncertainty's place in the grammar of graphics, and describe what it means for a visualisation to be an "uncertainty visualisation" within this framework.
+  - Then we introduce software, ggdibbler, which is the practical application of the theoretical inclusion of uncertainty in the grammar of graphics
+  - Finally, we formalise an approach for evaluating the effectivness of uncertainty visualisation, and use this tool to evaluate existing approaches to uncertainty visualisation.
+
 
 ## Thesis Outline
 The thesis is structured as follows.
@@ -21,15 +46,7 @@ The thesis is structured as follows.
 
 @sec-third-paper presents a user study, motivated by problems faced by the Australian Energy Market Operator (AEMO), that evaluates the effectiveness of different uncertainty visualisations. @sec-first-paper highlighted the difficulty in evaluating uncertainty visualisations, as the uncertainty must be evaluated as noise rather than signal, and provides some suggestions for experimental methods. This section applies the suggested experimental methods and identifies which graphics, implemented by the ggdibbler software introduced in @sec-second-paper, are effective tools for signal suppression. The experiment in this section is motivated by a case study specific to problems faced by AEMO. The transition to renewable energy results in a large amount of uncertainty in Australia's energy demands, which also demands better understanding of the uncertainty if we are to make the transition without issue.
 
-@sec-first-paper is an invited contribution to Volume 14 of *Annual Reviews of Statistics and it's Applications*. @sec-second-paper will be submitted to the Journal of Computational and Graphical Statistics. We will decide on a venue for @sec-third-paper opin the completion of the experiment. 
-
-
-
-
-
-
- 
- 
+@sec-first-paper is an invited contribution to Volume 14 of *Annual Reviews of Statistics and it's Applications*. The ggdibbler software introduced in @sec-second-paper has been submitted to CRAN, and the associated paper will be submitted to the Journal of Computational and Graphical Statistics upon it's completion. 
 
 
 
