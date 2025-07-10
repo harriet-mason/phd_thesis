@@ -12,6 +12,10 @@
 
 
 
+
+
+
+
 - overview of thesis
 - what is this thesis about (what problem is it solving)
 - how do the chapters fit together
