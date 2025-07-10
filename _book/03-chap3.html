@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -164,10 +184,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
-  <li><a href="#including-uncertainty-in-the-grammar-of-graphics" id="toc-including-uncertainty-in-the-grammar-of-graphics" class="nav-link" data-scroll-target="#including-uncertainty-in-the-grammar-of-graphics"><span class="header-section-number">3.2</span> Including uncertainty in The Grammar of Graphics</a></li>
-  <li><a href="#existing-tools-for-visualising-uncertainty" id="toc-existing-tools-for-visualising-uncertainty" class="nav-link" data-scroll-target="#existing-tools-for-visualising-uncertainty"><span class="header-section-number">3.3</span> Existing tools for visualising uncertainty</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">3.4</span> ???</a></li>
-  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work"><span class="header-section-number">3.5</span> Future Work</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">3.2</span> Background</a></li>
+  <li><a href="#signal-supression-in-the-grammar-of-graphics" id="toc-signal-supression-in-the-grammar-of-graphics" class="nav-link" data-scroll-target="#signal-supression-in-the-grammar-of-graphics"><span class="header-section-number">3.3</span> Signal supression in The Grammar of Graphics</a></li>
+  <li><a href="#practical-feasibility-of-including-uncertainty" id="toc-practical-feasibility-of-including-uncertainty" class="nav-link" data-scroll-target="#practical-feasibility-of-including-uncertainty"><span class="header-section-number">3.4</span> Practical feasibility of including uncertainty</a></li>
+  <li><a href="#ggdibbler-specifics" id="toc-ggdibbler-specifics" class="nav-link" data-scroll-target="#ggdibbler-specifics"><span class="header-section-number">3.5</span> ggdibbler specifics?</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">3.6</span> Applications</a></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work"><span class="header-section-number">3.7</span> Future Work</a></li>
   </ul>
 </nav>
     </div>
@@ -200,27 +222,91 @@ ul.task-list li input[type="checkbox"] {
 <li>More focus on grammar of graphics</li>
 </ul>
 </section>
-<section id="including-uncertainty-in-the-grammar-of-graphics" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="including-uncertainty-in-the-grammar-of-graphics"><span class="header-section-number">3.2</span> Including uncertainty in The Grammar of Graphics</h2>
+<section id="background" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="background"><span class="header-section-number">3.2</span> Background</h2>
+<section id="existing-software-for-visualising-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="existing-software-for-visualising-uncertainty">Existing software for visualising uncertainty</h3>
 <ul>
-<li>Not immediately clear where uncertainty should fit in the grammar of graphics <em>Get discussion from old paper</em></li>
-</ul>
-</section>
-<section id="existing-tools-for-visualising-uncertainty" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="existing-tools-for-visualising-uncertainty"><span class="header-section-number">3.3</span> Existing tools for visualising uncertainty</h2>
-<ul>
+<li>While there are other uncertainty visualisation packages currently available (e.g.&nbsp;<code>ggdist</code>) their express purpose is to visualise distributions rather than perform signal suppression.</li>
+<li>Also uses the <code>distributional</code> pacakge to represent an estimate as a distribution rather than a single variable, which allows you to create a distribution table (dibble). If a user has a dibble and wants to visualize a distribution and use interesting custom geoms that don’t exist in <code>ggplot2</code>, then existing packages such as <code>ggdist</code> are sufficient.</li>
 <li>ggdist is the most obvious implementation of uncertainty in the grammar of graphics
 <ul>
-<li>takes the same approach as ggdibbler (i.e.&nbsp;takes a distribution as an input) <em>Get discussion from mid milestone report</em></li>
+<li>takes the same approach as ggdibbler (i.e.&nbsp;takes a distribution as an input)</li>
 </ul></li>
 </ul>
 </section>
-<section id="section" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="section"><span class="header-section-number">3.4</span> ???</h2>
-<p><em>Check Journal of Computational and Graphical Statistics for general format</em></p>
+<section id="uncertainties-place-in-the-grammar-of-graphics" class="level3">
+<h3 class="anchored" data-anchor-id="uncertainties-place-in-the-grammar-of-graphics">Uncertainties place in the grammar of graphics</h3>
+<ul>
+<li>Not immediately clear where uncertainty should fit in the grammar of graphics</li>
+</ul>
+<p><em>The Grammar of Graphics</em> is the fundamental building blocks of the information in a graphic, and it allows a plot to be considered a statistic <span class="citation" data-cites="Vanderplas2020">(<a href="refs.html#ref-Vanderplas2020" role="doc-biblioref">Vanderplas et al. 2020</a>)</span>. The process for summarising the information in a plot using <em>The Grammar of Graphics</em> is depicted in _____(drawing) <span class="citation" data-cites="Leland2005">(<a href="refs.html#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span>. Unfortunately, <em>The Grammar of Graphics</em> is not perfectly suited to summarise the information in an uncertainty visualisation since it assumes that we start from a finite data set. Very often uncertainty is expressed using a distribution or a resampling method that does not have an upper limit on the “sample size”. Additionally many uncertainty visualisation experiments notice an interaction between sample size and graphic effectiveness <span class="citation" data-cites="Kale2018 Newburger2022 Hofmann2012">(<a href="refs.html#ref-Hofmann2012" role="doc-biblioref">Hofmann et al. 2012</a>; <a href="refs.html#ref-Kale2018" role="doc-biblioref">Kale et al. 2018</a>; <a href="refs.html#ref-Newburger2022" role="doc-biblioref">Newburger et al. 2022</a>)</span>, an effect that is likely caused by a difference in human perception of mass versus sample.</p>
+<p>Additionally, <em>The Grammar of Graphics</em> behaves strangely when the sample size is adjusted and it the distance between two graphics becomes less consistent. _____(drawing) shows how three graphics defined by <em>The Grammar of Graphics</em> can change as n approaches infinity. The two graphics that are very similar according to the <em>The Grammar of Graphics</em> diverge into different graphics, and two graphics that are very different, converge into the same graphic. This means the statistics visualised in the plot as well as the <em>The Grammar of Graphics</em> may not be an adequate to summarise the information in a plot that is being used for uncertainty visualisation. Some authors have noticed difficulties with visualising distributions using <code>ggplot2</code> and created extensions that make showing distributions more intuitive <span class="citation" data-cites="Pu2020 Kay2023">(<a href="refs.html#ref-Pu2020" role="doc-biblioref">Pu and Kay 2020</a>; <a href="refs.html#ref-Kay2023" role="doc-biblioref"><strong>Kay2023?</strong></a>)</span>, however these extensions do not address the core discrepancies with uncertainty visualisation and <em>The Grammar of Graphics</em>. This does not mean <em>The Grammar of Graphics</em> should be abandoned when we attempt to summaise the information in an uncertainty visualisation, very often visations use the same sample to generate all their plots, so this issue is not always present, however these limitations should be kept in mind when analysing uncertainty visualisations using <em>The Grammar of Graphics</em>.</p>
 </section>
-<section id="future-work" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="future-work"><span class="header-section-number">3.5</span> Future Work</h2>
+</section>
+<section id="signal-supression-in-the-grammar-of-graphics" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="signal-supression-in-the-grammar-of-graphics"><span class="header-section-number">3.3</span> Signal supression in The Grammar of Graphics</h2>
+<section id="inclusion-of-distributions-and-assumptions" class="level3">
+<h3 class="anchored" data-anchor-id="inclusion-of-distributions-and-assumptions">Inclusion of distributions and assumptions</h3>
+<ul>
+<li>The grammar of graphics assumes we always start with data</li>
+<li>Including uncertainty fundamentally requires us to start from an assumption rather than data, which is less concrete and harder to map in space (less intuitive)</li>
+</ul>
+</section>
+</section>
+<section id="practical-feasibility-of-including-uncertainty" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="practical-feasibility-of-including-uncertainty"><span class="header-section-number">3.4</span> Practical feasibility of including uncertainty</h2>
+<ul>
+<li>Representations of uncertainty: distributions, samples, two variables</li>
+</ul>
+<section id="displaying-a-distribution-as-a-sample" class="level3">
+<h3 class="anchored" data-anchor-id="displaying-a-distribution-as-a-sample">Displaying a distribution as a sample</h3>
+<ul>
+<li>Sample method in ggdibbler</li>
+<li>For something to be visible on a plot, it must have area, and anything with area can be subdivided, so technically this approach can always be done</li>
+</ul>
+</section>
+<section id="warping-the-spacecoordinates" class="level3">
+<h3 class="anchored" data-anchor-id="warping-the-spacecoordinates">Warping the space/coordinates</h3>
+<ul>
+<li>Discuss how different aesthetics can be warped within the grammar of graphics</li>
+</ul>
+<section id="colour" class="level4">
+<h4 class="anchored" data-anchor-id="colour">Colour</h4>
+<ul>
+<li>Bivar &amp; VSUP</li>
+</ul>
+</section>
+<section id="position" class="level4">
+<h4 class="anchored" data-anchor-id="position">Position</h4>
+<ul>
+<li>I suspect this would be janky?</li>
+</ul>
+</section>
+</section>
+<section id="secondary-aesthetics" class="level3">
+<h3 class="anchored" data-anchor-id="secondary-aesthetics">Secondary Aesthetics</h3>
+<ul>
+<li>The axis of a plot are not independent. Aesthetics that may be considered to be independent can be influenced by other graphical aesthetics</li>
+<li>e.g.&nbsp;Area/Length or Transparency</li>
+</ul>
+</section>
+</section>
+<section id="ggdibbler-specifics" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="ggdibbler-specifics"><span class="header-section-number">3.5</span> ggdibbler specifics?</h2>
+<ul>
+<li>Currently <code>ggplot2</code> syntax is unable to handle random variables as inputs. If a user wants to make a plot with a random variable, it must first be converted into a determinsitic value. This is a problem as it does not highlight the uncertain nature of the variable in the graphic. Currently, the process of converting any existing plot into one that performs signal suppression (either through a transformation of variables or by visualising a sample instead of an estimate) is tedious.</li>
+</ul>
+</section>
+<section id="applications" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="applications"><span class="header-section-number">3.6</span> Applications</h2>
+<ul>
+<li>Maybe include an AEMO case study</li>
+<li>Atlas of Living Australia guys also had a good example with rounded locations</li>
+</ul>
+</section>
+<section id="future-work" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="future-work"><span class="header-section-number">3.7</span> Future Work</h2>
 <ul>
 <li>Different types of plots (e.g.&nbsp;scatter plot)</li>
 <li>Different data types for the uncertainty. Currently only have uncertainty in estimates, but could have uncertainty in location in a map for example.</li>
@@ -234,6 +320,26 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Hofmann2012" class="csl-entry" role="listitem">
+Hofmann, H., Follett, L., Majumder, M., and Cook, D. (2012), <span>“Graphical <span>Tests</span> for <span>Power Comparison</span> of <span>Competing Designs</span>,”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em>, 18, 2441–2448. <a href="https://doi.org/10.1109/TVCG.2012.230">https://doi.org/10.1109/TVCG.2012.230</a>.
+</div>
+<div id="ref-Kale2018" class="csl-entry" role="listitem">
+Kale, A., Nguyen, F., Kay, M., and Hullman, J. (2018), <span>“Hypothetical outcome plots help untrained observers judge trends in ambiguous data,”</span> <em>IEEE transactions on visualization and computer graphics</em>, IEEE, 25, 892–902.
+</div>
+<div id="ref-Newburger2022" class="csl-entry" role="listitem">
+Newburger, E., Correll, M., and Elmqvist, N. (2022), <span>“<span class="nocase">Fitting Bell Curves to Data Distributions Using Visualization</span>,”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em>, IEEE, 29, 5372–5383. <a href="https://doi.org/10.1109/TVCG.2022.3210763">https://doi.org/10.1109/TVCG.2022.3210763</a>.
+</div>
+<div id="ref-Pu2020" class="csl-entry" role="listitem">
+Pu, X., and Kay, M. (2020), <span>“<span class="nocase">A Probabilistic Grammar of Graphics</span>,”</span> <em>Conference on Human Factors in Computing Systems - Proceedings</em>. <a href="https://doi.org/10.1145/3313831.3376466">https://doi.org/10.1145/3313831.3376466</a>.
+</div>
+<div id="ref-Vanderplas2020" class="csl-entry" role="listitem">
+Vanderplas, S., Cook, D., and Hofmann, H. (2020), <span>“<span class="nocase">Annual Review of Statistics and Its Application Testing Statistical Charts: What Makes a Good Graph?</span>”</span> <a href="https://doi.org/10.1146/annurev-statistics-031219-041252">https://doi.org/10.1146/annurev-statistics-031219-041252</a>.
+</div>
+<div id="ref-Leland2005" class="csl-entry" role="listitem">
+Wilkinson, L. (2005), <em>The grammar of graphics (statistics and computing)</em>, Berlin, Heidelberg: Springer-Verlag.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
