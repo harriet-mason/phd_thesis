@@ -1,9 +1,15 @@
 project:
   type: book
 
+execute:
+  keep-md: true
+
 book:
-  title: "This is my thesis"
-  author: "Susan Su"
+  title: "Uncertainty Visualisation for Signal Supression"
+  author: "Harriet Mason"
+  repo-url: https://github.com/harriet-mason/phd_thesis
+  repo-branch: master
+  downloads: [pdf]
   chapters:
     - text: "Front matter"
       file: index.qmd
@@ -18,7 +24,7 @@ csl: american-statistical-association.csl
 degreetype: Doctor of Philosophy
 submitted: 2024
 affiliation: Department of Econometrics & Business Statistics
-degrees: 'B.Sc. (Hons), University of Tangambalanga'
+degrees: 'B.Comm. (Hons), Monash University'
 
 format:
   monashthesis-html: default

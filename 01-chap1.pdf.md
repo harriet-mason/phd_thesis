@@ -1,10 +1,16 @@
 # Introduction {#sec-intro}
 
-```{r}
-#| label: load_packages
-#| include: false
-library(ggplot2)
-```
+
+
+
+
+
+
+
+
+
+
+
 
 - overview of thesis
 - what is this thesis about (what problem is it solving)

@@ -6,11 +6,19 @@ A thesis submitted for the degree of {{< meta degreetype >}} at Monash Universit
 
 # Copyright notice {-}
 
-```{r}
-#| output: asis
-cat("Produced on",format(Sys.Date(), "%e %B %Y.\n\n"))
-cat("© {{< meta author >}} (",format(Sys.Date(), "%Y"),").", sep="")
-```
+
+
+
+
+
+Produced on 10 July 2025.
+
+© {{< meta author >}} (2025).
+
+
+
+
+
 
 # Abstract {-}
 
@@ -59,38 +67,78 @@ This thesis includes ?? original papers published in peer reviewed journals and 
 In the case of (??insert chapter numbers) my contribution to the work involved the following:
 
 
-```{r}
-#| message: false
-#| echo: false
-library(tidyverse)
-library(knitr)
-library(kableExtra)
-tab <- tribble(
-  ~`Thesis chapter`, ~`Publication title`, ~Status, ~`Nature and % of student contribution`, ~`Nature and % of coauthors' contribution`, ~`Coauthors are Monash students`,
-  2, "The life cycle of Mongolian crickets", "Submitted", "Concept and data analysis, writing first draft: 60%", "Shu Xu, input into manuscript: 25%; Eddie Betts, input into manuscript: 15%", "Shu Xu: No; Eddie Betts: Yes"
-)
-```
+
+
+
+
+
+::: {.cell}
+
+:::
+
+
+
+
+
 
 ::: {.content-visible when-format="html"}
 
-```{r}
-tab |>
-  kable() |>
-  row_spec(0, align = "l")
-```
+
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+\begin{longtable}[t]{rlllll}
+\toprule
+\multicolumn{1}{l}{Thesis chapter} & \multicolumn{1}{l}{Publication title} & \multicolumn{1}{l}{Status} & \multicolumn{1}{l}{Nature and \% of student contribution} & \multicolumn{1}{l}{Nature and \% of coauthors' contribution} & \multicolumn{1}{l}{Coauthors are Monash students}\\
+\midrule
+2 & The life cycle of Mongolian crickets & Submitted & Concept and data analysis, writing first draft: 60\% & Shu Xu, input into manuscript: 25\%; Eddie Betts, input into manuscript: 15\% & Shu Xu: No; Eddie Betts: Yes\\
+\bottomrule
+\end{longtable}
+
+
+:::
+:::
+
+
+
+
+
 
 :::
 
 ::: {.content-visible when-format="pdf"}
 
-```{r}
-tab |>
-  kable(booktabs = TRUE, format = "latex") |>
-  kable_styling(full_width = TRUE, font_size = 10, latex_options = "scale_down") |>
-  column_spec(1, width = "1.2cm") |>
-  column_spec(c(2, 4:6), width = "2.6cm") |>
-  row_spec(0, align = "l", bold = TRUE)
-```
+
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+\begingroup\fontsize{10}{12}\selectfont
+
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabu} to \linewidth {>{\raggedleft\arraybackslash}p{1.2cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright}X>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}}
+\toprule
+\multicolumn{1}{>{\raggedright\arraybackslash}p{1.2cm}}{\textbf{Thesis chapter}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Publication title}} & \multicolumn{1}{l}{\textbf{Status}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Nature and \% of student contribution}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Nature and \% of coauthors' contribution}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Coauthors are Monash students}}\\
+\midrule
+2 & The life cycle of Mongolian crickets & Submitted & Concept and data analysis, writing first draft: 60\% & Shu Xu, input into manuscript: 25\%; Eddie Betts, input into manuscript: 15\% & Shu Xu: No; Eddie Betts: Yes\\
+\bottomrule
+\end{tabu}}
+\endgroup{}
+
+
+:::
+:::
+
+
+
+
+
 
 :::
 
