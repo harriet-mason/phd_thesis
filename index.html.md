@@ -11,7 +11,7 @@ A thesis submitted for the degree of {{< meta degreetype >}} at Monash Universit
 
 
 
-Produced on 10 July 2025.
+Produced on 11 July 2025.
 
 © {{< meta author >}} (2025).
 
@@ -46,9 +46,9 @@ Date:
 
 > Remove this section if you do not have publications.
 
-The material in @sec-intro has been submitted to the journal *Journal of Impossible Results* for possible publication.
+The material in  has been submitted to the journal *Journal of Impossible Results* for possible publication.
 
-The contribution in @sec-litreview of this thesis was presented in the International Symposium on Nonsense held in Dublin, Ireland, in July 2022.
+The contribution in __ of this thesis was presented in the International Symposium on Nonsense held in Dublin, Ireland, in July 2022.
 
 #### Reproducibility statement
 
