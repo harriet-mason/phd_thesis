@@ -53,6 +53,189 @@ Currently `ggplot2` syntax is unable to handle random variables as inputs. If a 
 
 
 ## Application
+Currently, the primary useage of ggdibbler is to provide several variations on `geom_sf`. There are other use cases for `ggdibbler` as we will see below, but as of right now, the variation on other geoms are not as fleshed out.
+
+
+### Spatial Sample example
+
+
+
+
+
+
+
+
+::: {.cell}
+
+:::
+
+
+
+
+
+
+
+
+Let us look at one of the example data sets that comes with `ggdibbler`,`toy_temp`.  This data set is a simulated data set that represents observations collected from citizen scientists in several counties in Iowa. Each county has several measurements made by individual scientists at the same time on the same day, but their exact location is not provided to preserve anonymity. Different counties can have different numbers of citizen scientists and the temperature measurements can have a significant amount of variance due to the recordings being made by different people in slightly different locations within the county. Each recorded temperature comes with the county the citizen scientist belongs to, the temperature recording the made, and the scientist's ID number. There are also variables to define spatial elements of the county, such as it's geometry, and the county centroid's longitude and latitude.
+
+
+
+
+
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+Rows: 990
+Columns: 6
+$ county_name      <chr> "Lyon County", "Dubuque County", "Crawford County", "…
+$ county_geometry  <MULTIPOLYGON [m]> MULTIPOLYGON (((274155.2 -1..., MULTIPOL…
+$ county_longitude <dbl> 306173.3, 746092.2, 381255.2, 696287.1, 729905.9, 306…
+$ county_latitude  <dbl> -172880.7, -239861.5, -318675.9, -153979.0, -280551.9…
+$ recorded_temp    <dbl> 21.08486, 28.94271, 26.39905, 27.10343, 34.20208, 20.…
+$ scientistID      <chr> "#74991", "#22780", "#55325", "#46379", "#84259", "#9…
+```
+
+
+:::
+:::
+
+
+
+
+
+
+
+
+
+While it is slightly difficult, we can view the individual observations by plotting them to the centroid longitude and latitude (with a little jitter) and drawing the counties in the background for referece.
+
+
+
+
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](03-chap3_files/figure-html/unnamed-chunk-2-1.png){width=768}
+:::
+:::
+
+
+
+
+
+
+
+
+Typically, we would not visualise the data this way. A much more common approach would be to take the average of each county and display that in a choropleth map, displayed below.
+
+
+
+
+
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](03-chap3_files/figure-html/unnamed-chunk-3-1.png){width=768}
+:::
+:::
+
+
+
+
+
+
+
+
+This plot is fine, but it does loose a key piece of information, specifically the understanding that this mean is an estimate. That means that this estimate has a sampling distribuiton that is invisible to us when we make this visualisation. 
+
+
+We can see that there is a wave like pattern in the data, but sometimes spatial patterns are a result of significant differences in population, and may disappear if we were to include the variance of the estimates, we can calculate that with the average.
+
+
+
+
+
+
+
+
+::: {.cell}
+
+:::
+
+
+
+
+
+
+
+
+
+Getting an estimate along with its variance is also a common format governments supply data. Just like in our citizen scientist case, this if often done to preserve anonymity. 
+
+
+The problem with this format of data, is that there is no way for us to include the variance information in the visualisation. We can only visualise the estimate and its variance separately. 
+
+
+This is where ggdibbler comes in. `ggdibbler` is a ggplot extension that allows us to visulise distributions where we could previously only visualise single values. Instead of trying to use the estimate and its variance as different values, we combine them as a single distribution variable thanks to the `distributional` package and then can use it with the `ggdibbler` version of `geom_sf`, `geom_sf_sample`.
+
+
+
+
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](03-chap3_files/figure-html/unnamed-chunk-5-1.png){width=768}
+:::
+:::
+
+
+
+
+
+
+
+
+To maintain flexibility, the `geom_sf_sample` does not highlight the original boundary lines, but that can be easily added just by adding another layer.
+
+
+
+
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](03-chap3_files/figure-html/unnamed-chunk-6-1.png){width=768}
+:::
+:::
+
+
+
+
+
+
+
+
+### Scatter plot example
+
+### Distribution example
+
+
+#
 - Maybe include an AEMO case study
 - Atlas of Living Australia guys also had a good example with rounded locations
 

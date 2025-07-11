@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.55">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>3&nbsp; Software for Simple Uncertainty Visualisation – Uncertainty Visualisation for Signal Supression</title>
 <style>
 code{white-space: pre-wrap;}
@@ -42,7 +39,6 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -60,8 +56,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -87,18 +82,12 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather|Source Code Pro" rel="stylesheet">
-
-
+}</script><link href="https://fonts.googleapis.com/css?family=Fira+Sans%7CMerriweather%7CSource%20Code%20Pro" rel="stylesheet">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -109,13 +98,9 @@ div.csl-indent {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Uncertainty Visualisation for Signal Supression</a> 
         <div class="sidebar-tools-main">
@@ -131,7 +116,7 @@ div.csl-indent {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Front matter</span></a>
@@ -174,30 +159,29 @@ div.csl-indent {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title"><b>Sections</b></h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title"><b>Sections</b></h2>
    
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">3.2</span> Background</a></li>
   <li><a href="#signal-supression-in-the-grammar-of-graphics" id="toc-signal-supression-in-the-grammar-of-graphics" class="nav-link" data-scroll-target="#signal-supression-in-the-grammar-of-graphics"><span class="header-section-number">3.3</span> Signal supression in The Grammar of Graphics</a></li>
   <li><a href="#practical-feasibility-of-including-uncertainty" id="toc-practical-feasibility-of-including-uncertainty" class="nav-link" data-scroll-target="#practical-feasibility-of-including-uncertainty"><span class="header-section-number">3.4</span> Practical feasibility of including uncertainty</a></li>
   <li><a href="#ggdibbler-software" id="toc-ggdibbler-software" class="nav-link" data-scroll-target="#ggdibbler-software"><span class="header-section-number">3.5</span> ggdibbler software</a></li>
   <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">3.6</span> Application</a></li>
-  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work"><span class="header-section-number">3.7</span> Future Work</a></li>
+  <li>
+<a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">4</span> </a>
+  <ul class="collapse">
+<li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work"><span class="header-section-number">4.1</span> Future Work</a></li>
   </ul>
-</nav>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title"><span id="sec-second-paper" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Software for Simple Uncertainty Visualisation</span></span></h1>
 </div>
 
@@ -212,107 +196,135 @@ div.csl-indent {
   
 
 
-</header>
-
-
-<section id="introduction" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
+</header><section id="introduction" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">3.1</span> Introduction</h2>
 <ul>
 <li>Reiterate some points from previous chapter</li>
 <li>More focus on grammar of graphics</li>
-</ul>
-</section>
-<section id="background" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="background"><span class="header-section-number">3.2</span> Background</h2>
-<section id="existing-software-for-visualising-uncertainty" class="level3">
-<h3 class="anchored" data-anchor-id="existing-software-for-visualising-uncertainty">Existing software for visualising uncertainty</h3>
+</ul></section><section id="background" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="background">
+<span class="header-section-number">3.2</span> Background</h2>
+<section id="existing-software-for-visualising-uncertainty" class="level3"><h3 class="anchored" data-anchor-id="existing-software-for-visualising-uncertainty">Existing software for visualising uncertainty</h3>
 <ul>
 <li>While there are other uncertainty visualisation packages currently available (e.g.&nbsp;<code>ggdist</code>) their express purpose is to visualise distributions rather than perform signal suppression.</li>
 <li>Also uses the <code>distributional</code> pacakge to represent an estimate as a distribution rather than a single variable, which allows you to create a distribution table (dibble). If a user has a dibble and wants to visualize a distribution and use interesting custom geoms that don’t exist in <code>ggplot2</code>, then existing packages such as <code>ggdist</code> are sufficient.</li>
 <li>ggdist is the most obvious implementation of uncertainty in the grammar of graphics
 <ul>
 <li>takes the same approach as ggdibbler (i.e.&nbsp;takes a distribution as an input)</li>
-</ul></li>
 </ul>
-</section>
-<section id="uncertainties-place-in-the-grammar-of-graphics" class="level3">
-<h3 class="anchored" data-anchor-id="uncertainties-place-in-the-grammar-of-graphics">Uncertainties place in the grammar of graphics</h3>
+</li>
+</ul></section><section id="uncertainties-place-in-the-grammar-of-graphics" class="level3"><h3 class="anchored" data-anchor-id="uncertainties-place-in-the-grammar-of-graphics">Uncertainties place in the grammar of graphics</h3>
 <ul>
 <li>Not immediately clear where uncertainty should fit in the grammar of graphics</li>
 </ul>
 <p><em>The Grammar of Graphics</em> is the fundamental building blocks of the information in a graphic, and it allows a plot to be considered a statistic <span class="citation" data-cites="Vanderplas2020">(<a href="refs.html#ref-Vanderplas2020" role="doc-biblioref">Vanderplas et al. 2020</a>)</span>. The process for summarising the information in a plot using <em>The Grammar of Graphics</em> is depicted in _____(drawing) <span class="citation" data-cites="Leland2005">(<a href="refs.html#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span>. Unfortunately, <em>The Grammar of Graphics</em> is not perfectly suited to summarise the information in an uncertainty visualisation since it assumes that we start from a finite data set. Very often uncertainty is expressed using a distribution or a resampling method that does not have an upper limit on the “sample size”. Additionally many uncertainty visualisation experiments notice an interaction between sample size and graphic effectiveness <span class="citation" data-cites="Kale2018 Newburger2022 Hofmann2012">(<a href="refs.html#ref-Hofmann2012" role="doc-biblioref">Hofmann et al. 2012</a>; <a href="refs.html#ref-Kale2018" role="doc-biblioref">Kale et al. 2018</a>; <a href="refs.html#ref-Newburger2022" role="doc-biblioref">Newburger et al. 2022</a>)</span>, an effect that is likely caused by a difference in human perception of mass versus sample.</p>
 <p>Additionally, <em>The Grammar of Graphics</em> behaves strangely when the sample size is adjusted and it the distance between two graphics becomes less consistent. _____(drawing) shows how three graphics defined by <em>The Grammar of Graphics</em> can change as n approaches infinity. The two graphics that are very similar according to the <em>The Grammar of Graphics</em> diverge into different graphics, and two graphics that are very different, converge into the same graphic. This means the statistics visualised in the plot as well as the <em>The Grammar of Graphics</em> may not be an adequate to summarise the information in a plot that is being used for uncertainty visualisation. Some authors have noticed difficulties with visualising distributions using <code>ggplot2</code> and created extensions that make showing distributions more intuitive <span class="citation" data-cites="Pu2020 Kay2023">(<a href="refs.html#ref-Pu2020" role="doc-biblioref">Pu and Kay 2020</a>; <a href="refs.html#ref-Kay2023" role="doc-biblioref"><strong>Kay2023?</strong></a>)</span>, however these extensions do not address the core discrepancies with uncertainty visualisation and <em>The Grammar of Graphics</em>. This does not mean <em>The Grammar of Graphics</em> should be abandoned when we attempt to summaise the information in an uncertainty visualisation, very often visations use the same sample to generate all their plots, so this issue is not always present, however these limitations should be kept in mind when analysing uncertainty visualisations using <em>The Grammar of Graphics</em>.</p>
-</section>
-</section>
-<section id="signal-supression-in-the-grammar-of-graphics" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="signal-supression-in-the-grammar-of-graphics"><span class="header-section-number">3.3</span> Signal supression in The Grammar of Graphics</h2>
-<section id="inclusion-of-distributions-in-the-framework" class="level3">
-<h3 class="anchored" data-anchor-id="inclusion-of-distributions-in-the-framework">Inclusion of distributions in the framework</h3>
+</section></section><section id="signal-supression-in-the-grammar-of-graphics" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="signal-supression-in-the-grammar-of-graphics">
+<span class="header-section-number">3.3</span> Signal supression in The Grammar of Graphics</h2>
+<section id="inclusion-of-distributions-in-the-framework" class="level3"><h3 class="anchored" data-anchor-id="inclusion-of-distributions-in-the-framework">Inclusion of distributions in the framework</h3>
 <ul>
 <li>The grammar of graphics assumes we always start with data</li>
 <li>Including uncertainty fundamentally requires us to start from an assumption rather than data, which is less concrete and harder to map in space (less intuitive)</li>
-</ul>
-</section>
-</section>
-<section id="practical-feasibility-of-including-uncertainty" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="practical-feasibility-of-including-uncertainty"><span class="header-section-number">3.4</span> Practical feasibility of including uncertainty</h2>
+</ul></section></section><section id="practical-feasibility-of-including-uncertainty" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="practical-feasibility-of-including-uncertainty">
+<span class="header-section-number">3.4</span> Practical feasibility of including uncertainty</h2>
 <ul>
 <li>Representations of uncertainty: distributions, samples, two variables</li>
-</ul>
-</section>
-<section id="ggdibbler-software" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="ggdibbler-software"><span class="header-section-number">3.5</span> ggdibbler software</h2>
+</ul></section><section id="ggdibbler-software" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="ggdibbler-software">
+<span class="header-section-number">3.5</span> ggdibbler software</h2>
 <p>Currently <code>ggplot2</code> syntax is unable to handle random variables as inputs. If a user wants to make a plot with a random variable, it must first be converted into a determinsitic value. This is a problem as it does not highlight the uncertain nature of the variable in the graphic. Currently, the process of converting any existing plot into one that performs signal suppression (either through a transformation of variables or by visualising a sample instead of an estimate) is tedious.</p>
-<section id="displaying-a-distribution-as-a-sample" class="level3">
-<h3 class="anchored" data-anchor-id="displaying-a-distribution-as-a-sample">Displaying a distribution as a sample</h3>
+<section id="displaying-a-distribution-as-a-sample" class="level3"><h3 class="anchored" data-anchor-id="displaying-a-distribution-as-a-sample">Displaying a distribution as a sample</h3>
 <ul>
 <li>Sample method in ggdibbler</li>
 <li>For something to be visible on a plot, it must have area, and anything with area can be subdivided, so technically this approach can always be done</li>
 <li>Subdivides the geometric object that was going to be shown</li>
-</ul>
-</section>
-<section id="warping-the-spacecoordinates" class="level3">
-<h3 class="anchored" data-anchor-id="warping-the-spacecoordinates">Warping the space/coordinates</h3>
+</ul></section><section id="warping-the-spacecoordinates" class="level3"><h3 class="anchored" data-anchor-id="warping-the-spacecoordinates">Warping the space/coordinates</h3>
 <ul>
 <li>Discuss how different aesthetics can be warped within the grammar of graphics</li>
 </ul>
-<section id="colour" class="level4">
-<h4 class="anchored" data-anchor-id="colour">Colour</h4>
+<section id="colour" class="level4"><h4 class="anchored" data-anchor-id="colour">Colour</h4>
 <ul>
 <li>Bivar &amp; VSUP</li>
-</ul>
-</section>
-<section id="position" class="level4">
-<h4 class="anchored" data-anchor-id="position">Position</h4>
+</ul></section><section id="position" class="level4"><h4 class="anchored" data-anchor-id="position">Position</h4>
 <ul>
 <li>I suspect this would be janky?</li>
-</ul>
-</section>
-</section>
-<section id="secondary-aesthetics" class="level3">
-<h3 class="anchored" data-anchor-id="secondary-aesthetics">Secondary Aesthetics</h3>
+</ul></section></section><section id="secondary-aesthetics" class="level3"><h3 class="anchored" data-anchor-id="secondary-aesthetics">Secondary Aesthetics</h3>
 <ul>
 <li>The axis of a plot are not independent. Aesthetics that may be considered to be independent can be influenced by other graphical aesthetics</li>
 <li>e.g.&nbsp;Area/Length or Transparency</li>
-</ul>
-</section>
-</section>
-<section id="application" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="application"><span class="header-section-number">3.6</span> Application</h2>
+</ul></section></section><section id="application" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="application">
+<span class="header-section-number">3.6</span> Application</h2>
+<p>Currently, the primary useage of ggdibbler is to provide several variations on <code>geom_sf</code>. There are other use cases for <code>ggdibbler</code> as we will see below, but as of right now, the variation on other geoms are not as fleshed out.</p>
+<section id="spatial-sample-example" class="level3"><h3 class="anchored" data-anchor-id="spatial-sample-example">Spatial Sample example</h3>
+<p>Let us look at one of the example data sets that comes with <code>ggdibbler</code>,<code>toy_temp</code>. This data set is a simulated data set that represents observations collected from citizen scientists in several counties in Iowa. Each county has several measurements made by individual scientists at the same time on the same day, but their exact location is not provided to preserve anonymity. Different counties can have different numbers of citizen scientists and the temperature measurements can have a significant amount of variance due to the recordings being made by different people in slightly different locations within the county. Each recorded temperature comes with the county the citizen scientist belongs to, the temperature recording the made, and the scientist’s ID number. There are also variables to define spatial elements of the county, such as it’s geometry, and the county centroid’s longitude and latitude.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 990
+Columns: 6
+$ county_name      &lt;chr&gt; "Lyon County", "Dubuque County", "Crawford County", "…
+$ county_geometry  &lt;MULTIPOLYGON [m]&gt; MULTIPOLYGON (((274155.2 -1..., MULTIPOL…
+$ county_longitude &lt;dbl&gt; 306173.3, 746092.2, 381255.2, 696287.1, 729905.9, 306…
+$ county_latitude  &lt;dbl&gt; -172880.7, -239861.5, -318675.9, -153979.0, -280551.9…
+$ recorded_temp    &lt;dbl&gt; 21.08486, 28.94271, 26.39905, 27.10343, 34.20208, 20.…
+$ scientistID      &lt;chr&gt; "#74991", "#22780", "#55325", "#46379", "#84259", "#9…</code></pre>
+</div>
+</div>
+<p>While it is slightly difficult, we can view the individual observations by plotting them to the centroid longitude and latitude (with a little jitter) and drawing the counties in the background for referece.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="03-chap3_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Typically, we would not visualise the data this way. A much more common approach would be to take the average of each county and display that in a choropleth map, displayed below.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="03-chap3_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This plot is fine, but it does loose a key piece of information, specifically the understanding that this mean is an estimate. That means that this estimate has a sampling distribuiton that is invisible to us when we make this visualisation.</p>
+<p>We can see that there is a wave like pattern in the data, but sometimes spatial patterns are a result of significant differences in population, and may disappear if we were to include the variance of the estimates, we can calculate that with the average.</p>
+<p>Getting an estimate along with its variance is also a common format governments supply data. Just like in our citizen scientist case, this if often done to preserve anonymity.</p>
+<p>The problem with this format of data, is that there is no way for us to include the variance information in the visualisation. We can only visualise the estimate and its variance separately.</p>
+<p>This is where ggdibbler comes in. <code>ggdibbler</code> is a ggplot extension that allows us to visulise distributions where we could previously only visualise single values. Instead of trying to use the estimate and its variance as different values, we combine them as a single distribution variable thanks to the <code>distributional</code> package and then can use it with the <code>ggdibbler</code> version of <code>geom_sf</code>, <code>geom_sf_sample</code>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="03-chap3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>To maintain flexibility, the <code>geom_sf_sample</code> does not highlight the original boundary lines, but that can be easily added just by adding another layer.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="03-chap3_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="scatter-plot-example" class="level3"><h3 class="anchored" data-anchor-id="scatter-plot-example">Scatter plot example</h3>
+</section><section id="distribution-example" class="level3"><h3 class="anchored" data-anchor-id="distribution-example">Distribution example</h3>
+</section></section><section id="section" class="level1" data-number="4"><h1 data-number="4">
+<span class="header-section-number">4</span> </h1>
 <ul>
 <li>Maybe include an AEMO case study</li>
 <li>Atlas of Living Australia guys also had a good example with rounded locations</li>
 </ul>
-</section>
-<section id="future-work" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="future-work"><span class="header-section-number">3.7</span> Future Work</h2>
+<section id="future-work" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="future-work">
+<span class="header-section-number">4.1</span> Future Work</h2>
 <ul>
 <li>Different types of plots (e.g.&nbsp;scatter plot)</li>
 <li>Different data types for the uncertainty. Currently only have uncertainty in estimates, but could have uncertainty in location in a map for example.</li>
 <li>Alternative variations, e.g.&nbsp;bivariate map.
 <ul>
 <li>Could implement these methods across different plot types. e.g.&nbsp;what does the space transformation in the bivariate map look like when the x and y component are both spatial instead of coloured.</li>
-</ul></li>
+</ul>
+</li>
 <li>Entirely new approaches</li>
 <li>Want to add dibble object so that it is automatic.</li>
 <li>Should include density objects as a “stat_identity” option for the sake of completeness.</li>
@@ -339,10 +351,7 @@ Vanderplas, S., Cook, D., and Hofmann, H. (2020), <span>“<span class="nocase">
 Wilkinson, L. (2005), <em>The grammar of graphics (statistics and computing)</em>, Berlin, Heidelberg: Springer-Verlag.
 </div>
 </div>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -761,9 +770,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./02-chap2.html" class="pagination-link" aria-label="The Noisy Work of Uncertainty Visualisation: A Review">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation: A Review</span></span>
       </a>          
@@ -775,7 +782,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 
