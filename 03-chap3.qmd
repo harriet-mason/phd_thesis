@@ -22,16 +22,20 @@ Additionally, *The Grammar of Graphics* behaves strangely when the sample size i
 
 ## Signal supression in The Grammar of Graphics
 
-### Inclusion of distributions and assumptions
+### Inclusion of distributions in the framework
 - The grammar of graphics assumes we always start with data
 - Including uncertainty fundamentally requires us to start from an assumption rather than data, which is less concrete and harder to map in space (less intuitive)
 
 ## Practical feasibility of including uncertainty
 - Representations of uncertainty: distributions, samples, two variables
 
+## ggdibbler software
+Currently `ggplot2` syntax is unable to handle random variables as inputs. If a user wants to make a plot with a random variable, it must first be converted into a determinsitic value. This is a problem as it does not highlight the uncertain nature of the variable in the graphic. Currently, the process of converting any existing plot into one that performs signal suppression (either through a transformation of variables or by visualising a sample instead of an estimate) is tedious.
+
 ### Displaying a distribution as a sample
 - Sample method in ggdibbler
 - For something to be visible on a plot, it must have area, and anything with area can be subdivided, so technically this approach can always be done
+- Subdivides the geometric object that was going to be shown
 
 ### Warping the space/coordinates
 - Discuss how different aesthetics can be warped within the grammar of graphics
@@ -46,11 +50,9 @@ Additionally, *The Grammar of Graphics* behaves strangely when the sample size i
 - The axis of a plot are not independent. Aesthetics that may be considered to be independent can be influenced by other graphical aesthetics
 - e.g. Area/Length or Transparency
 
-## ggdibbler specifics?
-- Currently `ggplot2` syntax is unable to handle random variables as inputs. If a user wants to make a plot with a random variable, it must first be converted into a determinsitic value. This is a problem as it does not highlight the uncertain nature of the variable in the graphic. Currently, the process of converting any existing plot into one that performs signal suppression (either through a transformation of variables or by visualising a sample instead of an estimate) is tedious.
 
 
-## Applications
+## Application
 - Maybe include an AEMO case study
 - Atlas of Living Australia guys also had a good example with rounded locations
 

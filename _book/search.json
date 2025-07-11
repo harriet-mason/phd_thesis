@@ -134,7 +134,7 @@
     "href": "03-chap3.html#signal-supression-in-the-grammar-of-graphics",
     "title": "3  Software for Simple Uncertainty Visualisation",
     "section": "3.3 Signal supression in The Grammar of Graphics",
-    "text": "3.3 Signal supression in The Grammar of Graphics\n\nInclusion of distributions and assumptions\n\nThe grammar of graphics assumes we always start with data\nIncluding uncertainty fundamentally requires us to start from an assumption rather than data, which is less concrete and harder to map in space (less intuitive)",
+    "text": "3.3 Signal supression in The Grammar of Graphics\n\nInclusion of distributions in the framework\n\nThe grammar of graphics assumes we always start with data\nIncluding uncertainty fundamentally requires us to start from an assumption rather than data, which is less concrete and harder to map in space (less intuitive)",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software for Simple Uncertainty Visualisation</span>"
     ]
@@ -144,27 +144,27 @@
     "href": "03-chap3.html#practical-feasibility-of-including-uncertainty",
     "title": "3  Software for Simple Uncertainty Visualisation",
     "section": "3.4 Practical feasibility of including uncertainty",
-    "text": "3.4 Practical feasibility of including uncertainty\n\nRepresentations of uncertainty: distributions, samples, two variables\n\n\nDisplaying a distribution as a sample\n\nSample method in ggdibbler\nFor something to be visible on a plot, it must have area, and anything with area can be subdivided, so technically this approach can always be done\n\n\n\nWarping the space/coordinates\n\nDiscuss how different aesthetics can be warped within the grammar of graphics\n\n\nColour\n\nBivar & VSUP\n\n\n\nPosition\n\nI suspect this would be janky?\n\n\n\n\nSecondary Aesthetics\n\nThe axis of a plot are not independent. Aesthetics that may be considered to be independent can be influenced by other graphical aesthetics\ne.g. Area/Length or Transparency",
+    "text": "3.4 Practical feasibility of including uncertainty\n\nRepresentations of uncertainty: distributions, samples, two variables",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software for Simple Uncertainty Visualisation</span>"
     ]
   },
   {
-    "objectID": "03-chap3.html#ggdibbler-specifics",
-    "href": "03-chap3.html#ggdibbler-specifics",
+    "objectID": "03-chap3.html#ggdibbler-software",
+    "href": "03-chap3.html#ggdibbler-software",
     "title": "3  Software for Simple Uncertainty Visualisation",
-    "section": "3.5 ggdibbler specifics?",
-    "text": "3.5 ggdibbler specifics?\n\nCurrently ggplot2 syntax is unable to handle random variables as inputs. If a user wants to make a plot with a random variable, it must first be converted into a determinsitic value. This is a problem as it does not highlight the uncertain nature of the variable in the graphic. Currently, the process of converting any existing plot into one that performs signal suppression (either through a transformation of variables or by visualising a sample instead of an estimate) is tedious.",
+    "section": "3.5 ggdibbler software",
+    "text": "3.5 ggdibbler software\nCurrently ggplot2 syntax is unable to handle random variables as inputs. If a user wants to make a plot with a random variable, it must first be converted into a determinsitic value. This is a problem as it does not highlight the uncertain nature of the variable in the graphic. Currently, the process of converting any existing plot into one that performs signal suppression (either through a transformation of variables or by visualising a sample instead of an estimate) is tedious.\n\nDisplaying a distribution as a sample\n\nSample method in ggdibbler\nFor something to be visible on a plot, it must have area, and anything with area can be subdivided, so technically this approach can always be done\nSubdivides the geometric object that was going to be shown\n\n\n\nWarping the space/coordinates\n\nDiscuss how different aesthetics can be warped within the grammar of graphics\n\n\nColour\n\nBivar & VSUP\n\n\n\nPosition\n\nI suspect this would be janky?\n\n\n\n\nSecondary Aesthetics\n\nThe axis of a plot are not independent. Aesthetics that may be considered to be independent can be influenced by other graphical aesthetics\ne.g. Area/Length or Transparency",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software for Simple Uncertainty Visualisation</span>"
     ]
   },
   {
-    "objectID": "03-chap3.html#applications",
-    "href": "03-chap3.html#applications",
+    "objectID": "03-chap3.html#application",
+    "href": "03-chap3.html#application",
     "title": "3  Software for Simple Uncertainty Visualisation",
-    "section": "3.6 Applications",
-    "text": "3.6 Applications\n\nMaybe include an AEMO case study\nAtlas of Living Australia guys also had a good example with rounded locations",
+    "section": "3.6 Application",
+    "text": "3.6 Application\n\nMaybe include an AEMO case study\nAtlas of Living Australia guys also had a good example with rounded locations",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software for Simple Uncertainty Visualisation</span>"
     ]

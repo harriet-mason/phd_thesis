@@ -12,9 +12,7 @@
 
 
 
-- overview of thesis
-- what is this thesis about (what problem is it solving)
-- how do the chapters fit together
+**Properly write after second paper is done**
 
 - Uncertainty visualisation is important
   - Decision making

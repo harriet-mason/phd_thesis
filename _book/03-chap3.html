@@ -187,8 +187,8 @@ div.csl-indent {
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">3.2</span> Background</a></li>
   <li><a href="#signal-supression-in-the-grammar-of-graphics" id="toc-signal-supression-in-the-grammar-of-graphics" class="nav-link" data-scroll-target="#signal-supression-in-the-grammar-of-graphics"><span class="header-section-number">3.3</span> Signal supression in The Grammar of Graphics</a></li>
   <li><a href="#practical-feasibility-of-including-uncertainty" id="toc-practical-feasibility-of-including-uncertainty" class="nav-link" data-scroll-target="#practical-feasibility-of-including-uncertainty"><span class="header-section-number">3.4</span> Practical feasibility of including uncertainty</a></li>
-  <li><a href="#ggdibbler-specifics" id="toc-ggdibbler-specifics" class="nav-link" data-scroll-target="#ggdibbler-specifics"><span class="header-section-number">3.5</span> ggdibbler specifics?</a></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">3.6</span> Applications</a></li>
+  <li><a href="#ggdibbler-software" id="toc-ggdibbler-software" class="nav-link" data-scroll-target="#ggdibbler-software"><span class="header-section-number">3.5</span> ggdibbler software</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="header-section-number">3.6</span> Application</a></li>
   <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work"><span class="header-section-number">3.7</span> Future Work</a></li>
   </ul>
 </nav>
@@ -246,8 +246,8 @@ div.csl-indent {
 </section>
 <section id="signal-supression-in-the-grammar-of-graphics" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="signal-supression-in-the-grammar-of-graphics"><span class="header-section-number">3.3</span> Signal supression in The Grammar of Graphics</h2>
-<section id="inclusion-of-distributions-and-assumptions" class="level3">
-<h3 class="anchored" data-anchor-id="inclusion-of-distributions-and-assumptions">Inclusion of distributions and assumptions</h3>
+<section id="inclusion-of-distributions-in-the-framework" class="level3">
+<h3 class="anchored" data-anchor-id="inclusion-of-distributions-in-the-framework">Inclusion of distributions in the framework</h3>
 <ul>
 <li>The grammar of graphics assumes we always start with data</li>
 <li>Including uncertainty fundamentally requires us to start from an assumption rather than data, which is less concrete and harder to map in space (less intuitive)</li>
@@ -259,11 +259,16 @@ div.csl-indent {
 <ul>
 <li>Representations of uncertainty: distributions, samples, two variables</li>
 </ul>
+</section>
+<section id="ggdibbler-software" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="ggdibbler-software"><span class="header-section-number">3.5</span> ggdibbler software</h2>
+<p>Currently <code>ggplot2</code> syntax is unable to handle random variables as inputs. If a user wants to make a plot with a random variable, it must first be converted into a determinsitic value. This is a problem as it does not highlight the uncertain nature of the variable in the graphic. Currently, the process of converting any existing plot into one that performs signal suppression (either through a transformation of variables or by visualising a sample instead of an estimate) is tedious.</p>
 <section id="displaying-a-distribution-as-a-sample" class="level3">
 <h3 class="anchored" data-anchor-id="displaying-a-distribution-as-a-sample">Displaying a distribution as a sample</h3>
 <ul>
 <li>Sample method in ggdibbler</li>
 <li>For something to be visible on a plot, it must have area, and anything with area can be subdivided, so technically this approach can always be done</li>
+<li>Subdivides the geometric object that was going to be shown</li>
 </ul>
 </section>
 <section id="warping-the-spacecoordinates" class="level3">
@@ -292,14 +297,8 @@ div.csl-indent {
 </ul>
 </section>
 </section>
-<section id="ggdibbler-specifics" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="ggdibbler-specifics"><span class="header-section-number">3.5</span> ggdibbler specifics?</h2>
-<ul>
-<li>Currently <code>ggplot2</code> syntax is unable to handle random variables as inputs. If a user wants to make a plot with a random variable, it must first be converted into a determinsitic value. This is a problem as it does not highlight the uncertain nature of the variable in the graphic. Currently, the process of converting any existing plot into one that performs signal suppression (either through a transformation of variables or by visualising a sample instead of an estimate) is tedious.</li>
-</ul>
-</section>
-<section id="applications" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="applications"><span class="header-section-number">3.6</span> Applications</h2>
+<section id="application" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="application"><span class="header-section-number">3.6</span> Application</h2>
 <ul>
 <li>Maybe include an AEMO case study</li>
 <li>Atlas of Living Australia guys also had a good example with rounded locations</li>
