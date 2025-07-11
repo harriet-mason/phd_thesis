@@ -63,8 +63,6 @@ Currently, the primary useage of ggdibbler is to provide several variations on `
 
 
 
-
-
 ::: {.cell}
 
 :::
@@ -74,11 +72,7 @@ Currently, the primary useage of ggdibbler is to provide several variations on `
 
 
 
-
-
 Let us look at one of the example data sets that comes with `ggdibbler`,`toy_temp`.  This data set is a simulated data set that represents observations collected from citizen scientists in several counties in Iowa. Each county has several measurements made by individual scientists at the same time on the same day, but their exact location is not provided to preserve anonymity. Different counties can have different numbers of citizen scientists and the temperature measurements can have a significant amount of variance due to the recordings being made by different people in slightly different locations within the county. Each recorded temperature comes with the county the citizen scientist belongs to, the temperature recording the made, and the scientist's ID number. There are also variables to define spatial elements of the county, such as it's geometry, and the county centroid's longitude and latitude.
-
-
 
 
 
@@ -109,11 +103,7 @@ $ scientistID      <chr> "#74991", "#22780", "#55325", "#46379", "#84259", "#9â€
 
 
 
-
-
 While it is slightly difficult, we can view the individual observations by plotting them to the centroid longitude and latitude (with a little jitter) and drawing the counties in the background for referece.
-
-
 
 
 
@@ -131,11 +121,7 @@ While it is slightly difficult, we can view the individual observations by plott
 
 
 
-
-
 Typically, we would not visualise the data this way. A much more common approach would be to take the average of each county and display that in a choropleth map, displayed below.
-
-
 
 
 
@@ -154,8 +140,6 @@ Typically, we would not visualise the data this way. A much more common approach
 
 
 
-
-
 This plot is fine, but it does loose a key piece of information, specifically the understanding that this mean is an estimate. That means that this estimate has a sampling distribuiton that is invisible to us when we make this visualisation. 
 
 
@@ -166,13 +150,9 @@ We can see that there is a wave like pattern in the data, but sometimes spatial 
 
 
 
-
-
 ::: {.cell}
 
 :::
-
-
 
 
 
@@ -193,15 +173,11 @@ This is where ggdibbler comes in. `ggdibbler` is a ggplot extension that allows 
 
 
 
-
-
 ::: {.cell}
 ::: {.cell-output-display}
 ![](03-chap3_files/figure-html/unnamed-chunk-5-1.png){width=768}
 :::
 :::
-
-
 
 
 
@@ -215,15 +191,11 @@ To maintain flexibility, the `geom_sf_sample` does not highlight the original bo
 
 
 
-
-
 ::: {.cell}
 ::: {.cell-output-display}
 ![](03-chap3_files/figure-html/unnamed-chunk-6-1.png){width=768}
 :::
 :::
-
-
 
 
 

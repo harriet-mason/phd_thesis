@@ -5,9 +5,13 @@
 
 
 
+
+
 ::: {.cell}
 
 :::
+
+
 
 
 
@@ -34,6 +38,8 @@ For example, box plots and histograms display variation which becomes synonymous
 Today, there are an abundance of publications on the topic which makes it timely to construct a review of the field.
 That is, now that there is an overwhelming amount of information, it is valuable to distil it into simple facts. 
 In fact, there have already been several reviews published but a central piece of discussion is missing. 
+
+
 
 
 
@@ -79,6 +85,8 @@ In fact, there have already been several reviews published but a central piece o
 
 A replication of the uncertainty visualisations shown by @Ibrekk1987 in one of the earliest uncertainty visualisation experiments. Several visualisation methods that are now unpopular (such as the pie chart) are used throughout this paper.
 :::
+
+
 
 
 
@@ -138,6 +146,8 @@ This is the data we will be using in our spatial uncertainty examples for the re
 
 
 
+
+
 ::: {.cell}
 
 :::
@@ -164,6 +174,8 @@ The first 5 observations of the data used for the spatial uncertainty examples a
 
 
 
+
+
 ## Ignoring uncertainty
 A good place to start might be at a deceptively straight forward question, why should we include uncertainty at all? 
 
@@ -173,6 +185,8 @@ Each of these counties are coloured according to an estimate of average daily te
 The variance of these estimates were simulated such that the trend accounts for most of the variance in the plot in the low variance case (so we should expect the trend to be visible) while in the high variance, there is more variance within each county than between all the counties, so we should expect it to (at least in some capacity) overwhelm the spatial trend. 
 Is this aspect of the data and the spatial data it communicates clear in in the map? 
 Is the strength of the trend communicated through the visualisation?
+
+
 
 
 
@@ -194,6 +208,8 @@ Is the strength of the trend communicated through the visualisation?
 
 Two choropleth maps that depict the counties of Iowa where each country coloured acording to a simulated average temperature. Both maps depict a spatial trend, where counties closer to the centre of the map are hotter than counties on the edge of the map. In the low variance condition, the trend accounts for most of the variation in the data, in the high variance case, the variance on the temperature estimate accounts for most of the variance. This distinction is not clear in the map as they both appear identical. The high variance condition displays a spatial trend that could simply be spurious, which means the plot is displaying a false conclusion.
 :::
+
+
 
 
 
@@ -252,6 +268,8 @@ We are not sure it is productive to categorise this visualisation as an uncertai
 
 
 
+
+
 ::: {#fig-exceed .cell layout-ncol="3"}
 ::: {.cell-output-display}
 ![Low Variance Data](02-chap2_files/figure-pdf/fig-exceed-1.pdf){#fig-exceed-1}
@@ -267,6 +285,8 @@ We are not sure it is productive to categorise this visualisation as an uncertai
 
 An exceedance probability map that depict the counties of Iowa where each country coloured acording to the probability that the average temperature exceeds 27. This map is a choropleth map where the variable of interest is a probability.
 :::
+
+
 
 
 
@@ -323,6 +343,8 @@ Why is including the uncertainty as a variable insufficient to achieve signal-su
 
 
 
+
+
 ::: {#fig-bivariate .cell layout-ncol="3" layout-valign="bottom"}
 ::: {.cell-output-display}
 ![Low Variance Data](02-chap2_files/figure-pdf/fig-bivariate-1.pdf){#fig-bivariate-1}
@@ -338,6 +360,8 @@ Why is including the uncertainty as a variable insufficient to achieve signal-su
 
 A bivariate map that depict the counties of Iowa where each county is coloured acording to it's average daily temperature and the variance in temperature. This map is a choropleth map with a two dimensional colour palette where temperature is represented by colour hue, and variance is represented by colour saturation. Even though uncertainty has been added to the graphic the spatial trend is still clearly visible in the high variance case.
 :::
+
+
 
 
 
@@ -421,6 +445,8 @@ Is a graphic that performs perfect signal-suppression even possible?
 
 
 
+
+
 ::: {#fig-vsup .cell layout-ncol="3" layout-valign="bottom"}
 ::: {.cell-output-display}
 ![Low Variance Data](02-chap2_files/figure-pdf/fig-vsup-1.pdf){#fig-vsup-1}
@@ -436,6 +462,8 @@ Is a graphic that performs perfect signal-suppression even possible?
 
 A map made with a VSUP. The counties of Iowa are coloured acording to its average daily temperature and the variance in temperature. Similar to the bivariate map, temperature is mapped to hue while variance is mapped to saturation. Unlike the bivariance map, the colour space we are mapping our variables to has been transformed so that high variance estimates are harder to discern from each other. This map successfully reduces the visibility of the spatial trend in the high uncertainty case while maintaining the visibility of the spatial trend in the low uncertainty case.
 :::
+
+
 
 
 
@@ -514,6 +542,8 @@ This means the graphic also achieves the third criteria for signal-suppression, 
 
 
 
+
+
 ::: {.cell}
 
 :::
@@ -533,6 +563,8 @@ This means the graphic also achieves the third criteria for signal-suppression, 
 
 A pixel map of the counties of Iowa. In this map, each county is broken up into several small areas and coloured according to a potential daily temperature, given the its average daily temperature and its sampling distribution. This results in each county being represented by a sample rather than a single value. In this graphic, we can clearly see the spatial trend in the low variance case, while the spatial trend is much harder to identify in the high variance case. 
 :::
+
+
 
 
 
