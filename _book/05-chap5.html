@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Conclusion – Uncertainty Visualisation for Signal Supression</title>
+<title>5&nbsp; Conclusion – Visualising Uncertainty: Conceptual Framework, Software, and Perception</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -97,10 +97,10 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Uncertainty Visualisation for Signal Supression</a> 
+      <a href="./">Visualising Uncertainty: Conceptual Framework, Software, and Perception</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/harriet-mason/phd_thesis" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./Uncertainty-Visualisation-for-Signal-Supression.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Visualising-Uncertainty--Conceptual-Framework,-Software,-and-Perception.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-chap2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation: A Review</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -190,14 +190,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This chapter contains</p>
+<p>This work presents a cohesive vision for the future of uncertainty visualisation. One that exists in parallel to the existing infrastructure of statistical graphics, a confidence interval counterpart to the line-up plot’s statistical test. We established the foundations of this vision by approaching the uncertainty visualisation problem from three separate angles: the philisophical goals of the field, the mathematical objects we are working with, and the human perception of uncertainty in visualisations. All three approaches landed on the same conclusion: if uncertainty is the visualisation of distributions, uncertainty visualisation is the visualisation of samples.</p>
 <section id="contributions" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="contributions"><span class="header-section-number">5.1</span> Contributions</h2>
 <p>The primary contributions of this research are</p>
+<p>The philosophical foundations - Connection of the disparate definitions of uncertainty and define what it means to visualise uncertainty as noise.</p>
+<p>Mathematical approach - Established a mathematical framework for standard visualisation that is built upon the the grammar of graphics. - Defining a visualisation as a function actually enforces the requirements of several statistical properties, such as continuous mapping theorem. - Using this approach, we then investigate the approaches that violate these mathematical properties, and therefore, are invalid uncertainty visualisations.</p>
+<p>Software - Designed software that is tied to these mathematical and philosophical foundations - Through formalisation, we gain flexibility, as our software allows for exploratory data analysis of uncertainty visualisation. - Won Di Cook award and John Chambers award.</p>
+<p>Perceptual verification - designed a testing approach that allows us to evaluate uncertainty as noise - used the mathematical foundation to design plots with marginal changes, that allowed us to isolate the differences between plots and attribute improvements to specific design choices. - Provide empirical evidence that perceptual interference is required for a plot to convey signal that is different to it’s deterministic counterpart. - Additionally, we illustrated that statistically valid visual signal can only be achieved when we visualise a distribution as a “unit”, a unit that, in most cases, can only be visualised as a sample</p>
 </section>
 <section id="future-work" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="future-work"><span class="header-section-number">5.2</span> Future work</h2>
 <p>There are several avenues one could take to improve upon this work.</p>
+<ul>
+<li>Software needs improvement: joint distributions, etc.</li>
+<li>Experiment design was only for colour. Would be good to be able to verify the signal suppression requirements for other aesthetics.</li>
+<li>Also could test which colour palettes do a better job.</li>
+<li>Primary versus secondary aestetics</li>
+<li>Fundamental theory of visualisation.</li>
+</ul>
 
 
 </section>

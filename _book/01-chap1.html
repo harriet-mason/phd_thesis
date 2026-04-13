@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.55">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>1&nbsp; Introduction – Uncertainty Visualisation for Signal Supression</title>
+
+
+<title>1&nbsp; Introduction – Visualising Uncertainty: Conceptual Framework, Software, and Perception</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,7 +20,28 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -36,7 +60,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -62,12 +87,18 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link href="https://fonts.googleapis.com/css?family=Fira+Sans%7CMerriweather%7CSource%20Code%20Pro" rel="stylesheet">
+}</script>
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather|Source Code Pro" rel="stylesheet">
+
+
 </head>
+
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -78,14 +109,18 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Uncertainty Visualisation for Signal Supression</a> 
+      <a href="./">Visualising Uncertainty: Conceptual Framework, Software, and Perception</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/harriet-mason/phd_thesis" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./Uncertainty-Visualisation-for-Signal-Supression.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Visualising-Uncertainty--Conceptual-Framework,-Software,-and-Perception.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -96,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Front matter</span></a>
@@ -111,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-chap2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation: A Review</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -139,18 +174,24 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title"><b>Sections</b></h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title"><b>Sections</b></h2>
    
   <ul class="collapse">
-<li><a href="#thesis-outline" id="toc-thesis-outline" class="nav-link active" data-scroll-target="#thesis-outline"><span class="header-section-number">1.1</span> Thesis Outline</a></li>
-  </ul></nav>
+  <li><a href="#thesis-outline" id="toc-thesis-outline" class="nav-link active" data-scroll-target="#thesis-outline"><span class="header-section-number">1.1</span> Thesis Outline</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title"><span id="sec-intro" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></h1>
 </div>
 
@@ -165,49 +206,41 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header><p><strong>Properly write after second paper is done</strong></p>
-<ul>
-<li>
-<p>Uncertainty visualisation is important</p>
-<ul>
-<li>Decision making</li>
-<li>correctly hedge conclusions drawn from graphics</li>
-</ul>
-</li>
-<li><p>Uncertainty visualisation is a relatively new field, but it has been poorly defined</p></li>
-<li><p>Uncertainty itself is a vague term, each paper seems to take the meaning of it as a given, so the visualisation of it is fraught with disagreement</p></li>
-<li><p>Two distinct camps have established themselves in the literature. The first view uncertainty visualisation as a visualisation of an error, probability, or distribution. They treat uncertainty as a variable of interest, distinct from its estimate. Examples of this approach include ___.</p></li>
-<li><p>The second camp sees uncertainty as noise. They believe uncertainties role in visualisation is to dampen misleading or false conclusions, and amplify correct conclusions. They treat uncertainty as a necessary nuisance that should be communicated alongside it’s estimate. Examples of this approach include ___.</p></li>
-<li><p>These distinct camps create several gaps in the literature</p></li>
-<li><p>Uncertainty visualisation are often bespoke and are not properly integrated into the grammar of graphics. The elusive definition of uncertainty prevents it from being integrated into the grammar of grpahics, which means its role in a visualisation is never clear.</p></li>
-<li><p>This leads to visualisation approaches that jump randomly between viewing uncertainty as a variable in or itself, or as a necessary nuisance required to property visualise an estimate. This leads software that visualise uncertainty behaving inconsistently when deciding how to display uncertainty in the graphic. Authors of the software are often unaware of the distinction between the two methods.</p></li>
-<li><p>The conflicting motivations also make it difficult to evaluate uncertainty visualisations</p></li>
-<li><p>In graphics research, user studies are king and allow us to understand which graphics convey information most effectively</p></li>
-<li><p>Uncertainty visualisation presents a unique issue. Most research tries to evaluate users ability to effectively extract information from a plot to establish a hierarchy of visualisation techniques</p></li>
-<li><p>Uncertainty visualisation requires signal amplification when uncertainty is low, and obfuscation when uncertainty is high. This means that the best visualisation technique is not one that allows for the most accurate statistic extraction.</p></li>
-<li><p>Some papers have specifically tried to evaluate uncertainty, but without a clear definition of uncertainty, this have proven to be difficult.</p></li>
-<li>
-<p>This thesis attempts to close these gaps by providing a comprehensive analysis of uncertainty visualisation, including their definition, practical application, and evaluation.</p>
-<ul>
-<li>First we comb the literature and discuss the motivations behind uncertainty visualisation, and identify motivations for the field.</li>
-<li>Next, we formalise uncertainty visualisation, by identifying the two fields, discussing their difference and which is more appropriate to be considered “uncertainty visualisation”</li>
-<li>Then, we formalise the second camp and coin the term “signal supression” to describe visualisation approaches that fall within it.</li>
-<li>Then we discuss uncertainty’s place in the grammar of graphics, and describe what it means for a visualisation to be an “uncertainty visualisation” within this framework.</li>
-<li>Then we introduce software, ggdibbler, which is the practical application of the theoretical inclusion of uncertainty in the grammar of graphics</li>
-<li>Finally, we formalise an approach for evaluating the effectivness of uncertainty visualisation, and use this tool to evaluate existing approaches to uncertainty visualisation.</li>
-</ul>
-</li>
-</ul>
-<section id="thesis-outline" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="thesis-outline">
-<span class="header-section-number">1.1</span> Thesis Outline</h2>
+</header>
+
+
+<p>Uncertainty visualisation is a relatively new field, but it has been poorly defined. Uncertainty itself is a vague term, each paper seems to take the meaning of it as a given, so the visualisation of it is fraught with disagreement with conflict over definitions, applications, and best practices littering the literature. Incorporating uncertainty into our visualisations is important for transparent graphics and improved decision making, with some authors considering ignoring uncertainty being tantamount to fraud <span class="citation" data-cites="Hullman2020a">(<a href="refs.html#ref-Hullman2020a" role="doc-biblioref">Hullman 2020</a>)</span>. Despite the importance of uncertainty visualisation, the field has struggled to create an overarching cohesive theory, with current best practices in plot design remaining ad hoc and context specific <span class="citation" data-cites="MacEachren2005">(<a href="refs.html#ref-MacEachren2005" role="doc-biblioref">MacEachren et al. 2005</a>)</span>. These issues would be resolved if uncertainty was formalised as a the existing structures for statistical graphics such as the <em>grammar of graphics</em> <span class="citation" data-cites="Leland2005">(<a href="refs.html#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span> and it’s implementation in <code>ggplot2</code> <span class="citation" data-cites="ggplot2">(<a href="refs.html#ref-ggplot2" role="doc-biblioref">Wickham 2010</a>)</span>. The formalisation of uncertainty in the grammar of graphics has remained difficult due to the confusing of uncertainty, a term which has as many definitions as there are discussions on the topic <span class="citation" data-cites="Spiegelhalter2017">(<a href="refs.html#ref-Spiegelhalter2017" role="doc-biblioref">Spiegelhalter 2017</a>)</span>.</p>
+<p>This thesis attempts to close these gaps by providing a comprehensive analysis of uncertainty visualisation, including their definition, practical application, and evaluation. First, we deal with the vague definition of uncertainty and interrogate the current meaning of the term uncertainty visualisation. Building on foundations in statistical inference and graphics, we redefine what it means to visualise uncertainty and estbalish a statistical foundation for the goals of the field. Next, we leverage this foundation to formalise uncertainty visualisation in the grammar of graphics, implemented in the ggplot2 extension <code>ggdibbler</code>. We show that the formalisation goes beyond mathematical pedantry and allows us to build a powerful mathematical framework for uncertainty visualisation that can be used for exploratory data analysis, an application that has remained just out of read of the field of decades. Finally, tie these ideas together in an evaluation study in the perception of uncertainty visualisations, and show that the formalisation we designed is not only flexible, but it is also allows us to test the uncertainty visualisation goals in the first chapter by giving us a framework to understand why some plots appear differently to others. This validation is done using a novel experiment design, by drawing parallels in the goals of uncertainty visualisation and standard colour blind tests, repurposing the standard Ishihara colour blind test for uncertainty visualisation. These chapters cover ground in every area touched by statistical graphics, philosophy, statistics, computer science, and psychometrics, we set the foundations for a new approach to uncertainty visualisation that allows us to integrate variance into our visualisations, no matter the context.</p>
+<section id="thesis-outline" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="thesis-outline"><span class="header-section-number">1.1</span> Thesis Outline</h2>
 <p>The thesis is structured as follows.</p>
 <p><a href="02-chap2.html" class="quarto-xref"><span>Chapter 2</span></a> provides a comprehensive review of the uncertainty visualsiation literature. Existing reviews in the field take the purpose of an uncertainty visualisation to be self evident which results in a large amount of conflicting information. The most common approach communicates uncertainty as a probability or a distribution, and focus on showing the uncertainty as an isolated variable disconnected from its context. We contrast these visualisations with approaches that view uncertainty as noise that should be incorporated to give a holistic view of our data. We coin the term “signal suppression” to describe a visualisation that is designed for preventing false conclusions, as the approach demands that the signal (i.e.&nbsp;the conclusions drawn from the estimates) is suppressed by the noise (i.e.&nbsp;the variance on those estimates). We provide motivation for viewing signal supression as the most worthwhile goal in uncertainty visualisation, and argue that visualisations that display uncertainty as an isolated variable should not be considered uncertainty visualisations at all. We further discuss difficulties in creating and evaluating the effectiveness of these plots, which further motivates the following chapters of this thesis.</p>
 <p><a href="03-chap3.html" class="quarto-xref"><span>Chapter 3</span></a> introduces a new R package, ggdibbler. In <a href="02-chap2.html" class="quarto-xref"><span>Chapter 2</span></a> we discussed the run on effects of the ambiguous definition of uncertainty. These problems included difficulty incorperating uncertainty into the grammar of graphics framework, which leads to software that does not always behave in ways that users would expect. <a href="03-chap3.html" class="quarto-xref"><span>Chapter 3</span></a> closes this gap by discussing the theoretical implications of including uncertainty in the grammar of graphics, and introducing ggdibbler, a ggplot extension that allows us to visualise uncertainty holistically and prevent false signals. We illustrate how ggdibbler can be seamlessly integrated into existing visualisation workflows and demonstrate its usefulness by looking at examples that use ggdibbler to incorporate uncertainty into a choropleth map.</p>
-<p><a href="04-chap4.html" class="quarto-xref"><span>Chapter 4</span></a> presents a user study, motivated by problems faced by the Australian Energy Market Operator (AEMO), that evaluates the effectiveness of different uncertainty visualisations. <a href="02-chap2.html" class="quarto-xref"><span>Chapter 2</span></a> highlighted the difficulty in evaluating uncertainty visualisations, as the uncertainty must be evaluated as noise rather than signal, and provides some suggestions for experimental methods. This section applies the suggested experimental methods and identifies which graphics, implemented by the ggdibbler software introduced in <a href="03-chap3.html" class="quarto-xref"><span>Chapter 3</span></a>, are effective tools for signal suppression. The experiment in this section is motivated by a case study specific to problems faced by AEMO. The transition to renewable energy results in a large amount of uncertainty in Australia’s energy demands, which also demands better understanding of the uncertainty if we are to make the transition without issue.</p>
-<p>The material in <a href="02-chap2.html" class="quarto-xref"><span>Chapter 2</span></a> was submitted to the journal <em>Annual Reviews of Statistics and It’s Applications</em> for publication, and is now an invited contribution to Volume 14 of the Journal.The <code>ggdibbler</code> software outlined in <a href="03-chap3.html" class="quarto-xref"><span>Chapter 3</span></a> has been submitted to CRAN. The contribution in <a href="03-chap3.html" class="quarto-xref"><span>Chapter 3</span></a> of this thesis was presented at useR! 2025 in Durham, North Carolina in August 2025.</p>
+<p><a href="04-chap4.html" class="quarto-xref"><span>Chapter 4</span></a> presents a user study, that evaluates human perception of uncertainty visualisations. <a href="02-chap2.html" class="quarto-xref"><span>Chapter 2</span></a> highlighted the difficulty in evaluating uncertainty visualisations, as the uncertainty must be evaluated as noise rather than signal, and provides some suggestions for experimental methods. This section applies the suggested experimental methods and identifies which graphics, implemented by the ggdibbler software introduced in <a href="03-chap3.html" class="quarto-xref"><span>Chapter 3</span></a>, are effective tools for signal suppression. The experiment in this section is motivated by a case study specific to problems faced by AEMO. The transition to renewable energy results in a large amount of uncertainty in Australia’s energy demands, which also demands better understanding of the uncertainty if we are to make the transition without issue.</p>
+<p>The material in <a href="02-chap2.html" class="quarto-xref"><span>Chapter 2</span></a> was submitted to the journal <em>Annual Reviews of Statistics and It’s Applications</em> for publication, and is now an invited contribution to Volume 14 of the Journal. The <code>ggdibbler</code> software outlined in <a href="03-chap3.html" class="quarto-xref"><span>Chapter 3</span></a> has been submitted to <em>CRAN</em>. The contribution in <a href="03-chap3.html" class="quarto-xref"><span>Chapter 3</span></a> of this thesis was presented at <em>useR! 2025</em> in Durham, North Carolina in August 2025 and <em>ASC 2026</em> in Perth, Western Australia in December 2025. The material in <a href="03-chap3.html" class="quarto-xref"><span>Chapter 3</span></a> has been submitted to the <em>Journal of Computational Graphics and Statistics</em>. The material in <a href="04-chap4.html" class="quarto-xref"><span>Chapter 4</span></a> has been submitted as a conference paper to <em>IEEE VIS 2026</em>.</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Hullman2020a" class="csl-entry" role="listitem">
+Hullman, J. (2020), <span>“Why authors don’t visualize uncertainty,”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em>, IEEE Computer Society, 26, 130–139. <a href="https://doi.org/10.1109/TVCG.2019.2934287">https://doi.org/10.1109/TVCG.2019.2934287</a>.
+</div>
+<div id="ref-MacEachren2005" class="csl-entry" role="listitem">
+MacEachren, A. M., Robinson, A., Hopper, S., Gardner, S., Murray, R., Gahegan, M., and Hetzler, E. (2005), <span>“Visualizing geospatial information uncertainty: <span>What</span> we know and what we need to know,”</span> <em>Cartography and Geographic Information Science</em>, 32, 139–160. <a href="https://doi.org/10.1559/1523040054738936">https://doi.org/10.1559/1523040054738936</a>.
+</div>
+<div id="ref-Spiegelhalter2017" class="csl-entry" role="listitem">
+Spiegelhalter, D. (2017), <span>“Risk and uncertainty communication,”</span> <em>Annual Review of Statistics and Its Application</em>, 4, 31–60. <a href="https://doi.org/10.1146/annurev-statistics-010814-020148">https://doi.org/10.1146/annurev-statistics-010814-020148</a>.
+</div>
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+Wickham, H. (2010), <span>“A layered grammar of graphics,”</span> <em>Journal of Computational and Graphical Statistics</em>, 19, 3–28. <a href="https://doi.org/10.1198/jcgs.2009.07098">https://doi.org/10.1198/jcgs.2009.07098</a>.
+</div>
+<div id="ref-Leland2005" class="csl-entry" role="listitem">
+Wilkinson, L. (2005), <em>The grammar of graphics</em>, Berlin, Heidelberg: Springer-Verlag.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -626,18 +659,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link" aria-label="Front matter">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Front matter</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-chap2.html" class="pagination-link" aria-label="The Noisy Work of Uncertainty Visualisation: A Review">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation: A Review</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-chap2.html" class="pagination-link" aria-label="The Noisy Work of Uncertainty Visualisation">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

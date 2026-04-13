@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.55">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>3&nbsp; Software for Simple Uncertainty Visualisation – Uncertainty Visualisation for Signal Supression</title>
+<title>3&nbsp; Software for Simple Uncertainty Visualisation – Visualising Uncertainty: Conceptual Framework, Software, and Perception</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,10 +102,10 @@ div.csl-indent {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Uncertainty Visualisation for Signal Supression</a> 
+      <a href="./">Visualising Uncertainty: Conceptual Framework, Software, and Perception</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/harriet-mason/phd_thesis" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./Uncertainty-Visualisation-for-Signal-Supression.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Visualising-Uncertainty--Conceptual-Framework,-Software,-and-Perception.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -131,7 +131,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-chap2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation: A Review</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -217,7 +217,7 @@ div.csl-indent {
 <li>Not immediately clear where uncertainty should fit in the grammar of graphics</li>
 </ul>
 <p><em>The Grammar of Graphics</em> is the fundamental building blocks of the information in a graphic, and it allows a plot to be considered a statistic <span class="citation" data-cites="Vanderplas2020">(<a href="refs.html#ref-Vanderplas2020" role="doc-biblioref">Vanderplas et al. 2020</a>)</span>. The process for summarising the information in a plot using <em>The Grammar of Graphics</em> is depicted in _____(drawing) <span class="citation" data-cites="Leland2005">(<a href="refs.html#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span>. Unfortunately, <em>The Grammar of Graphics</em> is not perfectly suited to summarise the information in an uncertainty visualisation since it assumes that we start from a finite data set. Very often uncertainty is expressed using a distribution or a resampling method that does not have an upper limit on the “sample size”. Additionally many uncertainty visualisation experiments notice an interaction between sample size and graphic effectiveness <span class="citation" data-cites="Kale2018 Newburger2022 Hofmann2012">(<a href="refs.html#ref-Hofmann2012" role="doc-biblioref">Hofmann et al. 2012</a>; <a href="refs.html#ref-Kale2018" role="doc-biblioref">Kale et al. 2018</a>; <a href="refs.html#ref-Newburger2022" role="doc-biblioref">Newburger et al. 2022</a>)</span>, an effect that is likely caused by a difference in human perception of mass versus sample.</p>
-<p>Additionally, <em>The Grammar of Graphics</em> behaves strangely when the sample size is adjusted and it the distance between two graphics becomes less consistent. _____(drawing) shows how three graphics defined by <em>The Grammar of Graphics</em> can change as n approaches infinity. The two graphics that are very similar according to the <em>The Grammar of Graphics</em> diverge into different graphics, and two graphics that are very different, converge into the same graphic. This means the statistics visualised in the plot as well as the <em>The Grammar of Graphics</em> may not be an adequate to summarise the information in a plot that is being used for uncertainty visualisation. Some authors have noticed difficulties with visualising distributions using <code>ggplot2</code> and created extensions that make showing distributions more intuitive <span class="citation" data-cites="Pu2020 Kay2023">(<a href="refs.html#ref-Pu2020" role="doc-biblioref">Pu and Kay 2020</a>; <a href="refs.html#ref-Kay2023" role="doc-biblioref"><strong>Kay2023?</strong></a>)</span>, however these extensions do not address the core discrepancies with uncertainty visualisation and <em>The Grammar of Graphics</em>. This does not mean <em>The Grammar of Graphics</em> should be abandoned when we attempt to summaise the information in an uncertainty visualisation, very often visations use the same sample to generate all their plots, so this issue is not always present, however these limitations should be kept in mind when analysing uncertainty visualisations using <em>The Grammar of Graphics</em>.</p>
+<p>Additionally, <em>The Grammar of Graphics</em> behaves strangely when the sample size is adjusted and it the distance between two graphics becomes less consistent. _____(drawing) shows how three graphics defined by <em>The Grammar of Graphics</em> can change as n approaches infinity. The two graphics that are very similar according to the <em>The Grammar of Graphics</em> diverge into different graphics, and two graphics that are very different, converge into the same graphic. This means the statistics visualised in the plot as well as the <em>The Grammar of Graphics</em> may not be an adequate to summarise the information in a plot that is being used for uncertainty visualisation. Some authors have noticed difficulties with visualising distributions using <code>ggplot2</code> and created extensions that make showing distributions more intuitive <span class="citation" data-cites="Pu2020 Kay2023">(<a href="refs.html#ref-Kay2023" role="doc-biblioref">Kay 2023</a>; <a href="refs.html#ref-Pu2020" role="doc-biblioref">Pu and Kay 2020</a>)</span>, however these extensions do not address the core discrepancies with uncertainty visualisation and <em>The Grammar of Graphics</em>. This does not mean <em>The Grammar of Graphics</em> should be abandoned when we attempt to summaise the information in an uncertainty visualisation, very often visations use the same sample to generate all their plots, so this issue is not always present, however these limitations should be kept in mind when analysing uncertainty visualisations using <em>The Grammar of Graphics</em>.</p>
 </section></section><section id="signal-supression-in-the-grammar-of-graphics" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="signal-supression-in-the-grammar-of-graphics">
 <span class="header-section-number">3.3</span> Signal supression in The Grammar of Graphics</h2>
 <section id="inclusion-of-distributions-in-the-framework" class="level3"><h3 class="anchored" data-anchor-id="inclusion-of-distributions-in-the-framework">Inclusion of distributions in the framework</h3>
@@ -333,22 +333,25 @@ $ scientistID      &lt;chr&gt; "#74991", "#22780", "#55325", "#46379", "#84259",
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Hofmann2012" class="csl-entry" role="listitem">
-Hofmann, H., Follett, L., Majumder, M., and Cook, D. (2012), <span>“Graphical <span>Tests</span> for <span>Power Comparison</span> of <span>Competing Designs</span>,”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em>, 18, 2441–2448. <a href="https://doi.org/10.1109/TVCG.2012.230">https://doi.org/10.1109/TVCG.2012.230</a>.
+Hofmann, H., Follett, L., Majumder, M., and Cook, D. (2012), <span>“Graphical tests for power comparison of competing designs,”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em>, 18, 2441–2448. <a href="https://doi.org/10.1109/TVCG.2012.230">https://doi.org/10.1109/TVCG.2012.230</a>.
 </div>
 <div id="ref-Kale2018" class="csl-entry" role="listitem">
 Kale, A., Nguyen, F., Kay, M., and Hullman, J. (2018), <span>“Hypothetical outcome plots help untrained observers judge trends in ambiguous data,”</span> <em>IEEE transactions on visualization and computer graphics</em>, IEEE, 25, 892–902.
 </div>
+<div id="ref-Kay2023" class="csl-entry" role="listitem">
+Kay, M. (2023), <span>“<span class="nocase">ggdist</span>: Visualizations of distributions and uncertainty in the grammar of graphics,”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em>, IEEE, 30, 414–424.
+</div>
 <div id="ref-Newburger2022" class="csl-entry" role="listitem">
-Newburger, E., Correll, M., and Elmqvist, N. (2022), <span>“<span class="nocase">Fitting Bell Curves to Data Distributions Using Visualization</span>,”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em>, IEEE, 29, 5372–5383. <a href="https://doi.org/10.1109/TVCG.2022.3210763">https://doi.org/10.1109/TVCG.2022.3210763</a>.
+Newburger, E., Correll, M., and Elmqvist, N. (2022), <span>“Fitting bell curves to data distributions using visualization,”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em>, IEEE, 29, 5372–5383. <a href="https://doi.org/10.1109/TVCG.2022.3210763">https://doi.org/10.1109/TVCG.2022.3210763</a>.
 </div>
 <div id="ref-Pu2020" class="csl-entry" role="listitem">
-Pu, X., and Kay, M. (2020), <span>“<span class="nocase">A Probabilistic Grammar of Graphics</span>,”</span> <em>Conference on Human Factors in Computing Systems - Proceedings</em>. <a href="https://doi.org/10.1145/3313831.3376466">https://doi.org/10.1145/3313831.3376466</a>.
+Pu, X., and Kay, M. (2020), <span>“A probabilistic grammar of graphics,”</span> <em>Conference on Human Factors in Computing Systems - Proceedings</em>. <a href="https://doi.org/10.1145/3313831.3376466">https://doi.org/10.1145/3313831.3376466</a>.
 </div>
 <div id="ref-Vanderplas2020" class="csl-entry" role="listitem">
-Vanderplas, S., Cook, D., and Hofmann, H. (2020), <span>“<span class="nocase">Annual Review of Statistics and Its Application Testing Statistical Charts: What Makes a Good Graph?</span>”</span> <a href="https://doi.org/10.1146/annurev-statistics-031219-041252">https://doi.org/10.1146/annurev-statistics-031219-041252</a>.
+Vanderplas, S., Cook, D., and Hofmann, H. (2020), <span>“Testing statistical charts: What makes a good graph?”</span> <em>Annual Review of Statistics and Its Application</em>, Annual Reviews, 7, 61–88.
 </div>
 <div id="ref-Leland2005" class="csl-entry" role="listitem">
-Wilkinson, L. (2005), <em>The grammar of graphics (statistics and computing)</em>, Berlin, Heidelberg: Springer-Verlag.
+Wilkinson, L. (2005), <em>The grammar of graphics</em>, Berlin, Heidelberg: Springer-Verlag.
 </div>
 </div>
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -771,8 +774,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./02-chap2.html" class="pagination-link" aria-label="The Noisy Work of Uncertainty Visualisation: A Review">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation: A Review</span></span>
+      <a href="./02-chap2.html" class="pagination-link" aria-label="The Noisy Work of Uncertainty Visualisation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

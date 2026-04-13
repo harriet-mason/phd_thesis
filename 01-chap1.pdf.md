@@ -1,49 +1,19 @@
 # Introduction {#sec-intro}
+Uncertainty visualisation is a relatively new field, but it has been poorly defined.
+Uncertainty itself is a vague term, each paper seems to take the meaning of it as a given, so the visualisation of it is fraught with disagreement with conflict over definitions, applications, and best practices littering the literature.
+Incorporating uncertainty into our visualisations is important for transparent graphics and improved decision making, with some authors considering ignoring uncertainty being tantamount to fraud [@Hullman2020a].
+Despite the importance of uncertainty visualisation, the field has struggled to create an overarching cohesive theory, with current best practices in plot design remaining ad hoc and context specific [@MacEachren2005].
+These issues would be resolved if uncertainty was formalised as a the existing structures for statistical graphics such as the *grammar of graphics* [@Leland2005] and it's implementation in `ggplot2` [@ggplot2].
+The formalisation of uncertainty in the grammar of graphics has remained difficult due to the confusing of uncertainty, a term which has as many definitions as there are discussions on the topic [@Spiegelhalter2017].
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-**Properly write after second paper is done**
-
-- Uncertainty visualisation is important
-  - Decision making
-  - correctly hedge conclusions drawn from graphics
-  
-- Uncertainty visualisation is a relatively new field, but it has been poorly defined
-- Uncertainty itself is a vague term, each paper seems to take the meaning of it as a given, so the visualisation of it is fraught with disagreement
-- Two distinct camps have established themselves in the literature. The first view uncertainty visualisation as a visualisation of an error, probability, or distribution. They treat uncertainty as a variable of interest, distinct from its estimate. Examples of this approach include ___. 
-- The second camp sees uncertainty as noise. They believe uncertainties role in visualisation is to dampen misleading or false conclusions, and amplify correct conclusions. They treat uncertainty as a necessary nuisance that should be communicated alongside it's estimate. Examples of this approach include ___. 
-- These distinct camps create several gaps in the literature
-- Uncertainty visualisation are often bespoke and are not properly integrated into the grammar of graphics. The elusive definition of uncertainty prevents it from being integrated into the grammar of grpahics, which means its role in a visualisation is never clear. 
-- This leads to visualisation approaches that jump randomly between viewing uncertainty as a variable in or itself, or as a necessary nuisance required to property visualise an estimate. This leads software that visualise uncertainty behaving inconsistently when deciding how to display uncertainty in the graphic. Authors of the software are often unaware of the distinction between the two methods.
-- The conflicting motivations also make it difficult to evaluate uncertainty visualisations
-- In graphics research, user studies are king and allow us to understand which graphics convey information most effectively
-- Uncertainty visualisation presents a unique issue. Most research tries to evaluate users ability to effectively extract information from a plot to establish a hierarchy of visualisation techniques
-- Uncertainty visualisation requires signal amplification when uncertainty is low, and obfuscation when uncertainty is high. This means that the best visualisation technique is not one that allows for the most accurate statistic extraction.
-- Some papers have specifically tried to evaluate uncertainty, but without a clear definition of uncertainty, this have proven to be difficult. 
-
-
-- This thesis attempts to close these gaps by providing a comprehensive analysis of uncertainty visualisation, including their definition, practical application, and evaluation.
-  - First we comb the literature and discuss the motivations behind uncertainty visualisation, and identify motivations for the field.
-  - Next, we formalise uncertainty visualisation, by identifying the two fields, discussing their difference and which is more appropriate to be considered "uncertainty visualisation"
-  - Then, we formalise the second camp and coin the term "signal supression" to describe visualisation approaches that fall within it.
-  - Then we discuss uncertainty's place in the grammar of graphics, and describe what it means for a visualisation to be an "uncertainty visualisation" within this framework.
-  - Then we introduce software, ggdibbler, which is the practical application of the theoretical inclusion of uncertainty in the grammar of graphics
-  - Finally, we formalise an approach for evaluating the effectivness of uncertainty visualisation, and use this tool to evaluate existing approaches to uncertainty visualisation.
-
+This thesis attempts to close these gaps by providing a comprehensive analysis of uncertainty visualisation, including their definition, practical application, and evaluation.
+First, we deal with the vague definition of uncertainty and interrogate the current meaning of the term uncertainty visualisation.
+Building on foundations in statistical inference and graphics, we redefine what it means to visualise uncertainty and estbalish a statistical foundation for the goals of the field. 
+Next, we leverage this foundation to formalise uncertainty visualisation in the grammar of graphics, implemented in the ggplot2 extension `ggdibbler`. 
+We show that the formalisation goes beyond mathematical pedantry and allows us to build a powerful mathematical framework for uncertainty visualisation that can be used for exploratory data analysis, an application that has remained just out of read of the field of decades.
+Finally, tie these ideas together in an evaluation study in the perception of uncertainty visualisations, and show that the formalisation we designed is not only flexible, but it is also allows us to test the uncertainty visualisation goals in the first chapter by giving us a framework to understand why some plots appear differently to others.
+This validation is done using a novel experiment design, by drawing parallels in the goals of uncertainty visualisation and standard colour blind tests, repurposing the standard Ishihara colour blind test for uncertainty visualisation.
+These chapters cover ground in every area touched by statistical graphics, philosophy, statistics, computer science, and psychometrics, we set the foundations for a new approach to uncertainty visualisation that allows us to integrate variance into our visualisations, no matter the context.
 
 ## Thesis Outline
 The thesis is structured as follows.
@@ -52,6 +22,6 @@ The thesis is structured as follows.
  
 @sec-second-paper introduces a new R package, ggdibbler. In @sec-first-paper we discussed the run on effects of the ambiguous definition of uncertainty. These problems included difficulty incorperating uncertainty into the grammar of graphics framework, which leads to software that does not always behave in ways that users would expect. @sec-second-paper closes this gap by discussing the theoretical implications of including uncertainty in the grammar of graphics, and introducing ggdibbler, a ggplot extension that allows us to visualise uncertainty holistically and prevent false signals. We illustrate how ggdibbler can be seamlessly integrated into existing visualisation workflows and demonstrate its usefulness by looking at examples that use ggdibbler to incorporate uncertainty into a choropleth map.
 
-@sec-third-paper presents a user study, motivated by problems faced by the Australian Energy Market Operator (AEMO), that evaluates the effectiveness of different uncertainty visualisations. @sec-first-paper highlighted the difficulty in evaluating uncertainty visualisations, as the uncertainty must be evaluated as noise rather than signal, and provides some suggestions for experimental methods. This section applies the suggested experimental methods and identifies which graphics, implemented by the ggdibbler software introduced in @sec-second-paper, are effective tools for signal suppression. The experiment in this section is motivated by a case study specific to problems faced by AEMO. The transition to renewable energy results in a large amount of uncertainty in Australia's energy demands, which also demands better understanding of the uncertainty if we are to make the transition without issue.
+@sec-third-paper presents a user study, that evaluates human perception of uncertainty visualisations. @sec-first-paper highlighted the difficulty in evaluating uncertainty visualisations, as the uncertainty must be evaluated as noise rather than signal, and provides some suggestions for experimental methods. This section applies the suggested experimental methods and identifies which graphics, implemented by the ggdibbler software introduced in @sec-second-paper, are effective tools for signal suppression. The experiment in this section is motivated by a case study specific to problems faced by AEMO. The transition to renewable energy results in a large amount of uncertainty in Australia's energy demands, which also demands better understanding of the uncertainty if we are to make the transition without issue.
 
-The material in @sec-first-paper was submitted to the journal *Annual Reviews of Statistics and It's Applications* for publication, and is now an invited contribution to Volume 14 of the Journal.The `ggdibbler` software outlined in @sec-second-paper has been submitted to CRAN. The contribution in @sec-second-paper of this thesis was presented at useR! 2025 in Durham, North Carolina in August 2025.
+The material in @sec-first-paper was submitted to the journal *Annual Reviews of Statistics and It's Applications* for publication, and is now an invited contribution to Volume 14 of the Journal. The `ggdibbler` software outlined in @sec-second-paper has been submitted to *CRAN*. The contribution in @sec-second-paper of this thesis was presented at *useR! 2025* in Durham, North Carolina in August 2025 and *ASC 2026* in Perth, Western Australia in December 2025. The material in @sec-second-paper has been submitted to the *Journal of Computational Graphics and Statistics*. The material in @sec-third-paper has been submitted as a conference paper to *IEEE VIS 2026*.
