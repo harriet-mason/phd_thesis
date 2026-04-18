@@ -343,19 +343,19 @@ m5 <- v1  + inset_element(v2, left = -0.01, bottom = -0.5,
 #| message: false
 #| eval: false
 ggsave(plot = m1 + labs(title = NULL) + theme(legend.position="none"),
-       filename ="paper/images/choro.png",
+       filename ="figures/choro.png",
        dpi = "screen")
 ggsave(plot = m2 + labs(title = NULL) + theme(legend.position="none"),
-       filename ="paper/images/pixel.png",
+       filename ="figures/pixel.png",
        dpi = "screen")
 ggsave(plot = m3 + labs(title = NULL) + theme(legend.position="none"),
-       filename ="paper/images/trans.png",
+       filename ="figures/trans.png",
        dpi = "screen")
 ggsave(plot = b1 + labs(title = NULL) + theme(legend.position="none"),
-       filename ="paper/images/bivar.png",
+       filename ="figures/bivar.png",
        dpi = "screen")
 ggsave(plot = v1 + labs(title = NULL) + theme(legend.position="none"),
-       filename ="paper/images/vsup.png",
+       filename ="figures/vsup.png",
        dpi = "screen")
 ```
 
@@ -378,17 +378,17 @@ gog <- tibble(
 )  
 
 # in console
-# img <- c("paper/images/choro.png",
-#           "paper/images/bivar.png",
-#           "paper/images/vsup.png",
-#           "paper/images/pixel.png",
-#           "paper/images/trans.png")
+# img <- c("figures/choro.png",
+#           "figures/bivar.png",
+#           "figures/vsup.png",
+#           "figures/pixel.png",
+#           "figures/trans.png")
 # in knit
-img <- c("images/choro.png",
-          "images/bivar.png",
-          "images/vsup.png",
-          "images/pixel.png",
-          "images/trans.png")
+img <- c("figures/choro.png",
+          "figures/bivar.png",
+          "figures/vsup.png",
+          "figures/pixel.png",
+          "figures/trans.png")
 
 gog_table <- cbind(img, gog) |>
   flextable() 
@@ -549,7 +549,7 @@ dist_5x5 <- parent_dists |>
 
 
 ggsave(plot = dist_5x5,
-       filename ="paper/images/dist_5x5.png",
+       filename ="figures/dist_5x5.png",
        width = 1800,
        height = 1800,
        units = "px",
@@ -566,7 +566,7 @@ local_dist_5x5 <- ((dl[[5]] | dl[[10]] | dl[[15]] | dl[[20]] | dl[[25]])/
     (dl[[1]] | dl[[6]] | dl[[11]] | dl[[16]] | dl[[21]]))
 
 ggsave(plot = local_dist_5x5,
-       filename ="paper/images/localdist_5x5.png",
+       filename ="figures/localdist_5x5.png",
        width = 1800,
        height = 1800,
        units = "px",
@@ -582,7 +582,7 @@ pix <- ((ps[[5]] | ps[[10]] | ps[[15]] | ps[[20]] | ps[[25]])/
     (ps[[1]] | ps[[6]] | ps[[11]] | ps[[16]] | ps[[21]]))
 
 ggsave(plot = pix,
-       filename ="paper/images/pix_5x5.png",
+       filename ="figures/pix_5x5.png",
        width = 1800,
        height = 1800,
        units = "px",
@@ -597,7 +597,7 @@ choromap <- ((ps[[5]] | ps[[10]] | ps[[15]] | ps[[20]] | ps[[25]])/
     (ps[[1]] | ps[[6]] | ps[[11]] | ps[[16]] | ps[[21]]))
 
 ggsave(plot = choromap,
-       filename ="paper/images/choro_5x5.png", 
+       filename ="figures/choro_5x5.png", 
        width = 1800, 
        height = 1800,
        units = "px",
@@ -612,7 +612,7 @@ bivarmap <- ((ps[[5]] | ps[[10]] | ps[[15]] | ps[[20]] | ps[[25]])/
     (ps[[1]] | ps[[6]] | ps[[11]] | ps[[16]] | ps[[21]]))
 
 ggsave(plot = bivarmap,
-       filename ="paper/images/bivar_5x5.png", 
+       filename ="figures/bivar_5x5.png", 
        width = 1800, 
        height = 1800,
        units = "px",
@@ -627,7 +627,7 @@ vsupmap <- ((ps[[5]] | ps[[10]] | ps[[15]] | ps[[20]] | ps[[25]])/
     (ps[[1]] | ps[[6]] | ps[[11]] | ps[[16]] | ps[[21]]))
 
 ggsave(plot = vsupmap,
-       filename ="paper/images/vsup_5x5.png", 
+       filename ="figures/vsup_5x5.png", 
        width = 1800, 
        height = 1800,
        units = "px",
@@ -642,7 +642,7 @@ transmap <- ((ps[[5]] | ps[[10]] | ps[[15]] | ps[[20]] | ps[[25]])/
     (ps[[1]] | ps[[6]] | ps[[11]] | ps[[16]] | ps[[21]]))
 
 ggsave(plot = transmap,
-       filename ="paper/images/trans_5x5.png", 
+       filename ="figures/trans_5x5.png", 
        width = 1800, 
        height = 1800,
        units = "px",
@@ -652,17 +652,17 @@ ggsave(plot = transmap,
 
 ::: {#fig-plotexample layout-nrow=2}
 
-![Theoretical distributions](images/dist_5x5.png){#fig-dist25 width=90%} 
+![Theoretical distributions](figures/dist_5x5.png){#fig-dist25 width=90%} 
 
-![Chropleth map](images/choro_5x5.png){#fig-choro25 width=90%} 
+![Chropleth map](figures/choro_5x5.png){#fig-choro25 width=90%} 
 
-![Bivariate map](images/bivar_5x5.png){#fig-vsup25 width=90%} 
+![Bivariate map](figures/bivar_5x5.png){#fig-vsup25 width=90%} 
 
-![VSUP map](images/vsup_5x5.png){#fig-vsup25 width=90%}  
+![VSUP map](figures/vsup_5x5.png){#fig-vsup25 width=90%}  
 
-![Pixel map](images/pix_5x5.png){#fig-pix25 width=90%} 
+![Pixel map](figures/pix_5x5.png){#fig-pix25 width=90%} 
 
-![Transparency map](images/trans_5x5.png){#fig-trans25 width=90%} 
+![Transparency map](figures/trans_5x5.png){#fig-trans25 width=90%} 
 
 An illustration of the 5x5x5 factorial design used in the experiment, along with the underlying distributional data that makes the plots. The theoretical distribution is a visualisation of 100 of the 1000 individual distributions that make up each dot in the colour blind test, where each individual distribution either belongs to the number (the yellow group) or the background (the blue group). The data is visualised for all levels of $D$ (0,1,2,3,4) on the x-axis, and $V$ (1,2,3,4,5) on the y-axis, across all five plot types (choropleth, bivariate, VSUP, pixel, transparency). We can see that the bottom right corner, when $D=5$ and $V=1$, is where all plots are the most visible. An effective uncertainty visualisation should become harder to read as *either* $D$ decreases or $V$ increases, and have a visible triangle stemming from the bottom right corner. 
 :::
@@ -680,7 +680,7 @@ The study was estimated to take approximately 10 to 15 minutes to complete, and 
 
 ::: {#fig-screenshot fig-env="figure*"}
 
-![](images/screenshot.png){width=100%} 
+![](figures/screenshot.png){width=100%} 
 
 A screenshot of the app as it appeared to participants while answering the stimuli question.
 :::
@@ -690,26 +690,26 @@ A screenshot of the app as it appeared to participants while answering the stimu
 
 ::: {#fig-plotexample layout-ncol=10}
 
-![](images/check0.png){#fig-chor width=85%}
+![](figures/check0.png){#fig-chor width=85%}
 
-![](images/check1.png){#fig-chor width=85%}
+![](figures/check1.png){#fig-chor width=85%}
 
-![](images/check2.png){#fig-chor width=85%}
+![](figures/check2.png){#fig-chor width=85%}
 
 
-![](images/check3.png){#fig-chor width=85%}
+![](figures/check3.png){#fig-chor width=85%}
 
-![](images/check4.png){#fig-chor width=85%}
+![](figures/check4.png){#fig-chor width=85%}
 
-![](images/check5.png){#fig-chor width=85%}
+![](figures/check5.png){#fig-chor width=85%}
 
-![](images/check6.png){#fig-chor width=85%}
+![](figures/check6.png){#fig-chor width=85%}
 
-![](images/check7.png){#fig-chor width=85%}
+![](figures/check7.png){#fig-chor width=85%}
 
-![](images/check8.png){#fig-chor width=85%}
+![](figures/check8.png){#fig-chor width=85%}
 
-![](images/check9.png){#fig-chor width=85%}
+![](figures/check9.png){#fig-chor width=85%}
 
 The ten attention checks used in the experiment, included here to illustrate the appearance of all 10 number plates, as well as the clarity of the attention checks.
 
