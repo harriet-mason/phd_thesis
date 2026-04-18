@@ -42,7 +42,7 @@ theme_set( theme_gdocs() +
 # source("paper/gen_functions.R")
 # Source function for generating data
 #source("paper/gen_functions.R") # in chunk
-source("gen_functions.R") # in render
+source("data/gen_functions.R") # in render
 
 ```
 
