@@ -57,14 +57,14 @@ What exactly should it *do* with these distributions?
 
 Consider the case of a vector, $X$, that contains the heights of 15 different women, where each $x_i \in \mathbb{R}$ represents one measured height.
 If we feed this vector into a density plot function, such as `geom_density()` from `ggplot2`, how should it behave? 
-Hopefully, this case is obvious, and the output of this function is shown in @fig-dist-example-1.
+Hopefully, this case is obvious, and the output of this function is shown in the `ggplot2` example in @fig-dist-example.
 A density curve of our data is estimated and displayed using a line geometry. 
 This is a straightforward example, but what happens when our input is a distribution? 
 This can occur if, for example, the tool used to record the heights has an inherent measurement error.
 Now, we have a vector, $\textbf{X}$, of 15 distributions, where each $\textbf{x}_i \sim N(x_i, \sigma_i)$, where $x_i \in X$ is the recorded value, and $\sigma_i$ is an estimated variance based on the environmental conditions of the measurement. 
 There are two routes we can take when it comes to visualising this estimate. 
-@fig-dist-example-2 is made using `ggdist`, and it shows the case where we are interested in the distribution of each individual measurement. 
-@fig-dist-example-3 is made using `ggdibbler`, and it shows the distribution of the entire population, *but* carries forward the variability in the density that comes with having distributional inputs.
+The second plot in @fig-dist-example is made using `ggdist`, and it shows the case where we are interested in the distribution of each individual measurement. 
+The third plot is made using `ggdibbler`, and it shows the distribution of the entire population, *but* carries forward the variability in the density that comes with having distributional inputs.
 
 
 
@@ -87,13 +87,13 @@ There are two routes we can take when it comes to visualising this estimate.
 
 
 The distinction between the two approaches presented in @fig-dist-example is the same signal and noise paradigm presented by @Mason2024. 
-In @fig-dist-example-2 as we are interested in the shape of the distribution of each observation, so we are visualising the uncertainty as a signal.
-In @fig-dist-example-3 we are not interested in the uncertainty in and of itself, but rather, we only included it to see how it would change the conclusions from @fig-dist-example-1, thus, visualising it as noise. 
+In the `ggdist` plot we are interested in the shape of the distribution of each observation, so we are visualising the uncertainty as a signal.
+In the `ggdibbler` plot we are not interested in the uncertainty in and of itself, but rather, we only included it to see how it would change the conclusions from the  `ggplot2` plot, thus, visualising it as noise. 
 Given these two approaches, which plot is the "correct" visualisation depends on the goals of our analysis and what we are looking to infer from making the plot.
 
 However, if we want to design a visualisation system for EDA, the method must always work, which means any *existing* plot should always have an "uncertain" counterpart. 
 Therefore, we are actually interested in a slightly different question: "Which plot is the correct behaviour of `geom_density` with the distributional input, $\textbf{X}$?".
-The answer to this question is definitively, @fig-dist-example-3. 
+The answer to this question is definitively, the `ggdibbler` plot. 
 The reasoning is rooted in strong statistical foundations; we just need to expand the concepts to visual statistics.
 
 ## Visual Statistics
@@ -223,9 +223,9 @@ We will usually approximate this convergence by using visual distinguishably, si
 
 ### Returning to the density plot example
 In our density example, we defined $\textbf{X}$ and $X$ such that $\textbf{x}_i \xrightarrow{p} x_i, \forall i = 1,...,15$, then as $var(\textbf{x}_i) \xrightarrow{} 0$, $\textbf{X}\xrightarrow{p}X$ and we should see $V(\textbf{X})\xrightarrow{p}V(X)$. 
-That is, as the variance of all the heights in $\textbf{X}$ approaches zero, our uncertainty visualisation should be visually indistinguishable from @fig-dist-example-1.
-Looking at the plots, we would observe this behaviour in @fig-dist-example-3, but not @fig-dist-example-2.
-This is why we assert that @fig-dist-example-3 is the random matrix version of the `geom_density` function in @fig-dist-example-1.
+That is, as the variance of all the heights in $\textbf{X}$ approaches zero, our uncertainty visualisation should be visually indistinguishable from the `ggplot2` plot of @fig-dist-example.
+Looking at the plots, we would observe this behaviour in the `ggdibbler`, but not the `ggdist` plot.
+This is why we assert that the `ggdibbler` plot is the random matrix version of the `geom_density` function in the `ggplot2` plot.
 
 
 ## Generalising the visual function
@@ -420,7 +420,7 @@ An illustration of the effect of grouping on the statistic of the plot. We can s
   
 The requirement for samples and *only* samples as our distribution representation is why the formalisation by @Kay2023, despite having the insight to use distributional inputs, did not have the full flexibility required for EDA. 
 By allowing flexible distribution representations, `ggdist` is focused on looking at distribution as values in their own right, rather than integrating uncertainty into existing visualisation systems.
-This is also how the visual function in @fig-dist-example-2 diverges from the visual function in @fig-dist-example-1.
+This is also how the visual functions of `ggdist` and `ggdibbler` in @fig-dist-example diverges from one another.
 It is important to understand that neither approach is a subset of the other, they are orthogonal, and most of the plots made in `ggdist` cannot be made using `ggdibbler`. 
 While there are instances that both `ggdist` and `ggdibbler` produce similar looking plots, these plots cannot be made using the same data or the same code.
 The distinction between the two approaches translates directly from the philosophy of @Mason2024, who pointed out that the difference between the role of signal and noise is in our inferential statistics. 
@@ -616,10 +616,10 @@ While it would be nice to implement `ggdibbler` as an uncertainty visualisation 
 
 The implicit relationship between `ggdibbler` and `ggplot2` is communicated through the syntax of the code. 
 Ideally, if all of `ggplot2` were built on an OOP system, we could just create an "uncertainty" version of all the `ggplot2` functions, allowing users to pass distributions without even noticing the change in the underlying package. 
-That is, both @fig-dist-example-1 and @fig-dist-example-3 would use the syntax, `ggplot(data = density_data) + geom_density(aes(x = x))` where the visualisation software runs the `ggdibler` code if `x` is a `distirbutional` object.
+That is, both the `ggplot2` and `ggdibbler`plots from @fig-dist-example would use the syntax, `ggplot(data = density_data) + geom_density(aes(x = x))` where the visualisation software runs the `ggdibler` code if `x` is a `distirbutional` object.
 As `ggplot2` is not built on an OOP system, this is not possible,  so instead, `ggdibbler` adds a `*_sample` suffix in the function name.
 This allows us to maintain similar naming conventions to the related `ggplot2` function, while also being explicit about what the function does.
-For example, the code that makes @fig-dist-example-1 is `ggplot(data = density_data) + geom_density(aes(x = xmean))`,  while the code that makes @fig-dist-example-3 is `ggplot(data = density_data) + geom_density_sample(aes(x=xdist))`. 
+For example, the code that makes the `ggplot2` density is `ggplot(data = density_data) + geom_density(aes(x = xmean))`,  while the code that makes the  `ggdibbler` density is is `ggplot(data = density_data) + geom_density_sample(aes(x=xdist))`. 
 This syntax still conveys the idea that the visual function is identical; it is only the input that has changed.
 
 This strong theoretical foundation doesn't only give us an intuitive function design, but it also allows us to have a lot of versatility built on a shockingly simple code base.
@@ -769,8 +769,6 @@ The first author would also like to thank Mitchell O'Hara-Wild, Cynthia Huang, a
 The R packages were used for this work were: `tidyverse` [@tidyverse], `distributional` [@distributional], `ggdist` [@Kay2023], `ggdibbler` [@ggdibbler], `patchwork` [@patchwork], `khroma` [@khroma], `tidygraph` [@tidygraph], `colourspace` [@colorspace], `ggraph` [@ggraph], `ozmaps` [@ozmaps], `sf` [@sfpack], and `ggthemes` [@ggthemes].
 The GitHub repository for this paper can be found at https://github.com/harriet-mason/paper-ggdibbler which contains the files required to reproduce this article in full.
 
-
-## Bibliography
 
 
 
