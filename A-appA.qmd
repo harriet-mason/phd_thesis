@@ -51,8 +51,7 @@ load("data/study_data.RData")
 
 
 ## Full app screenshots
-
-::: {#fig-appxample layout-ncol=2}
+Screenshots from the app, in the order that the participants would experience them. 
 
 ![Demographics 1](figures/screenshot_demographic1.png){#fig-app1 width=90%} 
 
@@ -66,9 +65,6 @@ load("data/study_data.RData")
 
 ![End of study comments](figures/screenshot_comments.png){#fig-app6 width=90%} 
 
-Screenshots from the app, in the order that the participants would experience them. 
-
-:::
 
 
 ## Confusion matrix of numbers
@@ -78,7 +74,8 @@ To understand the influence of the number displayed on the participant response,
 #| label: tbl-confusion-numbers
 #| echo: false
 #| warning: false
-#| message: false
+#| message: false 
+#| fig-pos: "H"
 #| out-width: 100%
 #| tbl-cap: "A confusion matrix of the number participants gave, alongside the true number in the plot. The off-diagonal elements are incorrect responses, with any concentration of numbers indicating values that are frequently mistaken for one another: 8 for 3, 6 and 9, and 6 for 5 are the most common."
 # set up
@@ -126,6 +123,7 @@ When there was no number, participants seemed to guess 3 more often than the oth
 #| eval: false
 #| warning: false
 #| message: false
+#| tbl-pos: "H"
 #| tbl-cap: "A table showing the top four most commonly confused numbers."
 t2 <- study_data |>
   filter(correct_number != "No number visible",
@@ -156,6 +154,7 @@ This seems to suggest that, when participants could not make out the number with
 #| echo: false
 #| warning: false
 #| message: false
+#| tbl-pos: "H"
 #| tbl-cap: "Numbers that were most commonly identified as 'no number visible', ordered from most to least frequent. The order roughly coincides, inversely, with the number of 'dots' that make up the number, suggesting that numbers constructed with fewer dots are harder to identify."
 # Get number of circles in number
 num_circles <- function(number) {
@@ -216,6 +215,7 @@ This also highlights that, by making uncertainty something that should be visibl
 #| warning: false
 #| message: false
 #| fig-width: 8
+#| fig-pos: "H"
 #| out-width: 100%
 #| fig-cap: "A heatmap showing the median duration accross each D, V, and plot type."
 study_data |>
@@ -244,6 +244,7 @@ study_data |>
 #| warning: false
 #| message: false
 #| fig-width: 8
+#| fig-pos: "H"
 #| out-width: 100%
 #| fig-cap: "Median duration (in seconds) to evaluate the plot, for different plot types and D, V. Generally, participants took longer when $D=1$, and $V=0, 1, 2$. For the pixel and transparency, participants were slowest when $D=2$ at the larger variance."
 study_data |>
@@ -268,7 +269,8 @@ The demographic analysis indicates no relationship between the demographic detai
 #| warning: false
 #| message: false
 #| fig-width: 15
-#| fig-height: 12
+#| fig-height: 12 
+#| fig-pos: "H"
 #| out-width: 100%
 #| fig-cap: "Plots showing the overall distribution of correct answers from the participants, as well as the relationship betweeen the five demographic responses and the probability of correctly identifying the number in the stimuli."
 
@@ -331,7 +333,7 @@ The distance-based results as well as all pairwise comparisons, as mentioned in 
 #| eval: true
 #| message: false
 #| cache: true
-
+#| tbl-pos: "H"
 glmer_model <- glmer(correct_original ~  D*V*plot_type +    (1|correct_number) + (1|id),
                    family="binomial", 
                    data = study_data)

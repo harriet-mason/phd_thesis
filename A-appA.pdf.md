@@ -16,8 +16,7 @@
 
 
 ## Full app screenshots
-
-::: {#fig-appxample layout-ncol=2}
+Screenshots from the app, in the order that the participants would experience them. 
 
 ![Demographics 1](figures/screenshot_demographic1.png){#fig-app1 width=90%} 
 
@@ -31,9 +30,6 @@
 
 ![End of study comments](figures/screenshot_comments.png){#fig-app6 width=90%} 
 
-Screenshots from the app, in the order that the participants would experience them. 
-
-:::
 
 
 ## Confusion matrix of numbers
@@ -46,7 +42,7 @@ To understand the influence of the number displayed on the participant response,
 
 ::: {#tbl-confusion-numbers .cell tbl-cap='A confusion matrix of the number participants gave, alongside the true number in the plot. The off-diagonal elements are incorrect responses, with any concentration of numbers indicating values that are frequently mistaken for one another: 8 for 3, 6 and 9, and 6 for 5 are the most common.'}
 ::: {.cell-output-display}
-![](A-appA_files/figure-pdf/tbl-confusion-numbers-1.pdf){width=100%}
+![](A-appA_files/figure-pdf/tbl-confusion-numbers-1.pdf){fig-pos='H' width=100%}
 :::
 :::
 
@@ -64,7 +60,7 @@ When there was no number, participants seemed to guess 3 more often than the oth
 
 
 
-::: {.cell tbl-cap='A table showing the top four most commonly confused numbers.'}
+::: {.cell tbl-pos='H' tbl-cap='A table showing the top four most commonly confused numbers.'}
 
 :::
 
@@ -86,7 +82,7 @@ This seems to suggest that, when participants could not make out the number with
 
 
 
-::: {#tbl-nonumber-mistakes .cell tbl-cap='Numbers that were most commonly identified as \'no number visible\', ordered from most to least frequent. The order roughly coincides, inversely, with the number of \'dots\' that make up the number, suggesting that numbers constructed with fewer dots are harder to identify.'}
+::: {#tbl-nonumber-mistakes .cell tbl-pos='H' tbl-cap='Numbers that were most commonly identified as \'no number visible\', ordered from most to least frequent. The order roughly coincides, inversely, with the number of \'dots\' that make up the number, suggesting that numbers constructed with fewer dots are harder to identify.'}
 ::: {.cell-output-display}
 \begingroup\fontsize{10}{12}\selectfont
 
@@ -96,16 +92,16 @@ Selected & Correct & Total & Dots\\
 \midrule
 \addlinespace[0em]
 \multicolumn{4}{l}{\textbf{}}\\
-\hspace{1em}No number visible & 1 & 324 & 123\\
-\hspace{1em}No number visible & 7 & 306 & 151\\
-\hspace{1em}No number visible & 4 & 282 & 181\\
-\hspace{1em}No number visible & 5 & 258 & 221\\
-\hspace{1em}No number visible & 8 & 251 & 261\\
-\hspace{1em}No number visible & 3 & 228 & 222\\
-\hspace{1em}No number visible & 9 & 227 & 247\\
-\hspace{1em}No number visible & 6 & 220 & 239\\
-\hspace{1em}No number visible & 0 & 207 & 203\\
-\hspace{1em}No number visible & 2 & 165 & 223\\
+\hspace{1em}No number visible & 1 & 324 & 121\\
+\hspace{1em}No number visible & 7 & 306 & 152\\
+\hspace{1em}No number visible & 4 & 282 & 199\\
+\hspace{1em}No number visible & 5 & 258 & 211\\
+\hspace{1em}No number visible & 8 & 251 & 240\\
+\hspace{1em}No number visible & 3 & 228 & 219\\
+\hspace{1em}No number visible & 9 & 227 & 233\\
+\hspace{1em}No number visible & 6 & 220 & 234\\
+\hspace{1em}No number visible & 0 & 207 & 212\\
+\hspace{1em}No number visible & 2 & 165 & 207\\
 \bottomrule
 \end{longtable}
 \endgroup{}
@@ -141,7 +137,7 @@ This also highlights that, by making uncertainty something that should be visibl
 
 ::: {.cell}
 ::: {.cell-output-display}
-![A heatmap showing the median duration accross each D, V, and plot type.](A-appA_files/figure-pdf/fig-duration-heatmap-1.pdf){#fig-duration-heatmap width=100%}
+![A heatmap showing the median duration accross each D, V, and plot type.](A-appA_files/figure-pdf/fig-duration-heatmap-1.pdf){#fig-duration-heatmap fig-pos='H' width=100%}
 :::
 :::
 
@@ -164,7 +160,7 @@ The demographic analysis indicates no relationship between the demographic detai
 
 ::: {.cell}
 ::: {.cell-output-display}
-![Plots showing the overall distribution of correct answers from the participants, as well as the relationship betweeen the five demographic responses and the probability of correctly identifying the number in the stimuli.](A-appA_files/figure-pdf/demographics-1.pdf){width=100%}
+![Plots showing the overall distribution of correct answers from the participants, as well as the relationship betweeen the five demographic responses and the probability of correctly identifying the number in the stimuli.](A-appA_files/figure-pdf/demographics-1.pdf){fig-pos='H' width=100%}
 :::
 :::
 
@@ -182,7 +178,7 @@ The distance-based results as well as all pairwise comparisons, as mentioned in 
 
 
 
-::: {.cell}
+::: {.cell tbl-pos='H'}
 ::: {.cell-output-display}
 \begin{table}
 
