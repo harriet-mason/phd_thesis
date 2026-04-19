@@ -77,7 +77,7 @@ The third plot is made using `ggdibbler`, <!--and it shows the distribution of t
 
 ```{r}
 #| label: fig-dist-example
-#| fig-cap: "Alternative interpretations of how a density distribution should be drawn the input is a set of distributions, according to different software: (a) ggplot2 forms the density from the mean values, (b) ggdist puts the distribution on each observation, treating uncertainty as signal, (c) ggdibbler shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. Which is correct might depend on the analysis, but these differences illustrate how uncertainty is treated by visualisation software."
+#| fig-cap: "Alternative interpretations of how a density plot, when the input is a set of distributions describing uncertainty of measurements, according to three plotting packages: (a) ggplot2 forms the density from the mean values, (b) ggdist puts the distribution on each observation, treating uncertainty as signal, (c) ggdibbler shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. These differences illustrate how uncertainty is interpreted in different ways. Which is correct?"
 #| fig-height: 4
 #| fig-width: 10
 #| out-width: 100%
