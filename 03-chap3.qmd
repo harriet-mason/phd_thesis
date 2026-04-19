@@ -315,27 +315,29 @@ Even @Leland2005 himself expressed this sentiment in the uncertainty visualisati
 What this sentiment fails to realise is that the interchangeable nature of the grammar comes from its formalisation, a formalisation that does not properly integrate uncertainty.
 When we take the time to formalise uncertainty within the visualisation function, we quickly see that the way we represent our distribution does not have a neutral impact on the other components of the grammar.
 
+#### Beyond point estimates
 The first problem is obvious: not all distribution representations can perform signal suppression.
 We briefly illustrate the problem here.
 @fig-meanprob shows a set of bivariate densities as raster plots visualising the `uncertain_faithfuld` data from `ggdibbler`, which is a random matrix variation of the `faithfuld` data from the `ggplot2` package.
 Plot (a) visualises only the estimate, while the other three plots represent the data using a sample. 
-As we move from left to right, i.e. moving from plot (b) to plot (d), the variance in our distribution increases.
+As we move from plot (b) to plot (d), the variance in our distribution increases.
 This variance is independent of our expected value, so the increasing variance has no impact on the expected value of the distribution - the visualisation of our point estimate does not change as the variance increases and is always represented by plot (a). 
-You may still want to visualise summary statistics alongside other representations, such as displaying the variance as a separate density plot. 
-This might seem absurd, and there is a reasonable amount of evidence that visualising summary statistics alongside uncertainty information causes that uncertainty information to be ignored [@uncertchap2022].
+
+You may still want to visualise summary statistics alongside other representations, such as displaying the variance as a separate density plot. This might seem absurd, and there is a reasonable amount of evidence that visualising summary statistics alongside uncertainty information causes that uncertainty information to be ignored [@uncertchap2022].
 The whole point of signal suppression is that it hides a signal that is statistically invalid.
+
 Allowing you to include the point estimates, because the visualisation is too noisy, defeats the entire purpose of the approach.
 This property should also ensure the convergence to another distribution, as covered by @thm-cmt.
 If we are only concerned about convergence to constant values, we do not need to include uncertainty at all.
 Therefore, whichever representation we choose, it needs to convey a complete view of this distribution, a point estimate cannot do that. 
 @fig-meanprob shows how `ggdibbler` handles increasing variance in a density plot, as the "graininess" of the plot increases with the uncertainty. 
-As the variance increases, these grains dominate the plot, making the visualisation harder to read.
+As the variance increases, these grains dominate the plot, making the visualisation harder to read, as it should be.
 
 
 ```{r}
 #| label: fig-meanprob
 #| fig-cap: "How uncertainty is handled (or not) in raster displays of bivariate density.  The axes show the eruption time vs waiting time, and colour indicates density value, with lighter indicating higher density. In plot (a) uncertainty is ignored by showing only the estimate, and plots (b, c, d) show samples reflecting different scales of uncertainty in the density estimate. We can see that as the variance in the estimates increases, the visualisation of the sample becomes harder to read and conveys more uncertainty."
-#| fig-height: 4
+#| fig-height: 3.5
 #| fig-width: 10
 #| out-width: 100%
 library(colorspace)
@@ -375,11 +377,13 @@ p0 + p1 + p2 + p3 + plot_layout(ncol=4)
 
 ```
 
+#### Why not probability functions
+
 Disallowing point estimates doesn't actually limit our flexibility, as we still have samples, quantiles, and probability functions at our disposal.
 This is where the "Mr Potato Head" approach to distributional statistics starts to cause problems as we bump up against the orthogonality requirement that is built into the grammar of graphics.
 Flexibility requires that *every* deterministic graphic should have an uncertain counterpart, even ones that have a pre-defined statistic comprised of point estimates, such as a box plot or bar chart.
 This is a fundamental requirement, otherwise the system will not be an effective EDA tool. 
-If we allow for any statistic, we will create a mismatch where the values we are trying to feed into our statistic, $S$ is not on the same domain expected by the function.
+If we allow for any statistic, we will create a mismatch where the values we are trying to feed into our statistic, $S$ are not on the same domain expected by the function.
 To be more explicit, our statistic is expecting values on the domain, $M(\Omega)$.
 If we define a new statistic, $S^* = S \circ S_{dist}$, where the range of $S_{dist}$ is not $M(\Omega)$, such as $P_{M(\Omega)}(M(\Omega))$, then we have produced invalid input for the next stage of our visual function, $S$.
 For example, if our statistic is expecting heights that range from 150 to 200, we cannot feed in a set of probabilities on [0,1] and expect there to be no issues.
@@ -387,6 +391,8 @@ The statistics that create a domain mismatch also tend to create an implicit inf
 This means that violating this rule will not only result in unusable inputs or nonsensical outputs for $S$, it will also fundamentally change our visual function, $V$.
 This change means our visualisation will not adhere to @thm-cmt, which is the primary requirement of our system.
 For these reasons, we can only allow statistical representations that output a range that is equivalent to the input space.
+
+#### Why not quantiles
 
 This leaves quantiles and samples as our remaining distribution statistics. 
 It makes sense that these methods would be the most flexible, as a sample is just outcomes on $M(\Omega)$, and quantiles are just ordered samples.
@@ -400,7 +406,7 @@ The second problem with quantiles is that they don't have a natural extension to
 Quantiles are well-defined for univariate cases, but multivariate spaces require several assumptions on the relative magnitude of our variables, which are unlikely to always be correct. 
 @fig-circle-line visualises the four scenarios that arise from passing a univariate or multivariate random variable, represented as a quantile or a sample, to the slope or intercept of a `geom_abline`.
 This not an unreasonable scenario, as a linear regression with a random intercept and slope a common topic even in introductory statistics courses.
-We can see that in the univariate case, where the intercept of the line is am $N(0,1)$ distribution the information conveyed by the sample and the quantile are very similar.
+We can see that in the univariate case, where the intercept of the line is am $N(0,1)$ distribution the information conveyed by the quantile (a) and the sample (b) are very similar.
 This is because quantiles are well defined in the univariate case.
 However, for the multivariate case, adding a second random variable in the slope (such that we are now visualising a multivariate normal distribution with marginal distributions $N(0,1)$, and a covariance of $-0.8$) throws our notion of ordering out the window.
 In this case, quantiles are not well defined, as any quantile, $q$, will have an infinite number of (intercept, slope) pairs that could produce that probability, and are better conveyed by a function (hence why contour plots are typically used).
@@ -413,8 +419,8 @@ Even if we tried to work around these problems by coming up with some abstract d
 
 ```{r}
 #| label: fig-circle-line
-#| fig-cap: "Four plots that illustrate the issues with using a quantile to represent our distribution variables. All visualisations depict a multivariate normal distribution with marginal distributions of N(0,1) and a covariance of -0.8 and are coloured using the same notion of distance that is used to construct the quantiles. The quantile and sample plot are very similar in the univariate case when distance is well defined. In the multivariate case, the distance is not well defined, and we can see the approaches diverge in the erratic colouring of the lines. We can also see the artificial ordering imposed by the quantiles have altered some important visual features, such as the intersection of the lines. Therefore, if we want to explore multivatiate random variables, unincombered by the limitations of assumptions, we must represent our distributions with a sample. "
-#| fig-height: 4
+#| fig-cap: "Why quantiles are problematic for representing our distribution variables, using regression coefficients. Intercepts and slopes were simulated using marginal distributions of N(0,1) and a covariance of -0.8.  Plots (a) and (b) have only the intercept treated as random, and show the quantiles and samples, respectively. Colour maps to quantile in (a) and to the value of the intercept in (b): both plots convey similar information. It breaks down when both slope and intercept are treated as random, shown as quantiles (c) and samples (d). Colour is mapped to the same notion of distance that is used to construct the quantiles. But distance is not well defined, and we can see the approaches diverge in the erratic colouring of the lines. Quantiles are not sufficiently flexible representations of distributions."
+#| fig-height: 3.5
 #| fig-width: 10
 #| out-width: 100%
 
@@ -450,7 +456,7 @@ q1 <- qdf |>
   scale_colour_continuous_sequential(palette = "Batlow") +
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
-  ggtitle("Quantile: Random Intercept") +
+  ggtitle("a. Quantile: Intercept") +
   theme(legend.position="none", plot.title = element_text(size = tsize))
 
 q2 <- sdf |>
@@ -460,7 +466,7 @@ q2 <- sdf |>
   scale_colour_continuous_sequential(palette = "Batlow") +
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
-  ggtitle("Sample: Random Intercept") +
+  ggtitle("b. Sample: Intercept") +
   theme(legend.position="none", plot.title = element_text(size = tsize))
 
 q3 <- qdf |>
@@ -470,7 +476,7 @@ q3 <- qdf |>
   scale_colour_continuous_sequential(palette = "Batlow") +
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
-  ggtitle("Quantile: Random Intercept and Sample") +
+  ggtitle("c. Quantile: Intercept, Slope") +
   theme(legend.position="none", plot.title = element_text(size = tsize))
 
 q4 <- sdf |>
@@ -480,13 +486,15 @@ q4 <- sdf |>
   scale_colour_continuous_sequential(palette = "Batlow") +
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
-  ggtitle("Sample: Random Intercept and Sample") +
+  ggtitle("d. Sample: Intercept, Slope") +
   theme(legend.position="none", plot.title = element_text(size = tsize))
 
 
-q1 + q3 + q2 + q4 + plot_layout(ncol=4)
+q1 + q2 + q3 + q4 + plot_layout(ncol=4)
 ```
  
+#### Distributions as samples
+
 This means that the only representation of a distribution that is equally as flexible as a point prediction is a sample of outcomes.
 Of course, we don't want a sample of individual points; we want a sample of geometric objects.
 To get this, we need to pass the data through the visual function in batches, where each batch represents an outcome of the full random matrix.
