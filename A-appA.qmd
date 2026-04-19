@@ -1,3 +1,411 @@
-# Additional stuff
+# Appendix A — Supplementary Material for “Colour Blinded by the Noise”
 
-Appendix stuff
+```{r setup}
+#| message: false
+#| echo: false
+#| warning: false
+
+# load libraries
+library(MASS)
+library(nullabor)
+library(ggplot2)
+library(dplyr) 
+library(ggthemes)
+library(patchwork)
+library(distributional)
+library(ggdibbler)
+library(lubridate)
+library(stringr)
+library(shadowtext)
+library(flextable)
+library(ozmaps)
+library(emmeans)
+library(kableExtra)
+library(broom)
+library(dplyr)
+library(ggplot2)
+library(lme4)
+library(car)
+library(geomtextpath)
+library(kableExtra)
+library(emmeans)
+library(janitor)
+# Theme adjustments
+theme_set(theme_gdocs() + 
+             theme(aspect.ratio = 1, 
+                   axis.text.x = element_text(angle = 0, 
+                                              vjust = 1.05, 
+                                              hjust=1),
+                   palette.colour.continuous = gdocs_pal(),
+                   palette.colour.discrete = gdocs_pal(),
+             )
+)
+
+# source("paper/gen_functions.R") # in chunk
+source("data/gen_functions.R") # in render
+
+# load("paper/data/study_data.RData")
+load("data/study_data.RData")
+
+```
+
+
+## Full app screenshots
+
+::: {#fig-appxample layout-ncol=2}
+
+![Demographics 1](figures/screenshot_demographic1.png){#fig-app1 width=90%} 
+
+![Demographics 2](figures/screenshot_demographic2.png){#fig-app2 width=90%} 
+
+![Additional instructions](figures/screenshot_instructions.png){#fig-app3 width=90%} 
+
+![Stimuli example A](figures/screenshot_plots1.png){#fig-app4 width=90%} 
+
+![Stimuli example B](figures/screenshot_plots2.png){#fig-app5 width=90%} 
+
+![End of study comments](figures/screenshot_comments.png){#fig-app6 width=90%} 
+
+Screenshots from the app, in the order that the participants would experience them. 
+
+:::
+
+
+## Confusion matrix of numbers
+To understand the influence of the number displayed on the participant response, we can look at a confusion table of the number responses (@tbl-confusion-numbers).
+
+```{r}
+#| label: tbl-confusion-numbers
+#| echo: false
+#| warning: false
+#| message: false
+#| out-width: 100%
+#| tbl-cap: "A confusion matrix of the number participants gave, alongside the true number in the plot. The off-diagonal elements are incorrect responses, with any concentration of numbers indicating values that are frequently mistaken for one another: 8 for 3, 6 and 9, and 6 for 5 are the most common."
+# set up
+confusion_mat <- study_data |>
+  group_by(number_selected, correct_number) |>
+  summarise(total = n()) |>
+  #mutate(total = if_else(number_selected == correct_number, NA, total)) |>
+  mutate(correct_number = if_else(correct_number == "No number visible", "N", correct_number),
+         number_selected = if_else(number_selected == "No number visible", "N", number_selected)) |> 
+  pivot_wider(id_cols = correct_number,
+              names_from = number_selected,
+              values_from = total, 
+              values_fill = 0) |>
+  mutate(correct_number = factor(correct_number, levels = c(0:9, "N"))) |>
+  arrange(correct_number)
+
+# replace NA with 0
+# confusion_mat[is.na(confusion_mat)] <- 0
+
+# show with flextable
+t1 <- confusion_mat |>
+  #arrange(correct_number) |>
+  rename("hold" = correct_number) |>
+  flextable() |>
+  add_header_row(
+    values = c("Correct Number","Number Selected"),
+    colwidths = c(1, 11)) |>
+  theme_box() |>
+  bg(j = ~ . - hold,
+     bg = scales::col_numeric(palette = "Greens", 
+                              na.color = "grey",
+                              domain = c(0, 150))) |>
+  set_header_labels(hold = "") |>
+  fontsize(size = 10, part = "all")
+
+wrap_flextable(t1 , flex_cols = TRUE, flex_body = TRUE)
+```
+
+For the cases where there actually was a number visible, we can see that participants typically got the number right, or selected no number visible, rather than making an incorrect guess.
+When there was no number, participants seemed to guess 3 more often than the other numbers.
+
+
+```{r top-mistakes}
+#| echo: false
+#| eval: false
+#| warning: false
+#| message: false
+#| tbl-cap: "A table showing the top four most commonly confused numbers."
+t2 <- study_data |>
+  filter(correct_number != "No number visible",
+         number_selected != correct_number,
+         number_selected != "No number visible") |>
+  group_by(number_selected, correct_number) |>
+  summarise(Total = n())  |>
+  arrange(desc(Total)) |>
+  rename("Selected" = number_selected,
+         "Correct" = correct_number) |>
+  head(4) |>
+  kable()
+
+t2
+
+```
+
+There are also a few numbers that participants seemed to get confused more often than others.
+If we focus on the cases where 50 or more incorrect guesses were made, we can see that 3, 6 and 9 were frequently reported as an 8, and 5 was frequently reported as a 6.
+This makes sense as we could consider the dots that make up 3, 6, and 9 to be a subset of those covered by 8, with a similar relationship existing between 5 and 6.
+Interestingly, the converse is not true.
+That is, 8 was not mistaken for a 3, 6, or 9, and 6 was not mistaken for 5.
+This seems to suggest that, when participants could not make out the number with confidence, they seemed to have a tendency to add in structure that wasn't there, rather than miss structure that was there.
+
+
+```{r}
+#| label: tbl-nonumber-mistakes
+#| echo: false
+#| warning: false
+#| message: false
+#| tbl-cap: "Numbers that were most commonly identified as 'no number visible', ordered from most to least frequent. The order roughly coincides, inversely, with the number of 'dots' that make up the number, suggesting that numbers constructed with fewer dots are harder to identify."
+# Get number of circles in number
+num_circles <- function(number) {
+  letter_aspect <- ifelse(number == 1, 0.4, 0.75)
+  # set plate to work with
+  letter_data(number, letter_aspect) |>
+    mutate(group = factor(ifelse(in_text, "in", "out"))) |>
+    select(-in_text) |>
+    st_drop_geometry() |>
+    filter(group == "in") |>
+    count() |>
+    unlist() |>
+    unname()
+}
+n_circles <- sapply(seq(0,9), num_circles)
+
+# tibble with number in cirlces
+n_dots <- tibble(Correct = seq(0,9),
+       Dots = n_circles)  
+
+t3 <- study_data |>
+  filter(correct_number != "No number visible",
+         number_selected != correct_number) |>
+  group_by(number_selected, correct_number) |>
+  summarise(Total = n())  |>
+  rename("Selected" = number_selected,
+         "Correct" = correct_number) |>
+  mutate(Correct = as.integer(Correct)) |>
+  left_join(n_dots) |>
+  arrange(desc(Total)) |>
+  head(10) |>
+  kable(booktabs = TRUE) |>
+  kable_styling(font_size = 10, full_width = FALSE) |>
+  pack_rows(start_row = 1, end_row = 10, latex_gap_space = "0em") 
+
+t3
+
+```
+
+
+
+Additionally, the number 1 (and possibly 7) were more frequently reported as no number visible relative to the other numbers (@tbl-nonumber-mistakes).
+This might be due to those numbers having less circles in the "number" group relative to the "background" group, as we can see the top 3 numbers reported as  "no number" also had the lowest number of "number" dots relative to those in the background.
+However, this trend seems to drop off after 1, 7, and 4.
+
+
+## Duration Analysis
+The trend in the amount of time participants spent on each question seems to align with the probability of getting the question correct.
+@fig-duration-heatmap shows the median amount of seconds spent on each $D$, $V$, and plot type.
+Unsurprisingly, the most amount of time across all plots was on the $D=1$ case, when the signal was not particularly strong.
+The pixel and transparency maps have a lower triangle of easy to see numbers, that become harder to extract as both $D$ decreases and $V$ increases.
+It is also clear that participants rarely spent more than a few seconds on each plot.
+This also highlights that, by making uncertainty something that should be visibly seen, a well designed uncertainty visualisation can be correctly within a few seconds.
+
+```{r}
+#| label: fig-duration-heatmap
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-width: 8
+#| out-width: 100%
+#| fig-cap: "A heatmap showing the median duration accross each D, V, and plot type."
+study_data |>
+  filter(!is.na(duration)) |>
+  group_by(plot_type, D, V) |>
+  dplyr::summarize(mean_duration = mean(duration),
+                   median_duration = median(duration)) |>
+  ggplot(aes(x=D, y=V, fill=median_duration)) +
+  geom_tile() +
+  facet_wrap(facets=vars(plot_type), nrow=1) +
+  xlab("Distance")+ylab("Standard Deviation")+labs(fill="Average Duration") +
+  scale_fill_continuous_sequential(palette = "Mint") +
+  geom_shadowtext(aes(label=round(median_duration,2)), color="white", size=2,
+                  bg.colour='black',) +
+  theme(legend.position="bottom", legend.direction="horizontal",
+        text=element_text(size=10), plot.margin=margin(t=0,r=0,b=0,l=0),
+        aspect.ratio=1)
+
+
+```
+
+```{r}
+#| label: fig-duration-lineplot
+#| echo: false
+#| eval: false
+#| warning: false
+#| message: false
+#| fig-width: 8
+#| out-width: 100%
+#| fig-cap: "Median duration (in seconds) to evaluate the plot, for different plot types and D, V. Generally, participants took longer when $D=1$, and $V=0, 1, 2$. For the pixel and transparency, participants were slowest when $D=2$ at the larger variance."
+study_data |>
+  filter(!is.na(duration)) |>
+  group_by(plot_type, D, V) |>
+  dplyr::summarize(mean_duration = mean(duration),
+                   median_duration = median(duration)) |>
+  ggplot(aes(x=D, y=median_duration, colour=plot_type)) +
+    geom_line() +
+    facet_wrap(~V, ncol=5, labeller = label_both) +
+    ylab("Duration (s)") +
+    theme(aspect.ratio = 1, legend.position = "bottom", 
+          legend.direction = "horizontal",
+          legend.title = element_blank())
+```
+
+## Demographic Analysis
+The demographic analysis indicates no relationship between the demographic details and the proportion of correct responses. 
+
+```{r demographics}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-width: 15
+#| fig-height: 12
+#| out-width: 100%
+#| fig-cap: "Plots showing the overall distribution of correct answers from the participants, as well as the relationship betweeen the five demographic responses and the probability of correctly identifying the number in the stimuli."
+
+# demographics: continent, age, education, colourblind, pronouns
+
+# continent
+p1 <- study_data |>
+  ggplot(aes(x = continent, fill=correct)) +
+  geom_bar(position="fill") +
+  ggtitle("Continent")
+
+
+# age
+p2 <- study_data |>
+  ggplot(aes(x = age, fill=correct)) +
+  geom_bar(position="fill") +
+  ggtitle("Age")
+ 
+# education
+p3 <- study_data |>
+  ggplot(aes(x = education, fill=correct)) +
+  geom_bar(position="fill") +
+  ggtitle("Education")
+ 
+# colourblind
+p4 <- study_data |>
+  ggplot(aes(x = colourblind, fill=correct)) +
+  geom_bar(position="fill") +
+  ggtitle("Colourblind")
+
+# pronouns
+p5 <- study_data |>
+  ggplot(aes(x = pronouns, fill=correct)) +
+  geom_bar(position="fill") +
+  ggtitle("Pronouns")
+
+# Check individual correctness
+n_correct <- study_data |>
+  group_by(id) |>
+  na.omit() |>
+  summarise(total_correct = sum(correct)) |>
+  arrange(total_correct)
+
+p6 <- n_correct |>
+  ggplot(aes(x = total_correct)) +
+  geom_rug(alpha=0.3, y=0,
+           position= position_jitter(height=0, width=0.5)) +
+  geom_density() + 
+  ggtitle("Correct distribution")
+  
+p6 + p1 + p2 + p3 + p4 + p5 + plot_layout(guides = "collect")
+```
+
+
+## Additional model comparison results
+The distance-based results as well as all pairwise comparisons, as mentioned in the main text.
+
+```{r v-trend}
+#| echo: false
+#| eval: true
+#| message: false
+#| cache: true
+
+glmer_model <- glmer(correct_original ~  D*V*plot_type +    (1|correct_number) + (1|id),
+                   family="binomial", 
+                   data = study_data)
+ 
+emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(1))) |> as.data.frame() %>%
+  select(plot_type, V.trend, SE, z.ratio, p.value) %>%
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 1",
+        digits=3, format="latex", longtable=FALSE) 
+
+emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(2))) |> as.data.frame() %>%
+  select(plot_type, V.trend, SE, z.ratio, p.value) %>%
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 2",
+        digits=3, format="latex", longtable=FALSE) 
+
+emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(3))) |> as.data.frame() %>%
+  select(plot_type, V.trend, SE, z.ratio, p.value) %>%
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 3",
+        digits=3, format="latex", longtable=FALSE) 
+
+emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4))) |> as.data.frame() %>%
+  select(plot_type, V.trend, SE, z.ratio, p.value) %>%
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 4",
+        digits=3, format="latex", longtable=FALSE) 
+
+```
+
+```{r basicmodel}
+#| echo: false
+#| eval: true
+#| message: false
+
+
+emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(1)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 1", digits=3, format="latex", longtable=FALSE)
+
+emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(2)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 2", digits=3, format="latex", longtable=FALSE,)
+
+emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(3)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 3", digits=3, format="latex", longtable=FALSE)
+
+emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(4)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 4", digits=3, format="latex", longtable=FALSE)
+
+# compare2 <- pairs(emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4), plot_type=c(c("Transparency", "Pixel")))))
+# compare1 <- pairs(emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4), plot_type=c(c("Choropleth", "Bivariate")))))
+# 
+# rbind(compare1, compare2, adjust="sidak")
+
+
+```
+
+<!--
+## Lag effects
+
+```{r}
+# Is there an afterimage effect for some sequences?
+# Want to know if the number reported is confused with 
+# previous number. Should this depend on there being a
+# big D? And then a small D?
+study_data_lag <- study_data |>
+  mutate(lag_page = page_number + 1) |>
+  filter(abs(page_number - lag_page) == 1) |>
+  filter(lag_page < 134)
+ggplot(study_data_lag) +
+  geom_jitter(aes(x=dplyr::lag(correct_number), 
+                  y=number_selected), alpha=0.2) +
+  facet_grid(D~V)
+
+```
+
+## Also check for tiredness
+
+```{r}
+
+```
+-->

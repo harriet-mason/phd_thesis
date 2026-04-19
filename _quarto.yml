@@ -19,6 +19,7 @@ book:
     - "04-chap4.qmd"
     - "05-chap5.qmd"
     - "refs.qmd"
+    - "A-appA.qmd"
   sidebar:
     style: "docked"
 
