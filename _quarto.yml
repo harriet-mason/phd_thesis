@@ -30,5 +30,8 @@ affiliation: Department of Econometrics & Business Statistics
 degrees: 'B.Comm. (Hons), Monash University'
 
 format:
-  monashthesis-html: default
-  monashthesis-pdf: default
+  monashthesis-html:
+    number-depth: 3
+  monashthesis-pdf:
+    number-depth: 3
+    toc-depth: 3
