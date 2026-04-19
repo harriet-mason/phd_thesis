@@ -62,18 +62,25 @@ This work is licensed under a [Creative Commons  Attribution-NonCommercial-Share
 
 
 # Acknowledgements {-}
-I want to start by thanking my supervisors, who put up with my half formed ideas and complete inability to stick to deadlines for almost 4 years. You have all forever shaped the way I think about statistics, software, research, and visualisation, and for that I am incredibly grateful. To Emi and Ursula, even though you were not supervisors for the entire duration of the project, some of your feedback in the early days of my PhD had a huge influence on my approach to research, and I am grateful for your help. To Susan, having someone on the supervision team who thought the same way I did and could understand my half formed ideas well enough to help me translate them into something other people could understand, was genuinely a lifesaver and I don't think I would have finished the first paper (let alone the entire PhD) without your help. To Sarah, your exuberant energy, openness to ideas that not were not fully formed by yours truly, and your welcoming attitude to your work and lab made you an absolute joy to work with (and your joining meetings halfway between tasks made me feel better when I did it myself). To Di, I don't think I have words to express the level of gratitude I have towards you. Than you for taking me on as a research assistant, then honours student, and finally PhD student. It is not an overstatement to say I wouldn't even be in research were it not for you and whatever you saw in a random undergraduate student arguing with people in the unit forums. These last 6 years inspired a level of joy and fulfilment in my work that I didn't think I would ever see in this lifetime.
+It takes a village to raise a child, and it took a small department to bring this thesis into existence. Here, I want to thank the people who made this work possible.
 
-Thank you to Rachel and Alison, for your help on the third project. I had given up on the idea of doing an experiment, but your enthusiasm about the project, delightful company, and, most importantly, ability to do the parts of the research that I couldn't, allowed me to include it in my thesis. The experiment paper was easily the most fun of all the chapters in my thesis.
+First, I want to thank my supervision team, who put up with my complete inability to stick to deadlines for almost 4 years. You have all forever shaped the way I think about statistics, software, research, and visualisation, and for that I am incredibly grateful. To Emi and Ursula, even though you were not supervisors for the entire duration of the project, some of your feedback in the early days of my PhD had a huge influence on my approach to research. To Susan, having someone on the supervision team who could understand my half formed ideas well enough to help me translate them into something other people could understand, was genuinely a lifesaver and I don't think I would have finished the first paper (let alone the entire PhD) without your help. To Sarah, your exuberant energy and openness to odd ideas is something that I sincerely hope has rubbed off on me as I try to embody that attitude for the rest of my career. To Di, I don't think I have words to express the level of gratitude I have towards you. Than you for taking me on as a research assistant, then honours student, and finally PhD student. It is not an overstatement to say I wouldn't even be in research were it not for you. These last 6 years inspired a level of joy and fulfilment in my work that I didn't think I would ever see in this lifetime.
 
-Thank you to Eliot for the hours we spent walking laps around the university.
-into something
-- phd homies
-- panel
-- zema/aemo
-- family/friends (Sophie, tom, eliot)
-- my enemies
+Thank you to Rachel and Alison, for your help on the third paper. I had given up on the idea of doing an experiment, but your enthusiasm about the project, delightful company, and, most importantly, ability to do the parts of the research that I couldn't, allowed me to include it in my thesis. The experiment paper was easily the most fun of all the chapters.
 
+Thank you to my fellow PhD students for always being good company in the office, particularly Sherry, Patrick, Heshani, Ze-yu, Floyd, Fillip, Shelly, Kris, Minh, Cash, Tina, Vis, Nimni, . In particular, thank you to Cynthia, Mitch, Jayani, Bets, and Janith, who occasionally ended up sucked into conversations with me that went on for so long my family called me to ask if I was dead.
+Thank you to the NUMBATs research group for being my home while at Monash. In particular thank you to Michael and Kate for being willing listen to me complain almost as much as the other PhD students.
+
+To Gael, thank you for for letting me into the program (despite me almost failing your class in my Bachelors).
+Thank you to everyone at AEMO and the Zema scholarship for supporting my research (both financially and emotionally).
+To my panel: Catherine, Jess, Michael, and David for your helpful feedback at my milestones that greatly contributed improved the work.
+
+To Sophie, Kat, and Kris, sorry for complaining so much in the group chat. I hope this acknowledgement made it all worthwhile.
+To Eliot, thank you for the eight years we have spent getting coffee and walking laps around Monash University. Conversations with you always brighten by day, and my supervisors can thank you for approximately 50% of my visits to campus. 
+
+To my family, Mum, Dad, Grandma, Eloise, Ben, Alastair, Lauren, and Prudence, thank you for offering your homes when I travelled for conferences, participating in my pilot study despite having no idea what it is for, and remaining supportive for this annoyingly long degree.
+
+Finally, thank you to my dog Bosco and partner Tom, without whom, I might have starved to death. I know these past four years have been almost as hard on you as they have been on me (almost), but I wouldn't have suffered through them with anyone else.
 
 
 <!--
