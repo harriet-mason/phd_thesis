@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Bibliography – Visualising Uncertainty: Conceptual Framework, Software, and Perception</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./05-chap5.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-176907cd988ceaceaf6a68569455b2d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-524fbef8baf2e3dab69d0bed693833d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather|Source Code Pro" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./refs.html">Bibliography</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Visualising Uncertainty: Conceptual Framework, Software, and Perception</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/harriet-mason/phd_thesis" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Visualising-Uncertainty--Conceptual-Framework,-Software,-and-Perception.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Front matter</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-chap1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-chap2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-chap3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Mathematical Framework and Software Implementation for Uncertainty Visualisation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-chap4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Evaluation Methods for Signal</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-chap5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./refs.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Bibliography</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Bibliography</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-anscombe" class="csl-entry" role="listitem">
+Anscombe, F. J. (1973), <span>“<a href="https://www.tandfonline.com/doi/abs/10.1080/00031305.1973.10478966">Graphs
+in statistical analysis</a>,”</span> <em>The American Statistician</em>,
+Taylor &amp; Francis, 27, 17–21.
+</div>
+<div id="ref-ggthemes" class="csl-entry" role="listitem">
+Arnold, J. B. (2024), <em>Ggthemes: Extra themes, scales and geoms for
+’ggplot2’</em>. <a href="https://doi.org/10.32614/CRAN.package.ggthemes">https://doi.org/10.32614/CRAN.package.ggthemes</a>.
+</div>
+<div id="ref-Bartonicek2025" class="csl-entry" role="listitem">
+Bartonicek, A., Urbanek, S., and Murrell, P. (2025), <span>“No
+<span>More</span>, <span>No</span> <span>Less</span> than
+<span>Sum</span> of <span>Its</span> <span>Parts</span>:
+<span>Groups</span>, <span>Monoids</span>, and the <span>Algebra</span>
+of <span>Graphics</span>, <span>Statistics</span>, and
+<span>Interaction</span>,”</span> <em>Journal of Computational and
+Graphical Statistics</em>, 34, 1063–1074. <a href="https://doi.org/10.1080/10618600.2024.2429708">https://doi.org/10.1080/10618600.2024.2429708</a>.
+</div>
+<div id="ref-Begg2014" class="csl-entry" role="listitem">
+Begg, S. H., Welsh, M. B., and Bratvold, R. B. (2014),
+<span>“Uncertainty vs. Variability: What’s the difference and why is it
+important?”</span> in <em>SPE hydrocarbon economics and evaluation
+symposium</em>. <a href="https://doi.org/10.2118/169850-MS">https://doi.org/10.2118/169850-MS</a>.
+</div>
+<div id="ref-bkw1980" class="csl-entry" role="listitem">
+Belsley, D. A., Kuh, E., and Welsch, R. E. (1980), <em>Regression
+diagnostics: Identifying influential data and sources of
+collinearity</em>, Wiley series in probability and statistics, New York:
+Wiley. <a href="https://doi.org/10.1002/0471725153">https://doi.org/10.1002/0471725153</a>.
+</div>
+<div id="ref-Benjamin2018" class="csl-entry" role="listitem">
+Benjamin, D. M., and Budescu, D. V. (2018), <span>“The role of type and
+source of uncertainty on the processing of climate models
+projections,”</span> <em>Frontiers in Psychology</em>, 9, 1–17. <a href="https://doi.org/10.3389/fpsyg.2018.00403">https://doi.org/10.3389/fpsyg.2018.00403</a>.
+</div>
+<div id="ref-rgeos" class="csl-entry" role="listitem">
+Bivand, R., and Rundel, C. (2023), <em><a href="https://CRAN.R-project.org/package=rgeos">Rgeos: Interface to
+geometry engine - open source (’GEOS’)</a></em>.
+</div>
+<div id="ref-Blenkinsop2000" class="csl-entry" role="listitem">
+Blenkinsop, S., Fisher, P., Bastin, L., and Wood, J. (2000),
+<span>“Evaluating the perception of uncertainty in alternative
+visualization strategies,”</span> <em>Cartographica</em>, 37, 1–13. <a href="https://doi.org/10.3138/3645-4v22-0m23-3t52">https://doi.org/10.3138/3645-4v22-0m23-3t52</a>.
+</div>
+<div id="ref-Bornkamp2018" class="csl-entry" role="listitem">
+Bornkamp, B. (2018), <span>“Calculating quantiles of noisy distribution
+functions using local linear regressions,”</span> <em>Computational
+Statistics</em>, Springer, 33, 487–501.
+</div>
+<div id="ref-Boukhelifa2012" class="csl-entry" role="listitem">
+Boukhelifa, N., Bezerianos, A., Isenberg, T., and Fekete, J. D. (2012),
+<span>“Evaluating sketchiness as a visual variable for the depiction of
+qualitative uncertainty,”</span> <em>IEEE Transactions on Visualization
+and Computer Graphics</em>, IEEE, 18, 2769–2778. <a href="https://doi.org/10.1109/TVCG.2012.220">https://doi.org/10.1109/TVCG.2012.220</a>.
+</div>
+<div id="ref-Boukhelifa2017" class="csl-entry" role="listitem">
+Boukhelifa, N., Perrin, M.-E., Huron, S., and Eagan, J. (2017),
+<span>“How data workers cope with uncertainty: A task characterisation
+study,”</span> in <em>Proceedings of the 2017 CHI conference on human
+factors in computing systems</em>, CHI ’17, New York, NY, USA:
+Association for Computing Machinery, pp. 3645–3656. <a href="https://doi.org/10.1145/3025453.3025738">https://doi.org/10.1145/3025453.3025738</a>.
+</div>
+<div id="ref-Brennen2018" class="csl-entry" role="listitem">
+Brennen, A., and Tuerk, S. (2018), <span>“An instrument for evaluating
+uncertainty visualization techniques,”</span> <em>Conference on Human
+Factors in Computing Systems - Proceedings</em>, 2018-April, 1–6. <a href="https://doi.org/10.1145/3170427.3188649">https://doi.org/10.1145/3170427.3188649</a>.
+</div>
+<div id="ref-Buja2009" class="csl-entry" role="listitem">
+Buja, A., Cook, D., Hofmann, H., Lawrence, M., Lee, E. K., Swayne, D.
+F., and Wickham, H. (2009), <span>“Statistical inference for exploratory
+data analysis and model diagnostics,”</span> <em>Philosophical
+Transactions of the Royal Society A: Mathematical, Physical and
+Engineering Sciences</em>, Royal Society, 367, 4361–4383. <a href="https://doi.org/10.1098/rsta.2009.0120">https://doi.org/10.1098/rsta.2009.0120</a>.
+</div>
+<div id="ref-Chakraborty2024" class="csl-entry" role="listitem">
+Chakraborty, S., Kiefer, P., and Raubal, M. (2024), <span>“The influence
+of uncertainty visualization on cognitive load in a safety- and
+time-critical decision-making task,”</span> <em>International Journal of
+Geographical Information Science</em>, 38, 1583–1610. <a href="https://doi.org/10.1080/13658816.2024.2348747">https://doi.org/10.1080/13658816.2024.2348747</a>.
+</div>
+<div id="ref-chatfield" class="csl-entry" role="listitem">
+Chatfield, C. (1985), <span>“The initial examination of data,”</span>
+<em>Journal of the Royal Statistical Society. Series A (General)</em>,
+[Royal Statistical Society, Oxford University Press], 148, 214–253. <a href="https://doi.org/10.2307/2981969">https://doi.org/10.2307/2981969</a>.
+</div>
+<div id="ref-Cheong2016" class="csl-entry" role="listitem">
+Cheong, L., Bleisch, S., Kealy, A., Tolhurst, K., Wilkening, T., and
+Duckham, M. (2016), <span>“Evaluating the impact of visualization of
+wildfire hazard upon decision-making under uncertainty,”</span>
+<em>International Journal of Geographical Information Science</em>,
+Taylor &amp; Francis, 30, 1377–1404. <a href="https://doi.org/10.1080/13658816.2015.1131829">https://doi.org/10.1080/13658816.2015.1131829</a>.
+</div>
+<div id="ref-Cleveland1984" class="csl-entry" role="listitem">
+Cleveland, W. S., and McGill, R. (1984), <span>“Graphical perception:
+Theory, experimentation, and application to the development of graphical
+methods,”</span> <em>Journal of the American Statistical
+Association</em>, 79, 531–554. <a href="https://doi.org/10.1080/01621459.1984.10478080">https://doi.org/10.1080/01621459.1984.10478080</a>.
+</div>
+<div id="ref-Cook2016" class="csl-entry" role="listitem">
+Cook, D., Lee, E.-K., and Majumder, M. (2016), <span>“Data visualization
+and statistical graphics in big data analysis,”</span> <em>Annual Review
+of Statistics and Its Application</em>, 3, 133–159. <a href="https://doi.org/10.1146/annurev-statistics-041715-033420">https://doi.org/10.1146/annurev-statistics-041715-033420</a>.
+</div>
+<div id="ref-Correll2014" class="csl-entry" role="listitem">
+Correll, M., and Gleicher, M. (2014), <span>“Error bars considered
+harmful: Exploring alternate encodings for mean and error,”</span>
+<em>IEEE Transactions on Visualization and Computer Graphics</em>, IEEE,
+20, 2142–2151. <a href="https://doi.org/10.1109/TVCG.2014.2346298">https://doi.org/10.1109/TVCG.2014.2346298</a>.
+</div>
+<div id="ref-Correll2018" class="csl-entry" role="listitem">
+Correll, M., Moritz, D., and Heer, J. (2018), <span>“Value-suppressing
+uncertainty palettes,”</span> <em>Conference on Human Factors in
+Computing Systems - Proceedings</em>, 2018-April, 1–11. <a href="https://doi.org/10.1145/3173574.3174216">https://doi.org/10.1145/3173574.3174216</a>.
+</div>
+<div id="ref-cli" class="csl-entry" role="listitem">
+Csárdi, G. (2025), <em>Cli: Helpers for developing command line
+interfaces</em>. <a href="https://doi.org/10.32614/CRAN.package.cli">https://doi.org/10.32614/CRAN.package.cli</a>.
+</div>
+<div id="ref-Fischhoff2014" class="csl-entry" role="listitem">
+Fischhoff, B., and Davis, A. L. (2014), <span>“Communicating scientific
+uncertainty,”</span> <em>Proceedings of the National Academy of Sciences
+of the United States of America</em>, 111, 13664–13671. <a href="https://doi.org/10.1073/pnas.1317504111">https://doi.org/10.1073/pnas.1317504111</a>.
+</div>
+<div id="ref-Franconeri2021" class="csl-entry" role="listitem">
+Franconeri, S. L. (2021), <span>“Three perceptual tools for seeing and
+understanding visualized data,”</span> <em>Current Directions in
+Psychological Science</em>, 30, 367–375. <a href="https://doi.org/10.1177/09637214211009512">https://doi.org/10.1177/09637214211009512</a>.
+</div>
+<div id="ref-khroma" class="csl-entry" role="listitem">
+Frerebeau, N. (2025), <em><span class="nocase">khroma: Colour Schemes
+for Scientific Data Visualization</span></em>, Pessac, France:
+Université Bordeaux Montaigne. <a href="https://doi.org/10.5281/zenodo.1472077">https://doi.org/10.5281/zenodo.1472077</a>.
+</div>
+<div id="ref-bioconductor" class="csl-entry" role="listitem">
+<span class="nocase">Gentleman, R. C., Carey, V. J., Bates, D. M., and
+others</span> (2004), <span>“Bioconductor: Open software development for
+computational biology and bioinformatics,”</span> <em>Genome
+Biology</em>, 5, R80. <a href="https://doi.org/10.1186/gb-2004-5-10-r80">https://doi.org/10.1186/gb-2004-5-10-r80</a>.
+</div>
+<div id="ref-flextable" class="csl-entry" role="listitem">
+Gohel, D., and Skintzos, P. (2024), <em><a href="https://CRAN.R-project.org/package=flextable">Flextable: Functions
+for tabular reporting</a></em>.
+</div>
+<div id="ref-Goldstein2014" class="csl-entry" role="listitem">
+Goldstein, D. G., and Rothschild, D. (2014), <span>“Lay understanding of
+probability distributions,”</span> <em>Judgment and Decision
+Making</em>, 9, 1–14.
+</div>
+<div id="ref-Griethe2006" class="csl-entry" role="listitem">
+Griethe, H., and Schumann, H. (2006), <span>“The visualization of
+uncertain data: Methods and problems,”</span> in <em>SimVis</em>, pp.
+143–156.
+</div>
+<div id="ref-Gschwandtnei2016" class="csl-entry" role="listitem">
+Gschwandtner, T., Bögl, M., Federico, P., and Miksch, S. (2016),
+<span>“Visual encodings of temporal uncertainty: A comparative user
+study,”</span> <em>IEEE Transactions on Visualization and Computer
+Graphics</em>, IEEE Computer Society, 22, 539–548. <a href="https://doi.org/10.1109/TVCG.2015.2467752">https://doi.org/10.1109/TVCG.2015.2467752</a>.
+</div>
+<div id="ref-Guo2024" class="csl-entry" role="listitem">
+Guo, Z., Kale, A., Kay, M., and Hullman, J. (2025),
+<span>“<span>VMC</span>: A grammar for visualizing statistical model
+checks,”</span> <em>IEEE Transactions on Visualization and Computer
+Graphics</em>, IEEE Educational Activities Department, 31, 798–808. <a href="https://doi.org/10.1109/TVCG.2024.3456402">https://doi.org/10.1109/TVCG.2024.3456402</a>.
+</div>
+<div id="ref-Gustafson2019" class="csl-entry" role="listitem">
+Gustafson, A., and Rice, R. E. (2019), <span>“The effects of uncertainty
+frames in three science communication topics,”</span> <em>Science
+Communication</em>, 41, 679–706. <a href="https://doi.org/10.1177/1075547019870811">https://doi.org/10.1177/1075547019870811</a>.
+</div>
+<div id="ref-Hadjimichael2024" class="csl-entry" role="listitem">
+Hadjimichael, A., Schlumberger, J., and Haasnoot, M. (2024), <span>“Data
+visualisation for decision making under deep uncertainty: Current
+challenges and opportunities,”</span> <em>Environmental Research
+Letters</em>, 19, 111011. <a href="https://doi.org/10.1088/1748-9326/ad858b">https://doi.org/10.1088/1748-9326/ad858b</a>.
+</div>
+<div id="ref-heer2010" class="csl-entry" role="listitem">
+Heer, J., and Bostock, M. (2010), <span>“Crowdsourcing graphical
+perception: Using mechanical turk to assess visualization
+design,”</span> in <em>Proceedings of the SIGCHI conference on human
+factors in computing systems</em>, CHI ’10, New York, NY, USA:
+Association for Computing Machinery, pp. 203–212. <a href="https://doi.org/10.1145/1753326.1753357">https://doi.org/10.1145/1753326.1753357</a>.
+</div>
+<div id="ref-mtcars" class="csl-entry" role="listitem">
+Henderson, and Velleman (1981), <span>“Building multiple regression
+models interactively,”</span> <em>Biometrics</em>, 37, 391–411.
+</div>
+<div id="ref-rlang" class="csl-entry" role="listitem">
+Henry, L., and Wickham, H. (2026b), <em>Rlang: Functions for base types
+and core r and ’tidyverse’ features</em>. <a href="https://doi.org/10.32614/CRAN.package.rlang">https://doi.org/10.32614/CRAN.package.rlang</a>.
+</div>
+<div id="ref-lifecycle" class="csl-entry" role="listitem">
+Henry, L., and Wickham, H. (2026a), <em>Lifecycle: Manage the life cycle
+of your package functions</em>. <a href="https://doi.org/10.32614/CRAN.package.lifecycle">https://doi.org/10.32614/CRAN.package.lifecycle</a>.
+</div>
+<div id="ref-Hofmann2012" class="csl-entry" role="listitem">
+Hofmann, H., Follett, L., Majumder, M., and Cook, D. (2012),
+<span>“Graphical tests for power comparison of competing
+designs,”</span> <em>IEEE Transactions on Visualization and Computer
+Graphics</em>, 18, 2441–2448. <a href="https://doi.org/10.1109/TVCG.2012.230">https://doi.org/10.1109/TVCG.2012.230</a>.
+</div>
+<div id="ref-huebner2016" class="csl-entry" role="listitem">
+<span class="nocase">Huebner, M., Vach, W., and le Cessie, S.</span>
+(2016), <span>“A systematic approach to initial data analysis is good
+research practice,”</span> <em>The Journal of Thoracic and
+Cardiovascular Surgery</em>, 151, 25–27. <a href="https://doi.org/10.1016/j.jtcvs.2015.09.085">https://doi.org/10.1016/j.jtcvs.2015.09.085</a>.
+</div>
+<div id="ref-Hullman2016" class="csl-entry" role="listitem">
+Hullman, J. (2016), <span>“Why evaluating uncertainty visualization is
+error prone,”</span> <em>ACM International Conference Proceeding
+Series</em>, 24-October, 143–151. <a href="https://doi.org/10.1145/2993901.2993919">https://doi.org/10.1145/2993901.2993919</a>.
+</div>
+<div id="ref-Hullman2020a" class="csl-entry" role="listitem">
+Hullman, J. (2020), <span>“Why authors don’t visualize
+uncertainty,”</span> <em>IEEE Transactions on Visualization and Computer
+Graphics</em>, IEEE Computer Society, 26, 130–139. <a href="https://doi.org/10.1109/TVCG.2019.2934287">https://doi.org/10.1109/TVCG.2019.2934287</a>.
+</div>
+<div id="ref-Hullman2021" class="csl-entry" role="listitem">
+Hullman, J., and Gelman, A. (2021), <span>“Designing for interactive
+exploratory data analysis requires theories of graphical
+inference,”</span> <em>Harvard Data Science Review</em>, 1–70. <a href="https://doi.org/10.1162/99608f92.3ab8a587">https://doi.org/10.1162/99608f92.3ab8a587</a>.
+</div>
+<div id="ref-Hullman2018" class="csl-entry" role="listitem">
+Hullman, J., Kay, M., Kim, Y. S., and Shrestha, S. (2018),
+<span>“Imagining replications: Graphical prediction discrete
+visualizations improve recall estimation of effect uncertainty,”</span>
+<em>IEEE Transactions on Visualization and Computer Graphics</em>, IEEE,
+24, 446–456. <a href="https://doi.org/10.1109/TVCG.2017.2743898">https://doi.org/10.1109/TVCG.2017.2743898</a>.
+</div>
+<div id="ref-Hullman2019" class="csl-entry" role="listitem">
+Hullman, J., Qiao, X., Correll, M., Kale, A., and Kay, M. (2019),
+<span>“In pursuit of error: A survey of uncertainty visualization
+evaluation,”</span> <em>IEEE Transactions on Visualization and Computer
+Graphics</em>, IEEE Computer Society, 25, 903–913. <a href="https://doi.org/10.1109/TVCG.2018.2864889">https://doi.org/10.1109/TVCG.2018.2864889</a>.
+</div>
+<div id="ref-Hullman2015" class="csl-entry" role="listitem">
+Hullman, J., Resnick, P., and Adar, E. (2015), <span>“Hypothetical
+outcome plots outperform error bars and violin plots for inferences
+about reliability of variable ordering,”</span> <em>PLoS ONE</em>,
+Public Library of Science, 10. <a href="https://doi.org/10.1371/journal.pone.0142444">https://doi.org/10.1371/journal.pone.0142444</a>.
+</div>
+<div id="ref-fpp3" class="csl-entry" role="listitem">
+Hyndman, R. J., and Athanasopoulos, G. (2021), <em><a href="https://otexts.com/fpp3/">Forecasting: Principles and practice,
+3rd edition</a></em>, Melbourne, Australia: OTexts.
+</div>
+<div id="ref-Ibrekk1987" class="csl-entry" role="listitem">
+Ibrekk, H., and Morgan, M. G. (1987), <span>“Graphical communication of
+uncertain quantities to nontechnical people,”</span> <em>Risk
+Analysis</em>, 7, 519–529. <a href="https://doi.org/10.1111/j.1539-6924.1987.tb00488.x">https://doi.org/10.1111/j.1539-6924.1987.tb00488.x</a>.
+</div>
+<div id="ref-Kale2021" class="csl-entry" role="listitem">
+Kale, A., Kay, M., and Hullman, J. (2021), <span>“Visual reasoning
+strategies for effect size judgments and decisions,”</span> <em>IEEE
+Transactions on Visualization and Computer Graphics</em>, 27, 272–282.
+<a href="https://doi.org/10.1109/TVCG.2020.3030335">https://doi.org/10.1109/TVCG.2020.3030335</a>.
+</div>
+<div id="ref-Kale2018" class="csl-entry" role="listitem">
+Kale, A., Nguyen, F., Kay, M., and Hullman, J. (2018),
+<span>“Hypothetical outcome plots help untrained observers judge trends
+in ambiguous data,”</span> <em>IEEE transactions on visualization and
+computer graphics</em>, IEEE, 25, 892–902.
+</div>
+<div id="ref-Kay2019" class="csl-entry" role="listitem">
+Kay, M. (2019), <span>“How much value should an uncertainty palette
+suppress if an uncertainty palette should suppress value?
+<span>S</span>tatistical and perceptual perspectives,”</span> OSF
+Preprints. <a href="https://doi.org/10.31219/osf.io/6xcnw">https://doi.org/10.31219/osf.io/6xcnw</a>.
+</div>
+<div id="ref-Kay2023" class="csl-entry" role="listitem">
+Kay, M. (2023), <span>“<span class="nocase">ggdist</span>:
+Visualizations of distributions and uncertainty in the grammar of
+graphics,”</span> <em>IEEE Transactions on Visualization and Computer
+Graphics</em>, IEEE, 30, 414–424.
+</div>
+<div id="ref-Kim2019" class="csl-entry" role="listitem">
+Kim, Y. S., Walls, L. A., Krafft, P., and Hullman, J. (2019), <span>“A
+bayesian cognition approach to improve data visualization,”</span>
+<em>Conference on Human Factors in Computing Systems - Proceedings</em>,
+1–14. <a href="https://doi.org/10.1145/3290605.3300912">https://doi.org/10.1145/3290605.3300912</a>.
+</div>
+<div id="ref-Kinkeldey2014" class="csl-entry" role="listitem">
+Kinkeldey, C., MacEachren, A. M., and Schiewe, J. (2014), <span>“How to
+assess visual communication of uncertainty? <span>A</span> systematic
+review of geospatial uncertainty visualisation user studies,”</span>
+<em>Cartographic Journal</em>, 51, 372–386. <a href="https://doi.org/10.1179/1743277414Y.0000000099">https://doi.org/10.1179/1743277414Y.0000000099</a>.
+</div>
+<div id="ref-Koonchanok2023" class="csl-entry" role="listitem">
+Koonchanok, R., Tawde, G. Y., Narayanasamy, G. R., Walimbe, S., and
+Reda, K. (2023), <span>“Visual belief elicitation reduces the incidence
+of false discovery,”</span> <em>Conference on Human Factors in Computing
+Systems - Proceedings</em>. <a href="https://doi.org/10.1145/3544548.3580808">https://doi.org/10.1145/3544548.3580808</a>.
+</div>
+<div id="ref-Kuhnert2018" class="csl-entry" role="listitem">
+Kuhnert, P. M., Pagendam, D. E., Bartley, R., Gladish, D. W., Lewis, S.
+E., and Bainbridge, Z. T. (2018), <span>“Making management decisions in
+the face of uncertainty: A case study using the <span>Burdekin</span>
+catchment in the <span>Great Barrier Reef</span>,”</span> <em>Marine and
+Freshwater Research</em>, 69, 1187–1200. <a href="https://doi.org/10.1071/MF17237">https://doi.org/10.1071/MF17237</a>.
+</div>
+<div id="ref-Lee2021" class="csl-entry" role="listitem">
+Lee, C., Yang, T., Inchoco, G. D., Jones, G. M., and Satyanarayan, A.
+(2021), <span>“Viral visualizations: How coronavirus skeptics use
+orthodox data practices to promote unorthodox science online,”</span> in
+<em>Proceedings of the 2021 CHI conference on human factors in computing
+systems</em>, pp. 1–18.
+</div>
+<div id="ref-Patrick2023" class="csl-entry" role="listitem">
+Li, W., Cook, D., Tanaka, E., and VanderPlas, S. (2024), <span>“A plot
+is worth a thousand tests: Assessing residual diagnostics with the
+lineup protocol,”</span> <em>Journal of Computational and Graphical
+Statistics</em>, 1–19. <a href="https://doi.org/10.1080/10618600.2024.2344612">https://doi.org/10.1080/10618600.2024.2344612</a>.
+</div>
+<div id="ref-datasaurpkg" class="csl-entry" role="listitem">
+Locke, S., and D’Agostino McGowan, L. (2018), <em><a href="https://CRAN.R-project.org/package=datasauRus"><span class="nocase">datasauRus</span>: <span>D</span>atasets from the
+datasaurus dozen</a></em>.
+</div>
+<div id="ref-Vizumap" class="csl-entry" role="listitem">
+Lucchesi, L., and Kuhnert, P. (2020), <em><a href="https://lydialucchesi.github.io/Vizumap/"><span>Vizumap</span>:
+Visualizing uncertainty in spatial data</a></em>.
+</div>
+<div id="ref-Lucchesi2021" class="csl-entry" role="listitem">
+Lucchesi, L., Kuhnert, P., and Wikle, C. (2021),
+<span>“<span>Vizumap</span>: An <span>R</span> package for visualising
+uncertainty in spatial data,”</span> <em>Journal of Open Source
+Software</em>, 6, 2409. <a href="https://doi.org/10.21105/joss.02409">https://doi.org/10.21105/joss.02409</a>.
+</div>
+<div id="ref-Luce1958" class="csl-entry" role="listitem">
+Luce, R. D., and Edwards, W. (1958), <span>“The derivation of subjective
+scales from just noticeable differences.”</span> <em>Psychological
+review</em>, American Psychological Association, 65, 222.
+</div>
+<div id="ref-MacEachren1992" class="csl-entry" role="listitem">
+MacEachren, A. M. (1992), <span>“Visualizing uncertain
+information,”</span> <em>Cartographic Perspectives</em>, 10–19. <a href="https://doi.org/10.14714/CP13.1000">https://doi.org/10.14714/CP13.1000</a>.
+</div>
+<div id="ref-MacEachren2005" class="csl-entry" role="listitem">
+MacEachren, A. M., Robinson, A., Hopper, S., Gardner, S., Murray, R.,
+Gahegan, M., and Hetzler, E. (2005), <span>“Visualizing geospatial
+information uncertainty: <span>What</span> we know and what we need to
+know,”</span> <em>Cartography and Geographic Information Science</em>,
+32, 139–160. <a href="https://doi.org/10.1559/1523040054738936">https://doi.org/10.1559/1523040054738936</a>.
+</div>
+<div id="ref-Maceachren2012" class="csl-entry" role="listitem">
+Maceachren, A. M., Roth, R. E., O’Brien, J., Li, B., Swingley, D., and
+Gahegan, M. (2012), <span>“Visual semiotics &amp; uncertainty
+visualization: An empirical study,”</span> <em>IEEE Transactions on
+Visualization and Computer Graphics</em>, IEEE, 18, 2496–2505. <a href="https://doi.org/10.1109/TVCG.2012.279">https://doi.org/10.1109/TVCG.2012.279</a>.
+</div>
+<div id="ref-Majumder2013" class="csl-entry" role="listitem">
+Majumder, M., Hofmann, H., and Cook, D. (2013), <span>“Validation of
+visual statistical inference, applied to linear models,”</span>
+<em>Journal of the American Statistical Association</em>, 108, 942–956.
+<a href="https://doi.org/10.1080/01621459.2013.808157">https://doi.org/10.1080/01621459.2013.808157</a>.
+</div>
+<div id="ref-Manski2020" class="csl-entry" role="listitem">
+Manski, C. F. (2020), <span>“The lure of incredible certitude,”</span>
+<em>Economics and Philosophy</em>, 36, 216–245. <a href="https://doi.org/10.1017/S0266267119000105">https://doi.org/10.1017/S0266267119000105</a>.
+</div>
+<div id="ref-Mason2024" class="csl-entry" role="listitem">
+Mason, H., Cook, D., Goodwin, S., Tanaka, E., and VanderPlas, S. (2024),
+<span>“<a href="https://arxiv.org/abs/2411.10482">The noisy work of
+uncertainty visualisation research: A review</a>.”</span>
+</div>
+<div id="ref-ggdibbler" class="csl-entry" role="listitem">
+Mason, H., Cook, D., Goodwin, S., and VanderPlas, S. (2026), <em><a href="https://github.com/harriet-mason/ggdibbler">Ggdibbler: Add
+uncertainty to data visualisations</a></em>.
+</div>
+<div id="ref-datasaurus" class="csl-entry" role="listitem">
+Matejka, J., and Fitzmaurice, G. (2017), <span>“Same stats, different
+graphs: Generating datasets with varied appearance and identical
+statistics through simulated annealing,”</span> in <em>Proceedings of
+the 2017 CHI conference on human factors in computing systems</em>, CHI
+’17, New York, NY, USA: Association for Computing Machinery, pp.
+1290–1294. <a href="https://doi.org/10.1145/3025453.3025912">https://doi.org/10.1145/3025453.3025912</a>.
+</div>
+<div id="ref-McNutt2020" class="csl-entry" role="listitem">
+McNutt, A., Kindlmann, G., and Correll, M. (2020), <span>“Surfacing
+visualization mirages,”</span> in <em>Proceedings of the 2020
+<span>CHI</span> <span>Conference</span> on <span>Human</span>
+<span>Factors</span> in <span>Computing</span>
+<span>Systems</span></em>, Honolulu HI USA: ACM, pp. 1–16. <a href="https://doi.org/10.1145/3313831.3376420">https://doi.org/10.1145/3313831.3376420</a>.
+</div>
+<div id="ref-Meng2014" class="csl-entry" role="listitem">
+Meng, X. L. (2014), <span>“A trio of inference problems that could win
+you a nobel prize in statistics (if you help fund it),”</span> <em>Past,
+Present, and Future of Statistical Science</em>, 537–562. <a href="https://doi.org/10.1201/b16720-52">https://doi.org/10.1201/b16720-52</a>.
+</div>
+<div id="ref-moritz2017trust" class="csl-entry" role="listitem">
+Moritz, D., Fisher, D., Ding, B., and Wang, C. (2017), <span>“Trust, but
+verify: Optimistic visualizations of approximate queries for exploring
+big data,”</span> in <em>Proceedings of the 2017 CHI conference on human
+factors in computing systems</em>, pp. 2904–2915.
+</div>
+<div id="ref-tibble" class="csl-entry" role="listitem">
+Müller, K., and Wickham, H. (2025), <em>Tibble: Simple data frames</em>.
+<a href="https://doi.org/10.32614/CRAN.package.tibble">https://doi.org/10.32614/CRAN.package.tibble</a>.
+</div>
+<div id="ref-Ndlovu2023" class="csl-entry" role="listitem">
+Ndlovu, A., Shrestha, H., and Harrison, L. T. (2023), <span>“Taken by
+surprise? Evaluating how bayesian surprise &amp; suppression influences
+peoples’ takeaways in map visualizations,”</span> in <em>2023 IEEE
+visualization and visual analytics (VIS)</em>, IEEE, pp. 136–140.
+</div>
+<div id="ref-RColorBrewer" class="csl-entry" role="listitem">
+Neuwirth, E. (2022), <em><a href="https://CRAN.R-project.org/package=RColorBrewer"><span>RColorBrewer</span>:
+<span>ColorBrewer</span> palettes</a></em>.
+</div>
+<div id="ref-distributional" class="csl-entry" role="listitem">
+O’Hara-Wild, M., Kay, M., Hayes, A., and Hyndman, R. (2024), <em><span class="nocase">distributional</span>: Vectorised probability
+distributions</em>. <a href="https://doi.org/10.32614/CRAN.package.distributional">https://doi.org/10.32614/CRAN.package.distributional</a>.
+</div>
+<div id="ref-ONeill2018" class="csl-entry" role="listitem">
+O’Neill, O. (2018), <span>“Linking trust to trustworthiness,”</span>
+<em>International Journal of Philosophical Studies</em>, Routledge, 26,
+293–300. <a href="https://doi.org/10.1080/09672559.2018.1454637">https://doi.org/10.1080/09672559.2018.1454637</a>.
+</div>
+<div id="ref-Olston2002" class="csl-entry" role="listitem">
+Olston, C., and Mackinlay, J. D. (2002), <span>“Visualizing data with
+bounded uncertainty,”</span> <em>Proceedings - IEEE Symposium on
+Information Visualization, INFO VIS</em>, IEEE, 2002-Janua, 37–40. <a href="https://doi.org/10.1109/INFVIS.2002.1173145">https://doi.org/10.1109/INFVIS.2002.1173145</a>.
+</div>
+<div id="ref-Otsuka2023" class="csl-entry" role="listitem">
+Otsuka, J. (2023), <em>Thinking about statistics: The philosophical
+foundations</em>, New York: Routledge, p. 204. <a href="https://doi.org/10.4324/9781003319061">https://doi.org/10.4324/9781003319061</a>.
+</div>
+<div id="ref-Padilla2022" class="csl-entry" role="listitem">
+Padilla, L., Hosseinpour, H., Fygenson, R., Howell, J., Chunara, R., and
+Bertini, E. (2022a), <span>“Impact of <span>COVID</span>-19 forecast
+visualizations on pandemic risk perceptions,”</span> <em>Scientific
+Reports 2022 12:1</em>, Nature Publishing Group, 12, 1–14. <a href="https://doi.org/10.1038/s41598-022-05353-1">https://doi.org/10.1038/s41598-022-05353-1</a>.
+</div>
+<div id="ref-uncertchap2022" class="csl-entry" role="listitem">
+Padilla, L., Kay, M., and Hullman, J. (2022b), <span>“Uncertainty
+visualization,”</span> in <em>Computational statistics in data
+science</em>, eds. W. W. Piegorsch, R. A. Levine, H. H. Zhang, and T. C.
+M. Lee, Hoboken, NJ: John Wiley &amp; Sons, pp. 405–426.
+</div>
+<div id="ref-Padilla2021" class="csl-entry" role="listitem">
+Padilla, L., Powell, M., Kay, M., and Hullman, J. (2021),
+<span>“Uncertain about uncertainty: How qualitative expressions of
+forecaster confidence impact decision-making with uncertainty
+visualizations,”</span> <em>Frontiers in Psychology</em>, Frontiers
+Media S.A., 11. <a href="https://doi.org/10.3389/fpsyg.2020.579267">https://doi.org/10.3389/fpsyg.2020.579267</a>.
+</div>
+<div id="ref-Padilla2017" class="csl-entry" role="listitem">
+Padilla, L., Ruginski, I., and Creem-Regehr, S. (2017), <span>“Effects
+of ensemble and summary displays on interpretations of geospatial
+uncertainty data,”</span> <em>Cognitive Research: Principles and
+Implications</em>, Springer, 2. <a href="https://doi.org/10.1186/s41235-017-0076-1">https://doi.org/10.1186/s41235-017-0076-1</a>.
+</div>
+<div id="ref-Pang1997" class="csl-entry" role="listitem">
+Pang, A. T., Wittenbrink, C. M., and Lodha, S. K. (1997),
+<span>“Approaches to uncertainty visualization,”</span> <em>Visual
+Computer</em>, 13, 370–390. <a href="https://doi.org/10.1007/s003710050111">https://doi.org/10.1007/s003710050111</a>.
+</div>
+<div id="ref-sfpack" class="csl-entry" role="listitem">
+Pebesma, E. (2018), <span>“<span class="nocase">Simple Features for
+R</span>: Standardized support for spatial vector data,”</span> <em>The
+R Journal</em>, 10, 439–446. <a href="https://doi.org/10.32614/RJ-2018-009">https://doi.org/10.32614/RJ-2018-009</a>.
+</div>
+<div id="ref-sf" class="csl-entry" role="listitem">
+Pebesma, E., and Bivand, R. (2023), <em>Spatial data science: With
+applications in <span>R</span></em>, Chapman; Hall/CRC. <a href="https://doi.org/10.1201/9780429459016">https://doi.org/10.1201/9780429459016</a>.
+</div>
+<div id="ref-tidygraph" class="csl-entry" role="listitem">
+Pedersen, T. L. (2024), <em>Tidygraph: A tidy API for graph
+manipulation</em>. <a href="https://doi.org/10.32614/CRAN.package.tidygraph">https://doi.org/10.32614/CRAN.package.tidygraph</a>.
+</div>
+<div id="ref-patchwork" class="csl-entry" role="listitem">
+Pedersen, T. L. (2025b), <em><span class="nocase">patchwork</span>: The
+composer of plots</em>. <a href="https://doi.org/10.32614/CRAN.package.patchwork">https://doi.org/10.32614/CRAN.package.patchwork</a>.
+</div>
+<div id="ref-ggraph" class="csl-entry" role="listitem">
+Pedersen, T. L. (2025a), <em>Ggraph: An implementation of grammar of
+graphics for graphs and networks</em>. <a href="https://doi.org/10.32614/CRAN.package.ggraph">https://doi.org/10.32614/CRAN.package.ggraph</a>.
+</div>
+<div id="ref-geointerviews" class="csl-entry" role="listitem">
+Peña-Araya, V., Fontaine, C. M., Wei, X., Delpech, G., and Bezerianos,
+A. (2025), <span>“Uncertainty in science is malleable. Advocating for
+user-agency in defining uncertainty in visualizations: A case study in
+geology,”</span> in <em>Proceedings of the 2025 CHI conference on human
+factors in computing systems</em>, pp. 1–18.
+</div>
+<div id="ref-Pham2009" class="csl-entry" role="listitem">
+Pham, B., Streit, A., and Brown, R. (2009), <span>“Visualization of
+information uncertainty: Progress and challenges,”</span> in
+<em>Advanced information and knowledge processing</em>, Springer-Verlag
+London Ltd, pp. 19–48. <a href="https://doi.org/10.1007/978-1-84800-269-2_2">https://doi.org/10.1007/978-1-84800-269-2_2</a>.
+</div>
+<div id="ref-Potter2010" class="csl-entry" role="listitem">
+Potter, K., Kniss, J., Riesenfeld, R., and Johnson, C. R. (2010),
+<span>“Visualizing summary statistics and uncertainty,”</span>
+<em>Computer Graphics Forum</em>, 29, 823–832. <a href="https://doi.org/10.1111/j.1467-8659.2009.01677.x">https://doi.org/10.1111/j.1467-8659.2009.01677.x</a>.
+</div>
+<div id="ref-Reda2021" class="csl-entry" role="listitem">
+Reda, K., and Szafir, D. A. (2021), <span>“Rainbows revisited: Modeling
+effective colormap design for graphical inference,”</span> <em>IEEE
+Transactions on Visualization and Computer Graphics</em>, 27, 1032–1042.
+<a href="https://doi.org/10.1109/TVCG.2020.3030439">https://doi.org/10.1109/TVCG.2020.3030439</a>.
+</div>
+<div id="ref-broom" class="csl-entry" role="listitem">
+Robinson, D., Hayes, A., Couch, S., and Hvitfeldt, E. (2026), <em><span class="nocase">broom</span>: Convert statistical objects into tidy
+tibbles</em>. <a href="https://doi.org/10.32614/CRAN.package.broom">https://doi.org/10.32614/CRAN.package.broom</a>.
+</div>
+<div id="ref-Sanyal2009" class="csl-entry" role="listitem">
+Sanyal, J., Zhang, S., Bhattacharya, G., Amburn, P., and Moorhead, R. J.
+(2009), <span>“A user study to compare four uncertainty visualization
+methods for <span>1D</span> and <span>2D</span> datasets,”</span>
+<em>IEEE Transactions on Visualization and Computer Graphics</em>, IEEE,
+15, 1209–1218. <a href="https://doi.org/10.1109/TVCG.2009.114">https://doi.org/10.1109/TVCG.2009.114</a>.
+</div>
+<div id="ref-Sarma2023" class="csl-entry" role="listitem">
+Sarma, A., Guo, S., Hoffswell, J., Rossi, R., Du, F., Koh, E., and Kay,
+M. (2023), <span>“Evaluating the use of uncertainty visualisations for
+imputations of data missing at random in scatterplots,”</span> <em>IEEE
+Transactions on Visualization and Computer Graphics</em>, 29, 602–612.
+<a href="https://doi.org/10.1109/TVCG.2022.3209348">https://doi.org/10.1109/TVCG.2022.3209348</a>.
+</div>
+<div id="ref-Sarma2024" class="csl-entry" role="listitem">
+Sarma, A., Pu, X., Cui, Y., Correll, M., Brown, E. T., and Kay, M.
+(2024), <span>“Odds and insights: Decision quality in exploratory data
+analysis under uncertainty,”</span> in <em>Proceedings of the CHI
+conference on human factors in computing systems</em>, CHI ’24, New
+York, NY, USA: Association for Computing Machinery. <a href="https://doi.org/10.1145/3613904.3641995">https://doi.org/10.1145/3613904.3641995</a>.
+</div>
+<div id="ref-Satyanarayan2016" class="csl-entry" role="listitem">
+Satyanarayan, A., Moritz, D., Wongsuphasawat, K., and Heer, J. (2016),
+<span>“Vega-lite: A grammar of interactive graphics,”</span> <em>IEEE
+transactions on visualization and computer graphics</em>, IEEE, 23,
+341–350.
+</div>
+<div id="ref-Savelli2013" class="csl-entry" role="listitem">
+Savelli, S., and Joslyn, S. (2013), <span>“The advantages of predictive
+interval forecasts for non-expert users and the impact of
+visualizations,”</span> <em>Applied Cognitive Psychology</em>, Wiley
+Online Library, 27, 527–541.
+</div>
+<div id="ref-Savvides2019" class="csl-entry" role="listitem">
+Savvides, R., Henelius, A., Oikarinen, E., and Puolamäki, K. (2019),
+<span>“Significance of patterns in data visualisations,”</span> in
+<em>Proceedings of the 25th ACM SIGKDD international conference on
+knowledge discovery &amp; data mining</em>, Anchorage AK USA:
+Association for Computing Machinery, pp. 1509–1517. <a href="https://doi.org/10.1145/3292500.3330994">https://doi.org/10.1145/3292500.3330994</a>.
+</div>
+<div id="ref-simons1997" class="csl-entry" role="listitem">
+Simons, D. J., and Levin, D. T. (1997), <span>“Change blindness,”</span>
+<em>Trends in Cognitive Sciences</em>, 1, 261–267. <a href="https://doi.org/10.1016/S1364-6613(97)01080-2">https://doi.org/10.1016/S1364-6613(97)01080-2</a>.
+</div>
+<div id="ref-Smart2019" class="csl-entry" role="listitem">
+Smart, S., and Szafir, D. A. (2019), <span>“Measuring the separability
+of shape, size, and color in scatterplots,”</span> <em>Conference on
+Human Factors in Computing Systems - Proceedings</em>, 1–14. <a href="https://doi.org/10.1145/3290605.3300899">https://doi.org/10.1145/3290605.3300899</a>.
+</div>
+<div id="ref-Spiegelhalter2017" class="csl-entry" role="listitem">
+Spiegelhalter, D. (2017), <span>“Risk and uncertainty
+communication,”</span> <em>Annual Review of Statistics and Its
+Application</em>, 4, 31–60. <a href="https://doi.org/10.1146/annurev-statistics-010814-020148">https://doi.org/10.1146/annurev-statistics-010814-020148</a>.
+</div>
+<div id="ref-colorspace" class="csl-entry" role="listitem">
+Stauffer, R., Mayr, G. J., Dabernig, M., and Zeileis, A. (2009),
+<span>“Somewhere over the rainbow: How to make effective use of colors
+in meteorological visualizations,”</span> <em>Bulletin of the American
+Meteorological Society</em>, 96, 203–216. <a href="https://doi.org/10.1175/BAMS-D-13-00155.1">https://doi.org/10.1175/BAMS-D-13-00155.1</a>.
+</div>
+<div id="ref-urbnmapr" class="csl-entry" role="listitem">
+Strochak, S., Ueyama, K., and Williams, A. (2024), <em><a href="https://github.com/UrbanInstitute/urbnmapr">Urbnmapr: State and
+county shapefiles in sf and tibble format</a></em>.
+</div>
+<div id="ref-ozmaps" class="csl-entry" role="listitem">
+Sumner, M. (2021), <em>Ozmaps: Australia maps</em>. <a href="https://doi.org/10.32614/CRAN.package.ozmaps">https://doi.org/10.32614/CRAN.package.ozmaps</a>.
+</div>
+<div id="ref-Swihart2010" class="csl-entry" role="listitem">
+Swihart, B. J., Caffo, B., James, B. D., Strand, M., Schwartz, B. S.,
+and Punjabi, N. M. (2010), <span>“Lasagna plots: A saucy alternative to
+spaghetti plots,”</span> <em>Epidemiology</em>, LWW, 21, 621–625.
+</div>
+<div id="ref-Thomson2005" class="csl-entry" role="listitem">
+Thomson, J., Hetzler, E., MacEachren, A., Gahegan, M., and Pavel, M.
+(2005), <span>“A typology for visualizing uncertainty,”</span>
+<em>Visualization and Data Analysis 2005</em>, 5669, 146. <a href="https://doi.org/10.1117/12.587254">https://doi.org/10.1117/12.587254</a>.
+</div>
+<div id="ref-Tierney2023" class="csl-entry" role="listitem">
+Tierney, N., and Cook, D. (2023), <span>“Expanding tidy data principles
+to facilitate missing data exploration, visualization and assessment of
+imputations,”</span> <em>Journal of Statistical Software</em>, 105,
+1–31. <a href="https://doi.org/10.18637/jss.v105.i07">https://doi.org/10.18637/jss.v105.i07</a>.
+</div>
+<div id="ref-Tukey1977" class="csl-entry" role="listitem">
+<span class="nocase">Tukey, J. W., and others</span> (1977),
+<em>Exploratory data analysis</em>, Springer.
+</div>
+<div id="ref-Vanderplas2020" class="csl-entry" role="listitem">
+Vanderplas, S., Cook, D., and Hofmann, H. (2020), <span>“Testing
+statistical charts: What makes a good graph?”</span> <em>Annual Review
+of Statistics and Its Application</em>, Annual Reviews, 7, 61–88.
+</div>
+<div id="ref-Vanderplas2015" class="csl-entry" role="listitem">
+VanderPlas, S., and Hofmann, H. (2015), <span>“Signs of the sine
+illusion—why we need to care,”</span> <em>Journal of Computational and
+Graphical Statistics</em>, Taylor &amp; Francis, 24, 1170–1190.
+</div>
+<div id="ref-vanderplas2017" class="csl-entry" role="listitem">
+VanderPlas, S., and Hofmann, H. (2017), <span>“Clusters beat trend!?
+<span>T</span>esting feature hierarchy in statistical graphics,”</span>
+<em>Journal of Computational and Graphical Statistics</em>, Taylor &amp;
+Francis, 26, 231–242.
+</div>
+<div id="ref-utypo" class="csl-entry" role="listitem">
+Walker, W. E., Harremoes, P., Rotmans, J., Van Der Sluijs, J. P., Van
+Asselt, M. B. A., Janssen, P., and Krayer Von Krauss, M. P. (2003),
+<span>“<a href="https://www.narcis.nl/publication/RecordID/oai:tudelft.nl:uuid:fdc0105c-e601-402a-8f16-ca97e9963592">Defining
+uncertainty</a>,”</span> <em>Integrated Assessment</em>, 4, 5–17.
+</div>
+<div id="ref-Wallsten1997" class="csl-entry" role="listitem">
+Wallsten, T. S., Budescu, D. V., Erev, I., and Diederich, A. (1997),
+<span>“Evaluating and combining subjective probability
+estimates,”</span> <em>Journal of Behavioral Decision Making</em>, 10,
+243–268. <a href="https://doi.org/10.1002/(sici)1099-0771(199709)10:3<243::aid-bdm268>3.0.co;2-m">https://doi.org/10.1002/(sici)1099-0771(199709)10:3&lt;243::aid-bdm268&gt;3.0.co;2-m</a>.
+</div>
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+Wickham, H. (2010), <span>“A layered grammar of graphics,”</span>
+<em>Journal of Computational and Graphical Statistics</em>, 19, 3–28. <a href="https://doi.org/10.1198/jcgs.2009.07098">https://doi.org/10.1198/jcgs.2009.07098</a>.
+</div>
+<div id="ref-Wickham2019" class="csl-entry" role="listitem">
+Wickham, H. (2019), <em>Advanced <span>R</span></em>, chapman; hall/CRC.
+</div>
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
+Wickham, H., Averick, M., Bryan, J., Chang, W., D’Agostino McGowan, L.,
+François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M.,
+Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J.,
+Robinson, D., Seidel, D. P., Spinu, V., Takahashi, K., Vaughan, D.,
+Wilke, C., Woo, K., and Yutani, H. (2019), <span>“Welcome to the
+tidyverse,”</span> <em>Journal of Open Source Software</em>, 4, 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-Wickham2010" class="csl-entry" role="listitem">
+Wickham, H., Cook, D., Hofmann, H., and Buja, A. (2010),
+<span>“Graphical inference for infovis,”</span> <em>IEEE Transactions on
+Visualization and Computer Graphics</em>, 16, 973–979. <a href="https://doi.org/10.1109/TVCG.2010.161">https://doi.org/10.1109/TVCG.2010.161</a>.
+</div>
+<div id="ref-dplyr" class="csl-entry" role="listitem">
+Wickham, H., François, R., Henry, L., Müller, K., and Vaughan, D.
+(2023a), <em>Dplyr: A grammar of data manipulation</em>. <a href="https://doi.org/10.32614/CRAN.package.dplyr">https://doi.org/10.32614/CRAN.package.dplyr</a>.
+</div>
+<div id="ref-Wickham2011" class="csl-entry" role="listitem">
+Wickham, H., and Hofmann, H. (2011), <span>“Product plots,”</span>
+<em>IEEE Transactions on Visualization and Computer Graphics</em>, 17,
+2223–2230. <a href="https://doi.org/10.1109/TVCG.2011.227">https://doi.org/10.1109/TVCG.2011.227</a>.
+</div>
+<div id="ref-Wickham2009" class="csl-entry" role="listitem">
+Wickham, H., Lawrence, M., Cook, D., Buja, A., Hofmann, H., and Swayne,
+D. F. (2009), <span>“The plumbing of interactive graphics,”</span>
+<em>Computational Statistics</em>, Springer, 24, 207–215.
+</div>
+<div id="ref-scales" class="csl-entry" role="listitem">
+Wickham, H., Pedersen, T. L., and Seidel, D. (2023b), <em><a href="https://CRAN.R-project.org/package=scales"><span class="nocase">scales</span>: Scale functions for
+visualization</a></em>.
+</div>
+<div id="ref-tidyr" class="csl-entry" role="listitem">
+Wickham, H., Vaughan, D., and Girlich, M. (2025), <em>Tidyr: Tidy messy
+data</em>. <a href="https://doi.org/10.32614/CRAN.package.tidyr">https://doi.org/10.32614/CRAN.package.tidyr</a>.
+</div>
+<div id="ref-Leland2005" class="csl-entry" role="listitem">
+Wilkinson, L. (2005), <em>The grammar of graphics</em>, Berlin,
+Heidelberg: Springer-Verlag.
+</div>
+<div id="ref-wu2023rational" class="csl-entry" role="listitem">
+Wu, Y., Guo, Z., Mamakos, M., Hartline, J., and Hullman, J. (2023),
+<span>“<a href="https://arxiv.org/abs/2304.03432">The rational agent
+benchmark for data visualization</a>.”</span>
+</div>
+<div id="ref-Yang2023" class="csl-entry" role="listitem">
+Yang, F., Cai, M., Mortenson, C., Fakhari, H., Lokmanoglu, A. D.,
+Hullman, J., Franconeri, S., Diakopoulos, N., Nisbet, E. C., and Kay, M.
+(2023), <span>“Swaying the public? <span>I</span>mpacts of election
+forecast visualizations on emotion, trust, and intention in the 2022 us
+midterms,”</span> <em>IEEE Transactions on Visualization and Computer
+Graphics</em>, IEEE, 30, 23–33.
+</div>
+<div id="ref-Zhang2022" class="csl-entry" role="listitem">
+Zhang, M., and Lin, D. K. J. (2022), <span>“Visualization for interval
+data,”</span> <em>Journal of Computational and Graphical
+Statistics</em>, 31, 960–975. <a href="https://doi.org/10.1080/10618600.2022.2066678">https://doi.org/10.1080/10618600.2022.2066678</a>.
+</div>
+<div id="ref-Zhao2023" class="csl-entry" role="listitem">
+Zhao, J., Wang, Y., Mancenido, M. V., Chiou, E. K., and Maciejewski, R.
+(2023), <span>“Evaluating the impact of uncertainty visualization on
+model reliance,”</span> <em>IEEE Transactions on Visualization and
+Computer Graphics</em>, IEEE, 30, 4093–4107. <a href="https://doi.org/10.1109/TVCG.2023.3251950">https://doi.org/10.1109/TVCG.2023.3251950</a>.
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./05-chap5.html" class="pagination-link" aria-label="Conclusion">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Conclusion</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

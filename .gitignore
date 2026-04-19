@@ -56,3 +56,5 @@ docs
 
 # specifically for this template
 /.quarto/
+
+**/*.quarto_ipynb

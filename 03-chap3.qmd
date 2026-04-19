@@ -73,13 +73,13 @@ This can occur if, for example, the tool used to record the heights has an inher
 Now, we have a vector, $\textbf{X}$, of 15 distributions, where each $\textbf{x}_i \sim N(x_i, \sigma_i)$, where $x_i \in X$ is the recorded value, and $\sigma_i$ is an estimated variance based on the environmental conditions of the measurement. 
 There are two routes we can take when it comes to visualising this estimate. 
 The second plot in @fig-dist-example is made using `ggdist`, and it shows the case where we are interested in the distribution of each individual measurement. 
-The third plot is made using `ggdibbler`, and it shows the distribution of the entire population, *but* carries forward the variability in the density that comes with having distributional inputs.
+The third plot is made using `ggdibbler`, <!--and it shows the distribution of the entire population,--> which places the emphasis on the full data density *but* carries forward the variability in the density that comes with having distributional inputs.
 
 ```{r}
 #| label: fig-dist-example
-#| fig-cap: "Three plots that show the alternative interpretations of how a density distribution should be drawn by plotting software when fed a set of distributions. These plots show the behaviour of (a) ggplot2 when fed 15 deterministic variables, (b) ggdist when fed 15 distributions, (c) ggdibbler when fed 15 distributions. We can see how the role of uncertainty as noise or signal changes the appearance and conclusions of the graphic."
-#| fig-height: 6
-#| fig-width: 15
+#| fig-cap: "Alternative interpretations of how a density distribution should be drawn the input is a set of distributions, according to different software: (a) ggplot2 forms the density from the mean values, (b) ggdist puts the distribution on each observation, treating uncertainty as signal, (c) ggdibbler shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. Which is correct might depend on the analysis, but these differences illustrate how uncertainty is treated by visualisation software."
+#| fig-height: 4
+#| fig-width: 10
 #| out-width: 100%
 set.seed(1)
 density_data <- data.frame(xmean = rnorm(15, 163, 7),
@@ -90,20 +90,20 @@ tsize = 12
 d1 <- ggplot(data = density_data) +
   geom_density(aes(x = xmean)) +
   xlab("Height") +
-  ggtitle("ggplot2: sample density") +
+  ggtitle("a. ggplot2") +
   theme(plot.title = element_text(size = tsize))
 
 d2 <- ggplot(data = density_data) +
   stat_slab(aes(xdist = xdist), colour = "black", fill=NA,
             linewidth = 0.5)+
   xlab("Height") + ylab("density") +
-  ggtitle("ggdist: measurement densities") +
+  ggtitle("b. ggdist") +
   theme(plot.title = element_text(size = tsize))
 
 d3 <- ggplot(data = density_data) + 
   geom_density_sample(aes(x=xdist), times=100, linewidth=0.1) +
   xlab("Height") +
-  ggtitle("ggdibbler: sample density with measurement error") +
+  ggtitle("c. ggdibbler") +
   theme(plot.title = element_text(size = tsize))
 
 d1 + d2 + d3
