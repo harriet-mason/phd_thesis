@@ -245,10 +245,13 @@ We replicated this scenario using a Bayesian hierarchical model with $C_i\sim~N(
 This allows us to replicate the appearance of a standard Ishihara test, even without variance in the individual estimates, as the colours are mottled by the distribution of the means.
 To keep the experiment simple and reduce the confounding signal from the variance, we kept the standard deviation constant for all $C_i$ within a plate.
 The relative distance between these two groups, $D$, as well as the standard deviation within each observation, $V$, were factors of interest when generating the data, as both affect the visibility of the numbers.
-Values for $D$ of 0, 1, 2, 3, and 4 were chosen, where 0 results in no difference between the two groups.
-Standard deviation values were set at 1, 2, 3, 4, and 5.
+This resulted in three factors, each with five levels:
 
-When combined with the plot types of interest (choropleth, bivariate, VSUP, pixel, and transparency), this resulted in a 5x5x5 factorial design, for a total of 125 experimental plots.
+- The five plot types of interest: choropleth, bivariate, VSUP, pixel, and transparency
+- The group difference, $D$, with values of  0, 1, 2, 3, and 4 were chosen, where 0 results in no difference between the two groups.
+- The standard deviation within each observation, $V$ were set at 1, 2, 3, 4, and 5.
+
+This resulted in a 5x5x5 factorial design, for a total of 125 experimental plots.
 Additionally, as the type of number displayed may affect the readability of the plot, the number displayed in each plot was randomly assigned for each participant.
 The order of plots was completely randomised for each participant.
 
@@ -352,7 +355,9 @@ One test is more appropriate given the data-generating context, but the other is
 For the sake of completeness, we will evaluate participants' responses against both models.
 
 Within statistics, the standard approach to comparing hypothesis tests is to compare power curves, where the power is the probability of detecting an effect, given that the effect actually exists.
-When comparing power curves, the typical rule of thumb is "the steeper the better", as that indicates the test has high sensitivity.
+Power curves allow us to compare the efficiency of different tests, so, for a give significance level, $\alpha$, a higher power curve (a higher probability of correctly rejecting a false hypothesis) makes a better test.
+Ultimately, our goal is for our test to minimise error (type I or type II), and power curves allow us to compare hypothesis tests on this metric.
+Often hypothesis tests will cross, so there is no "uniformly most powerful" test, so an additional rule of thumb for comparison, is "the steeper the curve, the better", as that indicates the test has high sensitivity.
 Usually, this power curve analysis is performed using effect size, but effect size can be difficult to calculate for many statistical tests, and some tests, such as Moran's I, have no effect size equivalent at all.
 Therefore, we used $D$ and $V$ as proxies for effect size; however, comparing signal suppression methods using effect size might create smoother results, and is a potential future area of research.
 
@@ -364,7 +369,7 @@ It is standard practice to account for individual ability to read plots using a 
 The number in the plate is likely to have a similar impact, so that is also included as a random effect.
 
 #### Theoretical power curves
-Hypothesis tests are usually specified in terms of a test statistic, which is a function of samples [@Casella2024].
+Hypothesis tests are usually specified in terms of a test statistic, which is a function of a sample [@Casella2024].
 This is a bit of a problem, because uncertainty visualisations, by their very nature, are designed for situations where we *don't* have a set sample, and instead are working with distributions.
 There are $t$-test equivalents, such as the pooled $t$-test, that allow us to compare two distributions, but this does not exist for our spatial tests, and certainly not with the Bayesian hierarchical model we have used to generate the data.
 That is, these common spatial autocorrelation metrics fail to take uncertainty into account in their calculations by assuming the variance of the areal estimates is equal, which results in biased estimates of the spatial structure [@koo-autocorr-2019; @waldhor-autocorr-1996; @jung-autocorr-2019].
@@ -480,6 +485,18 @@ However, the theoretical hypothesis data does not appear to have the same sensit
 
 ### Power analysis
 #### Estimating significance levels
+To set the $\alpha$ for the theoretical test, we need to calculate the $\hat\alpha$ value for each plot type, $k$, where $k \in \{chropleth, bivariate, vsup, pixel, transparency \}$. 
+While the lineup protocol has a theoretical calculation that can be used to estimate $\alpha$ due to the fact that any plot being picked by chance is $\frac 1 M$ for a lineup with $M$ plots (assuming there is no dependece structure between the plots) [@Majumder2013; @Vanderplas2021], this calculation does not translate to uncertainty visualisation.
+As graphics do not come with a significance threshold [@Vanderplas2021], and a significance threshold is required to compare our plots to classic hypothesis tests, we estimate $\hat{\alpha}_k$, using the proportion of participants who identified a number in a plot that was just random noise.
+
+@fig-h0calc shows the 95% confidence bootstrapped confidence interval for the significance level of each plot, $\hat{\alpha}_k$.  
+We can see that there is quite a large range in the distribution, driven by a left skew in the distribution of all estimates of $\hat{\alpha}_k$. 
+This is likely caused by individual differences in risk aversion.
+Reading the comments in the study, we found that some participants thought they were always supposed to see a number, and would make a guess if they had the slightest inkling towards a specific number, while other participants would only make a guess if they could fully make out the number's shape.
+These tactics align with Moran's I test and $t$-test, respectively.
+It may be more appropriate to also treat our value of $\hat{\alpha}_k$ as a random effects model, but this will theoretically and computationally overcomplicate the model.
+Therefore, we will use the average number of false positives within each plot type to estimate $\hat{\alpha}_k$.
+
 
 
 
@@ -495,16 +512,6 @@ However, the theoretical hypothesis data does not appear to have the same sensit
 
 
 
-
-To set the $\alpha$ for the theoretical test, we need to calculate the $\hat\alpha$ value for each of the $k$ plots, $\hat{\alpha}_k$, using the proportion of participants who identified a number in a plot that was just random noise. 
-
-@fig-h0calc shows the 95% confidence bootstrapped confidence interval for the significance level of each plot, $\hat{\alpha}_k$.  
-We can see that there is quite a large range in the distribution, driven by a left skew in the distribution of all estimates of $\hat{\alpha}_k$. 
-This is likely caused by individual differences in risk aversion.
-Reading the comments in the study, we found that some participants thought they were always supposed to see a number, and would make a guess if they had the slightest inkling towards a specific number, while other participants would only make a guess if they could fully make out the number's shape.
-These tactics align with Moran's I test and $t$-test, respectively.
-It may be more appropriate to also treat our value of $\hat{\alpha}_k$ as a random effects model, but this will theoretically and computationally overcomplicate the model.
-Therefore, we will use the average number of false positives within each plot type to estimate $\hat{\alpha}_k$.
 
 #### Random effects model
 
