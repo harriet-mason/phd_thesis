@@ -228,7 +228,7 @@ Let $\textbf{X}$ be a random matrix on the probability space $(\Omega, \mathcal{
 Then the scale function $M$, applied to $\textbf{X}$ will give us $M(\textbf{X})$ with the induced probability measure $P_{M(X)}(A) = P(M^{-1}(A))$. 
 :::
 
-![An illustration that highlights the difference between scaling distributions and scaling deterministic variables. Scaling deterministic variables only requires us to map individual values, but scaling a distribution requires us to scale the distribution's domain](figures/scale.jpeg){#fig-scale width=80%}
+![An illustration that highlights the difference between scaling distributions and scaling deterministic variables. Scaling deterministic variables only requires us to map individual values, but scaling a distribution requires us to scale the distribution's domain.](figures/scale.jpeg){#fig-scale width=80%}
 
 
 The illustration in @fig-scale shows that our distribution also changes names (i.e. we scale a binary categorical random variable to {0,1} to create a Bernoulli distribution), but this is simply a function of the scaling, and does not represent any meaningful change in the shape of the distributions.
@@ -270,25 +270,25 @@ When we take the time to formalise uncertainty within the visualisation function
 
 The first problem is obvious: not all distribution representations can perform signal suppression.
 We briefly illustrate the problem here.
-@fig-meanprob shows a set of contour plots visualising the `uncertain_faithfuld` data from `ggdibbler`, which is a random matrix variation of the `faithfuld` data from the `ggplot2` package.
-The contour plots on the top row all visualise the data using a mean, while the plots on the bottom row represent the data using a sample. 
+@fig-meanprob shows a set of bivariate densities as raster plots visualising the `uncertain_faithfuld` data from `ggdibbler`, which is a random matrix variation of the `faithfuld` data from the `ggplot2` package.
+Plot (a) visualises only the estimate, while the other three plots represent the data using a sample. 
 As we move from left to right, i.e. moving from plot (b) to plot (d), the variance in our distribution increases.
 This variance is independent of our expected value, so the increasing variance has no impact on the expected value of the distribution - the visualisation of our point estimate does not change as the variance increases and is always represented by plot (a). 
-You may still want to visualise summary statistics alongside other representations, such as displaying the variance as a separate contour plot. 
+You may still want to visualise summary statistics alongside other representations, such as displaying the variance as a separate density plot. 
 This might seem absurd, and there is a reasonable amount of evidence that visualising summary statistics alongside uncertainty information causes that uncertainty information to be ignored [@uncertchap2022].
 The whole point of signal suppression is that it hides a signal that is statistically invalid.
 Allowing you to include the point estimates, because the visualisation is too noisy, defeats the entire purpose of the approach.
 This property should also ensure the convergence to another distribution, as covered by @thm-cmt.
 If we are only concerned about convergence to constant values, we do not need to include uncertainty at all.
 Therefore, whichever representation we choose, it needs to convey a complete view of this distribution, a point estimate cannot do that. 
-@fig-meanprob shows how `ggdibbler` handles increasing variance in a contour plot, as the "graininess" of the plot increases with the uncertainty. 
+@fig-meanprob shows how `ggdibbler` handles increasing variance in a density plot, as the "graininess" of the plot increases with the uncertainty. 
 As the variance increases, these grains dominate the plot, making the visualisation harder to read.
 
 
 
 ::: {.cell}
 ::: {.cell-output-display}
-![A set of four raster plots that illustrate the problem with selecting a single valued representaion of the distribution, such as the mean. We can see that as the variance in the estimates increases, the visualisation of the sample becomes harder to read and conveys more uncertainty, but the visualisation of the mean will remain unchanged.](03-chap3_files/figure-pdf/fig-meanprob-1.pdf){#fig-meanprob width=100%}
+![How uncertainty is handled (or not) in raster displays of bivariate density.  The axes show the eruption time vs waiting time, and colour indicates density value, with lighter indicating higher density. In plot (a) uncertainty is ignored by showing only the estimate, and plots (b, c, d) show samples reflecting different scales of uncertainty in the density estimate. We can see that as the variance in the estimates increases, the visualisation of the sample becomes harder to read and conveys more uncertainty.](03-chap3_files/figure-pdf/fig-meanprob-1.pdf){#fig-meanprob width=100%}
 :::
 :::
 
