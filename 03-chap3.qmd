@@ -414,8 +414,8 @@ Even if we tried to work around these problems by coming up with some abstract d
 ```{r}
 #| label: fig-circle-line
 #| fig-cap: "Four plots that illustrate the issues with using a quantile to represent our distribution variables. All visualisations depict a multivariate normal distribution with marginal distributions of N(0,1) and a covariance of -0.8 and are coloured using the same notion of distance that is used to construct the quantiles. The quantile and sample plot are very similar in the univariate case when distance is well defined. In the multivariate case, the distance is not well defined, and we can see the approaches diverge in the erratic colouring of the lines. We can also see the artificial ordering imposed by the quantiles have altered some important visual features, such as the intersection of the lines. Therefore, if we want to explore multivatiate random variables, unincombered by the limitations of assumptions, we must represent our distributions with a sample. "
-#| fig-height: 12
-#| fig-width: 14
+#| fig-height: 4
+#| fig-width: 10
 #| out-width: 100%
 
 # Random intercept
@@ -451,7 +451,7 @@ q1 <- qdf |>
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
   ggtitle("Quantile: Random Intercept") +
-  theme(legend.position="none")
+  theme(legend.position="none", plot.title = element_text(size = tsize))
 
 q2 <- sdf |>
   ggplot() + 
@@ -461,7 +461,7 @@ q2 <- sdf |>
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
   ggtitle("Sample: Random Intercept") +
-  theme(legend.position="none")
+  theme(legend.position="none", plot.title = element_text(size = tsize))
 
 q3 <- qdf |>
   ggplot() + 
@@ -471,7 +471,7 @@ q3 <- qdf |>
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
   ggtitle("Quantile: Random Intercept and Sample") +
-  theme(legend.position="none")
+  theme(legend.position="none", plot.title = element_text(size = tsize))
 
 q4 <- sdf |>
   ggplot() + 
@@ -481,10 +481,10 @@ q4 <- sdf |>
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
   ggtitle("Sample: Random Intercept and Sample") +
-  theme(legend.position="none")
+  theme(legend.position="none", plot.title = element_text(size = tsize))
 
 
-q1 + q3 + q2 + q4
+q1 + q3 + q2 + q4 + plot_layout(ncol=4)
 ```
  
 This means that the only representation of a distribution that is equally as flexible as a point prediction is a sample of outcomes.
