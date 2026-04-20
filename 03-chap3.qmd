@@ -908,7 +908,7 @@ This process of visual convergence is shown in @fig-correct-times. We can see th
  
 s1 <- ggplot(data = uncertain_mtcars) +
   geom_point_sample(aes(x=mpg, y=wt, 
-                        colour = dist_transformed(cyl, as.factor, as.numeric)),
+      colour = dist_transformed(cyl, as.factor, as.numeric)),
                     alpha=0.5) +
   labs(colour = "cyl") +
   ggtitle("times = 10") + 
