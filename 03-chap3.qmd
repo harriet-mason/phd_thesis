@@ -419,7 +419,7 @@ Even if we tried to work around these problems by coming up with some abstract d
 
 ```{r}
 #| label: fig-circle-line
-#| fig-cap: "Why quantiles are problematic for representing our distribution variables, using regression coefficients. Intercepts and slopes were simulated using marginal distributions of N(0,1) and a covariance of -0.8.  Plots (a) and (b) have only the intercept treated as random, and show the quantiles and samples, respectively. Colour maps to quantile in (a) and to the value of the intercept in (b): both plots convey similar information. It breaks down when both slope and intercept are treated as random, shown as quantiles (c) and samples (d). Colour is mapped to the same notion of distance that is used to construct the quantiles. But distance is not well defined, and we can see the approaches diverge in the erratic colouring of the lines. Quantiles are not sufficiently flexible representations of distributions."
+#| fig-cap: "Why quantiles are problematic for representing our distribution variables, using regression coefficients. Intercepts and slopes were simulated using marginal distributions of N(0,1) and a covariance of -0.8.  Plots (a) and (b) have only the intercept treated as random, and show the quantiles and samples, respectively. Colour maps to quantile in (a) and to the value of the intercept in (b): both plots convey similar information. It breaks down when both slope and intercept are treated as random, shown as quantiles (c) and samples (d). Colour is mapped to the same notion of distance that is used to construct the quantiles. But distance is not well defined, and we can see the approaches diverge in the erratic colouring of the lines. Ordering beyond one variable makes quantiles inflexible representations of distributions."
 #| fig-height: 3.5
 #| fig-width: 10
 #| out-width: 100%
@@ -498,33 +498,35 @@ q1 + q2 + q3 + q4 + plot_layout(ncol=4)
 This means that the only representation of a distribution that is equally as flexible as a point prediction is a sample of outcomes.
 Of course, we don't want a sample of individual points; we want a sample of geometric objects.
 To get this, we need to pass the data through the visual function in batches, where each batch represents an outcome of the full random matrix.
-In practice, this translates to "splitting" on the `drawID` in the Grammar of Graphics [@Leland2005], or changing the `group` variable to include the `drawID` in `ggplot2` [@ggplot2]. 
+In practice, this translates to "splitting" on the `drawID` in the Grammar of Graphics [@Leland2005], which involves modifying the `group` variable in `ggplot2` [@ggplot2] to include the `drawID`. 
 @fig-grouping-need demonstrates the effect of grouping in the implementation. 
-Without the grouping, the standard error on `geom_smooth` artificially shrinks to zero, and our estimated standard errors are wrong. 
+Without appropriately handling the grouping in `geom_smooth`, thw plot has only one fitted curve with a standard error on artificially small due to a larger number of observations being used - which is wrong. Once the group variable is modified to include the `drawID` the result is a fitted line for each sample, and also the choice to include a standard error ribbon faintly in the background for each sample. 
 
 ```{r}
 #| label: fig-grouping-need
-#| layout-ncol: 2
-#| fig-cap: "An illustration of the effect of grouping on the statistic of the plot. We can see that we need to pass our samples through the visual function in batches to ensure that the statistics are not artificially changed by the sample size. "
-#| fig-subcap: 
-#|   - "No grouping"
-#|   - "Grouped by drawID"
-#| fig-height: 5
+#| fig-cap: "Modifying the group variable is essential for handling samples: (a) not done giving an incorrect representation of the uncertainty, (b) group variable includes the `drawID`. We can see that we need to pass our samples through the visual function in batches to ensure that the statistics are not artificially changed by the sample size."
+#| fig-height: 4
+#| fig-width: 8
 #| out-width: 100%
 
 
 set.seed(4453)
 
-uncertain_mpg |>
+l1 <- uncertain_mpg |>
   sample_expand(times=100) |>
   ggplot(aes(displ, hwy)) +
   geom_point(alpha=0.01) +
-  geom_smooth() 
+  geom_smooth() +
+  ggtitle("a. without modifying group") +
+  theme(plot.title = element_text(size = tsize))
 
-ggplot(uncertain_mpg, aes(displ, hwy)) +
+l2 <- ggplot(uncertain_mpg, aes(displ, hwy)) +
   geom_point_sample(alpha=0.01, seed = 22, times=100) +
-  geom_smooth_sample(linewidth=0.1, alpha=0.01, seed = 22, times=100) 
+  geom_smooth_sample(linewidth=0.1, alpha=0.01, seed = 22, times=100) +
+  ggtitle("b. group includes DrawID") +
+  theme(plot.title = element_text(size = tsize))
 
+l1 + l2 + plot_layout(ncol=2)
 ```
   
 The requirement for samples and *only* samples as our distribution representation is why the formalisation by @Kay2023, despite having the insight to use distributional inputs, did not have the full flexibility required for EDA. 

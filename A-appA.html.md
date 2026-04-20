@@ -1,17 +1,9 @@
 # Appendix A — Supplementary Material for “Colour Blinded by the Noise”
 
 
-
-
-
-
 ::: {.cell}
 
 :::
-
-
-
-
 
 
 
@@ -36,10 +28,6 @@ Screenshots from the app, in the order that the participants would experience th
 To understand the influence of the number displayed on the participant response, we can look at a confusion table of the number responses (@tbl-confusion-numbers).
 
 
-
-
-
-
 ::: {#tbl-confusion-numbers .cell tbl-cap='A confusion matrix of the number participants gave, alongside the true number in the plot. The off-diagonal elements are incorrect responses, with any concentration of numbers indicating values that are frequently mistaken for one another: 8 for 3, 6 and 9, and 6 for 5 are the most common.'}
 ::: {.cell-output-display}
 ![](A-appA_files/figure-html/tbl-confusion-numbers-1.png){fig-pos='H' width=100%}
@@ -47,26 +35,14 @@ To understand the influence of the number displayed on the participant response,
 :::
 
 
-
-
-
-
 For the cases where there actually was a number visible, we can see that participants typically got the number right, or selected no number visible, rather than making an incorrect guess.
 When there was no number, participants seemed to guess 3 more often than the other numbers.
-
-
-
-
 
 
 
 ::: {.cell tbl-pos='H' tbl-cap='A table showing the top four most commonly confused numbers.'}
 
 :::
-
-
-
-
 
 
 There are also a few numbers that participants seemed to get confused more often than others.
@@ -78,13 +54,8 @@ This seems to suggest that, when participants could not make out the number with
 
 
 
-
-
-
-
 ::: {#tbl-nonumber-mistakes .cell tbl-pos='H' tbl-cap='Numbers that were most commonly identified as \'no number visible\', ordered from most to least frequent. The order roughly coincides, inversely, with the number of \'dots\' that make up the number, suggesting that numbers constructed with fewer dots are harder to identify.'}
 ::: {.cell-output-display}
-
 `````{=html}
 <table class="table" style="font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
@@ -101,73 +72,68 @@ This seems to suggest that, when participants could not make out the number with
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 324 </td>
-   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:right;"> 127 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 7 </td>
    <td style="text-align:right;"> 306 </td>
-   <td style="text-align:right;"> 165 </td>
+   <td style="text-align:right;"> 167 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 4 </td>
    <td style="text-align:right;"> 282 </td>
-   <td style="text-align:right;"> 175 </td>
+   <td style="text-align:right;"> 189 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 5 </td>
    <td style="text-align:right;"> 258 </td>
-   <td style="text-align:right;"> 229 </td>
+   <td style="text-align:right;"> 220 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 8 </td>
    <td style="text-align:right;"> 251 </td>
-   <td style="text-align:right;"> 258 </td>
+   <td style="text-align:right;"> 242 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 3 </td>
    <td style="text-align:right;"> 228 </td>
-   <td style="text-align:right;"> 212 </td>
+   <td style="text-align:right;"> 209 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 9 </td>
    <td style="text-align:right;"> 227 </td>
-   <td style="text-align:right;"> 243 </td>
+   <td style="text-align:right;"> 240 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 6 </td>
    <td style="text-align:right;"> 220 </td>
-   <td style="text-align:right;"> 217 </td>
+   <td style="text-align:right;"> 237 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 207 </td>
-   <td style="text-align:right;"> 217 </td>
+   <td style="text-align:right;"> 206 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 165 </td>
-   <td style="text-align:right;"> 219 </td>
+   <td style="text-align:right;"> 214 </td>
   </tr>
 </tbody>
 </table>
 
 `````
-
 :::
 :::
-
-
-
-
 
 
 
@@ -186,31 +152,21 @@ It is also clear that participants rarely spent more than a few seconds on each 
 This also highlights that, by making uncertainty something that should be visibly seen, a well designed uncertainty visualisation can be correctly within a few seconds.
 
 
-
-
-
-
 ::: {.cell}
 ::: {.cell-output-display}
 ![A heatmap showing the median duration accross each D, V, and plot type.](A-appA_files/figure-html/fig-duration-heatmap-1.png){#fig-duration-heatmap fig-pos='H' width=100%}
 :::
 :::
 
+
+
 ::: {.cell}
 
 :::
 
 
-
-
-
-
 ## Demographic Analysis
 The demographic analysis indicates no relationship between the demographic details and the proportion of correct responses. 
-
-
-
-
 
 
 ::: {.cell}
@@ -221,16 +177,8 @@ The demographic analysis indicates no relationship between the demographic detai
 
 
 
-
-
-
-
 ## Additional model comparison results
 The distance-based results as well as all pairwise comparisons, as mentioned in the main text.
-
-
-
-
 
 
 ::: {.cell tbl-pos='H'}
@@ -243,15 +191,15 @@ The distance-based results as well as all pairwise comparisons, as mentioned in 
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
-Choropleth & -0.026 & 0.056 & -0.470 & 0.638\\
+Choropleth & -0.026 & 0.056 & -0.459 & 0.646\\
 \hline
-Bivariate & -0.039 & 0.055 & -0.701 & 0.483\\
+Bivariate & -0.037 & 0.055 & -0.675 & 0.500\\
 \hline
-VSUP & -0.577 & 0.060 & -9.683 & 0.000\\
+VSUP & -0.576 & 0.059 & -9.704 & 0.000\\
 \hline
-Pixel & -0.515 & 0.063 & -8.216 & 0.000\\
+Pixel & -0.516 & 0.063 & -8.252 & 0.000\\
 \hline
-Transparency & -0.539 & 0.066 & -8.217 & 0.000\\
+Transparency & -0.540 & 0.066 & -8.231 & 0.000\\
 \hline
 \end{tabular}
 \end{table}
@@ -268,15 +216,15 @@ Transparency & -0.539 & 0.066 & -8.217 & 0.000\\
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
-Choropleth & 0.110 & 0.097 & 1.132 & 0.258\\
+Choropleth & 0.110 & 0.098 & 1.127 & 0.260\\
 \hline
-Bivariate & -0.042 & 0.082 & -0.511 & 0.609\\
+Bivariate & -0.041 & 0.083 & -0.493 & 0.622\\
 \hline
-VSUP & -1.849 & 0.077 & -23.942 & 0.000\\
+VSUP & -1.849 & 0.077 & -23.915 & 0.000\\
 \hline
-Pixel & -0.639 & 0.047 & -13.731 & 0.000\\
+Pixel & -0.639 & 0.047 & -13.736 & 0.000\\
 \hline
-Transparency & -0.581 & 0.051 & -11.454 & 0.000\\
+Transparency & -0.583 & 0.051 & -11.438 & 0.000\\
 \hline
 \end{tabular}
 \end{table}
@@ -293,15 +241,15 @@ Transparency & -0.581 & 0.051 & -11.454 & 0.000\\
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
-Choropleth & 0.245 & 0.190 & 1.288 & 0.198\\
+Choropleth & 0.246 & 0.193 & 1.277 & 0.201\\
 \hline
-Bivariate & -0.045 & 0.160 & -0.278 & 0.781\\
+Bivariate & -0.044 & 0.163 & -0.272 & 0.786\\
 \hline
-VSUP & -3.121 & 0.139 & -22.458 & 0.000\\
+VSUP & -3.122 & 0.139 & -22.406 & 0.000\\
 \hline
-Pixel & -0.762 & 0.077 & -9.870 & 0.000\\
+Pixel & -0.762 & 0.078 & -9.816 & 0.000\\
 \hline
-Transparency & -0.624 & 0.092 & -6.753 & 0.000\\
+Transparency & -0.626 & 0.093 & -6.714 & 0.000\\
 \hline
 \end{tabular}
 \end{table}
@@ -318,15 +266,15 @@ Transparency & -0.624 & 0.092 & -6.753 & 0.000\\
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
-Choropleth & 0.381 & 0.290 & 1.316 & 0.188\\
+Choropleth & 0.382 & 0.293 & 1.304 & 0.192\\
 \hline
-Bivariate & -0.047 & 0.245 & -0.193 & 0.847\\
+Bivariate & -0.048 & 0.249 & -0.192 & 0.848\\
 \hline
-VSUP & -4.394 & 0.209 & -21.040 & 0.000\\
+VSUP & -4.395 & 0.209 & -20.991 & 0.000\\
 \hline
-Pixel & -0.886 & 0.124 & -7.154 & 0.000\\
+Pixel & -0.885 & 0.125 & -7.108 & 0.000\\
 \hline
-Transparency & -0.667 & 0.149 & -4.475 & 0.000\\
+Transparency & -0.669 & 0.150 & -4.453 & 0.000\\
 \hline
 \end{tabular}
 \end{table}
@@ -334,6 +282,8 @@ Transparency & -0.667 & 0.149 & -4.475 & 0.000\\
 
 :::
 :::
+
+
 
 ::: {.cell}
 ::: {.cell-output-display}
@@ -345,25 +295,25 @@ Transparency & -0.667 & 0.149 & -4.475 & 0.000\\
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
-Choropleth - Bivariate & 0.012 & 0.079 & 0.158 & 1.000\\
+Choropleth - Bivariate & 0.012 & 0.078 & 0.149 & 1.000\\
 \hline
-Choropleth - VSUP & 0.550 & 0.082 & 6.721 & 0.000\\
+Choropleth - VSUP & 0.551 & 0.081 & 6.759 & 0.000\\
 \hline
-Choropleth - Pixel & 0.489 & 0.084 & 5.809 & 0.000\\
+Choropleth - Pixel & 0.491 & 0.084 & 5.861 & 0.000\\
 \hline
-Choropleth - Transparency & 0.512 & 0.086 & 5.938 & 0.000\\
+Choropleth - Transparency & 0.514 & 0.086 & 5.978 & 0.000\\
 \hline
-Bivariate - VSUP & 0.538 & 0.081 & 6.611 & 0.000\\
+Bivariate - VSUP & 0.539 & 0.081 & 6.650 & 0.000\\
 \hline
-Bivariate - Pixel & 0.476 & 0.084 & 5.695 & 0.000\\
+Bivariate - Pixel & 0.479 & 0.083 & 5.745 & 0.000\\
 \hline
-Bivariate - Transparency & 0.500 & 0.086 & 5.826 & 0.000\\
+Bivariate - Transparency & 0.502 & 0.086 & 5.865 & 0.000\\
 \hline
-VSUP - Pixel & -0.062 & 0.086 & -0.717 & 0.953\\
+VSUP - Pixel & -0.060 & 0.086 & -0.697 & 0.957\\
 \hline
-VSUP - Transparency & -0.038 & 0.088 & -0.430 & 0.993\\
+VSUP - Transparency & -0.037 & 0.088 & -0.416 & 0.994\\
 \hline
-Pixel - Transparency & 0.024 & 0.090 & 0.263 & 0.999\\
+Pixel - Transparency & 0.023 & 0.090 & 0.257 & 0.999\\
 \hline
 \end{tabular}
 \end{table}
@@ -380,25 +330,25 @@ Pixel - Transparency & 0.024 & 0.090 & 0.263 & 0.999\\
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
-Choropleth - Bivariate & 0.151 & 0.127 & 1.194 & 0.755\\
+Choropleth - Bivariate & 0.151 & 0.128 & 1.179 & 0.764\\
 \hline
-Choropleth - VSUP & 1.959 & 0.124 & 15.784 & 0.000\\
+Choropleth - VSUP & 1.960 & 0.125 & 15.695 & 0.000\\
 \hline
-Choropleth - Pixel & 0.748 & 0.107 & 6.966 & 0.000\\
+Choropleth - Pixel & 0.750 & 0.108 & 6.915 & 0.000\\
 \hline
-Choropleth - Transparency & 0.691 & 0.109 & 6.320 & 0.000\\
+Choropleth - Transparency & 0.693 & 0.110 & 6.281 & 0.000\\
 \hline
-Bivariate - VSUP & 1.807 & 0.112 & 16.100 & 0.000\\
+Bivariate - VSUP & 1.809 & 0.113 & 15.986 & 0.000\\
 \hline
-Bivariate - Pixel & 0.597 & 0.094 & 6.360 & 0.000\\
+Bivariate - Pixel & 0.599 & 0.095 & 6.312 & 0.000\\
 \hline
-Bivariate - Transparency & 0.540 & 0.096 & 5.620 & 0.000\\
+Bivariate - Transparency & 0.542 & 0.097 & 5.584 & 0.000\\
 \hline
-VSUP - Pixel & -1.211 & 0.089 & -13.559 & 0.000\\
+VSUP - Pixel & -1.210 & 0.090 & -13.504 & 0.000\\
 \hline
-VSUP - Transparency & -1.268 & 0.092 & -13.827 & 0.000\\
+VSUP - Transparency & -1.267 & 0.092 & -13.755 & 0.000\\
 \hline
-Pixel - Transparency & -0.057 & 0.068 & -0.835 & 0.920\\
+Pixel - Transparency & -0.056 & 0.069 & -0.821 & 0.924\\
 \hline
 \end{tabular}
 \end{table}
@@ -415,25 +365,25 @@ Pixel - Transparency & -0.057 & 0.068 & -0.835 & 0.920\\
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
-Choropleth - Bivariate & 0.290 & 0.249 & 1.163 & 0.772\\
+Choropleth - Bivariate & 0.290 & 0.252 & 1.151 & 0.779\\
 \hline
-Choropleth - VSUP & 3.367 & 0.236 & 14.242 & 0.000\\
+Choropleth - VSUP & 3.368 & 0.238 & 14.153 & 0.000\\
 \hline
-Choropleth - Pixel & 1.007 & 0.206 & 4.897 & 0.000\\
+Choropleth - Pixel & 1.008 & 0.208 & 4.852 & 0.000\\
 \hline
-Choropleth - Transparency & 0.869 & 0.212 & 4.101 & 0.000\\
+Choropleth - Transparency & 0.872 & 0.214 & 4.074 & 0.000\\
 \hline
-Bivariate - VSUP & 3.077 & 0.212 & 14.503 & 0.000\\
+Bivariate - VSUP & 3.078 & 0.214 & 14.368 & 0.000\\
 \hline
-Bivariate - Pixel & 0.718 & 0.178 & 4.034 & 0.001\\
+Bivariate - Pixel & 0.718 & 0.180 & 3.982 & 0.001\\
 \hline
-Bivariate - Transparency & 0.579 & 0.185 & 3.132 & 0.015\\
+Bivariate - Transparency & 0.582 & 0.188 & 3.102 & 0.016\\
 \hline
-VSUP - Pixel & -2.359 & 0.158 & -14.938 & 0.000\\
+VSUP - Pixel & -2.360 & 0.159 & -14.863 & 0.000\\
 \hline
-VSUP - Transparency & -2.497 & 0.166 & -15.034 & 0.000\\
+VSUP - Transparency & -2.496 & 0.167 & -14.935 & 0.000\\
 \hline
-Pixel - Transparency & -0.138 & 0.120 & -1.150 & 0.780\\
+Pixel - Transparency & -0.136 & 0.121 & -1.124 & 0.794\\
 \hline
 \end{tabular}
 \end{table}
@@ -450,25 +400,25 @@ Pixel - Transparency & -0.138 & 0.120 & -1.150 & 0.780\\
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
-Choropleth - Bivariate & 0.429 & 0.380 & 1.128 & 0.792\\
+Choropleth - Bivariate & 0.430 & 0.385 & 1.118 & 0.797\\
 \hline
-Choropleth - VSUP & 4.775 & 0.358 & 13.337 & 0.000\\
+Choropleth - VSUP & 4.777 & 0.360 & 13.259 & 0.000\\
 \hline
-Choropleth - Pixel & 1.267 & 0.315 & 4.018 & 0.001\\
+Choropleth - Pixel & 1.267 & 0.318 & 3.981 & 0.001\\
 \hline
-Choropleth - Transparency & 1.048 & 0.326 & 3.212 & 0.012\\
+Choropleth - Transparency & 1.051 & 0.329 & 3.194 & 0.012\\
 \hline
-Bivariate - VSUP & 4.346 & 0.322 & 13.488 & 0.000\\
+Bivariate - VSUP & 4.348 & 0.325 & 13.362 & 0.000\\
 \hline
-Bivariate - Pixel & 0.838 & 0.275 & 3.051 & 0.019\\
+Bivariate - Pixel & 0.837 & 0.278 & 3.008 & 0.022\\
 \hline
-Bivariate - Transparency & 0.619 & 0.287 & 2.157 & 0.196\\
+Bivariate - Transparency & 0.622 & 0.291 & 2.137 & 0.205\\
 \hline
-VSUP - Pixel & -3.508 & 0.242 & -14.521 & 0.000\\
+VSUP - Pixel & -3.510 & 0.243 & -14.455 & 0.000\\
 \hline
-VSUP - Transparency & -3.727 & 0.256 & -14.576 & 0.000\\
+VSUP - Transparency & -3.726 & 0.257 & -14.485 & 0.000\\
 \hline
-Pixel - Transparency & -0.219 & 0.193 & -1.133 & 0.789\\
+Pixel - Transparency & -0.216 & 0.195 & -1.107 & 0.803\\
 \hline
 \end{tabular}
 \end{table}
@@ -478,16 +428,8 @@ Pixel - Transparency & -0.219 & 0.193 & -1.133 & 0.789\\
 :::
 
 
-
-
-
-
 <!--
 ## Lag effects
-
-
-
-
 
 
 ::: {.cell}
@@ -497,23 +439,11 @@ Pixel - Transparency & -0.219 & 0.193 & -1.133 & 0.789\\
 :::
 
 
-
-
-
-
 ## Also check for tiredness
-
-
-
-
 
 
 ::: {.cell}
 
 :::
-
-
-
-
 
 -->
