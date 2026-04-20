@@ -738,7 +738,11 @@ In these cases, tests of spatial autocorrelation, such as Moran's I and Geary's 
 One test is more appropriate given the data-generating context, but the other is more appropriate given the spatial context in which the participants read the plot. 
 For the sake of completeness, we will evaluate participants' responses against both models.
 
-Within statistics, the standard approach to comparing hypothesis tests is to compare power curves, where the power is the probability of detecting an effect, given that the effect actually exists.
+Using accuracy to comparing the plots and hypothesis tests might feel like a natural approach to comparison, but it would be naive as it would end up penalising visualisations that do exactly what we have designed them to do, hide statistically spurious signal.
+This approach would always suggest our choropleth map to be the best approach, for the very reason we want to avoid using it in the first place.
+We are not looking for accross the board "accuracy", but rather, a visualisation that is accurate when a statistical test would be accurate, and inaccurate when a statistical test would be inaccurate.
+Therefore, we opt to compare visualisations using power curves, which is the same approach taken by the lineup literature [@Majumder2013].
+Power curves show the probability of a statistical test detecting an effect, given that the effect actually exists, across a range of effect sizes.
 Power curves allow us to compare the efficiency of different tests, so, for a give significance level, $\alpha$, a higher power curve (a higher probability of correctly rejecting a false hypothesis) makes a better test.
 Ultimately, our goal is for our test to minimise error (type I or type II), and power curves allow us to compare hypothesis tests on this metric.
 Often hypothesis tests will cross, so there is no "uniformly most powerful" test, so an additional rule of thumb for comparison, is "the steeper the curve, the better", as that indicates the test has high sensitivity.
