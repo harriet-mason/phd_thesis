@@ -437,7 +437,7 @@ It would be interesting to investigate this further with a perceptual experiment
 
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
-![Illustration of the change in plot appearance based on  aesthetic mapping and position adjustment. Plots (a, b) map the random variable to text  with transparency and jitter, respectively, and plots (c, d) map to tile colour using dodging and transparency. Although this needs experimental evidence, mapping the samples to transparency improves readability for text but for colour, dodging produces better readability than transparency.](03-chap3_files/figure-html/fig-rightposition-1.png){#fig-rightposition fig-align='center' width=80%}
+![Illustration of the change in plot appearance based on  aesthetic mapping and position adjustment. Plots (a, b) map the random variable to text with transparency and jitter, respectively, and plots (c, d) map to tile colour using dodging and transparency. Although this needs experimental evidence, mapping the samples to transparency improves readability for text but for colour, dodging produces better readability than transparency.](03-chap3_files/figure-html/fig-rightposition-1.png){#fig-rightposition fig-align='center' width=80%}
 :::
 :::
 
@@ -476,7 +476,7 @@ By establishing a set of rules that will almost always work, we save ourselves f
 
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
-![An illustration of the extensive flexibility offered by our formalisation of uncertainty visualisation. There is no limitation on visualisation type as we include uncertainty in a line, map, pie chart, histogram, bubble chart, and network diagram. There is also no limitation on aesthetics, as position, colour, size, slope, are all mapped using random variables. The implementation of this formalisation in ggdibbler, means that all these plots can be made with almost identical syntax as we would use for the deterministic ggplot2 equivalent.](03-chap3_files/figure-html/fig-illustration-1.png){#fig-illustration fig-align='center' width=100%}
+![This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with ggdibbler as that in the deterministic ggplot2 equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables.](03-chap3_files/figure-html/fig-illustration-1.png){#fig-illustration fig-align='center' width=100%}
 :::
 :::
 
