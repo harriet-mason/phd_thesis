@@ -909,21 +909,28 @@ This process of visual convergence is shown in @fig-correct-times. We can see th
 #| fig-width: 12
 #| out-width: 100%
  
-s1 <- ggplot(data = uncertain_mtcars) +
-  geom_point_sample(aes(x=mpg, y=wt, 
-      colour = dist_transformed(cyl, as.factor, as.numeric)),
+# make factors consistent across plots
+new_factor <- function(cly) {
+  factor(cly, levels = c(4,6,8))
+}
+cars_data <- uncertain_mtcars |>
+  mutate(cyl = dist_transformed(cyl, new_factor, as.numeric))
+    
+s1 <- ggplot(data = cars_data) +
+  geom_point_sample(aes(x=mpg, y=wt, colour = cyl),
                     alpha=0.5) +
   labs(colour = "cyl") +
+  scale_colour_manual(values = my_colors) + 
   ggtitle("times = 10") + 
   theme(legend.position="none")
 
-s2 <- ggplot(data = uncertain_mtcars) +
+s2 <- ggplot(data = cars_data) +
   geom_point_sample(aes(x=mpg, y=wt, 
                         colour = dist_transformed(cyl, as.factor, as.numeric)), 
                     times=100, alpha=0.15) +
   labs(colour = "cyl") +
-  ggtitle("times = 100") + 
-  theme(legend.position="none")
+  ggtitle("times = 100") #+ 
+  #theme(legend.position="none")
 
 s3 <- ggplot(data = uncertain_mtcars) +
   geom_point_sample(aes(x=mpg, y=wt, 
