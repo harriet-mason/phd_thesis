@@ -5,7 +5,7 @@ execute:
   keep-md: true
 
 book:
-  title: "Uncertainty Visualisation for Exploratory Data Analysis"
+  title: "Visualising Uncertainty for Exploratory Data Analysis"
   author: "Harriet Mason"
   repo-url: https://github.com/harriet-mason/phd_thesis
   repo-branch: master
