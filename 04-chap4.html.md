@@ -2,9 +2,17 @@
 
 
 
+
+
+
+
 ::: {.cell}
 
 :::
+
+
+
+
 
 
 ## Introduction
@@ -148,9 +156,7 @@ Our goal is to identify the design choices that lead to effective signal suppres
 
 
 
-::: {.cell}
 
-:::
 
 
 
@@ -158,19 +164,23 @@ Our goal is to identify the design choices that lead to effective signal suppres
 
 :::
 
-
-
 ::: {.cell}
 
 :::
 
+::: {.cell}
 
+:::
 
 ::: {.cell}
 ::: {.cell-output-display}
 ![The five map designs we will be evaluating, illustrated using the state boundaries of Australia. The distributions visualised in the maps are the same data, but randomly generated. Along with an example with each map, we also have the breakdown of how each map is created, a grammar of graphics breakdown of its important components. We can use this table to understand how each map diverges from one another (as well as the standard choropleth map) to understand how our findings translate to generalisable findings about uncertainty visualisation.](04-chap4_files/figure-html/fig-maps-1.png){#fig-maps width=100%}
 :::
 :::
+
+
+
+
 
 
 
@@ -246,9 +256,17 @@ Additionally, as the type of number displayed may affect the readability of the 
 The order of plots was completely randomised for each participant.
 
 
+
+
+
+
 ::: {.cell}
 
 :::
+
+
+
+
 
 
 ::: {#fig-plotexample layout-nrow=2}
@@ -382,12 +400,30 @@ The correct number is also included as a random effect.
 
 
 
+
+
+
+
+
+
+
+
+
+
 ### Participant Information
+
+
+
+
 
 
 ::: {.cell}
 
 :::
+
+
+
+
 
 
 137 individuals completed the study and passed the attention check.
@@ -396,9 +432,17 @@ Because individuals were provided a 'back' button in the case of accidental subm
 A Pearson's chi-squared test for independence indicates a non-significant relationship between plot type and number present in the data, indicating that random assignment of numbers was successful ($p$-value of 0.92).
 
 
+
+
+
+
 ::: {.cell}
 
 :::
+
+
+
+
 
 
 Demographically, participants tended to be younger, use he/him pronouns, and have a tertiary education.
@@ -417,11 +461,18 @@ A large number of participants were from Africa and Europe (41.61% and 30.66%, r
 
 
 
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![The full set of participant responses, coloured by whether or not they were able to identify the correct number in the plot, grouped according to the distance ($D$) between the distributions, and the standard deviation ($V$) in each individual estimate. The theoretical simulation from the $t$-test and Moran's I calculations is also included as a point of reference.](04-chap4_files/figure-html/fig-tileplot-1.png){#fig-tileplot width=100%}
 :::
 :::
+
+
+
+
 
 
 @fig-tileplot shows the percent of participants who were able to make a correct selection for each type of plot, based on the distance ($D$) between the number and non-number groups, and the standard deviation ($V$) of the subsamples.
@@ -447,6 +498,10 @@ It may be more appropriate to also treat our value of $\hat{\alpha}_k$ as a rand
 Therefore, we will use the average number of false positives within each plot type to estimate $\hat{\alpha}_k$.
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![Bootstrapped significance levels for each plot type, shown as jittered dotplots, computed using the null plots, $D=0$. The large points are the full sample values, that are used in the power analysis. The vertical line indicates the conventional significance level, 0.05.](04-chap4_files/figure-html/fig-h0calc-1.png){#fig-h0calc width=80%}
@@ -454,20 +509,30 @@ Therefore, we will use the average number of false positives within each plot ty
 :::
 
 
+
+
+
+
 #### Random effects model
+
+
+
+
 
 
 ::: {.cell}
 
 :::
-
-
 
 ::: {.cell}
 ::: {.cell-output-display}
 ![Visualisation of generalised linear random effects model (top) generalised linear fixed effects model (bottom).](04-chap4_files/figure-html/fig-mixmodel-1.png){#fig-mixmodel width=100%}
 :::
 :::
+
+
+
+
 
 
 @fig-mixmodel shows the random effects model and fixed effects components for each plot type, $D$ and $V$, with a black dashed line indicating the theoretical power curve of our hypothesis tests for that plot's value of $\hat{\alpha}_k$. 
@@ -494,6 +559,10 @@ This skill could get better with training to allow comparable results.
 *Relating to H1: Changes to the standard deviation in the distributions will result in no meaningful difference in our ability to read the number in the choropleth and bivariate map.* 
 
 
+
+
+
+
 ::: {#tbl-v-trend .cell tbl-cap='Effect of Standard Deviation (V) by Plot Type, Averaged Over Distance (D)'}
 ::: {.cell-output-display}
 
@@ -518,12 +587,20 @@ Transparency & -0.604 & 0.068 & -8.843 & 0.000\\
 :::
 
 
+
+
+
+
 As shown in Table @tbl-v-trend, the effect associated with $V$ for each plot type is insignificant in the case of the bivariate map and choropleth map, but significant for all other map types, when averaging over the effect of $D$.
 Significance tests at set $D=1, 2, 3, 4$, result in the same conclusions in terms of significance.
 This indicates that $V$ has no significant effect for bivariate and choropleth maps, given the generalised linear mixed effects model.
 Distance-based results are available in the Supplementary Material.
 
 *Relating to H1 and H3: The probability of correctly reading the transparency and pixel map, as well as the probability of correctly reading the choropleth and bivariate map, will be similar.*
+
+
+
+
 
 
 
@@ -543,6 +620,10 @@ Transparency - Pixel & 0.096 & 0.090 & 1.075 & 0.565\\
 
 :::
 :::
+
+
+
+
 
 
 Comparisons of standard deviation effect between plot types of interest are shown in @tbl-basicmodel.
@@ -636,6 +717,15 @@ Alternatively, including a variety of shapes in the test may reduce the probabil
 ### Ethics declaration {-}
 
 Ethics approval for the online survey was granted by Monash University Human Research Ethics Committee (Project ID 51214). All applicants provided informed consent prior to participating in this research.
+
+
+
+
+
+
+
+
+
 
 
 

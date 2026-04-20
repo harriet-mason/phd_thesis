@@ -39,15 +39,125 @@ These contributions allow us to visualise random variables with as much ease as 
 # Declaration {-}
 I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
 
-This thesis includes three original papers, two  in peer reviewed journals and ?? submitted publications. The core theme of the thesis is ??. The ideas, development and writing up of all the papers in the thesis were the principal responsibility of myself, the student, working within the Department of Econometrics & Business Statistics under the supervision of ??
+This thesis includes three research articles which are at different stages of publication. @sec-first-paper has been submitted to Annual Reviews of Statistics and Its Applications as an invited contribution. @sec-second-paper is being prepared for submission to the Journal of Computational and Graphical Statistics. @sec-third-paper has been submitted to IEEE VIS 2026. The core theme of this thesis is "exploratory data analysis with uncertain data". The ideas, development and writing up of all the papers in the thesis were the principal responsibility of myself, the student, working within the Department of Econometrics & Business Statistics under the supervision of Professor Dianne Cook, Dr Sarah Goodwin, and Dr Susan VanderPlas (University of Nebraska-Lincoln). @sec-first-paper was also a collaberation with Dr Emi Tanaka, and @sec-third-paper was a collaboration with Dr Rachel Rogers (University of Technology Sydney), Dr Alison Kleffner (Creighton University). In the case of @sec-first-paper, @sec-second-paper, and @sec-third-paper my contributions are detailed in the table below.
 
 (The inclusion of co-authors reflects the fact that the work came from active collaboration between researchers and acknowledges input into team-based research.)
 
-In the case of (??insert chapter numbers) my contribution to the work involved the following:
+
+
+
+
+
+::: {.cell}
+
+:::
+
+
+
+
+
+
+::: {.content-visible when-format="html"}
+
+
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:right;text-align: left;"> Thesis chapter </th>
+   <th style="text-align:left;text-align: left;"> Publication title </th>
+   <th style="text-align:left;text-align: left;"> Status </th>
+   <th style="text-align:left;text-align: left;"> Nature and % of student contribution </th>
+   <th style="text-align:left;text-align: left;"> Nature and % of coauthors' contribution </th>
+   <th style="text-align:left;text-align: left;"> Coauthors are Monash students </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> The Noisy Work of Uncertainty Visualisation </td>
+   <td style="text-align:left;"> Submitted to Annual Reviews of Statistics and Its Applications </td>
+   <td style="text-align:left;"> Concept, writing, editing </td>
+   <td style="text-align:left;"> Dianne Cook, (help): ??%; Sarah Goodwin, (help): ??%; Emi Tanaka, (help): ??%; Susan Vanderplas, (help): ??% </td>
+   <td style="text-align:left;"> No </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> A Mathematical Framework and Software Implementation for Uncertainty Visualisation </td>
+   <td style="text-align:left;"> Prepared for submission to Journal of Computational and Graphical Statistics </td>
+   <td style="text-align:left;"> Concept, software design and implementation, writing, editing </td>
+   <td style="text-align:left;"> Dianne Cook, (help): ??%; Sarah Goodwin, (help): ??%; Susan Vanderplas, (help): ??% </td>
+   <td style="text-align:left;"> No </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> Colour Blinded by the Noise </td>
+   <td style="text-align:left;"> Submitted to IEEE VIS 2026 </td>
+   <td style="text-align:left;"> Concept, experiment design and implementation, analysis, writing, editing </td>
+   <td style="text-align:left;"> Dianne Cook, (help): ??%; Rachel Rogers, (help): ??%; Alison Kleffner, (help): ??% </td>
+   <td style="text-align:left;"> No </td>
+  </tr>
+</tbody>
+</table>
+
+`````
+
+:::
+:::
+
+
+
+
+
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+\begingroup\fontsize{10}{12}\selectfont
+
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabu} to \linewidth {>{\raggedleft\arraybackslash}p{1.2cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright}X>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}}
+\toprule
+\multicolumn{1}{>{\raggedright\arraybackslash}p{1.2cm}}{\textbf{Thesis chapter}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Publication title}} & \multicolumn{1}{l}{\textbf{Status}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Nature and \% of student contribution}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Nature and \% of coauthors' contribution}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Coauthors are Monash students}}\\
+\midrule
+2 & The Noisy Work of Uncertainty Visualisation & Submitted to Annual Reviews of Statistics and Its Applications & Concept, writing, editing & Dianne Cook, (help): ??\%; Sarah Goodwin, (help): ??\%; Emi Tanaka, (help): ??\%; Susan Vanderplas, (help): ??\% & No\\
+3 & A Mathematical Framework and Software Implementation for Uncertainty Visualisation & Prepared for submission to Journal of Computational and Graphical Statistics & Concept, software design and implementation, writing, editing & Dianne Cook, (help): ??\%; Sarah Goodwin, (help): ??\%; Susan Vanderplas, (help): ??\% & No\\
+4 & Colour Blinded by the Noise & Submitted to IEEE VIS 2026 & Concept, experiment design and implementation, analysis, writing, editing & Dianne Cook, (help): ??\%; Rachel Rogers, (help): ??\%; Alison Kleffner, (help): ??\% & No\\
+\bottomrule
+\end{tabu}}
+\endgroup{}
+
+
+:::
+:::
+
+
+
+
+
+
+:::
+
+
 
 I have / have not renumbered sections of submitted or published papers in order to generate a consistent presentation within the thesis.
 
-Student name:
+Student name: Harriet Mason
 
 Student signature:
 
@@ -55,7 +165,7 @@ Date:
 
 I hereby certify that the above declaration correctly reflects the nature and extent of the student’s and co-authors’ contributions to this work. In instances where I am not the responsible author I have consulted with the responsible author to agree on the respective contributions of the authors.
 
-Main Supervisor name:
+Main Supervisor name: Dianne Cook
 
 Main Supervisor signature:
 
@@ -70,25 +180,27 @@ This work is licensed under a [Creative Commons  Attribution-NonCommercial-Share
 
 
 # Acknowledgements {-}
-It takes a village to raise a child, and it took a small department to bring this thesis into existence. Here, I want to thank the people who made this work possible.
+I want to thank the people who made this work possible.
 
 First, I want to thank my supervision team, who put up with my complete inability to stick to deadlines for almost 4 years. You have all forever shaped the way I think about statistics, software, research, and visualisation, and for that I am incredibly grateful. To Emi and Ursula, even though you were not supervisors for the entire duration of the project, some of your feedback in the early days of my PhD had a huge influence on my approach to research. To Susan, having someone on the supervision team who could understand my half formed ideas well enough to help me translate them into something other people could understand, was genuinely a lifesaver and I don't think I would have finished the first paper (let alone the entire PhD) without your help. To Sarah, your exuberant energy and openness to odd ideas is something that I sincerely hope has rubbed off on me as I try to embody that attitude for the rest of my career. To Di, I don't think I have words to express the level of gratitude I have towards you. Than you for taking me on as a research assistant, then honours student, and finally PhD student. It is not an overstatement to say I wouldn't even be in research were it not for you. These last 6 years inspired a level of joy and fulfilment in my work that I didn't think I would ever see in this lifetime.
 
 Thank you to Rachel and Alison, for your help on the third paper. I had given up on the idea of doing an experiment, but your enthusiasm about the project, delightful company, and, most importantly, ability to do the parts of the research that I couldn't, allowed me to include it in my thesis. The experiment paper was easily the most fun of all the chapters.
 
-Thank you to my fellow PhD students for always being good company in the office, particularly Sherry, Patrick, Heshani, Ze-yu, Floyd, Fillip, Shelly, Kris, Minh, Cash, Tina, Vis, Nimni, . In particular, thank you to Cynthia, Mitch, Jayani, Bets, and Janith, who occasionally ended up sucked into conversations with me that went on for so long my family called me to ask if I was dead.
+Thank you to my fellow PhD students for always being good company in the office, particularly Sherry, Patrick, Heshani, Ze-yu, Floyd, Fillip, Shelly, Kris, Minh, Cash, Tina, and Vis. In particular, thank you to Cynthia, Mitch, Jayani, Bets, and Janith, who occasionally ended up sucked into conversations with me that went on for so long my family called me to ask if I was dead.
 Thank you to the NUMBATs research group for being my home while at Monash. In particular thank you to Michael and Kate for being willing listen to me complain almost as much as the other PhD students.
 
-To Gael, thank you for for letting me into the program (despite me almost failing your class in my Bachelors).
-Thank you to everyone at AEMO and the Zema scholarship for supporting my research (both financially and emotionally).
-To my panel: Catherine, Jess, Michael, and David for your helpful feedback at my milestones that greatly contributed improved the work.
+To Gael, thank you for for letting me into the program (despite me almost failing your class in my Bachelors) and Catherine, David and Xibin for maintaining the PhD program in the years after.
+Thank you to everyone at AEMO and the Zema scholarship fund for supporting my research (both financially and emotionally).
+To my panel: Catherine, Jess, Michael, and David, thank you for the helpful feedback at my milestones that greatly contributed improved the work.
 
 To Sophie, Kat, and Kris, sorry for complaining so much in the group chat. I hope this acknowledgement made it all worthwhile.
 To Eliot, thank you for the eight years we have spent getting coffee and walking laps around Monash University. Conversations with you always brighten by day, and my supervisors can thank you for approximately 50% of my visits to campus. 
 
-To my family, Mum, Dad, Grandma, Eloise, Ben, Alastair, Lauren, and Prudence, thank you for offering your homes when I travelled for conferences, participating in my pilot study despite having no idea what it is for, and remaining supportive for this annoyingly long degree.
+To my family, Mum, Dad, Grandma, Eloise, Ben, Alastair, Lauren, and Prudence, thank you for offering your homes when I travelled for conferences, participating in my pilot study despite having no idea what it was for, and remaining supportive for this annoyingly long degree.
+To my house mates, Bosco (the dog) and Sophie (the human) for tolerating my erratic work schedule.
+Finally, thank you to my and partner Tom, without whom, I might have starved to death. 
 
-Finally, thank you to my dog Bosco and partner Tom, without whom, I might have starved to death. I know these past four years have been almost as hard on you as they have been on me (almost), but I wouldn't have suffered through them with anyone else.
+To all my friends, family and loved ones, I know these past four years have been almost as hard on you as they have been on me (almost), but I wouldn't have suffered through them with anyone else.
 
 
 <!--

@@ -2,9 +2,17 @@
 
 
 
+
+
+
+
 ::: {.cell}
 
 :::
+
+
+
+
 
 
 
@@ -55,11 +63,19 @@ The second plot in @fig-dist-example is made using `ggdist`, and it shows the ca
 The third plot is made using `ggdibbler`, <!--and it shows the distribution of the entire population,--> which places the emphasis on the full data density *but* carries forward the variability in the density that comes with having distributional inputs.
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![Alternative interpretations of how to render a density plot when the input is a set of distributions describing uncertainty of measurements, according to three plotting packages: (a) `ggplot2` forms the density from the mean values, (b) `ggdist` puts the distribution on each observation, treating uncertainty as signal, (c) `ggdibbler` shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. These differences illustrate how uncertainty is interpreted in different ways. Which is correct?](03-chap3_files/figure-pdf/fig-dist-example-1.pdf){#fig-dist-example width=100%}
 :::
 :::
+
+
+
+
 
 
 The distinction between the two approaches presented in @fig-dist-example is the same signal and noise paradigm presented by @Mason2024. 
@@ -288,11 +304,19 @@ As the variance increases, these grains dominate the plot, making the visualisat
 
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![How uncertainty is handled (or not) in raster displays of bivariate density.  The axes show the eruption time vs waiting time, and colour indicates density value, with lighter indicating higher density. In plot (a) uncertainty is ignored by showing only the estimate, and plots (b, c, d) show samples reflecting different scales of uncertainty in the density estimate. We can see that as the variance in the estimates increases, the visualisation of the sample becomes harder to read and conveys more uncertainty.](03-chap3_files/figure-pdf/fig-meanprob-1.pdf){#fig-meanprob width=100%}
 :::
 :::
+
+
+
+
 
 
 #### Why not probability functions
@@ -336,11 +360,19 @@ The implicit pairing of values has also changed the point of intersection of the
 Even if we tried to work around these problems by coming up with some abstract definition of a visual quantile we wouldn't be able to draw the output with a straight line, which is the only real requirement for `geom_abline`.
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![Why quantiles are problematic for representing our distribution variables, using regression coefficients. Intercepts and slopes were simulated using marginal distributions of N(0,1) and a covariance of -0.8.  Plots (a) and (b) have only the intercept treated as random, and show the quantiles and samples, respectively. Colour maps to quantile in (a) and to the value of the intercept in (b): both plots convey similar information. It breaks down when both slope and intercept are treated as random, shown as quantiles (c) and samples (d). Colour is mapped to the same notion of distance that is used to construct the quantiles. But distance is not well defined, and we can see the approaches diverge in the erratic colouring of the lines. Ordering beyond one variable makes quantiles inflexible representations of distributions.](03-chap3_files/figure-pdf/fig-circle-line-1.pdf){#fig-circle-line width=100%}
 :::
 :::
+
+
+
+
 
  
 #### Distributions as samples
@@ -353,11 +385,19 @@ In practice, this translates to "splitting" on the `drawID` in the Grammar of Gr
 Without appropriately handling the grouping in `geom_smooth`, thw plot has only one fitted curve with a standard error on artificially small due to a larger number of observations being used - which is wrong. Once the group variable is modified to include the `drawID` the result is a fitted line for each sample, and also the choice to include a standard error ribbon faintly in the background for each sample. 
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![Modifying the group variable is essential for handling samples: (a) not done giving an incorrect representation of the uncertainty, (b) group variable includes the `drawID`. We can see that we need to pass our samples through the visual function in batches to ensure that the statistics are not artificially changed by the sample size.](03-chap3_files/figure-pdf/fig-grouping-need-1.pdf){#fig-grouping-need width=100%}
 :::
 :::
+
+
+
+
 
   
 The requirement for samples and *only* samples as our distribution representation is why the formalisation by @Kay2023, despite having the insight to use distributional inputs, did not have the full flexibility required for EDA. 
@@ -412,11 +452,19 @@ This suggests the possibility of an underlying orthogonal relationship between u
 
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![Why we need nested position adjustments illustrated using stacked bar charts made using different position adjustment. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples' position adjustment.](03-chap3_files/figure-pdf/fig-positions-1.pdf){#fig-positions width=100%}
 :::
 :::
+
+
+
+
 
 
 
@@ -435,11 +483,19 @@ Differences in the most appropriate position adjustment can cause conflict when 
 It would be interesting to investigate this further with a perceptual experiment to test the effectiveness of different position adjustments for different aesthetics, but that is well beyond the scope of this paper.  
 
 
+
+
+
+
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
 ![Illustration of the change in plot appearance based on  aesthetic mapping and position adjustment. Plots (a, b) map the random variable to text with transparency and jitter, respectively, and plots (c, d) map to tile colour using dodging and transparency. Although this needs experimental evidence, mapping the samples to transparency improves readability for text but for colour, dodging produces better readability than transparency.](03-chap3_files/figure-pdf/fig-rightposition-1.pdf){#fig-rightposition fig-align='center' width=80%}
 :::
 :::
+
+
+
+
 
 
 
@@ -474,11 +530,19 @@ A single plot can even have multiple sources of uncertainty simultaneously mappe
 By establishing a set of rules that will almost always work, we save ourselves from having to design bespoke software for every single individual case. 
 
 
+
+
+
+
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
 ![This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with `ggdibbler` as that in the deterministic `ggplot2` equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables.](03-chap3_files/figure-pdf/fig-illustration-1.pdf){#fig-illustration fig-align='center' width=100%}
 :::
 :::
+
+
+
+
 
 
 While we have established the conceptual theory that would underpin a flexible uncertainty visualisation system, there are considerations that need to be made when implementing the theory as practical software.
@@ -573,11 +637,19 @@ To be more specific, let $V(\textbf{X})_i$ be the $i^{th}$ rendering of a `ggdib
 This process of visual convergence is shown in @fig-correct-times. We can see that the full shape of the distribution becomes more visible as the `times` argument increases (the input is a scatter plot of uniform distributions).
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![A scatter plot of a random matrix version of the `mtcars` data from the 'datasets' R package, with the aesthetic mapping `x=mpg`, `y=wt` and `colour=cyl`. This plot shows the impact of an appropriately chosen times argument. We can see that as the sample size increases, the distributions form cohesive units and stop looking like a collection of separate points with little connection. This is not always achievable due to computational cost, but we should, at the very least, select a sample size that means our conclusions are not changing between renderings of the plot.](03-chap3_files/figure-pdf/fig-correct-times-1.pdf){#fig-correct-times width=100%}
 :::
 :::
+
+
+
+
 
 
 Given this additional complexity, we might opt to skip the entire sampling procedure and instead just map the "uncertainty" to some kind of aesthetic.
@@ -598,11 +670,19 @@ Since the dots in a dotplot must be stacked on top of each other, this type of b
 This makes it unclear as to how the blur should be interpreted, and it indicates some kind of breakdown in the relationship between the data and its visual representation. 
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![Two examples from the `ggdibbler` documentation, and one example from the `ggdist` documentation to illustrate the difference in the top-down versus emergent aesthetic approach. The blur and fuzziness emerge from the `ggdibbler` plots due to the sampling procedures, while the blur in `ggdist` is added manually as a top-down aesthetic. We can see that the 'cliff' effect in the `ggdist` plot is not visible in the blurred `ggdibbler` plot, because it would be impossible to generate that appearance from the underlying data.](03-chap3_files/figure-pdf/fig-fuzzy-blur-1.pdf){#fig-fuzzy-blur width=100%}
 :::
 :::
+
+
+
+
 
 
 Breaking the connection between the data and it's visual representation would result in us losing the desirable statistical properties that are guaranteed by `ggdibbler`.
@@ -649,6 +729,11 @@ This research was supported by the Commonwealth through an Australian Government
 The first author would also like to thank Mitchell O'Hara-Wild, Cynthia Huang, and Ze-Yu Zhong for their comments and feedback which substantially improved the work.
 The R packages were used for this work were: `tidyverse` [@tidyverse], `distributional` [@distributional], `ggdist` [@Kay2023], `ggdibbler` [@ggdibbler], `patchwork` [@patchwork], `khroma` [@khroma], `tidygraph` [@tidygraph], `colourspace` [@colorspace], `ggraph` [@ggraph], `ozmaps` [@ozmaps], `sf` [@sfpack], and `ggthemes` [@ggthemes].
 The GitHub repository for this paper can be found at https://github.com/harriet-mason/paper-ggdibbler which contains the files required to reproduce this article in full.
+
+
+
+
+
 
 
 
