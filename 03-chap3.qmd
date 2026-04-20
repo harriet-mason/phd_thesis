@@ -984,13 +984,13 @@ This makes it unclear as to how the blur should be interpreted, and it indicates
 ```{r}
 #| label: fig-fuzzy-blur
 #| fig-cap: "Two examples from the `ggdibbler` documentation, and one example from the `ggdist` documentation to illustrate the difference in the top-down versus emergent aesthetic approach. The blur and fuzziness emerge from the `ggdibbler` plots due to the sampling procedures, while the blur in `ggdist` is added manually as a top-down aesthetic. We can see that the 'cliff' effect in the `ggdist` plot is not visible in the blurred `ggdibbler` plot, because it would be impossible to generate that appearance from the underlying data."
-#| fig-height: 5
-#| fig-width: 12
+#| fig-height: 6
+#| fig-width: 15
 #| out-width: 100%
 
 # examples from ggdibbler
 p9 <- ggplot(uncertain_mpg, aes(cty, hwy)) +
-  geom_count_sample(alpha=0.2) +
+  geom_count_sample(alpha=0.01, times=100) +
   ggtitle("a. ggdibbler: fuzziness") +
   theme(legend.position="none")
 
