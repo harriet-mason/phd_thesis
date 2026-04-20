@@ -261,7 +261,7 @@ window.Quarto = {
 <img src="03-chap3_files/figure-html/fig-dist-example-1.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dist-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.1: Alternative interpretations of how to render a density plot when the input is a set of distributions describing uncertainty of measurements, according to three plotting packages: (a) ggplot2 forms the density from the mean values, (b) ggdist puts the distribution on each observation, treating uncertainty as signal, (c) ggdibbler shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. These differences illustrate how uncertainty is interpreted in different ways. Which is correct?
+Figure&nbsp;3.1: Alternative interpretations of how to render a density plot when the input is a set of distributions describing uncertainty of measurements, according to three plotting packages: (a) <code>ggplot2</code> forms the density from the mean values, (b) <code>ggdist</code> puts the distribution on each observation, treating uncertainty as signal, (c) <code>ggdibbler</code> shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. These differences illustrate how uncertainty is interpreted in different ways. Which is correct?
 </figcaption></figure>
 </div>
 </div>
@@ -439,7 +439,7 @@ Figure&nbsp;3.6: Modifying the group variable is essential for handling samples:
 <div class="cell-output-display">
 <div id="fig-positions" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-positions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-chap3_files/figure-html/fig-positions-1.png" class="img-fluid figure-img" style="width:80.0%">
+<img src="03-chap3_files/figure-html/fig-positions-1.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-positions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.7: Why we need nested position adjustments illustrated using stacked bar charts made using different position adjustment. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples’ position adjustment.
@@ -481,7 +481,7 @@ V = A \circ O \circ G^* \circ S^* \circ M
 <img src="03-chap3_files/figure-html/fig-illustration-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-illustration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.9: This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with ggdibbler as that in the deterministic ggplot2 equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables.
+Figure&nbsp;3.9: This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with <code>ggdibbler</code> as that in the deterministic <code>ggplot2</code> equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables.
 </figcaption></figure>
 </div>
 </div>
@@ -519,7 +519,7 @@ Figure&nbsp;3.9: This formalisation of uncertainty visualisation offers extensiv
 <img src="03-chap3_files/figure-html/fig-correct-times-1.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-correct-times-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.10: A scatter plot of a random matrix version of the mtcars data from the ‘datasets’ R package, with the aesthetic mapping x=mpg, y=wt and colour=cyl. This plot shows the impact of an appropriately chosen times argument. We can see that as the sample size increases, the distributions form cohesive units and stop looking like a collection of separate points with little connection. This is not always achievable due to computational cost, but we should, at the very least, select a sample size that means our conclusions are not changing between renderings of the plot.
+Figure&nbsp;3.10: A scatter plot of a random matrix version of the <code>mtcars</code> data from the ‘datasets’ R package, with the aesthetic mapping <code>x=mpg</code>, <code>y=wt</code> and <code>colour=cyl</code>. This plot shows the impact of an appropriately chosen times argument. We can see that as the sample size increases, the distributions form cohesive units and stop looking like a collection of separate points with little connection. This is not always achievable due to computational cost, but we should, at the very least, select a sample size that means our conclusions are not changing between renderings of the plot.
 </figcaption></figure>
 </div>
 </div>
@@ -533,7 +533,7 @@ Figure&nbsp;3.10: A scatter plot of a random matrix version of the mtcars data f
 <img src="03-chap3_files/figure-html/fig-fuzzy-blur-1.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fuzzy-blur-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.11: Two examples from the ggdibbler documentation, and one example from the ggdist documentation to illustrate the difference in the top-down versus emergent aesthetic approach. The blur and fuzziness emerge from the ggdibbler plots due to the sampling procedures, while the blur in ggdist is added manually as a top-down aesthetic. We can see that the ‘cliff’ effect in the ggdist plot is not visible in the blurred ggdibbler plot, because it would be impossible to generate that appearance from the underlying data.
+Figure&nbsp;3.11: Two examples from the <code>ggdibbler</code> documentation, and one example from the <code>ggdist</code> documentation to illustrate the difference in the top-down versus emergent aesthetic approach. The blur and fuzziness emerge from the <code>ggdibbler</code> plots due to the sampling procedures, while the blur in <code>ggdist</code> is added manually as a top-down aesthetic. We can see that the ‘cliff’ effect in the <code>ggdist</code> plot is not visible in the blurred <code>ggdibbler</code> plot, because it would be impossible to generate that appearance from the underlying data.
 </figcaption></figure>
 </div>
 </div>

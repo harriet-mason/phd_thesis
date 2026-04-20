@@ -57,7 +57,7 @@ The third plot is made using `ggdibbler`, <!--and it shows the distribution of t
 
 ::: {.cell}
 ::: {.cell-output-display}
-![Alternative interpretations of how to render a density plot when the input is a set of distributions describing uncertainty of measurements, according to three plotting packages: (a) ggplot2 forms the density from the mean values, (b) ggdist puts the distribution on each observation, treating uncertainty as signal, (c) ggdibbler shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. These differences illustrate how uncertainty is interpreted in different ways. Which is correct?](03-chap3_files/figure-pdf/fig-dist-example-1.pdf){#fig-dist-example width=100%}
+![Alternative interpretations of how to render a density plot when the input is a set of distributions describing uncertainty of measurements, according to three plotting packages: (a) `ggplot2` forms the density from the mean values, (b) `ggdist` puts the distribution on each observation, treating uncertainty as signal, (c) `ggdibbler` shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. These differences illustrate how uncertainty is interpreted in different ways. Which is correct?](03-chap3_files/figure-pdf/fig-dist-example-1.pdf){#fig-dist-example width=100%}
 :::
 :::
 
@@ -414,7 +414,7 @@ This suggests the possibility of an underlying orthogonal relationship between u
 
 ::: {.cell}
 ::: {.cell-output-display}
-![Why we need nested position adjustments illustrated using stacked bar charts made using different position adjustment. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples' position adjustment.](03-chap3_files/figure-pdf/fig-positions-1.pdf){#fig-positions width=80%}
+![Why we need nested position adjustments illustrated using stacked bar charts made using different position adjustment. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples' position adjustment.](03-chap3_files/figure-pdf/fig-positions-1.pdf){#fig-positions width=100%}
 :::
 :::
 
@@ -476,7 +476,7 @@ By establishing a set of rules that will almost always work, we save ourselves f
 
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
-![This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with ggdibbler as that in the deterministic ggplot2 equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables.](03-chap3_files/figure-pdf/fig-illustration-1.pdf){#fig-illustration fig-align='center' width=100%}
+![This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with `ggdibbler` as that in the deterministic `ggplot2` equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables.](03-chap3_files/figure-pdf/fig-illustration-1.pdf){#fig-illustration fig-align='center' width=100%}
 :::
 :::
 
@@ -575,7 +575,7 @@ This process of visual convergence is shown in @fig-correct-times. We can see th
 
 ::: {.cell}
 ::: {.cell-output-display}
-![A scatter plot of a random matrix version of the mtcars data from the 'datasets' R package, with the aesthetic mapping x=mpg, y=wt and colour=cyl. This plot shows the impact of an appropriately chosen times argument. We can see that as the sample size increases, the distributions form cohesive units and stop looking like a collection of separate points with little connection. This is not always achievable due to computational cost, but we should, at the very least, select a sample size that means our conclusions are not changing between renderings of the plot.](03-chap3_files/figure-pdf/fig-correct-times-1.pdf){#fig-correct-times width=100%}
+![A scatter plot of a random matrix version of the `mtcars` data from the 'datasets' R package, with the aesthetic mapping `x=mpg`, `y=wt` and `colour=cyl`. This plot shows the impact of an appropriately chosen times argument. We can see that as the sample size increases, the distributions form cohesive units and stop looking like a collection of separate points with little connection. This is not always achievable due to computational cost, but we should, at the very least, select a sample size that means our conclusions are not changing between renderings of the plot.](03-chap3_files/figure-pdf/fig-correct-times-1.pdf){#fig-correct-times width=100%}
 :::
 :::
 
@@ -600,7 +600,7 @@ This makes it unclear as to how the blur should be interpreted, and it indicates
 
 ::: {.cell}
 ::: {.cell-output-display}
-![Two examples from the ggdibbler documentation, and one example from the ggdist documentation to illustrate the difference in the top-down versus emergent aesthetic approach. The blur and fuzziness emerge from the ggdibbler plots due to the sampling procedures, while the blur in ggdist is added manually as a top-down aesthetic. We can see that the 'cliff' effect in the ggdist plot is not visible in the blurred ggdibbler plot, because it would be impossible to generate that appearance from the underlying data.](03-chap3_files/figure-pdf/fig-fuzzy-blur-1.pdf){#fig-fuzzy-blur width=100%}
+![Two examples from the `ggdibbler` documentation, and one example from the `ggdist` documentation to illustrate the difference in the top-down versus emergent aesthetic approach. The blur and fuzziness emerge from the `ggdibbler` plots due to the sampling procedures, while the blur in `ggdist` is added manually as a top-down aesthetic. We can see that the 'cliff' effect in the `ggdist` plot is not visible in the blurred `ggdibbler` plot, because it would be impossible to generate that appearance from the underlying data.](03-chap3_files/figure-pdf/fig-fuzzy-blur-1.pdf){#fig-fuzzy-blur width=100%}
 :::
 :::
 

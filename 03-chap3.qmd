@@ -16,9 +16,9 @@ library(ozmaps)
 library(sf)
 
 # Theme adjustments
-theme_set( theme_gdocs() + 
+theme_set( theme_few() + 
              theme(aspect.ratio = 1, 
-                   axis.text.x = element_text(angle = 45, 
+                   axis.text.x = element_text(angle = 0, 
                                               vjust = 1.05, 
                                               hjust=1),
                    palette.colour.continuous = gdocs_pal(),
@@ -77,7 +77,7 @@ The third plot is made using `ggdibbler`, <!--and it shows the distribution of t
 
 ```{r}
 #| label: fig-dist-example
-#| fig-cap: "Alternative interpretations of how to render a density plot when the input is a set of distributions describing uncertainty of measurements, according to three plotting packages: (a) ggplot2 forms the density from the mean values, (b) ggdist puts the distribution on each observation, treating uncertainty as signal, (c) ggdibbler shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. These differences illustrate how uncertainty is interpreted in different ways. Which is correct?"
+#| fig-cap: "Alternative interpretations of how to render a density plot when the input is a set of distributions describing uncertainty of measurements, according to three plotting packages: (a) `ggplot2` forms the density from the mean values, (b) `ggdist` puts the distribution on each observation, treating uncertainty as signal, (c) `ggdibbler` shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. These differences illustrate how uncertainty is interpreted in different ways. Which is correct?"
 #| fig-height: 4
 #| fig-width: 10
 #| out-width: 100%
@@ -345,7 +345,7 @@ p0 <- ggplot(uncertain_faithfuld, aes(x = waiting,
                                       y = eruptions, 
                                       fill = mean(density0)))+
   geom_raster() +
-  ggtitle("a. Mean") +
+  ggtitle("a. mean") +
   scale_fill_continuous_sequential(palette = "Terrain", rev = FALSE) +
   theme(legend.position = "none", legend.direction = "horizontal",
         plot.title = element_text(size = tsize)) +
@@ -353,21 +353,21 @@ p0 <- ggplot(uncertain_faithfuld, aes(x = waiting,
 
 p1 <- ggplot(faithfuld |> mutate(density = dist_normal(density, 0.003)), aes(waiting, eruptions, fill = density)) +
   geom_raster_sample()+
-  ggtitle("b. Low error") +
+  ggtitle("b. low error") +
   scale_fill_continuous_sequential(palette = "Terrain", rev = FALSE)+
   theme(legend.position = "none", legend.direction = "horizontal",
         plot.title = element_text(size = tsize))
 
 p2 <- ggplot(faithfuld |> mutate(density = dist_normal(density, 0.01)), aes(waiting, eruptions, fill = density))  +
   geom_raster_sample() +
-  ggtitle("c. Moderate error") +
+  ggtitle("c. moderate error") +
   scale_fill_continuous_sequential(palette = "Terrain", rev = FALSE)+
   theme(legend.position = "none", legend.direction = "horizontal",
         plot.title = element_text(size = tsize))
 
 
 p3 <- ggplot(faithfuld |> mutate(density = dist_normal(density, 0.05)), aes(waiting, eruptions, fill = density)) +
-  ggtitle("d. High error") +
+  ggtitle("d. high error") +
   geom_raster_sample() +
   scale_fill_continuous_sequential(palette = "Terrain", rev = FALSE)+
   theme(legend.position = "none", legend.direction = "horizontal", 
@@ -456,7 +456,7 @@ q1 <- qdf |>
   scale_colour_continuous_sequential(palette = "Batlow") +
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
-  ggtitle("a. Quantile: Intercept") +
+  ggtitle("a. quantile: intercept") +
   theme(legend.position="none", plot.title = element_text(size = tsize))
 
 q2 <- sdf |>
@@ -466,7 +466,7 @@ q2 <- sdf |>
   scale_colour_continuous_sequential(palette = "Batlow") +
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
-  ggtitle("b. Sample: Intercept") +
+  ggtitle("b. sample: intercept") +
   theme(legend.position="none", plot.title = element_text(size = tsize))
 
 q3 <- qdf |>
@@ -476,7 +476,7 @@ q3 <- qdf |>
   scale_colour_continuous_sequential(palette = "Batlow") +
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
-  ggtitle("c. Quantile: Intercept, Slope") +
+  ggtitle("c. quantile: intercept, slope") +
   theme(legend.position="none", plot.title = element_text(size = tsize))
 
 q4 <- sdf |>
@@ -486,7 +486,7 @@ q4 <- sdf |>
   scale_colour_continuous_sequential(palette = "Batlow") +
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
-  ggtitle("d. Sample: Intercept, Slope") +
+  ggtitle("d. sample: intercept, slope") +
   theme(legend.position="none", plot.title = element_text(size = tsize))
 
 
@@ -584,36 +584,39 @@ This suggests the possibility of an underlying orthogonal relationship between u
 #| label: fig-positions
 #| fig-height: 10
 #| fig-width: 10
-#| out-width: 80% 
+#| out-width: 100% 
 #| fig-cap: "Why we need nested position adjustments illustrated using stacked bar charts made using different position adjustment. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples' position adjustment."
+
+mpg <- mpg |>
+  mutate(class = fct_infreq(as.factor(class)))
 
 p1 <- ggplot(mpg, aes(class)) + 
   geom_bar_sample(aes(fill = drv), 
                   position = "stack") +
   ggtitle("a. ggplot2: stack") +
   xlab("") +
-  theme(legend.position="none") 
+  theme(legend.position="none") + coord_flip()
 
 p2 <- ggplot(uncertain_mpg, aes(class)) + 
   geom_bar_sample(aes(fill = drv), 
                   position = "stack")+
   ggtitle("b. ggdibbler: stack") +
   xlab("") +
-  theme(legend.position="none")
+  theme(legend.position="none") + coord_flip()
 
 p3 <- ggplot(uncertain_mpg, aes(class)) + 
   geom_bar_sample(aes(fill = drv),
                   position = "stack_dodge")+
   ggtitle("c. ggdibbler: stack_dodge") +
   xlab("") +
-  theme(legend.position="none")
+  theme(legend.position="none") + coord_flip()
 
 p4 <- ggplot(uncertain_mpg, aes(class)) + 
   geom_bar_sample(aes(fill = drv), alpha=0.15,
                   position = "stack_identity")+
   ggtitle("d. ggdibbler: stack_identity") +
   xlab("") +
-  theme(legend.position="none")
+  theme(legend.position="none") + coord_flip()
 
 p1 + p2 + p3 + p4 + plot_layout(ncol=2)
 ```
@@ -731,7 +734,7 @@ By establishing a set of rules that will almost always work, we save ourselves f
 ```{r}
 #| label: fig-illustration
 #| fig-align: center
-#| fig-cap: "This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with ggdibbler as that in the deterministic ggplot2 equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables."
+#| fig-cap: "This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with `ggdibbler` as that in the deterministic `ggplot2` equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables."
 #| fig-height: 6
 #| fig-width: 9
 #| out-width: 100%
@@ -901,7 +904,7 @@ This process of visual convergence is shown in @fig-correct-times. We can see th
 
 ```{r}
 #| label: fig-correct-times
-#| fig-cap: "A scatter plot of a random matrix version of the mtcars data from the 'datasets' R package, with the aesthetic mapping x=mpg, y=wt and colour=cyl. This plot shows the impact of an appropriately chosen times argument. We can see that as the sample size increases, the distributions form cohesive units and stop looking like a collection of separate points with little connection. This is not always achievable due to computational cost, but we should, at the very least, select a sample size that means our conclusions are not changing between renderings of the plot."
+#| fig-cap: "A scatter plot of a random matrix version of the `mtcars` data from the 'datasets' R package, with the aesthetic mapping `x=mpg`, `y=wt` and `colour=cyl`. This plot shows the impact of an appropriately chosen times argument. We can see that as the sample size increases, the distributions form cohesive units and stop looking like a collection of separate points with little connection. This is not always achievable due to computational cost, but we should, at the very least, select a sample size that means our conclusions are not changing between renderings of the plot."
 #| fig-height: 5
 #| fig-width: 12
 #| out-width: 100%
@@ -953,7 +956,7 @@ This makes it unclear as to how the blur should be interpreted, and it indicates
 
 ```{r}
 #| label: fig-fuzzy-blur
-#| fig-cap: "Two examples from the ggdibbler documentation, and one example from the ggdist documentation to illustrate the difference in the top-down versus emergent aesthetic approach. The blur and fuzziness emerge from the ggdibbler plots due to the sampling procedures, while the blur in ggdist is added manually as a top-down aesthetic. We can see that the 'cliff' effect in the ggdist plot is not visible in the blurred ggdibbler plot, because it would be impossible to generate that appearance from the underlying data."
+#| fig-cap: "Two examples from the `ggdibbler` documentation, and one example from the `ggdist` documentation to illustrate the difference in the top-down versus emergent aesthetic approach. The blur and fuzziness emerge from the `ggdibbler` plots due to the sampling procedures, while the blur in `ggdist` is added manually as a top-down aesthetic. We can see that the 'cliff' effect in the `ggdist` plot is not visible in the blurred `ggdibbler` plot, because it would be impossible to generate that appearance from the underlying data."
 #| fig-height: 5
 #| fig-width: 12
 #| out-width: 100%
