@@ -19,15 +19,15 @@ No dead horse is too beaten with probability functions having more names than wa
 The practice of naming plots turns the field into a race, where authors are incentivised to brand their name on as many graphics as possible, rather than work towards a cohesive theory of visualisation.
 This problem is as pervasive as it is frustrating.
 
-According to @Leland2005 "the computer woefully focuses the mind", so we might assume that these hyper-specific naming conventions do not extend to the landscape of uncertainty visualisation software. 
+According to @Leland2005, "the computer woefully focuses the mind", so we might assume that these hyper-specific naming conventions do not extend to the landscape of uncertainty visualisation software. 
 This assumption would be wrong. 
 Even just within the R ecosystem of `ggplot2` extensions, there is an overwhelming number of choices, leaving users unclear when each package should be used and for what purposes.
 A density plot can be made using `ggplot2`, `ggbeeswarm`, `ggridges`, `ggrain`, `ggdist`, `ggpointdensity`, and `ggdensity`, all packages with similar descriptions and overlapping designs.
 This is not to say these packages are pointless: they have thousands of downloads per week and were motivated by a gap in the literature.
 Rather, this example illustrates the havoc that named plots contribute to our software ecosystem. 
 
-With this wealth of choices in plots and software, it would be reasonable to assume that the field is meeting the needs of its users, albeit in a messy roundabout way, but this assumption would be incorrect. 
-Despite this wealth of choice, each package is brittle and constrained by it's own set of assumptions.
+With this wealth of choices in plots and software, it would be reasonable to assume that the field is meeting the needs of its users, albeit in a messy, roundabout way, but this assumption would be incorrect. 
+Despite this wealth of choice, each package is brittle and constrained by its own set of assumptions.
 There is a cry for flexibility among the users of uncertainty visualisation software, dating back more than 30 years [@MacEachren1992].
 A useful uncertainty visualisation system should allow for exploration with uncertain data from multiple different sources, dimensions, and data types [@Hadjimichael2024; @geointerviews; @MacEachren2005], a flexibility that all current implementations fail to provide. 
 
@@ -36,10 +36,10 @@ Structure is not so alien to the visualisation community that this is an unreaso
 Standard statistical graphics have been formalised within **the grammar of graphics** [@Leland2005; @ggplot2] for several decades.
 This structure has largely been ignored by the uncertainty visualisation community, with the exception of @Kay2023 and the `ggdist` R package.
 Along with this formalisation of visualisations of univariate probability functions, Kay expressed hope for a single coherent uncertainty visualisation framework.
-This single unified framework, and its implementation in the `ggdibbler` package is what will be discussed in the rest of this paper. 
+This single unified framework, and its implementation in the `ggdibbler` package, is what will be discussed in the rest of this paper. 
 
 ## Making a density plot
-We are going to design our uncertainty visualisation based on a simple assumption based on the existing literature: the input for an uncertainty visualisation is a data set where every cell is a random variable [@Kay2023] which contains all the quantified uncertainty we wish to represents [@Mason2024].
+We are going to design our uncertainty visualisation based on a simple assumption based on the existing literature: the input for an uncertainty visualisation is a data set where every cell is a random variable [@Kay2023] which contains all the quantified uncertainty we wish to represent [@Mason2024].
 Once we have our distribution inputs, there is only one question left for our uncertainty visualisation system to solve.
 What exactly should it *do* with these distributions?
 
@@ -63,8 +63,8 @@ The third plot is made using `ggdibbler`, <!--and it shows the distribution of t
 
 
 The distinction between the two approaches presented in @fig-dist-example is the same signal and noise paradigm presented by @Mason2024. 
-In the `ggdist` plot we are interested in the shape of the distribution of each observation, so we are visualising the uncertainty as a signal.
-In the `ggdibbler` plot we are not interested in the uncertainty in and of itself, but rather, we only included it to see how it would change the conclusions from the  `ggplot2` plot, thus, visualising it as noise. 
+In the `ggdist` plot, we are interested in the shape of the distribution of each observation, so we are visualising the uncertainty as a signal.
+In the `ggdibbler` plot, we are not interested in the uncertainty in and of itself, but rather, we only included it to see how it would change the conclusions from the  `ggplot2` plot, thus, visualising it as noise. 
 Given these two approaches, which plot is the "correct" visualisation depends on the goals of our analysis and what we are looking to infer from making the plot.
 
 However, if we want to design a visualisation system for EDA, the method must always work, which means any *existing* plot should always have an "uncertain" counterpart. 
@@ -76,11 +76,11 @@ The reasoning is rooted in strong statistical foundations; we just need to expan
 ### The deterministic visual function
 When you really think about it, what is a visualisation?
 One of the most definitive answers to this question can be found in the grammar of graphics, which is a theoretical framework that characterises a visualisation as a series of composite functions [@Leland2005]. 
-Under this formalisation, a visualisation is a function that take a deterministic matrix (@def-deterministic) as input and outputs a statistical graphic. 
+Under this formalisation, a visualisation is a function that takes a deterministic matrix (@def-deterministic) as input and outputs a statistical graphic. 
 This formalisation is lengthy, so we summarise the key aspects of it in  @def-vfunc, and @fig-gog, which shows each step of the visualisation process with highlighted sections indicating the sections we will need to adjust for uncertainty visualisation. 
-By leveraging the graphics pipeline we make the implicit explicit, which will allow us to compare different uncertainty visualisation systems on a deeper and more objective level [@Wickham2009].
-Note that these steps summarise the underlying architecture of the `ggplot2` [@ggplot2] implementation of the grammar which is an essential foundation for this new software. 
-However, the conceptual framework described here is not dependent on any particular implementation of the grammar, and could easily be implemented in another grammar of graphics system, such as Vega-Lite [@Satyanarayan2016].
+By leveraging the graphics pipeline, we make the implicit explicit, which will allow us to compare different uncertainty visualisation systems on a deeper and more objective level [@Wickham2009].
+Note that these steps summarise the underlying architecture of the `ggplot2` [@ggplot2] implementation of the grammar, which is an essential foundation for this new software. 
+However, the conceptual framework described here is not dependent on any particular implementation of the grammar and could easily be implemented in another grammar of graphics system, such as Vega-Lite [@Satyanarayan2016].
 The notation used for visual statistics builds on that developed in @Majumder2013 where the term was first introduced in the context of conducting statistical inference.
 
 ::: {#def-deterministic}
@@ -100,10 +100,10 @@ $$
 where:
   
 - $M = [M_1, M_2, ..., M_{m_1}]'$ is a set of $m_1$ functions that each scale one column of our $X_{n_1,m_1}$ matrix. This function maps the individual cells of $X_{n_1,m_1}$, $x_{i,j}$ $\forall i = 1,...,n_1$ and $j = 1,...,m_1$ from the sample space, $\Omega$, to the space of real numbers, $R$.
-- $S$ is a statistic function that summarises our $X_{n_1,m_1}$ matrix down to an $X_{n_2,m_2}$ matrix. There is no strict requirements on the statistic function. The function is a transformation from $R$ to $R$.
+- $S$ is a statistic function that summarises our $X_{n_1,m_1}$ matrix down to an $X_{n_2,m_2}$ matrix. There are no strict requirements for the statistic function. The function is a transformation from $R$ to $R$.
 - $G$ converts two (for a 2D graph) position columns $X_{[.,k]},X_{[.,l]}$ to values that represent magnitudes in space returning an $X_{n_2,m_2}$ matrix on the bounded plane $B^2$. We can further decompose $G$ into $G = E\circ P$, where $E$ is the geometry function that $x_{i,j} \forall j=k,l$ from $R$ to the bounded plane $B^2$, and $P$ is a position modifier function that checks for overlapping values in $X_{n_2,m_2}$ and either stacks them on top of each other in the dependent axis, or dodges them next to each other on the independent axis.
 - $O$ is a transformation of our coordinate system. The function is a transformation from $B^2$ to $B^2$.
-- $A$ is an injective function that transforms our $X_{n_2,m_2}$ matrix into physically observable stimuli. The function maps our data from $B$, to the space of visual statistics $\Psi$.
+- $A$ is an injective function that transforms our $X_{n_2,m_2}$ matrix into physically observable stimuli. The function maps our data from $B$ to the space of visual statistics $\Psi$.
 
 :::
 
@@ -111,11 +111,11 @@ where:
 ![Illustration of the steps to render a plot, as defined by the grammar of graphics. For uncertainty visualisation, changes are needed for the highlighted steps: data, scales, statistics, and the position adjustment within the geometry. ](figures/grammar3.jpeg){#fig-gog}
 
 ### Random matrices and continuous mapping theorem
-Unlike a standard visualisation, an uncertainty visualisation has a random matrix (@def-random) input, where distributions replace the single single values of our deterministic matrix (@def-deterministic).
+Unlike a standard visualisation, an uncertainty visualisation has a random matrix (@def-random) input, where distributions replace the single values of our deterministic matrix (@def-deterministic).
 
 ::: {#def-random}
 ## Random matrix
-Let $\textbf{A}$ be an $m \times n$ matrix valued random variable on the probability space $(\Omega, \mathcal{F}, Pr)$. This is a matrix where some or all of it's entries are random variables drawn from some probability distribution.
+Let $\textbf{A}$ be an $m \times n$ matrix-valued random variable on the probability space $(\Omega, \mathcal{F}, Pr)$. This is a matrix where some or all of its entries are random variables drawn from some probability distribution.
 :::
 
 
@@ -134,29 +134,29 @@ and
 $$\textbf{X} \xrightarrow{} Z \Rightarrow f(\textbf{X}) \xrightarrow{} f(Z)$$
 :::
 
-In simple terms, @def-vfunc and @thm-cmt means that our uncertainty visualisations should have similar convergence properties to their underlying distributions.
-For example, if we visualise a $N(0,1)$ distribution as a sample, and a sample from a $N(0,1)$ distribution, as the size of both samples approach $\infty$, the two visualisations should look identical. 
+In simple terms, @def-vfunc and @thm-cmt mean that our uncertainty visualisations should have similar convergence properties to their underlying distributions.
+For example, if we visualise a $N(0,1)$ distribution as a sample, and a sample from a $N(0,1)$ distribution, as the size of both samples approaches $\infty$, the two visualisations should look identical. 
 
-If we accept the definition of idea that a visualisation is a continuous function, adhering to @thm-cmt is not a nice property or an opinion on how visualisations should behave, but rather a *fundamental requirement* of any visualisation of a random matrix.
+If we accept the definition of an idea that a visualisation is a continuous function, adhering to @thm-cmt is not a nice property or an opinion on how visualisations should behave, but rather a *fundamental requirement* of any visualisation of a random matrix.
 Or, at least it will be after we establish that the assumptions of @thm-cmt are true.
-Which will require us to show that $\Omega$ and $\Psi$ are metric spaces, and then use those metric spaces to define convergence for visual functions.
+This will require us to show that $\Omega$ and $\Psi$ are metric spaces, and then use those metric spaces to define convergence for visual functions.
 
 #### Visual metric spaces
 The idea that both $\Omega$ and $\Psi$ are metric spaces is not particularly strange: one of the core tenets of statistical graphics is that they maintain the link between data and visual aesthetic [@Leland2005].
 This point was made rather comically by @Bartonicek2025, who drew two rectangles stacked on top of each other, and pointed out that it was not a stacked bar chart. 
-The idea that there is some kind of structure, or ordering that we need to maintain implies that $\Omega$ is a metric space.
+The idea that there is some kind of structure, or ordering that we need to maintain, implies that $\Omega$ is a metric space.
 In most cases, $\Omega \subseteq \mathbb{R}^p$ and it immediately follows that the ordered pair ($\Omega$, $d$) is a metric space, where $d$ is Euclidean distance.
-In the cases where $\Omega \not\subseteq \mathbb{R}^p$ the first step of the analysis is to scale the data to using $M$ to $\mathbb{R}^p$, so we can say that ($\Omega$, $d \circ M$) is a metric space.
+In the cases where $\Omega \not\subseteq \mathbb{R}^p$, the first step of the analysis is to scale the data to use $M$ to $\mathbb{R}^p$, so we can say that ($\Omega$, $d \circ M$) is a metric space.
 For our visual space, $\Psi$, we can actually do exactly the same thing, but in reverse.
-Since our aesthetic function is defined as $A: B\xrightarrow{} \Psi$, and $B \subseteq \mathbb{R}^p$, we can set out metric to be the inverse of our aesthetic function, such that the ordered pair ($\Psi$, $d \circ A^{-1}$).
+Since our aesthetic function is defined as $A: B\xrightarrow{} \Psi$, and $B \subseteq \mathbb{R}^p$, we can set our metric to be the inverse of our aesthetic function, such that the ordered pair ($\Psi$, $d \circ A^{-1}$).
 
 Ideally, as visualisations are designed to be viewed by humans, we would have set our distance on $\Psi$ to be the human ability to visually differentiate two plots.
 This is similar to the notion of distance that is leveraged by the line-up protocol [@Buja2009].
-In the line-up protocol, viewers are shown $M-1$ null plots, $V(X_{N_i})$, where $X_{N_i}$ for $i=1, ..., M-1$ are independent draws generated from some null distribution, and a visual test statistics, $V(X_T)$ where $X_T$ is our actual data. 
-If the test statistic, $V(X_T)$, is significant visually different from $V(X_{N_i}) \forall i$ then viewers will be able to pick it out of the line-up, and we would reject our null hypothesis that $X_T$ was generated from the same distribution as $X_{N_i}$.
+In the line-up protocol, viewers are shown $M-1$ null plots, $V(X_{N_i})$, where $X_{N_i}$ for $i=1, ..., M-1$ are independent draws generated from some null distribution, and a visual test statistic, $V(X_T)$, where $X_T$ is our actual data. 
+If the test statistic, $V(X_T)$, is significantly different, visually, from $V(X_{N_i}) \forall i$, then viewers will be able to pick it out of the line-up, and we would reject our null hypothesis that $X_T$ was generated from the same distribution as $X_{N_i}$.
 This test actually measures Mahalanobis distance on $\Psi$, as Mahalanobis distance is a multivariate generalisation of a Z score, and the line-up protocol is the visual equivalent of a hypothesis test. 
 Given that human perception is the natural metric for statistical graphics, it is not a metric space.
-This is because it violates triangular inequality due to the existence of "just noticeable differences" (JND) [@Luce1958]. 
+This is because it violates the triangular inequality due to the existence of "just noticeable differences" (JND) [@Luce1958]. 
 We can show that human perception is not a metric space with a quick proof.
 
 ::: {#prp-metric}
@@ -178,7 +178,7 @@ If we assume $h$ is a metric space, then the triangular inequality will hold, an
 $$h(a, c) \leq h(a,b) + h(b, c)$$
 which implies
 $$0 \leq \epsilon$$
-Therefore, by contradiction $h$ is not a metric.
+Therefore, by contradiction, $h$ is not a metric.
 :::
 
 As long as our graphics system does not let $A$ map to increments $< \epsilon$, this should not be a problem, but due to differences in human perception, $\epsilon$ is not constant for the entire human population, and this system would be impossible to implement. 
@@ -195,7 +195,7 @@ Two plots have converged if their renderings are identical.
 Let $\textbf{X}$ and $\textbf{Y}$, be $n \times m$ random matrices, and let $Z$ be an $n \times m$ deterministic matrix. Let $V$ be a visual function $V$: $\Omega\xrightarrow{} \Psi$. Let $g$: $\Psi\xrightarrow{} R$ where $g = d \circ A^{-1}$, and $(\Psi, g)$ is a metric space. We say two random graphics have visually converged, that is, $V(\textbf{X}) \xrightarrow{} V(\textbf{Y})$ when $g(V(\textbf{X}), V(\textbf{Y})) = 0$. We say that a random graphic has converged to a deterministic graphic, that is, $V(\textbf{X}) \xrightarrow{} V(X)$ when $g(V(\textbf{X}), V(X)) = 0$.
 :::
 
-We will usually approximate this convergence by using visual distinguishably, similar to the approach taken by the line-up protocol.
+We will usually approximate this convergence by using visual distinguishability, similar to the approach taken by the line-up protocol.
 
 ### Returning to the density plot example
 In our density example, we defined $\textbf{X}$ and $X$ such that $\textbf{x}_i \xrightarrow{p} x_i, \forall i = 1,...,15$, then as $var(\textbf{x}_i) \xrightarrow{} 0$, $\textbf{X}\xrightarrow{p}X$ and we should see $V(\textbf{X})\xrightarrow{p}V(X)$. 
@@ -206,7 +206,7 @@ This is why we assert that the `ggdibbler` plot is the random matrix version of 
 
 ## Generalising the visual function
 The visual function, as described in the *grammar of graphics*, has one key limitation; it assumes each data point is deterministic.
-That is, @def-vfunc in it's current form does not allow for random matrix input.
+That is, @def-vfunc in its current form does not allow for random matrix input.
 This is an issue for uncertainty visualisation, as a random matrix input is one of the core assumptions of the approach.
 To redefine our visual function such that it accepts random matrix inputs, we will need to adjust the definition of our **scale**, **statistic**, and **geometry** to generalise @def-vfunc.
 In doing so, we will also ensure we do not make any changes that will result in a violation to @thm-cmt.
@@ -214,9 +214,9 @@ When we finish, we should have a generalised visual function that will accept ra
 
 
 ### The adjustment to `scales`
-Scales map our data to a set of real number outcomes, they determine how we perceive the size, shape and location of our data, and give our data meaning [@Leland2005].
-This sentiment is echoed in the construction of our visual statistics, as the scale, $M$ is used to define the distance metric for our metric space.
-To use the same scale, $M$ that was defined for our deterministic matrix $X$ on our random matrix $\textbf{X}$, we will need to perform a "change of variable".
+Scales map our data to a set of real number outcomes; they determine how we perceive the size, shape, and location of our data, and give our data meaning [@Leland2005].
+This sentiment is echoed in the construction of our visual statistics, as the scale $M$ is used to define the distance metric for our metric space.
+To use the same scale, $M$, that was defined for our deterministic matrix $X$ on our random matrix $\textbf{X}$, we will need to perform a "change of variable".
 @Kay2023 would refer to this as a "scale aware" requirement for uncertainty visualisation systems.
 This means we are not changing the function $M$ itself, but we are just expanding the definition to allow for random matrix input. 
 This formalisation of this scale is summarised in  @def-scale, and @fig-scale,
@@ -237,9 +237,9 @@ The illustration in @fig-scale shows that our distribution also changes names (i
 
 ### The adjustment to `statistics`
 Statistics provide a summary of our data.
-Several graphics, such as box plots, or bar charts are inherently linked to a statistic (the five number summary and summation respectively).
+Several graphics, such as box plots or bar charts, are inherently linked to a statistic (the five-number summary and summation, respectively).
 This is the current role of our statistic function, $S$, which is only well defined for deterministic inputs.
-Unlike deterministic variables, random variables are more abstract, and cannot be expressed as a single concrete value.
+Unlike deterministic variables, random variables are more abstract and cannot be expressed as a single concrete value.
 Therefore, there is a second statistic that needs to be computed, which is the statistic that represents the distribution.
 The distributional statistic must be calculated at this stage, as the geometry assumes we are working with concrete values that can be mapped to a position in Euclidean space.
 Therefore, in uncertainty visualisation, there are two statistics that must be defined: the statistic that represents the distribution, and the statistic that summarises the data.
@@ -282,7 +282,7 @@ The whole point of signal suppression is that it hides a signal that is statisti
 Allowing you to include the point estimates, because the visualisation is too noisy, defeats the entire purpose of the approach.
 This property should also ensure the convergence to another distribution, as covered by @thm-cmt.
 If we are only concerned about convergence to constant values, we do not need to include uncertainty at all.
-Therefore, whichever representation we choose, it needs to convey a complete view of this distribution, a point estimate cannot do that. 
+Therefore, whichever representation we choose, it needs to convey a complete view of this distribution; a point estimate cannot do that. 
 @fig-meanprob shows how `ggdibbler` handles increasing variance in a density plot, as the "graininess" of the plot increases with the uncertainty. 
 As the variance increases, these grains dominate the plot, making the visualisation harder to read, as it should be.
 
@@ -290,7 +290,7 @@ As the variance increases, these grains dominate the plot, making the visualisat
 
 ::: {.cell}
 ::: {.cell-output-display}
-![How uncertainty is handled (or not) in raster displays of bivariate density.  The axes show the eruption time vs waiting time, and colour indicates density value, with lighter indicating higher density. In plot (a) uncertainty is ignored by showing only the estimate, and plots (b, c, d) show samples reflecting different scales of uncertainty in the density estimate. We can see that as the variance in the estimates increases, the visualisation of the sample becomes harder to read and conveys more uncertainty.](03-chap3_files/figure-html/fig-meanprob-1.png){#fig-meanprob width=100%}
+![How uncertainty is handled (or not) in raster displays of bivariate density.  The axes show the eruption time vs waiting time, and colour indicates density value, with lighter indicating higher density. In plot (a), uncertainty is ignored by showing only the estimate, and plots (b, c, d) show samples reflecting different scales of uncertainty in the density estimate. We can see that as the variance in the estimates increases, the visualisation of the sample becomes harder to read and conveys more uncertainty.](03-chap3_files/figure-html/fig-meanprob-1.png){#fig-meanprob width=100%}
 :::
 :::
 
@@ -301,7 +301,7 @@ Disallowing point estimates doesn't actually limit our flexibility, as we still 
 This is where the "Mr Potato Head" approach to distributional statistics starts to cause problems as we bump up against the orthogonality requirement that is built into the grammar of graphics.
 Flexibility requires that *every* deterministic graphic should have an uncertain counterpart, even ones that have a pre-defined statistic comprised of point estimates, such as a box plot or bar chart.
 This is a fundamental requirement, otherwise the system will not be an effective EDA tool. 
-If we allow for any statistic, we will create a mismatch where the values we are trying to feed into our statistic, $S$ are not on the same domain expected by the function.
+If we allow for any statistic, we will create a mismatch where the values we are trying to feed into our statistic, $S$, are not on the same domain as expected by the function.
 To be more explicit, our statistic is expecting values on the domain, $M(\Omega)$.
 If we define a new statistic, $S^* = S \circ S_{dist}$, where the range of $S_{dist}$ is not $M(\Omega)$, such as $P_{M(\Omega)}(M(\Omega))$, then we have produced invalid input for the next stage of our visual function, $S$.
 For example, if our statistic is expecting heights that range from 150 to 200, we cannot feed in a set of probabilities on [0,1] and expect there to be no issues.
@@ -314,26 +314,26 @@ For these reasons, we can only allow statistical representations that output a r
 
 This leaves quantiles and samples as our remaining distribution statistics. 
 It makes sense that these methods would be the most flexible, as a sample is just outcomes on $M(\Omega)$, and quantiles are just ordered samples.
-However, the notion of "ordering" which is required for quantile representations produce two problems for a flexible visualisation system. 
+However, the notion of "ordering", which is required for quantile representations, produces two problems for a flexible visualisation system. 
 The first problem is that quantiles communicate an explicit ordering on $\Omega$.
 While the data at this stage is technically on the real line $M(\Omega)$, the quantiles will not have meaning if $\Omega$ is unordered.
 When visualising 
-Using quantiles to visualise uncertain categorical data will either result in meaningless graphics, or an inability to visualise the data at all.
+Using quantiles to visualise uncertain categorical data will either result in meaningless graphics or an inability to visualise the data at all.
 This limitation would prevent us from visualising uncertain categorical data, which is a common output of classification models. 
 The second problem with quantiles is that they don't have a natural extension to multivariate data.
 Quantiles are well-defined for univariate cases, but multivariate spaces require several assumptions on the relative magnitude of our variables, which are unlikely to always be correct. 
 @fig-circle-line visualises the four scenarios that arise from passing a univariate or multivariate random variable, represented as a quantile or a sample, to the slope or intercept of a `geom_abline`.
-This not an unreasonable scenario, as a linear regression with a random intercept and slope a common topic even in introductory statistics courses.
-We can see that in the univariate case, where the intercept of the line is am $N(0,1)$ distribution the information conveyed by the quantile (a) and the sample (b) are very similar.
+This is not an unreasonable scenario, as a linear regression with a random intercept and slope is a common topic even in introductory statistics courses.
+We can see that in the univariate case, where the intercept of the line is an $N(0,1)$ distribution, the information conveyed by the quantile (a) and the sample (b) is very similar.
 This is because quantiles are well defined in the univariate case.
 However, for the multivariate case, adding a second random variable in the slope (such that we are now visualising a multivariate normal distribution with marginal distributions $N(0,1)$, and a covariance of $-0.8$) throws our notion of ordering out the window.
 In this case, quantiles are not well defined, as any quantile, $q$, will have an infinite number of (intercept, slope) pairs that could produce that probability, and are better conveyed by a function (hence why contour plots are typically used).
 As we cannot visualise the slope of a line as a function, a sensible alternative might be to use the marginal or equicoordinate quantiles [@Bornkamp2018].
-We opted to use the marginal quantiles, which is also used to colour the lines in both representations, but the conclusions are the same if we use the equicoordinate approach instead.
+We opted to use the marginal quantiles, which are also used to colour the lines in both representations, but the conclusions are the same if we use the equicoordinate approach instead.
 This allows us to see the danger of using quantiles as our distribution representation.
 The first issue is that the notion of ordering we have imposed on the quantiles does not translate in the multivariate case, which can be seen in the haphazard colouring of the lines in the sample, which was not a problem in the univariate case.
 The implicit pairing of values has also changed the point of intersection of the lines, and the neatness of the quantiles conveys more certainty in our conclusions than is warranted by the actual data.
-Even if we tried to work around these problems by coming up with some abstract definition of a visual quantile we wouldn't be able to draw the output with a straight line, which is the only real requirement for `geom_abline`.
+Even if we tried to work around these problems by coming up with some abstract definition of a visual quantile, we wouldn't be able to draw the output with a straight line, which is the only real requirement for `geom_abline`.
 
 
 ::: {.cell}
@@ -350,21 +350,21 @@ Of course, we don't want a sample of individual points; we want a sample of geom
 To get this, we need to pass the data through the visual function in batches, where each batch represents an outcome of the full random matrix.
 In practice, this translates to "splitting" on the `drawID` in the Grammar of Graphics [@Leland2005], which involves modifying the `group` variable in `ggplot2` [@ggplot2] to include the `drawID`. 
 @fig-grouping-need demonstrates the effect of grouping in the implementation. 
-Without appropriately handling the grouping in `geom_smooth`, thw plot has only one fitted curve with a standard error on artificially small due to a larger number of observations being used - which is wrong. Once the group variable is modified to include the `drawID` the result is a fitted line for each sample, and also the choice to include a standard error ribbon faintly in the background for each sample. 
+Without appropriately handling the grouping in `geom_smooth`, the plot has only one fitted curve with a standard error artificially small due to a larger number of observations being used, which is wrong. Once the group variable is modified to include the `drawID`, the result is a fitted line for each sample, and also the choice to include a standard error ribbon faintly in the background for each sample. 
 
 
 ::: {.cell}
 ::: {.cell-output-display}
-![Modifying the group variable is essential for handling samples: (a) not done giving an incorrect representation of the uncertainty, (b) group variable includes the `drawID`. We can see that we need to pass our samples through the visual function in batches to ensure that the statistics are not artificially changed by the sample size.](03-chap3_files/figure-html/fig-grouping-need-1.png){#fig-grouping-need width=100%}
+![Modifying the group variable is essential for handling samples: (a) not done, giving an incorrect representation of the uncertainty, (b) group variable includes the `drawID`. We can see that we need to pass our samples through the visual function in batches to ensure that the statistics are not artificially changed by the sample size.](03-chap3_files/figure-html/fig-grouping-need-1.png){#fig-grouping-need width=100%}
 :::
 :::
 
   
 The requirement for samples and *only* samples as our distribution representation is why the formalisation by @Kay2023, despite having the insight to use distributional inputs, did not have the full flexibility required for EDA. 
 By allowing flexible distribution representations, `ggdist` is focused on looking at distribution as values in their own right, rather than integrating uncertainty into existing visualisation systems.
-This is also how the visual functions of `ggdist` and `ggdibbler` in @fig-dist-example diverges from one another.
-It is important to understand that neither approach is a subset of the other, they are orthogonal, and most of the plots made in `ggdist` cannot be made using `ggdibbler`. 
-While there are instances that both `ggdist` and `ggdibbler` produce similar looking plots, these plots cannot be made using the same data or the same code.
+This is also how the visual functions of `ggdist` and `ggdibbler` in @fig-dist-example diverge from one another.
+It is important to understand that neither approach is a subset of the other; they are orthogonal, and most of the plots made in `ggdist` cannot be made using `ggdibbler`. 
+While there are instances that both `ggdist` and `ggdibbler` produce similar-looking plots, these plots cannot be made using the same data or the same code.
 The distinction between the two approaches translates directly from the philosophy of @Mason2024, who pointed out that the difference between the role of signal and noise is in our inferential statistics. 
 By having the distribution statistic subsume the statistic of the plot, we are changing our inferential statistic and visualising uncertainty as a signal. 
 This is why we repeatedly say that `ggdist` is for looking at uncertainty as signal, and `ggdibbler` is for looking at uncertainty as noise.
@@ -378,7 +378,7 @@ By displaying each distribution as a sample, we have distilled uncertainty visua
 Therefore, to pass our data through the following stages of the grammar, we need to flatten our array back into a matrix in such a way that we ensure each outcome from our random matrix is equally weighted.
 Over-plotting is usually managed by the geometry component of our visual function by using position adjustments such as dodging to prevent overlap or transparency to make the overlapping visible [@Cook2016; @ggplot2; @Leland2005].
 Position adjustments are an umbrella term used to describe any small changes to the position of a geometric object, and are usually implemented to ensure different groups are equally visible.
-We can replicate this system with a nested position system, that performs our sample position adjustment within any position adjustments already existing in the plot.
+We can replicate this system with a nested position system that performs our sample position adjustment within any position adjustments already existing in the plot.
 This is the final change we will make to our visual function to allow the visualisation of random variables, and it is formalised in @def-geom.
 
 ::: {#def-geom}
@@ -401,23 +401,23 @@ They achieve this by placing objects beside one another (dodging), stacking them
 These options make up the four dimensions that we have available for position adjustments: x (dodge), y (stack), z (transparency), and time (animation). 
 Including transparency and time as position adjustments is not the standard approach in the literature, as these plots are typically considered separate axes.
 This is not unique to uncertainty visualisation, even @Leland2005 did not discuss positions relative to the axis of x-y-z-t, but rather specified position adjustments as being on the measured scale (stack) or in the spare space (dodge). 
-This is an important distinction, but we choose to frame the positions in terms of x-y-z-t to highlight that there may be multiple measured or spare axis in a single plot.
+This is an important distinction, but we choose to frame the positions in terms of x-y-z-t to highlight that there may be multiple measured or spare axes in a single plot.
 
 Unlike the statistics, (most) position adjustments do not meaningfully change the inferential statistic of our plot, so we can nest them freely without concern. 
 This is particularly useful because without nested position adjustments, we would need to apply the same position adjustments to the over-plotting caused by both the original grouping and the sampling.
 Since we cannot use stacking on the measured axis for our samples, this would prohibit us from making uncertain versions of stacked bar charts, which, again, would be an undesirable limitation to our uncertainty visualisation system.
 We can see this problem in @fig-positions, which shows the visualisation of a stacked bar chart of the `mpg` data (a), alongside a visualisation of its random counterpart, the `uncertain_mpg` data, visualised using a "stack" (b), "stack_dodge" (c), and "stack_identity" (d), position adjustment.
 The fact that stacking is not a viable approach should be obvious: the scale has been artificially inflated, and the visualisation provides little to no information about our data.
-In the case of a bar chart, stacking is aligned with our measurement axis (y), which is that leads it to being a problematic adjustment, as our between sample position adjustment, $P_{between}$, can only be a implemented on an axis representing spare space.
+In the case of a bar chart, stacking is aligned with our measurement axis (y), which leads to it being a problematic adjustment, as our between-sample position adjustment, $P_{between}$, can only be implemented on an axis representing spare space.
 In other words, stacking is only a viable position adjustment when the sum of the stacked groups holds meaning [@Leland2005], which is not true for an arbitrary number of samples.
 Interestingly, this split of appropriate versus inappropriate position adjustments is opposite to the findings of @Bartonicek2025, who found that stacking was the only appropriate axis to use for interactivity, for similar arbitrary scale change issues. 
-This suggests the possibility of an underlying orthogonal relationship between uncertainty and interactivity in statistical graphics, that would allow us to implement both interactivity and uncertainty visualisation simultaneously.
+This suggests the possibility of an underlying orthogonal relationship between uncertainty and interactivity in statistical graphics that would allow us to implement both interactivity and uncertainty visualisation simultaneously.
 
 
 
 ::: {.cell}
 ::: {.cell-output-display}
-![Why we need nested position adjustments illustrated using stacked bar charts made using different position adjustment. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples' position adjustment.](03-chap3_files/figure-html/fig-positions-1.png){#fig-positions width=100%}
+![Why we need nested position adjustments illustrated using stacked bar charts made using different position adjustments. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples' position adjustment.](03-chap3_files/figure-html/fig-positions-1.png){#fig-positions width=100%}
 :::
 :::
 
@@ -430,17 +430,17 @@ If we consider a facet to be a "between" plot position adjustment, in contrast t
 Under this framework, the uncertainty visualisations that map a null distribution with an alternative on the same plot [@Guo2024; @Hullman2021; @Savvides2019; @McNutt2020] are just the line-up protocol [@Buja2009] without the "between plot" position adjustment.
 
 The most appropriate position adjustment to use can depend on which aesthetic the random variable is mapped to, and impacts on our ability to read a plot. 
-@fig-rightposition illustrates the change in plot appearance when a random variable mapped to text using a transparency (a) and jitter (b), or mapped to colour using a dodge (c) and transparency (d). 
+@fig-rightposition illustrates the change in plot appearance when a random variable is mapped to text using a transparency (a) and jitter (b), or mapped to colour using a dodge (c) and transparency (d). 
 We can see that transparency works quite well for text, while position adjustments such as jitter make the overlapping text harder to read, regardless of the uncertainty in the estimate. 
 We can see that colour works well with dodged positions, as it allows us to see the full sample and do the final calculation visually.
-Managing colour with transparency will still produce a technically correct plot, but it can lead to colours that cannot be matched to the legend as high variance colours mix and create new colours that do not belong to the palette.
+Managing colour with transparency will still produce a technically correct plot, but it can lead to colours that cannot be matched to the legend, as high variance colours mix and create new colours that do not belong to the palette.
 Differences in the most appropriate position adjustment can cause conflict when there are multiple sources of uncertainty in a plot. 
 It would be interesting to investigate this further with a perceptual experiment to test the effectiveness of different position adjustments for different aesthetics, but that is well beyond the scope of this paper.  
 
 
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
-![Illustration of the change in plot appearance based on  aesthetic mapping and position adjustment. Plots (a, b) map the random variable to text with transparency and jitter, respectively, and plots (c, d) map to tile colour using dodging and transparency. Although this needs experimental evidence, mapping the samples to transparency improves readability for text but for colour, dodging produces better readability than transparency.](03-chap3_files/figure-html/fig-rightposition-1.png){#fig-rightposition fig-align='center' width=80%}
+![Illustration of the change in plot appearance based on aesthetic mapping and position adjustment. Plots (a, b) map the random variable to text with transparency and jitter, respectively, and plots (c, d) map to tile colour using dodging and transparency. Although this needs experimental evidence, mapping the samples to transparency improves readability for text, but for colour, dodging produces better readability than transparency.](03-chap3_files/figure-html/fig-rightposition-1.png){#fig-rightposition fig-align='center' width=80%}
 :::
 :::
 
@@ -472,25 +472,25 @@ $$
 The visual function given by @def-vgeneral should allow you to make an uncertainty visualisation version of any graphic that can be described with the grammar of graphics.
 We have implemented this theory in the R package, `ggdibbler`, which is a `ggplot2` extension that allows users to create an uncertain version of any `ggplot2` graphic.
 @fig-illustration illustrates this flexibility by showing a collection of plots that were all made using this generalised visual function. 
-We can see that there is flexibility in both plot type, as we display line plots, maps, pie charts, histograms, bubble charts, and network diagrams, and in aesthetic as position, colour, size, slope, and other aesthetics all have a random variable mapped to them.
+We can see that there is flexibility in both plot type, as we display line plots, maps, pie charts, histograms, bubble charts, and network diagrams, and in aesthetics, as position, colour, size, slope, and other aesthetics all have a random variable mapped to them.
 A single plot can even have multiple sources of uncertainty simultaneously mapped to different aesthetics.
 By establishing a set of rules that will almost always work, we save ourselves from having to design bespoke software for every single individual case. 
 
 
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
-![This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with `ggdibbler` as that in the deterministic `ggplot2` equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables.](03-chap3_files/figure-html/fig-illustration-1.png){#fig-illustration fig-align='center' width=100%}
+![This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with `ggdibbler` as that of the deterministic `ggplot2` equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables.](03-chap3_files/figure-html/fig-illustration-1.png){#fig-illustration fig-align='center' width=100%}
 :::
 :::
 
 
 While we have established the conceptual theory that would underpin a flexible uncertainty visualisation system, there are considerations that need to be made when implementing the theory as practical software.
 Specifically, we should discuss the data objects that allow us to work with random matrices, the design of the user interface, and the computational complexity that comes with uncertain plots. 
-This section, will detail these components.
+This section will detail these components.
 
 ### The software design
 The way that a user interacts with a piece of software can help communicate the mechanisms or theory that underpins it.
-The statistical theory behind random matricies, visual convergence, and continuous mapping theorem that underpins the `ggdibbler` package might be too complicated for someone trying to make a simple scatter plot, but a basic understanding of these ideas is required to use the package correctly.
+The statistical theory behind random matrices, visual convergence, and the continuous mapping theorem that underpins the `ggdibbler` package might be too complicated for someone trying to make a simple scatter plot, but a basic understanding of these ideas is required to use the package correctly.
 Therefore, when designing the functions, we opted to subtly communicate these ideas through coding paradigms and function names. 
 
 Readers familiar with programming paradigms might look at @def-vfunc and @thm-cmt and immediately think of object-oriented programming (OOP). 
@@ -502,7 +502,7 @@ The user interacts with these objects only through the methods, not by directly 
 Objects can inherit, so special objects have features that will work in a variety of settings, and also some additional special features. 
 Different objects can respond to the same method call in different ways (polymorphisms). 
 
-Today's R contains several choices in data management, S3, S4, R6 and the latest S7. 
+Today's R contains several choices in data management, S3, S4, R6, and the latest S7. 
 S3 forms the original framework, and an example of the polymorphism is the `print()` function, where what is printed will change depending on the object provided. For example, a `data.frame` will be printed differently from an `lm` (linear model object). 
 It lacks the full characteristics of OOP, though, because there are no formal class definitions, and it is easy to misuse. 
 S4 is stricter and underlies all of the Bioconductor [@bioconductor], but more cumbersome for the user. 
@@ -510,7 +510,7 @@ S7 is designed to have the ease-of-use of S3 but the strict checks of S4.
 
 The main reason to use OOP is polymorphism, which allows us to apply the same function to different classes of input [@Wickham2019]. 
 For example, this paradigm would allow us to create a `draw` function that accepts both `polygons` and `lines`, drawing either one without any special input from the user.
-The `sf` package's `geom_sf` function allows users to indiscriminately pass points, lines, and polygons to the function which responds exactly as the user expects, plotting geoms appropriate to the spatial class passed in.
+The `sf` package's `geom_sf` function allows users to indiscriminately pass points, lines, and polygons to the function, which responds exactly as the user expects, plotting geoms appropriate to the spatial class passed in.
 OOP is the logical approach for uncertainty visualisation, as we want to convey that $V$ is the same function regardless of the input type.
 From the perspective of the user, the function should be the same whether we input $\textbf{X}$ or $X$.
 
@@ -524,20 +524,20 @@ While it would be nice to implement `ggdibbler` as an uncertainty visualisation 
 
 The implicit relationship between `ggdibbler` and `ggplot2` is communicated through the syntax of the code. 
 Ideally, if all of `ggplot2` were built on an OOP system, we could just create an "uncertainty" version of all the `ggplot2` functions, allowing users to pass distributions without even noticing the change in the underlying package. 
-That is, both the `ggplot2` and `ggdibbler`plots from @fig-dist-example would use the syntax, `ggplot(data = density_data) + geom_density(aes(x = x))` where the visualisation software runs the `ggdibler` code if `x` is a `distirbutional` object.
+That is, both the `ggplot2` and `ggdibbler`plots from @fig-dist-example would use the syntax, `ggplot(data = density_data) + geom_density(aes(x = x))` where the visualisation software runs the `ggdibler` code if `x` is a `distributional` object.
 As `ggplot2` is not built on an OOP system, this is not possible,  so instead, `ggdibbler` adds a `*_sample` suffix in the function name.
 This allows us to maintain similar naming conventions to the related `ggplot2` function, while also being explicit about what the function does.
-For example, the code that makes the `ggplot2` density is `ggplot(data = density_data) + geom_density(aes(x = xmean))`,  while the code that makes the  `ggdibbler` density is is `ggplot(data = density_data) + geom_density_sample(aes(x=xdist))`. 
+For example, the code that makes the `ggplot2` density is `ggplot(data = density_data) + geom_density(aes(x = xmean))`,  while the code that makes the  `ggdibbler` density is `ggplot(data = density_data) + geom_density_sample(aes(x=xdist))`. 
 This syntax still conveys the idea that the visual function is identical; it is only the input that has changed.
 
-This strong theoretical foundation doesn't only give us an intuitive function design, but it also allows us to have a lot of versatility built on a shockingly simple code base.
+This strong theoretical foundation not only gives us an intuitive function design, but it also allows us to have a lot of versatility built on a shockingly simple code base.
 Despite the package covering the full range of geoms in `ggplot2`, the bulk of `ggdibbler` is a single function that does the sample and group adjustment, and a second function that nests the positions (if needed).
-Every `geom_*` has a `geom_*_sample` counterpart that calls these core functions, and then passes the data through the standard `geom_*` pipeline, with no little to no bespoke adjustments for individual geoms.
+Every `geom_*` has a `geom_*_sample` counterpart that calls these core functions, and then passes the data through the standard `geom_*` pipeline, with little to no bespoke adjustments for individual geoms.
 A significant amount of the simplicity of the design comes from the packages dependencies: `distributional` [@distributional], `ggplot2` [@ggplot2], `dplyr` [@dplyr], `rlang` [@rlang], `lifecycle` [@lifecycle], `scales` [@scales], `tidyr` [@tidyr], `tibble` [@tibble], `cli` [@cli], and `sf` [@sfpack].
 
 ### Representing uncertainty using `distributional`
-The theoretical framework we have presented assumes you already have a random matrix input and thus far, we have somewhat ignored how you would go about making one. 
-This is because quantifying uncertainty and representing as a data object is fundamentally part of the data manipulation stage of our analysis, so it should be kept as separate as possible from the visualisation stage [@ggplot2].
+The theoretical framework we have presented assumes you already have a random matrix input, and thus far, we have somewhat ignored how you would go about making one. 
+This is because quantifying uncertainty and representing it as a data object is fundamentally part of the data manipulation stage of our analysis, so it should be kept as separate as possible from the visualisation stage [@ggplot2].
 This gives users full transparency in *what* precisely they are visualising [@ggplot2].
 In `ggdibbler`, this separation is created by leveraging the `distributional` package [@distributional], which allows users to store distributions inside data frames as individual cells. 
 `ggdibbler` works from the assumption that users have already quantified the uncertainty as distributions before attempting to visualise it, building a system that allows for `distributional` inputs. 
@@ -545,7 +545,7 @@ In `ggdibbler`, this separation is created by leveraging the `distributional` pa
 The `ggdibbler` package is designed to accept any `distributional` input.
 There are two ways you can define a distribution in `distribtional`:  
 
-  1. A theoretical distribution defined by the distribution and it's parameters, or
+  1. A theoretical distribution defined by the distribution and its parameters, or
   2. An empirical distribution defined by a set of samples
 
 Most types of uncertainty can be represented as one of the two cases, so the software is surprisingly flexible.
@@ -566,9 +566,9 @@ These are simply manifestations of the classic statistics trade-off between comp
 
 In `ggdibbler`, this sample size is controlled by the `times` argument, which is set to `10` by default.
 Sometimes this is appropriate, sometimes it is not; it depends on the variance of the distributions, the particular plot type, the number of random variables fed in, etc. 
-We cannot set a reliable and sensible `times` argument that works for every plot in every situation, so instead we advise you pick a sample size that allows your plot to converge. 
-This is a different type of convergence to the convergence to the deterministic `ggplot2` plot we discussed earlier.
-Technically, a `ggdibbler` visualisation is a random variable, so every time you print one, it will draw a new random sample and look slightly different to the previous renderings.
+We cannot set a reliable and sensible `times` argument that works for every plot in every situation, so instead we advise you to pick a sample size that allows your plot to converge. 
+This is a different type of convergence from the deterministic `ggplot2` plot we discussed earlier.
+Technically, a `ggdibbler` visualisation is a random variable, so every time you print one, it will draw a new random sample and look slightly different from the previous renderings.
 If your sample size is big enough, the variability between each visualisation should be small enough that your conclusions do not change between renderings.
 We could take this a little further and suggest that your sample size should be large enough that different renderings are visually indistinguishable from one another.
 In other words, they have visually converged by @def-converge.
@@ -588,15 +588,15 @@ After all, despite only using samples to depict uncertainty, the `ggdibbler` doc
 Blur, fuzziness, colour lightness, and shape/size frequently appear despite never being controlled through the aesthetics. 
 Therefore, it might be more computationally effective to just control these elements directly.
 
-While this ideas is not unreasonable, and might be possible to implement in the future, we do not take this approach in `ggdibbler`, as directly mapping uncertainty seems to be wrought with danger.
-The source of the uncertainty and it's visual expression is tightly linked in a `ggdibbler` plot.
+While this idea is not unreasonable and might be possible to implement in the future, we do not take this approach in `ggdibbler`, as directly mapping uncertainty seems to be fraught with danger.
+The source of the uncertainty and its visual expression are tightly linked in a `ggdibbler` plot.
 Take, for example, the appearance of blurring and fuzziness shows in @fig-fuzzy-blur, which depicts `ggdibbler` fuzziness in a bubble chart, `ggdibbler` blur in a dotplot, and `ggdist` blur in a dotplot.
 Both blur and fuzziness use a transparent position adjustment, but blur is created through uncertainty in position, while fuzziness is created through uncertainty in size. 
 This allows us to convey multiple types of uncertainty at once, as blur makes it more difficult to read the position but does not affect our ability to read the size, and vice versa for fuzziness. 
 The inability to convey multiple types of uncertainty is the most common difficulty faced by uncertainty visualisation approaches [@geointerviews; @Hadjimichael2024; @MacEachren2005]. 
-The blur and fuzziness in the `ggdibbler` plots is more of an "emergent" aesthetic, that appears through the combination of transparency and randomness, this is in direct contrast to the `ggdist` blur, which is controlled top down.
+The blur and fuzziness in the `ggdibbler` plots is more of an "emergent" aesthetic, which appears through the combination of transparency and randomness; this is in direct contrast to the `ggdist` blur, which is controlled top-down.
 This type of plot is rather unusual for the `ggdist` package, as the uncertainty is controlled by a standard error, rather than a distributional input, and that error is mapped to a "blur" aesthetic.
-Looking closely at the plot, we can see a blurred cliff effect, where the blurring of some dots extend over the dots beneath them.
+Looking closely at the plot, we can see a blurred cliff effect, where the blurring of some dots extends over the dots beneath them.
 Since the dots in a dotplot must be stacked on top of each other, this type of blurring would not be possible.
 This makes it unclear as to how the blur should be interpreted, and it indicates some kind of breakdown in the relationship between the data and its visual representation. 
 
@@ -608,10 +608,10 @@ This makes it unclear as to how the blur should be interpreted, and it indicates
 :::
 
 
-Breaking the connection between the data and it's visual representation would result in us losing the desirable statistical properties that are guaranteed by `ggdibbler`.
+Breaking the connection between the data and its visual representation would result in us losing the desirable statistical properties that are guaranteed by `ggdibbler`.
 This breakdown appears to be quite common when we try to manually map uncertainty to an aesthetic [@Mason2024].
-Additionally, a flexible EDA system should allow *any* combination of *any* uncertain aesthetics and working out how these combinations of random variables should appear would be incredibly laborious, if not impossible.
-Additionally, this approach would almost defeat the purpose of the system, as the whole point of visualising the data to begin with, is that we *don't already know* what it should look like.
+Additionally, a flexible EDA system should allow *any* combination of *any* uncertain aesthetics, and working out how these combinations of random variables should appear would be incredibly laborious, if not impossible.
+Additionally, this approach would almost defeat the purpose of the system, as the whole point of visualising the data to begin with is that we *don't already know* what it should look like.
 For these reasons, trying to directly map uncertainty to an aesthetic might be better computationally, but would likely result in more headaches than it would be worth, if it were possible at all.
 
 ## Conclusions and future research
@@ -620,7 +620,7 @@ The value of this formalisation is not only in the power of a truly flexible sys
 
 By defining the visual function mathematically, we leveraged the concept of continuity to evaluate the behaviour of visual statistics.
 This approach uncovers a wealth of other statistical concepts we could translate to statistical graphics. 
-Building on this work, we should prove investigate other concepts like bias/variance trade-off, statistical sufficiency, and other convergence properties for visual statistics. 
+Building on this work, we should investigate other concepts like bias/variance trade-off, statistical sufficiency, and other convergence properties for visual statistics. 
 In this vein, we should also identify the minimum level of variance in a plot that is required for the human perception of visual convergence, related to the concept of "just noticeable differences" in psychophysics.
 Similarly, it would be useful to know if there are principles for determining the sample size required for visual convergence, as it would give us a convenient ceiling on the computational complexity of the plots. 
 
@@ -631,7 +631,7 @@ In mathematics, all functions can essentially be broken down into a basic increm
 
 The motivation for a more fundamental building block of statistical graphics can also be found in our brief discussion on emergent aesthetics. 
 The emergent aesthetics blur the line between the statistic and geometric stages of plot building, begging the question "Should we explicitly map a statistic, or allow it to emerge through the visualisation process?" 
-To solve this problem, we would need to start out by untangling which aesthetics are primary aesthetics, and which aesthetics are emergent aesthetics. 
+To solve this problem, we would need to start by untangling which aesthetics are primary aesthetics and which are emergent aesthetics. 
 We would also need to understand the conditions under which each of these aesthetics arises and the position adjustments that lead to them.
 
 Position adjustments have historically been an afterthought when building graphics, but this work, alongside the work of @Bartonicek2025, who leveraged position in their interactive graphics framework, suggests they are more important than the visualisation literature has historically implied.
@@ -649,9 +649,9 @@ A full list of the planned changes is available, along with the package source c
 ## Acknowledgements
 The first author of this paper is supported in part by a scholarship from the the Australian Energy Market Operator.
 This research was supported by the Commonwealth through an Australian Government Research Training Program Scholarship [DOI: https://doi.org/10.82133/C42F-K220]. 
-The first author would also like to thank Mitchell O'Hara-Wild, Cynthia Huang, and Ze-Yu Zhong for their comments and feedback which substantially improved the work.
-The R packages were used for this work were: `tidyverse` [@tidyverse], `distributional` [@distributional], `ggdist` [@Kay2023], `ggdibbler` [@ggdibbler], `patchwork` [@patchwork], `khroma` [@khroma], `tidygraph` [@tidygraph], `colourspace` [@colorspace], `ggraph` [@ggraph], `ozmaps` [@ozmaps], `sf` [@sfpack], and `ggthemes` [@ggthemes].
-The GitHub repository for this paper can be found at https://github.com/harriet-mason/paper-ggdibbler which contains the files required to reproduce this article in full.
+The first author would also like to thank Mitchell O'Hara-Wild, Cynthia Huang, and Ze-Yu Zhong for their comments and feedback, which substantially improved the work.
+The R packages used for this work were: `tidyverse` [@tidyverse], `distributional` [@distributional], `ggdist` [@Kay2023], `ggdibbler` [@ggdibbler], `patchwork` [@patchwork], `khroma` [@khroma], `tidygraph` [@tidygraph], `colourspace` [@colorspace], `ggraph` [@ggraph], `ozmaps` [@ozmaps], `sf` [@sfpack], and `ggthemes` [@ggthemes].
+The GitHub repository for this paper can be found at https://github.com/harriet-mason/paper-ggdibbler, which contains the files required to reproduce this article in full.
 
 
 
