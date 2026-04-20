@@ -6,19 +6,9 @@ A thesis submitted for the degree of {{< meta degreetype >}} at Monash Universit
 
 # Copyright notice {-}
 
-
-
-
-
-
-Produced on 20 April 2026.
+Produced on 21 April 2026.
 
 © {{< meta author >}} (2026).
-
-
-
-
-
 
 # Abstract {-}
 
@@ -44,24 +34,12 @@ This thesis includes three research articles which are at different stages of pu
 (The inclusion of co-authors reflects the fact that the work came from active collaboration between researchers and acknowledges input into team-based research.)
 
 
-
-
-
-
 ::: {.cell}
 
 :::
 
 
-
-
-
-
 ::: {.content-visible when-format="html"}
-
-
-
-
 
 
 ::: {.cell}
@@ -82,17 +60,9 @@ This thesis includes three research articles which are at different stages of pu
 :::
 
 
-
-
-
-
 :::
 
 ::: {.content-visible when-format="pdf"}
-
-
-
-
 
 
 ::: {.cell}
@@ -114,10 +84,6 @@ This thesis includes three research articles which are at different stages of pu
 
 :::
 :::
-
-
-
-
 
 
 :::
@@ -155,7 +121,7 @@ First, I want to thank my supervision team, who put up with my complete inabilit
 
 Thank you to Rachel and Alison, for your help on the third paper. I had given up on the idea of doing an experiment, but your enthusiasm about the project, delightful company, and, most importantly, ability to do the parts of the research that I couldn't, allowed me to include it in my thesis. The experiment paper was easily the most fun of all the chapters.
 
-Thank you to my fellow PhD students for always being good company in the office, particularly Sherry, Patrick, Heshani, Ze-yu, Floyd, Fillip, Shelly, Kris, Minh, Cash, Tina, and Vis. In particular, thank you to Cynthia, Mitch, Jayani, Bets, and Janith, who occasionally ended up sucked into conversations with me that went on for so long my family called me to ask if I was dead.
+Thank you to my fellow PhD students for always being good company in the office, particularly Sherry, Patrick, Heshani, Ze-yu, Floyd, Fillip, Shelly, Kris, Minh, Cash, Tina, and Vis. In particular, thank you to Cynthia, Mitch, Jayani, Bets, and Janith, who occasionally ended up sucked into conversations with me that went on for so long my housemates would call me to make sure I wasn't dead.
 Thank you to the NUMBATs research group for being my home while at Monash. In particular thank you to Michael and Kate for being willing listen to me complain almost as much as the other PhD students.
 
 To Gael, thank you for for letting me into the program (despite me almost failing your class in my Bachelors) and Catherine, David and Xibin for maintaining the PhD program in the years after.
@@ -167,7 +133,7 @@ To Eliot, thank you for the eight years we have spent getting coffee and walking
 
 To my family, Mum, Dad, Grandma, Eloise, Ben, Alastair, Lauren, and Prudence, thank you for offering your homes when I travelled for conferences, participating in my pilot study despite having no idea what it was for, and remaining supportive for this annoyingly long degree.
 To my house mates, Bosco (the dog) and Sophie (the human) for tolerating my erratic work schedule.
-Finally, thank you to my and partner Tom, without whom, I might have starved to death. 
+Finally, thank you to my partner Tom, without whom, I might have starved to death. 
 
 To all my friends, family and loved ones, I know these past four years have been almost as hard on you as they have been on me (almost), but I wouldn't have suffered through them with anyone else.
 

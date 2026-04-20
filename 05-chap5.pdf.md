@@ -1,38 +1,61 @@
 # Conclusion {#sec-conc}
 
-This work presents a cohesive vision for the future of uncertainty visualisation. 
+The three papers presented in this thesis share a common theme of visualising uncertainty for exploratory data analysis.
+These papers present a cohesive vision for the future of uncertainty visualisation.
 One that exists in parallel to the existing infrastructure of statistical graphics, a confidence interval counterpart to the line-up plot's statistical test.
-We established the foundations of this vision by approaching the uncertainty visualisation problem from three separate angles: the philisophical goals of the field, the mathematical objects we are working with, and the human perception of uncertainty in visualisations.
-All three approaches landed on the same conclusion: if uncertainty is the visualisation of distributions, uncertainty visualisation is the visualisation of samples.
+We established the foundations of this vision by approaching the uncertainty visualisation problem from three separate angles: the philisophical goals of the field, the practical limitations of the mathematical objects we are working with, and the human perception of uncertainty in visualisations.
+All three approaches landed on the same conclusion: if the goal of uncertainty visualisation for exploratory data analysis is to incorporate uncertainty as "noise", regardless of the plot or data, then it should be visualised using samples.
+
 
 ## Contributions
-The primary contributions of this research are
+This thesis makes several important contributions to the uncertainty visualisation literature.
 
-The philosophical foundations
-- Connection of the disparate definitions of uncertainty and define what it means to visualise uncertainty as noise.
+First, @sec-first-paper offers a philosophical foundation for the future of uncertainty visualisation that resolves the ongoing conflicts that currently plague the field.
+By connecting our evaluation of uncertainty visualisation back to it's primary purpose, we are able to map out what it actually "see" uncertainty in a visualisation.
+Using this context, we illustrate that much of the conflict in the literature comes from a mismatch between the goal and evaluations of graphics.
+These insights allow us to present a cohesive vision for the future of uncertainty visualisation, built upon the goal of visualising uncertainty as "noise".
 
-Mathematical approach
-- Established a mathematical framework for standard visualisation that is built upon the the grammar of graphics.
-- Defining a visualisation as a function actually enforces the requirements of several statistical properties, such as continuous mapping theorem.
-- Using this approach, we then investigate the approaches that violate these mathematical properties, and therefore, are invalid uncertainty visualisations.
+Second, @sec-second-paper has presents two key contributions, a mathematical framework for uncertainty visualisation, and the introduction of the `ggdibbler` R package.
+The mathematical framework presents the argument that the grammar of graphics is a continuous function, and therefore, statistical graphics should adhere to principles such as continuous mapping theorem.
+The key insights of this formalisation are translated to the second contribution from this chapter, the flexible uncertainty visualisation software, `ggdibbler`.
+The `ggdibbler` software, allows allows us to substitute any vector of values with a vector of random variables, and make an uncertain version of any graphic that can be made in `ggplot2`.
+This software received the 2025 John Chambers Award for Statistical Software Award frome the ASA Sections on Statistical Computing and Statistical  Graphics, it has 21 stars on Github, and has been downloaded over 1800 downloads on CRAN since it was uploaded in July 2025.
+Indicating the value the statistics community has placed on the need for flexible uncertainty visualisation.
 
-Software
-- Designed software that is tied to these mathematical and philosophical foundations
-- Through formalisation, we gain flexibility, as our software allows for exploratory data analysis of uncertainty visualisation.
-- Won Di Cook award and John Chambers award.
-
-Perceptual verification
-- designed a testing approach that allows us to evaluate uncertainty as noise
-- used the mathematical foundation to design plots with marginal changes, that allowed us to isolate the differences between plots and attribute improvements to specific design choices. 
-- Provide empirical evidence that perceptual interference is required for a plot to convey signal that is different to it's deterministic counterpart.
-- Additionally, we illustrated that statistically valid visual signal can only be achieved when we visualise a distribution as a "unit", a unit that, in most cases, can only be visualised as a sample
+Finally, @sec-third-paper contributes a the results of a human experiment perceptual experiment that uses the mathematical formalisation of @sec-second-paper to confirm the hypothesis discussed in @sec-first-paper.
+Evaluating uncertainty as noise required the development of new experimental methodology, that is able to measure the effect of a latent variable (noise) on an observable variable (signal).
+The results of this paper shows that visualising a distribution as a set of samples is not only the most flexible approach (as established by @sec-second-paper), but it is also the approach that most accurately conveys the results of standard statistical tests.
 
 
 ## Future work
-There are several avenues one could take to improve upon this work.
+There are several avenues one could take to improve upon this work, we will list the most important ones here.
 
-- Software needs improvement: joint distributions, etc.
-- Experiment design was only for colour. Would be good to be able to verify the signal suppression requirements for other aesthetics.
-- Also could test which colour palettes do a better job. 
-- Primary versus secondary aestetics
-- Fundamental theory of visualisation. 
+### `ggdibbler` software
+The full list of improvements and fixes that should be made to `ggdibbler` can be see on the packages [Github issues](https://github.com/harriet-mason/ggdibbler/issues).
+In this section, we will touch on some of the high level improvements that could be made to the software.
+
+One of the core assumptions of the software is that it assumes each individual cell of our table is a distribution, and these distributions are completely independent.
+This assumption can be quite strict, and the most natural improvement to the software would be to allow for users to pass joint distributions to allow for dependency between cells in the random matrix.
+The theoretical framework already allows for this, as does the underlying `distributional` package, the only limitation currently imposed is by the `ggdibbler` software.
+However, implementing this change is not straightforward, as it would require us to reach inside of the joint distribution to map variables, and could possibly require bespoke syntax to get the extension working.
+
+Another improvement to the software is the flexibility to allow any object type.
+Similarly to the joint distributions, this is already allowed by the theoretical foundations as well as `distributional`.
+Practically, this would require us to set up a nested scale type for all scale types.
+While it would be straightforward to implement this with the existing `ggplot2` supported scales, much of the benefit of `ggplot2` comes from it's network of extensions, which would not be captured by such a limited system.
+If we could develop a way to implement the extensions as a kind of "function factory"
+Implementing some kind of "function factory" or wrapper solution might give us the flexibility needed to allow `ggdibbler` to work with all input types.
+
+### Latent variable testing for all aesthetics
+While colour blind tests were a useful solution to the issue of measuring uncertainty as a latent variable, this approach is only viable when we have mapped our random variable to colour.
+Desinging similar experiments for the most commonly used aesthetics (including position, shape, length, etc.) would serve as a value baseline for the evaluation of uncertainty in statistical graphics.
+
+
+### A fundamental theory of visualisation
+Many elements of this thesis point towards a more fundamental theory of visualisation than what is currently being used.
+The regular oddities we encountered trying to maintain continuous mapping theorem within the existing framework, as well as the existence of a deeper connection between the fields, suggests there might be the potential for a more fundamental theory of graphics that has stronger ties to it's mathematical foundations.
+This deeper connection would allow us to have better formalisations of our graphics as mathematical objects, which, as illustrated by @sec-second-paper and @sec-third-paper, would facilitate more flexible plot design and more informative perceptual experiments. 
+This fundamental theory of visualisation would allow us to see treat visualisations as statistics with desirable statistical properties, such as statistical sufficiency, or bias and variance.
+@Wickham2011 makes a link between statistical graphics and their underlying distributions using the fact that both geometry and probability are born from measure theory.
+Strengthening this connection is likely a good avenue of future research.
+

@@ -14,16 +14,16 @@ cat("© {{< meta author >}} (",format(Sys.Date(), "%Y"),").", sep="")
 
 # Abstract {-}
 
-Visualisation is a powerful tool in data analysis, as it allows us to learn from our data, identifying new insights or hypothesis that we would otherwise have been missed.
+Visualisation is a powerful tool in data analysis, as it allows us to learn from our data, identifying new insights or hypotheses that we would otherwise have missed.
 These insights are only possible thanks to the tools that allow us to render accurate and reliable representations of our data.
 Unfortunately, despite the prevalence of random variables in statistical analysis, these powerful tools do not extend to the visualisation of estimates, as we are unable to incorporate uncertainty into our plots. 
-Limiting our visualisations to point estimates restricts our ability to gain insights on uncertain data, which is especially problematic given their prevalence.
+Limiting our visualisations to point estimates restricts our ability to gain insights into uncertain data, which is especially problematic given their prevalence.
 Working past this limitation has remained difficult, as data visualisation is a broad area, simultaneously touching several fields at once, including philosophy, mathematical statistics, and studies of human perception.
 
 Properly addressing these issues requires a critical assessment of existing uncertainty visualisation approaches under each lens.
 This is the work done by this thesis, which presents three original contributions.
 The first contribution is a philosophical argument that untangles the current literature and provides guidance on what it means to make a "good" uncertainty visualisation.
-The second contribution is both conceptual and practical, as it provides a mathematical formalisation of uncertainty visualisation, which is then used to create the R package `ggdibbler` which is a flexible uncertainty visualisation software that facilitates exploratory data analysis of random matrices.
+The second contribution is both conceptual and practical, as it provides a mathematical formalisation of uncertainty visualisation, which is then used to create the R package `ggdibbler`, which is a flexible uncertainty visualisation software that facilitates exploratory data analysis of random matrices.
 The final contribution is a human study on the perception of uncertain plots, which evaluates uncertainty visualisations on their ability to align with the conclusions of classical hypothesis tests, and provides some guiding principles on the perception of uncertain plots.
 These contributions allow us to visualise random variables with as much ease as we do normal data, assured by the knowledge that what we see is actually there.
 
@@ -31,7 +31,7 @@ These contributions allow us to visualise random variables with as much ease as 
 # Declaration {-}
 I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
 
-This thesis includes three research articles which are at different stages of publication. @sec-first-paper has been submitted to Annual Reviews of Statistics and Its Applications as an invited contribution. @sec-second-paper is being prepared for submission to the Journal of Computational and Graphical Statistics. @sec-third-paper has been submitted to IEEE VIS 2026. The core theme of this thesis is "exploratory data analysis with uncertain data". The ideas, development and writing up of all the papers in the thesis were the principal responsibility of myself, the student, working within the Department of Econometrics & Business Statistics under the supervision of Professor Dianne Cook, Dr Sarah Goodwin, and Dr Susan VanderPlas (University of Nebraska-Lincoln). @sec-first-paper was also a collaberation with Dr Emi Tanaka, and @sec-third-paper was a collaboration with Dr Rachel Rogers (University of Technology Sydney), Dr Alison Kleffner (Creighton University). In the case of @sec-first-paper, @sec-second-paper, and @sec-third-paper my contributions are detailed in the table below.
+This thesis includes three research articles, which are at different stages of publication. @sec-first-paper has been submitted to Annual Reviews of Statistics and Its Applications as an invited contribution. @sec-second-paper is being prepared for submission to the Journal of Computational and Graphical Statistics. @sec-third-paper has been submitted to IEEE VIS 2026. The core theme of this thesis is "exploratory data analysis with uncertain data". The ideas, development, and writing up of all the papers in the thesis were the principal responsibility of myself, the student, working within the Department of Econometrics & Business Statistics under the supervision of Professor Dianne Cook, Dr Sarah Goodwin, and Dr Susan VanderPlas (University of Nebraska-Lincoln). @sec-first-paper was also a collaboration with Dr Emi Tanaka, and @sec-third-paper was a collaboration with Dr Rachel Rogers (University of Technology Sydney), Dr Alison Kleffner (Creighton University). In the case of @sec-first-paper, @sec-second-paper, and @sec-third-paper, my contributions are detailed in the table below.
 
 (The inclusion of co-authors reflects the fact that the work came from active collaboration between researchers and acknowledges input into team-based research.)
 
@@ -82,7 +82,7 @@ Student signature:
 
 Date:
 
-I hereby certify that the above declaration correctly reflects the nature and extent of the student’s and co-authors’ contributions to this work. In instances where I am not the responsible author I have consulted with the responsible author to agree on the respective contributions of the authors.
+I hereby certify that the above declaration correctly reflects the nature and extent of the student’s and co-authors’ contributions to this work. In instances where I am not the responsible author, I have consulted with the responsible author to agree on the respective contributions of the authors.
 
 Main Supervisor name: Dianne Cook
 
@@ -101,25 +101,25 @@ This work is licensed under a [Creative Commons  Attribution-NonCommercial-Share
 # Acknowledgements {-}
 I want to thank the people who made this work possible.
 
-First, I want to thank my supervision team, who put up with my complete inability to stick to deadlines for almost 4 years. You have all forever shaped the way I think about statistics, software, research, and visualisation, and for that I am incredibly grateful. To Emi and Ursula, even though you were not supervisors for the entire duration of the project, some of your feedback in the early days of my PhD had a huge influence on my approach to research. To Susan, having someone on the supervision team who could understand my half formed ideas well enough to help me translate them into something other people could understand, was genuinely a lifesaver and I don't think I would have finished the first paper (let alone the entire PhD) without your help. To Sarah, your exuberant energy and openness to odd ideas is something that I sincerely hope has rubbed off on me as I try to embody that attitude for the rest of my career. To Di, I don't think I have words to express the level of gratitude I have towards you. Than you for taking me on as a research assistant, then honours student, and finally PhD student. It is not an overstatement to say I wouldn't even be in research were it not for you. These last 6 years inspired a level of joy and fulfilment in my work that I didn't think I would ever see in this lifetime.
+First, I want to thank my supervision team, who put up with my complete inability to stick to deadlines for almost 4 years. You have all forever shaped the way I think about statistics, software, research, and visualisation, and for that I am incredibly grateful. To Emi and Ursula, even though you were not supervisors for the entire duration of the project, some of your feedback in the early days of my PhD had a huge influence on my approach to research. To Susan, having someone on the supervision team who could understand my half-formed ideas well enough to help me translate them into something other people could understand was genuinely a lifesaver, and I don't think I would have finished the first paper (let alone the entire PhD) without your help. To Sarah, your exuberant energy and openness to odd ideas are something that I sincerely hope has rubbed off on me as I try to embody that attitude for the rest of my career. To Di, I don't think I have words to express the level of gratitude I have towards you. Thank you for taking me on as a research assistant, then honours student, and finally PhD student. It is not an overstatement to say I wouldn't even be in research were it not for you. These last 6 years have inspired a level of joy and fulfilment in my work that I didn't think I would ever see in this lifetime.
 
-Thank you to Rachel and Alison, for your help on the third paper. I had given up on the idea of doing an experiment, but your enthusiasm about the project, delightful company, and, most importantly, ability to do the parts of the research that I couldn't, allowed me to include it in my thesis. The experiment paper was easily the most fun of all the chapters.
+Thank you to Rachel and Alison for your help on the third paper. I had given up on the idea of doing an experiment, but your enthusiasm about the project, delightful company, and, most importantly, ability to do the parts of the research that I couldn't, allowed me to include it in my thesis. The experiment paper was easily the most fun of all the chapters.
 
 Thank you to my fellow PhD students for always being good company in the office, particularly Sherry, Patrick, Heshani, Ze-yu, Floyd, Fillip, Shelly, Kris, Minh, Cash, Tina, and Vis. In particular, thank you to Cynthia, Mitch, Jayani, Bets, and Janith, who occasionally ended up sucked into conversations with me that went on for so long my housemates would call me to make sure I wasn't dead.
-Thank you to the NUMBATs research group for being my home while at Monash. In particular thank you to Michael and Kate for being willing listen to me complain almost as much as the other PhD students.
+Thank you to the NUMBATs research group for being my home while at Monash. In particular, thank you to Michael and Kate for being willing to listen to me complain almost as much as the other PhD students.
 
-To Gael, thank you for for letting me into the program (despite me almost failing your class in my Bachelors) and Catherine, David and Xibin for maintaining the PhD program in the years after.
+To Gael, thank you for letting me into the program (despite my almost failing your class in my Bachelors), and Catherine, David, and Xibin for maintaining the PhD program in the years after.
 Thank you to everyone at AEMO and the Zema scholarship fund for supporting my research (both financially and emotionally).
-To my panel: Catherine, Jess, Michael, and David, thank you for the helpful feedback at my milestones that greatly contributed improved the work.
+To my panel: Catherine, Jess, Michael, and David, thank you for the helpful feedback at my milestones that greatly contributed to improving the work.
 
 To Sophie, Kat, and Kris, sorry for complaining so much in the group chat. I hope this acknowledgement made it all worthwhile.
-To Eliot, thank you for the eight years we have spent getting coffee and walking laps around Monash University. Conversations with you always brighten by day, and my supervisors can thank you for approximately 50% of my visits to campus. 
+To Eliot, thank you for the eight years we have spent getting coffee and walking laps around Monash University. Conversations with you always brighten my day, and my supervisors can thank you for approximately 50% of my visits to campus. 
 
 To my family, Mum, Dad, Grandma, Eloise, Ben, Alastair, Lauren, and Prudence, thank you for offering your homes when I travelled for conferences, participating in my pilot study despite having no idea what it was for, and remaining supportive for this annoyingly long degree.
-To my house mates, Bosco (the dog) and Sophie (the human) for tolerating my erratic work schedule.
-Finally, thank you to my partner Tom, without whom, I might have starved to death. 
+To my housemates, Bosco (the dog) and Sophie (the human), for tolerating my erratic work schedule.
+Finally, thank you to my partner Tom, without whom I might have starved to death. 
 
-To all my friends, family and loved ones, I know these past four years have been almost as hard on you as they have been on me (almost), but I wouldn't have suffered through them with anyone else.
+To all my friends, family, and loved ones, I know these past four years have been almost as hard on you as they have been on me (almost), but I wouldn't have suffered through them with anyone else.
 
 
 <!--
