@@ -43,9 +43,9 @@ library(knitr)
 library(kableExtra)
 tab <- tribble(
   ~`Thesis chapter`, ~`Publication title`, ~Status, ~`Nature and % of student contribution`, ~`Nature and % of coauthors' contribution`, ~`Coauthors are Monash students`,
-  2, "The Noisy Work of Uncertainty Visualisation", "Submitted to Annual Reviews of Statistics and Its Applications", "Concept, writing, revisions", "Dianne Cook, (help): ??%; Sarah Goodwin, (help): ??%; Emi Tanaka, (help): ??%; Susan Vanderplas, (help): ??%", "No",
-  3, "A Mathematical Framework and Software Implementation for Uncertainty Visualisation", "Prepared for submission to Journal of Computational of Computational and Graphical Statistics", "Concept, software design and implementation, writing", "Dianne Cook, (help): ??%; Sarah Goodwin, (help): ??%; Susan Vanderplas, (help): ??%", "No",
-   4, "Colour Blinded by the Noise", "Submitted to IEEE VIS 2026", "Concept, experiment design and implementation, analysis, writing", "Dianne Cook, (help): ??%; Rachel Rogers, (help): ??%; Alison Kleffner, (help): ??%", "No"
+  2, "The Noisy Work of Uncertainty Visualisation", "Submitted to Annual Reviews of Statistics and Its Applications", "Concept, writing, editing", "Dianne Cook, (help): ??%; Sarah Goodwin, (help): ??%; Emi Tanaka, (help): ??%; Susan Vanderplas, (help): ??%", "No",
+  3, "A Mathematical Framework and Software Implementation for Uncertainty Visualisation", "Prepared for submission to Journal of Computational and Graphical Statistics", "Concept, software design and implementation, writing, editing", "Dianne Cook, (help): ??%; Sarah Goodwin, (help): ??%; Susan Vanderplas, (help): ??%", "No",
+   4, "Colour Blinded by the Noise", "Submitted to IEEE VIS 2026", "Concept, experiment design and implementation, analysis, writing, editing", "Dianne Cook, (help): ??%; Rachel Rogers, (help): ??%; Alison Kleffner, (help): ??%", "No"
 )
 ```
 
