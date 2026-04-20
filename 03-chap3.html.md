@@ -414,7 +414,7 @@ This suggests the possibility of an underlying orthogonal relationship between u
 
 ::: {.cell}
 ::: {.cell-output-display}
-![Four stacked bar charts, each made using a different position adjustment, to show the need for nested position adjustments. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples' position adjustment.](03-chap3_files/figure-html/fig-positions-1.png){#fig-positions width=80%}
+![Why we need nested position adjustments illustrated using stacked bar charts made using different position adjustment. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples' position adjustment.](03-chap3_files/figure-html/fig-positions-1.png){#fig-positions width=80%}
 :::
 :::
 
@@ -426,9 +426,8 @@ These plots could all be made in `ggdibbler` using a `geom_sf_sample` and an ani
 If we consider a facet to be a "between" plot position adjustment, in contrast to the "within" plot position adjustments we get with dodging and transparency, we can extend this idea further.
 Under this framework, the uncertainty visualisations that map a null distribution with an alternative on the same plot [@Guo2024; @Hullman2021; @Savvides2019; @McNutt2020] are just the line-up protocol [@Buja2009] without the "between plot" position adjustment.
 
-The most appropriate position adjustment is not set in stone and can depend on which aesthetic the random variable is mapped to.
-Different position adjustments have different impacts on our ability to read a plot. 
-@fig-rightposition shows four different plots, two with a random variable mapped to text using a transparency (a) and jitter (b), and two with a random variable mapped to colour using a dodge (c) and a transparency (d). 
+The most appropriate position adjustment to use can depend on which aesthetic the random variable is mapped to, and impacts on our ability to read a plot. 
+@fig-rightposition illustrates the change in plot appearance when a random variable mapped to text using a transparency (a) and jitter (b), or mapped to colour using a dodge (c) and transparency (d). 
 We can see that transparency works quite well for text, while position adjustments such as jitter make the overlapping text harder to read, regardless of the uncertainty in the estimate. 
 We can see that colour works well with dodged positions, as it allows us to see the full sample and do the final calculation visually.
 Managing colour with transparency will still produce a technically correct plot, but it can lead to colours that cannot be matched to the legend as high variance colours mix and create new colours that do not belong to the palette.
@@ -438,7 +437,7 @@ It would be interesting to investigate this further with a perceptual experiment
 
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
-![The impact aesthetic mapping and position adjustment pairings can have on the readability of the plot for text (a, b) and tiles (c, d). The plot shows the effect of using transparency and dodging/jitter on the aesthetics of text and colour. When we are looking to extract shapes or text, transparency with no x/y position adjustment is the ideal visualisation. When we are looking at a colour, we prefer to have an x/y position adjustment and avoid using transparency. It would be interesting to verify the optimum aesthetic-position mappings through a perceptual experiment.](03-chap3_files/figure-html/fig-rightposition-1.png){#fig-rightposition fig-align='center' width=80%}
+![Illustration of the change in plot appearance based on  aesthetic mapping and position adjustment. Plots (a, b) map the random variable to text  with transparency and jitter, respectively, and plots (c, d) map to tile colour using dodging and transparency. Although this needs experimental evidence, mapping the samples to transparency improves readability for text but for colour, dodging produces better readability than transparency.](03-chap3_files/figure-html/fig-rightposition-1.png){#fig-rightposition fig-align='center' width=80%}
 :::
 :::
 
