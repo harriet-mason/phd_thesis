@@ -4,7 +4,7 @@ The three papers presented in this thesis share a common theme of visualising un
 These papers present a cohesive vision for the future of uncertainty visualisation.
 One that exists in parallel to the existing infrastructure of statistical graphics, a confidence interval counterpart to the line-up plot's statistical test.
 We established the foundations of this vision by approaching the uncertainty visualisation problem from three separate angles: the philisophical goals of the field, the practical limitations of the mathematical objects we are working with, and the human perception of uncertainty in visualisations.
-All three approaches landed on the same conclusion: if the goal of uncertainty visualisation for exploratory data analysis is to incorporate uncertainty as "noise", regardless of the plot or data, then it should be visualised using samples. 
+All three approaches landed on the same conclusion: if the goal of uncertainty visualisation for exploratory data analysis is to incorporate uncertainty as "noise", regardless of the plot or data, then it should be visualised using samples.
 
 
 ## Contributions
@@ -44,26 +44,18 @@ Similarly to the joint distributions, this is already allowed by the theoretical
 Practically, this would require us to set up a nested scale type for all scale types.
 While it would be straightforward to implement this with the existing `ggplot2` supported scales, much of the benefit of `ggplot2` comes from it's network of extensions, which would not be captured by such a limited system.
 If we could develop a way to implement the extensions as a kind of "function factory"
-Implementing these improvements as a "function factory" might improve the
+Implementing some kind of "function factory" or wrapper solution might give us the flexibility needed to allow `ggdibbler` to work with all input types.
 
 ### Latent variable testing for all aesthetics
-While we utilised colour blind tests for al
-- Experiment design was only for colour. Would be good to be able to verify the signal suppression requirements for other aesthetics.
-- Also could test which colour palettes do a better job. 
+While colour blind tests were a useful solution to the issue of measuring uncertainty as a latent variable, this approach is only viable when we have mapped our random variable to colour.
+Desinging similar experiments for the most commonly used aesthetics (including position, shape, length, etc.) would serve as a value baseline for the evaluation of uncertainty in statistical graphics.
 
 
-### Fundamental theory of visualisation
+### A fundamental theory of visualisation
 Many elements of this thesis point towards a more fundamental theory of visualisation than what is currently being used.
-This fundamental theory of visualisation would allow us to see visualisations as statistics with limiting properties and concepts of information or sufficiency.
-If we could
+The regular oddities we encountered trying to maintain continuous mapping theorem within the existing framework, as well as the existence of a deeper connection between the fields, suggests there might be the potential for a more fundamental theory of graphics that has stronger ties to it's mathematical foundations.
+This deeper connection would allow us to have better formalisations of our graphics as mathematical objects, which, as illustrated by @sec-second-paper and @sec-third-paper, would facilitate more flexible plot design and more informative perceptual experiments. 
+This fundamental theory of visualisation would allow us to see treat visualisations as statistics with desirable statistical properties, such as statistical sufficiency, or bias and variance.
+@Wickham2011 makes a link between statistical graphics and their underlying distributions using the fact that both geometry and probability are born from measure theory.
+Strengthening this connection is likely a good avenue of future research.
 
-
-
-
-
-- Primary versus secondary aestetics
-- Fundamental theory of visualisation. 
-
-## Reproduciabiltiy
-
-## Final Remarks
