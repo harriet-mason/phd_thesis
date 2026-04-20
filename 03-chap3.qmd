@@ -920,7 +920,6 @@ s1 <- ggplot(data = cars_data) +
   geom_point_sample(aes(x=mpg, y=wt, colour = cyl),
                     alpha=0.5) +
   labs(colour = "cyl") +
-  scale_colour_manual(values = my_colors) + 
   ggtitle("times = 10") + 
   theme(legend.position="none")
 
