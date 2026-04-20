@@ -587,35 +587,56 @@ This suggests the possibility of an underlying orthogonal relationship between u
 #| out-width: 100% 
 #| fig-cap: "Why we need nested position adjustments illustrated using stacked bar charts made using different position adjustment. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples' position adjustment."
 
-mpg <- mpg |>
-  mutate(class = fct_infreq(as.factor(class)))
-
 p1 <- ggplot(mpg, aes(class)) + 
   geom_bar_sample(aes(fill = drv), 
                   position = "stack") +
+  scale_x_discrete("", limits = c("suv",
+                                  "compact",
+                                  "midsize",
+                                  "subcompact",
+                                  "pickup",
+                                  "minivan")) +
   ggtitle("a. ggplot2: stack") +
-  xlab("") +
+  #xlab("") +
   theme(legend.position="none") + coord_flip()
 
 p2 <- ggplot(uncertain_mpg, aes(class)) + 
   geom_bar_sample(aes(fill = drv), 
-                  position = "stack")+
+                  position = "stack") +
+  scale_x_discrete_distribution("", limits = c("suv",
+                                  "compact",
+                                  "midsize",
+                                  "subcompact",
+                                  "pickup",
+                                  "minivan")) +
   ggtitle("b. ggdibbler: stack") +
-  xlab("") +
+  #xlab("") +
   theme(legend.position="none") + coord_flip()
 
 p3 <- ggplot(uncertain_mpg, aes(class)) + 
   geom_bar_sample(aes(fill = drv),
                   position = "stack_dodge")+
+  scale_x_discrete_distribution("", limits = c("suv",
+                                  "compact",
+                                  "midsize",
+                                  "subcompact",
+                                  "pickup",
+                                  "minivan")) +
   ggtitle("c. ggdibbler: stack_dodge") +
-  xlab("") +
+  #xlab("") +
   theme(legend.position="none") + coord_flip()
 
 p4 <- ggplot(uncertain_mpg, aes(class)) + 
   geom_bar_sample(aes(fill = drv), alpha=0.15,
                   position = "stack_identity")+
+  scale_x_discrete_distribution("", limits = c("suv",
+                                  "compact",
+                                  "midsize",
+                                  "subcompact",
+                                  "pickup",
+                                  "minivan")) +
   ggtitle("d. ggdibbler: stack_identity") +
-  xlab("") +
+  #xlab("") +
   theme(legend.position="none") + coord_flip()
 
 p1 + p2 + p3 + p4 + plot_layout(ncol=2)
