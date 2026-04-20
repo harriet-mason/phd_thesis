@@ -537,6 +537,9 @@ While there are instances that both `ggdist` and `ggdibbler` produce similar loo
 The distinction between the two approaches translates directly from the philosophy of @Mason2024, who pointed out that the difference between the role of signal and noise is in our inferential statistics. 
 By having the distribution statistic subsume the statistic of the plot, we are changing our inferential statistic and visualising uncertainty as a signal. 
 This is why we repeatedly say that `ggdist` is for looking at uncertainty as signal, and `ggdibbler` is for looking at uncertainty as noise.
+The visualisations of `ggdist` cannot be made by `ggdibbler` due to the limitations in the distribution statistic, and the opposite is true due to a limitation in the global statistic. 
+Ultimately, both packages are required if we want a complete picture of uncertain data. 
+
 
 ### The adjustment to `geometry`
 The geometry component of the grammar translates our data to a magnitude in space [@Leland2005].
