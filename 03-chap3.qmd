@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # A Mathematical Framework and Software Implementation for Uncertainty Visualisation {#sec-second-paper}
 
 
@@ -78,8 +83,8 @@ The third plot is made using `ggdibbler`, <!--and it shows the distribution of t
 ```{r}
 #| label: fig-dist-example
 #| fig-cap: "Alternative interpretations of how to render a density plot when the input is a set of distributions describing uncertainty of measurements, according to three plotting packages: (a) `ggplot2` forms the density from the mean values, (b) `ggdist` puts the distribution on each observation, treating uncertainty as signal, (c) `ggdibbler` shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. These differences illustrate how uncertainty is interpreted in different ways. Which is correct?"
-#| fig-height: 4
-#| fig-width: 10
+#| fig-height: 6
+#| fig-width: 15
 #| out-width: 100%
 set.seed(1)
 density_data <- data.frame(xmean = rnorm(15, 163, 7),
@@ -102,7 +107,7 @@ d2 <- ggplot(data = density_data) +
 
 d3 <- ggplot(data = density_data) + 
   geom_density_sample(aes(x=xdist), times=100, 
-                      linewidth=0.1, alpha=0.3) +
+                      linewidth=0.01) +
   xlab("Height") +
   ggtitle("c. ggdibbler") +
   theme(plot.title = element_text(size = tsize))
@@ -761,7 +766,7 @@ By establishing a set of rules that will almost always work, we save ourselves f
 #| fig-align: center
 #| fig-cap: "This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with `ggdibbler` as that of the deterministic `ggplot2` equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables."
 #| fig-height: 6
-#| fig-width: 9
+#| fig-width: 15
 #| out-width: 100%
 
 set.seed(10)
@@ -807,8 +812,8 @@ psf <- ggplot(data = Aust_map, aes(geometry = geometry, fill = value)) +
   scale_x_continuous_distribution(limits = c(111,155))
 
 pgraph <- ggraph(graph_sample, weights = weight) + 
-  geom_edge_link(aes(group=drawID), position=jitter, alpha=0.005, 
-                 linewidth=1, colour = "#cc3311") + 
+  geom_edge_link(aes(group=drawID), position=jitter, alpha=0.05, 
+                 linewidth=0.3, colour = "#cc3311") + 
   theme_void() +
   theme(aspect.ratio = 1) +
   geom_node_point(size=3) +
@@ -953,7 +958,7 @@ s2 <- ggplot(data = cars_data) +
                         colour = dist_transformed(cyl, as.factor, as.numeric)), 
                     times=100, alpha=0.15) +
   labs(colour = "cyl") +
-  ggtitle("times = 100") #+ 
+  ggtitle("times = 100") + 
   theme(legend.position="none")
 
 s3 <- ggplot(data = uncertain_mtcars) +
@@ -996,11 +1001,14 @@ This makes it unclear as to how the blur should be interpreted, and it indicates
 p9 <- ggplot(uncertain_mpg, aes(cty, hwy)) +
   geom_count_sample(alpha=0.01, times=100) +
   ggtitle("a. ggdibbler: fuzziness") +
-  theme(legend.position="none")
+  theme(legend.position="none",
+        plot.title = element_text(size = 20))
+  
 
 p10 <- ggplot(uncertain_mtcars, aes(x = mpg)) +
   geom_dotplot_sample(binwidth = 1.5, alpha=0.01, times=100) +
-  ggtitle("a. ggdibbler: blur")
+  ggtitle("a. ggdibbler: blur") +
+  theme(plot.title = element_text(size = 20))
 
 n = 100
 p11 <- data.frame(
@@ -1008,7 +1016,8 @@ p11 <- data.frame(
   n = rep(n, n)) |>
   ggplot(aes(x = x)) +
   stat_mcse_dots(quantiles = 100) +
-  ggtitle("b. ggdist: blur")
+  ggtitle("b. ggdist: blur") +
+  theme(plot.title = element_text(size = 20))
 
 p9 + p10 + p11 + plot_layout(ncol=3)
 ```

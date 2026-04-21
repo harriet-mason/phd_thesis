@@ -1,3 +1,14 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+
+
+
 # A Mathematical Framework and Software Implementation for Uncertainty Visualisation {#sec-second-paper}
 
 

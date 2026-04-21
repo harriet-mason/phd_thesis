@@ -422,8 +422,11 @@ bivar3 <- bivar_pal |>
 
 #bivar1 <- bivar1 / bivar3
 #bivar2 <- bivar2 / bivar3
-bivar1 <- bivar1 + bivar3 + plot_layout(ncol=1, heights = c(4, 1))
-bivar2 <- bivar2 + bivar3 + plot_layout(ncol=1, heights = c(4, 1))
+bivar1 <-  bivar1 + inset_element(bivar3, left = -0.01, bottom = -0.5, 
+                          right = 0.4, top = 0.2)
+
+bivar2 <-  bivar2 + inset_element(bivar3, left = -0.01, bottom = -0.5, 
+                          right = 0.4, top = 0.2)
 
 ####################### VSUP maps ###################### 
 # Function to combine colours for VSUP
@@ -494,8 +497,11 @@ vsup4 <- vsup3 +
 
 #vsup1 <- vsup1 / vsup3
 #vsup2 <- vsup2 / vsup4
-vsup1 <- vsup1 + vsup3 + plot_layout(ncol=1, heights = c(4, 1))
-vsup2 <- vsup2 + vsup4 + plot_layout(ncol=1, heights = c(4, 1))
+vsup1 <- vsup1 + inset_element(vsup3, left = -0.01, bottom = -0.5, 
+                          right = 0.4, top = 0.2)
+
+vsup2 <- vsup2 + inset_element(vsup4, left = -0.01, bottom = -0.5, 
+                          right = 0.4, top = 0.2)
 
 ####################### Pixel maps ######################
 # low variance
