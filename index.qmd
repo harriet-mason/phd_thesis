@@ -92,8 +92,9 @@ Date:
 
 
 #### Reproducibility statement
-
-This thesis is written using Quarto with renv [@renv] to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository [`github.com/harriet-mason/phd_thesis`](https://github.com/harriet-mason/phd_thesis).
+All materials associated with this thesis are openly available for transparency and following reproducible practice. The thesis is written using Quarto [@quarto] and is available online.
+<!-- at [link](link).  -->
+All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository [`github.com/harriet-mason/phd_thesis`](https://github.com/harriet-mason/phd_thesis).
 
 This work is licensed under a [Creative Commons  Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
