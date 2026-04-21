@@ -92,16 +92,16 @@ Selected & Correct & Total & Dots\\
 \midrule
 \addlinespace[0em]
 \multicolumn{4}{l}{\textbf{}}\\
-\hspace{1em}No number visible & 1 & 324 & 117\\
-\hspace{1em}No number visible & 7 & 306 & 161\\
-\hspace{1em}No number visible & 4 & 282 & 200\\
-\hspace{1em}No number visible & 5 & 258 & 211\\
-\hspace{1em}No number visible & 8 & 251 & 241\\
-\hspace{1em}No number visible & 3 & 228 & 223\\
-\hspace{1em}No number visible & 9 & 227 & 240\\
-\hspace{1em}No number visible & 6 & 220 & 247\\
-\hspace{1em}No number visible & 0 & 207 & 208\\
-\hspace{1em}No number visible & 2 & 165 & 223\\
+\hspace{1em}No number visible & 1 & 324 & 127\\
+\hspace{1em}No number visible & 7 & 306 & 157\\
+\hspace{1em}No number visible & 4 & 282 & 176\\
+\hspace{1em}No number visible & 5 & 258 & 205\\
+\hspace{1em}No number visible & 8 & 251 & 230\\
+\hspace{1em}No number visible & 3 & 228 & 231\\
+\hspace{1em}No number visible & 9 & 227 & 233\\
+\hspace{1em}No number visible & 6 & 220 & 241\\
+\hspace{1em}No number visible & 0 & 207 & 226\\
+\hspace{1em}No number visible & 2 & 165 & 215\\
 \bottomrule
 \end{longtable}
 \endgroup{}
