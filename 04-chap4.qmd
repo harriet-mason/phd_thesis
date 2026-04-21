@@ -109,7 +109,7 @@ This distinction is the main difference between the two approaches.
 
 The different sources of uncertainty between lineups and uncertainty visualisation have a run-on effect in how conclusions are drawn from each approach to inference.
 One of these run-on effects is in how the methods show uncertainty, as lineups show outcomes across multiple plots, while uncertainty visualisations show the outcomes within a single plot.
-While some visualisations disobey this distinction and display the distribution of a null plot alongside the data [@Guo2024; @compsci-lineup], where the true data is coloured differently from the null hypothesis, this approach is somewhat antithetical to the goals of both uncertainty visualisation and the lineup protocol.
+While some visualisations disobey this distinction and display the distribution of a null plot alongside the data [@Guo2024; @Savvides2019], where the true data is coloured differently from the null hypothesis, this approach is somewhat antithetical to the goals of both uncertainty visualisation and the lineup protocol.
 Uncertainty visualisation and lineup protocols are built on the idea that statistical significance should imply visual distinction.
 If a target plot is significantly different, it should be visually distinguishable from the null distribution; if a pattern is statistically significant in an uncertainty visualisation, it should be visible to viewers. 
 By colouring the target data differently, the visual differentiability is built into the plot design and therefore cannot be tested, as would be done in a lineup scenario.
