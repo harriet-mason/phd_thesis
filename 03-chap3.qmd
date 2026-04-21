@@ -101,7 +101,8 @@ d2 <- ggplot(data = density_data) +
   theme(plot.title = element_text(size = tsize))
 
 d3 <- ggplot(data = density_data) + 
-  geom_density_sample(aes(x=xdist), times=100, linewidth=0.1) +
+  geom_density_sample(aes(x=xdist), times=100, 
+                      linewidth=0.1, alpha=0.3) +
   xlab("Height") +
   ggtitle("c. ggdibbler") +
   theme(plot.title = element_text(size = tsize))
@@ -953,7 +954,7 @@ s2 <- ggplot(data = cars_data) +
                     times=100, alpha=0.15) +
   labs(colour = "cyl") +
   ggtitle("times = 100") #+ 
-  #theme(legend.position="none")
+  theme(legend.position="none")
 
 s3 <- ggplot(data = uncertain_mtcars) +
   geom_point_sample(aes(x=mpg, y=wt, 
@@ -988,7 +989,7 @@ This makes it unclear as to how the blur should be interpreted, and it indicates
 #| label: fig-fuzzy-blur
 #| fig-cap: "Two examples from the `ggdibbler` documentation, and one example from the `ggdist` documentation to illustrate the difference in the top-down versus emergent aesthetic approach. The blur and fuzziness emerge from the `ggdibbler` plots due to the sampling procedures, while the blur in `ggdist` is added manually as a top-down aesthetic. We can see that the 'cliff' effect in the `ggdist` plot is not visible in the blurred `ggdibbler` plot, because it would be impossible to generate that appearance from the underlying data."
 #| fig-height: 6
-#| fig-width: 15
+#| fig-width: 18
 #| out-width: 100%
 
 # examples from ggdibbler
