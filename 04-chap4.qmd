@@ -942,7 +942,6 @@ theoretical_models <- rbind(ttest_pable, mtest_pable)  |>
   mutate(test = factor(test, levels = c("t-test", "m-test"),
                        labels = c("T-test", "Moran's I")))
 
-save(theoretical_models, file="paper/data/theoretical_models.rda")
 # save(theoretical_models, file="data/theoretical_models.rda")
 
 # Check theoretical model makes sense
@@ -973,6 +972,7 @@ average_ttest <- glm(reject ~ D*V,
   augment(type.predict="response") |>
   mutate(test = "t-test")
 
+
 average_mtest <- glm(reject ~ D*V,
                      family="binomial", 
                      data = filter(average_tests, test == "m-test")) |>
@@ -991,7 +991,7 @@ average_fit <- rbind(average_ttest, average_mtest) |>
 #   geom_line(aes(y = .fitted)) +
 #   facet_grid(rows = vars(test), cols = vars(D))
 
-save(average_fit, file="paper/data/average_fit.rda")
+# save(average_fit, file="data/average_fit.rda")
 
 ```
 
@@ -1002,7 +1002,7 @@ save(average_fit, file="paper/data/average_fit.rda")
 #| warning: false
 #| message: false
 #| out-width: 100%
-#| fig-cap: "The full set of participant responses, coloured by whether or not they were able to identify the correct number in the plot, grouped according to the distance ($D$) between the distributions, and the standard deviation ($V$) in each individual estimate. The theoretical simulation from the $t$-test and Moran's I calculations is also included as a point of reference."
+#| fig-cap: "The full set of participant responses, coloured by whether or not they were able to identify the correct number in the plot, grouped according to the distance ($D$) between the distributions, and the standard deviation ($V$) in each individual estimate. The theoretical simulation from the $t$-test and Moran's I calculations is also included as a point of reference. We can see that the choropleth, and bivariate map have an I-shape, the VSUP map makes an L-shape, and the pixel and transparency maps make an upper triangular shape. The I-shape indicates the variance has no impact on the visibility, the L-shape indicates the variance only has an impact on visibility at its maximum, and the upper triangular shape shows a consistent impact on visibility from the variance. None of the plots types perfectly match the pattern in the theoretical visualisation."
 
 # load raw theoretical data
 load("data/bigpvalues.rda")
@@ -1045,7 +1045,7 @@ However, the theoretical hypothesis data does not appear to have the same sensit
 ### Power analysis
 #### Estimating significance levels
 To set the $\alpha$ for the theoretical test, we need to calculate the $\hat\alpha$ value for each plot type, $k$, where $k \in \{chropleth, bivariate, vsup, pixel, transparency \}$. 
-While the lineup protocol has a theoretical calculation that can be used to estimate $\alpha$ due to the fact that any plot being picked by chance is $\frac 1 M$ for a lineup with $M$ plots (assuming there is no dependece structure between the plots) [@Majumder2013; @Vanderplas2021], this calculation does not translate to uncertainty visualisation.
+While the lineup protocol has a theoretical calculation that can be used to estimate $\alpha$ due to the fact that any plot being picked by chance is $\frac 1 M$ for a lineup with $M$ plots (assuming there is no dependence structure between the plots) [@Majumder2013; @Vanderplas2021], this calculation does not translate to uncertainty visualisation.
 As graphics do not come with a significance threshold [@Vanderplas2021], and a significance threshold is required to compare our plots to classic hypothesis tests, we estimate $\hat{\alpha}_k$, using the proportion of participants who identified a number in a plot that was just random noise.
 
 @fig-h0calc shows the 95% confidence bootstrapped confidence interval for the significance level of each plot, $\hat{\alpha}_k$.  
@@ -1062,7 +1062,7 @@ Therefore, we will use the average number of false positives within each plot ty
 #| warning: false
 #| message: false
 #| out-width: 80%
-#| fig-cap: "Bootstrapped significance levels for each plot type, shown as jittered dotplots, computed using the null plots, $D=0$. The large points are the full sample values, that are used in the power analysis. The vertical line indicates the conventional significance level, 0.05."
+#| fig-cap: "Bootstrapped significance levels for each plot type, shown as jittered dotplots, computed using the null plots, $D=0$. The large points are the full sample values, that are used in the power analysis. The vertical line indicates the conventional significance level, 0.05. We can see that all the significance levels seem to hover around 0.03, with pixel maps sitting slightly lower than the other plot types."
 
 load("data/combined.rda")
 
@@ -1121,8 +1121,8 @@ if (file.exists("data/glmer_models.rda")) {
 #| message: false
 #| fig-width: 7
 #| fig-height: 13
-#| out-width: 100%
-#| fig-cap: "Visualisation of generalised linear random effects model (top) generalised linear fixed effects model (bottom)."
+#| out-width: 75%
+#| fig-cap: "A visualisation of the experimental power curves, estimated using a generalised linear random effects model (top) and generalised linear fixed effects model (bottom) for all 125 experimental factors: V (standard deviation), D (Distance), and K (plot type). The results of the theoretical hypothesis tests, the t-test and Moran's I test, are shown using two different black dashed lines. We can see that the variance has little impact on the signal visibility in the choropleth and bivariate map, the visibility of the signal in the VSUP map shrinks to zero when V=5 regardless of the effect size, and the pixel and transparency map broadly follow the shape of the theoretical tests."
 
 # load simulated models
 load("data/average_fit.rda")
@@ -1182,24 +1182,35 @@ p_fe <- glmer_models |>
 p_re / p_fe + plot_layout(heights = c(3, 1))
 ```
 
-@fig-mixmodel shows the random effects model and fixed effects components for each plot type, $D$ and $V$, with a black dashed line indicating the theoretical power curve of our hypothesis tests for that plot's value of $\hat{\alpha}_k$. 
-The two different dashed lines show the difference between the simulated $t$-test and Moran's I.
-The random effects model allows us to see the variation in individual participants, while the fixed effects average allows for easier comparison between the impact of the $D$ and $V$ across plot types.
+@fig-mixmodel shows the random effects model and fixed effects components for each plot type, $D$ and $V$, with a black dashed line indicating the theoretical power curve of our hypothesis tests.
+The two different dashed lines show the difference between the simulated $t$-test and Moran's I, and are slightly different shapes as the power curve is set based on that plot types significance level, $\hat{\alpha}_k$.
+The random effects model allows us to see the variation in individual participants, while the fixed effects average allows us to easily compare the different plot types.
+In the random effects plot, the variability in the black dashed lines comes from the random effect of the numbers shown in the plate, while the variability in the experimental results comes from both the random effects of the numbers in the plate, and the participants ability to read the plot.
+As the variance increases, we would expect the signal in the plate to become harder to see, as its statistical significance drops off.
+Ideally, this drop off would occur at a rate that is similar to the hypothesis tests, represented by the black dashed lines.
+If the coloured line for a plot sits above the hypothesis test, then the plot is showing a pattern that the classical hypothesis tests would consider to be insignificant.
+While this can be a desirable property when comparing standard hypothesis tests, this is not necessarily a desirable property for uncertainty visualisation.
+It is important to remember that the key issue with choropleth maps, and the reason we need uncertainty visualisation at all, is that they *always* show statistical signal, even if that signal is spurious.
+We have designed this experiment such that the visibiltiy *does* link to a signal, but that will not always be the case. 
+Therefore, the power curve of the most appropriate plot will not necessarily sit above the black dashed lines, but rather, should have a shape that is similar to the to the hypothesis test curves accross the different values of $D$. 
 
 These charts seem to largely agree with our initial findings.
 The choropleth and bivariate maps are constant, and the visibility of the plot appears to be largely independent of $V$, only changing with an increase in the average effect.
-The VSUP appears to follow the theoretical line for $D=1,2$, but when $D=3,4$ suggest this to be a coincidence rather than a statistical alignment.
-The monochromatic plate for VSUP, when $V=5$, is pulling the power curve down, even when visibility should be high.
-Finally, we see that the pixel and transparency maps appear to do a reasonably good job of following the power curve of the theoretical hypothesis test, but the power is falling short at both ends of the spectrum, indicating that the test is not quite sensitive enough.
-This issue in the pixel and transparency maps becomes less prevalent as the $D$ increases, and at higher values of $D$, the visualisation actually manages to outperform Moran's I test.
+The VSUP appears to follow the theoretical line for $D=1,2$, but diverges for $D=3,4$ as the statistically significant difference at $V=5$ is hidden by the monochrome plate.
+This divergence suggests that the alignment when $D=1,2$ is a coincidence born from the fact that when $D=1,2$, the power of the hypothesis test should be zero, and $V=5$ will also produce a power of zero, independent of the effect size in the plot.
+Finally, we see that the pixel and transparency maps appear to do a reasonably good job of following the power curve of the theoretical hypothesis test, but the power is falling short at both ends of the spectrum.
+The signal is not visible enough when variance is low, but it is too visible when variance is low.
+This indicates that the test is not quite sensitive enough to changing values of $V$.
+This issue in the pixel and transparency maps becomes less prevalent as $D$ increases, and at higher values of $D$, the visualisation actually sits between the results of the T-test and Moran's I test.
 
-A closer inspection of the random effects plot reveals some other interesting findings.
-It appears as though the choropleth and bivariate map have more crossing lines in their random effects than the VSUP, pixel, or transparency maps at $D=1$.
-This might indicate that even when the distance ($D$) *does* have an effect on our ability to see a number, that ability is also less consistent within individuals relative to the other map types.
-We can additionally see the variability among the individual participants in the experiment. 
+A closer inspection of the random effects models reveals some patterns in the participants ability to read the plot. 
+There is quite a bit of variation among participants, especially when $D=1$.
+As the $D$ increases, the variance in the participants responses decreases, a pattern that is less pronounced in the pixel and transparency map.
+This indicates that, as the plots become easier to read, either due to decreasing $V$ or increasing $D$, the variance among viewers will also decrease.
 Some participants perform rather badly across the board, but we can see others manage to track the theoretical power curve rather well. 
-This indicates that, unlike in traditional classical hypothesis tests, there is a degree of skill involved in identifying a signal in uncertainty visualisations.
-This skill could get better with training to allow comparable results. 
+This indicates that, unlike in traditional hypothesis tests, there is a degree of skill involved in identifying a signal in uncertainty visualisations.
+The importance of this skill becomes more pronounced as the effect size gets smaller.
+This indicates that training could potentially improve the power of plots as statistical tests.
 
 
 #### Hypothesis tests
@@ -1229,10 +1240,12 @@ emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(1,2,3,4)
 
 ```
 
-As shown in Table @tbl-v-trend, the effect associated with $V$ for each plot type is insignificant in the case of the bivariate map and choropleth map, but significant for all other map types, when averaging over the effect of $D$.
-Significance tests at set $D=1, 2, 3, 4$, result in the same conclusions in terms of significance.
-This indicates that $V$ has no significant effect for bivariate and choropleth maps, given the generalised linear mixed effects model.
-Distance-based results are available in the Supplementary Material.
+@tbl-v-trend shows the estimated marginal effect of $V$ for each plot type, averaging over the effect of $D$.
+If the marginal effect is significantly different from zero, then $V$ is having some effect on the visibility in the signal in the plot, but if it isn't significantly different from zero, then the variance is not having any impact on signal visibility at all.
+We can see that the effect associated with $V$ for each plot type is insignificant in the case of the bivariate map and choropleth map, but significant for all other map types.
+This conclusions remains true if we perform significance tests at set $D=1, 2, 3, 4$, instead of looking at the average across $D$.
+These distance-based results are available in @sec-appa.
+This indicates that $V$ has no significant effect on the visibility of the signal in the bivariate and choropleth maps, given the generalised linear mixed effects model.
 
 *Relating to H1 and H3: The probability of correctly reading the transparency and pixel map, as well as the probability of correctly reading the choropleth and bivariate map, will be similar.*
 
@@ -1265,7 +1278,7 @@ Comparisons of standard deviation effect between plot types of interest are show
 The $p$-values were adjusted for multiple comparisons using the Sidak adjustment.
 If the statistical information conveyed by two plots is equivalent, the signal visibility between two plots will be equivalent. If this is true, the probability of correctly reading the transparency and pixel maps will be similar.
 For the pairwise comparisons of the transparency/pixel map and the choropleth/bivariate map, significance tests at $D=1, 2, 3, 4$ result in the same conclusions in terms of significance. 
-Distance-based results as well as all pairwise comparisons are available in the Supplementary Material.
+Distance-based results as well as all pairwise comparisons are available in the @sec-appa.
 The non-significant difference between the transparency and pixel map, as well as between the choropleth and bivariate map, indicates that standard deviation effects are similar between the plot types, as expected.
 
 ## Discussion
@@ -1340,7 +1353,7 @@ Additionally, we could extend the question to cases where there are multiple unc
 The size of the plot also seemed to have an effect on the visibility of the pattern, with smaller plots making the pattern easier to see.
 
 Given the fact that the transparency map was effective, it would become a viable visualisation approach if an interpretable legend could be presented alongside the map. 
-In its current state, as can be seen in the teaser image map, the colours do not exactly map to the legend, and as the standard error increases, that issue only gets worse as sample outcomes jump wildly around the colour scale and mix the colours in the scale.
+In its current state, as can be seen in @fig-maps, the colours do not exactly map to the legend, and as the standard error increases, that issue only gets worse as sample outcomes jump wildly around the colour scale and mix the colours in the scale.
 
 There are also several potential extensions or issues we encountered when implementing the colour blind test that should be of note to anyone who wants to implement a similar method. 
 We noticed an afterimage occasionally when doing the test, so including an image as a mask between plots may help alleviate this issue.
@@ -1349,9 +1362,16 @@ There are also colour blind tests that ask participants to trace a shape, rather
 Using software that allows participants to draw on data visualisations, such as the `r2d3` [@Robinson2023] R package, would allow researchers to implement that variant of the noise blind tests.
 Alternatively, including a variety of shapes in the test may reduce the probability of random guessing by the participants.
 
-### Ethics declaration {-}
+## Ethics declaration {-}
 
 Ethics approval for the online survey was granted by Monash University Human Research Ethics Committee (Project ID 51214). All applicants provided informed consent prior to participating in this research.
+
+## Acknowledgements
+The first author of this paper is supported in part by a scholarship from the the Australian Energy Market Operator.
+This research was supported by the Commonwealth through an Australian Government Research Training Program Scholarship [DOI: https://doi.org/10.82133/C42F-K220]. 
+We thank Susan VanderPlas and Sarah Goodwin for their insightful comments and feedback which substantially improved the work.
+The R packages used for this work were: `tidyverse` [@tidyverse], `distributional` [@distributional], `ggdist` [@Kay2023], `ggdibbler` [@ggdibbler], `patchwork` [@patchwork], `khroma` [@khroma], `colourspace` [@colorspace], `ozmaps` [@ozmaps], `sf` [@sfpack], `ggthemes` [@ggthemes], `MASS` [@MASS], `shadowtext` [@shadowtext], `flextable` [@flextable], `emmeans` [@emmeans], `kableExtra` [@kableExtra], `broom` [@broom], `lme4` [@lme4], `car` [@car], `janitor` [@janitor], `packcircles` [@packcircles], `gglogo` [@gglogo], `scales` [@scales], `glue` [@glue], `digest` [@digest], `ggbeeswarm` [@ggbeeswarm], `conflicted` [@conflicted], `sp` [@sp], and `spdep` [@spdep].
+The GitHub repository for this paper can be found at https://github.com/harriet-mason/uncertainty-experiment, which contains the files required to reproduce this article in full.
 
 ```{r, include=FALSE, eval=FALSE}
 library(spelling)
@@ -1369,83 +1389,5 @@ if (nrow(check_spelling) > 0) {
 ```
 
 
-```{r teaser-image}
-#| eval: false
-#| echo: false
-#| include: false
-# make 6 data set
-set.seed(6)
-six_data <- gen_data(3, 3, parentV = 1, noiseV = 0, number = 6)
-
-# Choropleth
-c1 <- six_data |>
-  ggplot() + 
-  geom_sf(aes(geometry = geometry,
-              fill = estimate),
-          col=NA) +
-  theme_void() +
-  theme(legend.position = "none") +
-  scale_fill_davos() 
-
-# Bivariate
-c2 <- six_data |> 
-  bivar_prep() |>
-  ggplot() +
-  geom_sf(aes(geometry = geometry, 
-              fill = bivariate_text), 
-          color = NA) + 
-  scale_fill_identity() +
-  theme_void() +
-  theme(legend.position = "none")
-
-# VSUP
-c3 <- six_data |> 
-  VSUP_prep() |>
-  ggplot() +
-  geom_sf(aes(geometry = geometry,
-              fill = VSUP_text), 
-          color = NA) + 
-  scale_fill_identity() +
-  theme_void() +
-  theme(legend.position = "none")
-
-# pixel map
-c4 <- six_data |>
-  ggplot() + 
-  geom_sf_sample(aes(geometry = geometry,
-                     fill = estimate_dist),
-                 times = 50,
-                 col=NA)+ 
-                theme_void() +
-                theme(legend.position = "none") +
-                scale_fill_davos() 
-
-c5 <- six_data |>
-  ggplot() + 
-  geom_sf_sample(aes(geometry = geometry, 
-                     fill = estimate_dist),
-                 times = 50,
-                 position = "identity",
-                 alpha = (1.05/50),
-                 col=NA) + 
-  theme_void() +
-  theme(legend.position = "none") +
-  scale_fill_davos() 
-
-# a <- theme(plot.title = element_text(size = 24, 
-#                                      face = "bold",
-#                                      # Centers the title
-#                                      hjust = 0.5))
-# (m1/c1) | (m4/c2) | (m5/c3) | (m2/c4) | (m3/c5)
-teaser <- (m1 | m4 | m5 | m2 | m3)/(c1 | c2 | c3 | c4 | c5)
-ggsave(filename = "teaser2.pdf", 
-       plot = teaser,
-       device = "pdf",
-       width = 12,
-       height = 6)
-
-```
-
-<!-- The five map designs we will be evaluating, illustrated using the state boundaries of Australia, alongside the map's pseudo-isochromatic plates from our "noise" blind test. The distributions visualised in the maps are the same data, but randomly generated from a uniform distribution. The test plates are generated using the same colour scale and palette as the maps, but with a data generation process that mimics the Ishihara colour blind test. In this example, the number displayed in all the charts is a 6, the distance between the number and background groups is 3 and the standard deviation of each individual circle is 3. According to classical hypothesis tests, the number in this plate should be visible. How easily can you read the number 6 in each of these plots? -->
 
 
