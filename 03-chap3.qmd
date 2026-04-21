@@ -1053,7 +1053,7 @@ A full list of the planned changes is available, along with the package source c
 ## Acknowledgements
 The first author of this paper is supported in part by a scholarship from the the Australian Energy Market Operator.
 This research was supported by the Commonwealth through an Australian Government Research Training Program Scholarship [DOI: https://doi.org/10.82133/C42F-K220]. 
-The first author would also like to thank Mitchell O'Hara-Wild, Cynthia Huang, and Ze-Yu Zhong for their comments and feedback, which substantially improved the work.
+The first author would also like to thank Mitchell O'Hara-Wild, Cynthia Huang for their comments and feedback which substantially improved the work, and Ze-Yu Zhong for several interesting applications of the work.
 The R packages used for this work were: `tidyverse` [@tidyverse], `distributional` [@distributional], `ggdist` [@Kay2023], `ggdibbler` [@ggdibbler], `patchwork` [@patchwork], `khroma` [@khroma], `tidygraph` [@tidygraph], `colourspace` [@colorspace], `ggraph` [@ggraph], `ozmaps` [@ozmaps], `sf` [@sfpack], and `ggthemes` [@ggthemes].
 The GitHub repository for this paper can be found at https://github.com/harriet-mason/paper-ggdibbler, which contains the files required to reproduce this article in full.
 
