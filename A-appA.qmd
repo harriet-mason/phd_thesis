@@ -1,4 +1,4 @@
-# Appendix A — Supplementary Material for “Colour Blinded by the Noise”
+# Appendix A — Supplementary Material for “Colour Blinded by the Noise” {#sec-appa}
 
 ```{r setup}
 #| message: false
