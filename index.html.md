@@ -6,9 +6,19 @@ A thesis submitted for the degree of {{< meta degreetype >}} at Monash Universit
 
 # Copyright notice {-}
 
+
+
+
+
+
 Produced on 21 April 2026.
 
 © {{< meta author >}} (2026).
+
+
+
+
+
 
 # Abstract {-}
 
@@ -34,16 +44,29 @@ This thesis includes three research articles, which are at different stages of p
 (The inclusion of co-authors reflects the fact that the work came from active collaboration between researchers and acknowledges input into team-based research.)
 
 
+
+
+
+
 ::: {.cell}
 
 :::
 
 
+
+
+
+
 ::: {.content-visible when-format="html"}
+
+
+
+
 
 
 ::: {.cell}
 ::: {.cell-output-display}
+
 `````{=html}
 <table>
  <thead>
@@ -85,13 +108,22 @@ This thesis includes three research articles, which are at different stages of p
 </table>
 
 `````
+
 :::
 :::
+
+
+
+
 
 
 :::
 
 ::: {.content-visible when-format="pdf"}
+
+
+
+
 
 
 ::: {.cell}
@@ -113,6 +145,10 @@ This thesis includes three research articles, which are at different stages of p
 
 :::
 :::
+
+
+
+
 
 
 :::
@@ -137,8 +173,9 @@ Date:
 
 
 #### Reproducibility statement
-
-This thesis is written using Quarto with renv [@renv] to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository [`github.com/harriet-mason/phd_thesis`](https://github.com/harriet-mason/phd_thesis).
+All materials associated with this thesis are openly available for transparency and following reproducible practice. The thesis is written using Quarto [@quarto] and is available online.
+<!-- at [link](link).  -->
+All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository [`github.com/harriet-mason/phd_thesis`](https://github.com/harriet-mason/phd_thesis).
 
 This work is licensed under a [Creative Commons  Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 

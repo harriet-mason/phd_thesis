@@ -1,9 +1,7 @@
 # The Noisy Work of Uncertainty Visualisation {#sec-first-paper}
 
 
-::: {.cell}
 
-:::
 
 
 
@@ -11,7 +9,25 @@
 
 :::
 
+::: {.cell}
 
+:::
+
+::: {.cell}
+
+:::
+
+::: {.cell}
+
+:::
+
+::: {.cell}
+
+:::
+
+::: {.cell}
+
+:::
 
 ::: {.cell}
 
@@ -19,27 +35,7 @@
 
 
 
-::: {.cell}
 
-:::
-
-
-
-::: {.cell}
-
-:::
-
-
-
-::: {.cell}
-
-:::
-
-
-
-::: {.cell}
-
-:::
 
 
 
@@ -151,11 +147,19 @@ Is the strength of the trend communicated through the visualisation?"
 The answer to both of these questions will be no for S1, S2, G1, and G2, as the high and low variance cases are identical. For R1 and R2, the answer would likely only relate to the points in the plots, not the regression line.
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![Three example types of data and associated plots that will be used to illustrate various choices of uncertainty representation throughout the paper: scatterplot and regression line (R1, R2), spatial choropleth map (S1, S2), grouped dotplot (G1, G2). Two levels of uncertainty (low, high) are used with each example. Ignoring the points in R1 and R2, there are no differences between the high and low uncertainty versions. Ignoring uncertainty can lead to misrepresentation of data.](02-chap2_files/figure-html/fig-ignore-1.png){#fig-ignore fig-pos='t' width=100%}
 :::
 :::
+
+
+
+
 
 
 These examples will serve as touchstones for a discussion of uncertainty visualisation, focusing on the approaches suggested in the literature. 
@@ -175,11 +179,19 @@ Our visualisation of the univariate groups does reveal something interesting: th
 In practice, two plots are typically presented: one showing the main estimate and the other showing the uncertainty.
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![Treating the uncertainty as a statistic,  with the same six examples. The regression (R1 and R2) is a scatterplot of residuals vs explanatory variable, separated from the regression, making comparison of uncertainty related to the trend more difficult. For the choropleth (S1, S2): instead of temperature, the probability of exceeding 27$^o$C is shown. This has the effect of highlighting (sine wave) trend in the low error data, and de-emphasising it in the high error data. The plots G1 and G2 have replaced the treatment effect with the variance of our treatment effect. It is a bit nonsensical, but we learn something interesting that was not seen earlier: the variance in G2 is not uniform like that in G1.](02-chap2_files/figure-html/fig-statistic-1.png){#fig-statistic width=100%}
 :::
 :::
+
+
+
+
 
 
 #### What is an uncertainty visualisation, then?
@@ -232,11 +244,19 @@ Because all of these graphics visualise the distribution's estimate and uncertai
 It is worthwhile to examine why this occurs, to see if we can move towards a version of this plot where we are able to communicate signal and noise simultaneously.
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![Treating the uncertainty as a variable, with the same six examples. In plots R1 and R2, the standard error of the slope is mapped to the line width. The standard error of the intercept is mapped to the transparency, which is less conventional. In plots S1 and S2, a bivariate colour palette is used with mean mapped to the hue, and error mapped to saturation. Plots G1 and G2 represent the mean of each group as a point, and the variance as an interval. The uncertainty is integrated well with the signal, but for the choropleth, the result is undesirable: the signal is easier to see when the error is higher.](02-chap2_files/figure-html/fig-variable-1.png){#fig-variable width=100%}
 :::
 :::
+
+
+
+
 
 
 #### Can we visualise a "single integrated uncertain value"?
@@ -260,11 +280,19 @@ The Value Suppressing Uncertainty Palette (VSUP) [@Correll2018] was designed wit
 Since the palette was designed with the extraction of individual values in mind and it has only been tested on simple value extraction tasks [@Correll2018] or search tasks [@Ndlovu2023], we can see that, at least for our example, when the uncertainty is high, the spatial trend has functionally disappeared. 
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![The spatial examples displayed with a choropleth map using a VSUP colour palette, where hue is blended when increased uncertainty. Plot B has successfully produced signal suppression. Look closely at the scales, though: it may have another explanation.](02-chap2_files/figure-html/fig-vsup-1.png){#fig-vsup width=80%}
 :::
 :::
+
+
+
+
 
 
 Finally, we have signal suppression!
@@ -319,11 +347,19 @@ Visualising the random variable as a distribution gives additional information, 
 
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![Treating the uncertainty as a distribution, with the same six examples. Plots R1 and R2 show a linear regression as a sample of possible outcomes from the distribution. Plots S1 and S2 show a pixel map. Plots G1 and G2 show the groups as quantile dot plots. In each case, the signal (regression line, sine wave, increasing trend) has disappeared with high uncertainty.](02-chap2_files/figure-html/fig-distribution-1.png){#fig-distribution width=100%}
 :::
 :::
+
+
+
+
 
 
 #### Quantified versus unquantified uncertainty
@@ -459,6 +495,8 @@ Signal suppression is an undeveloped area of visualisation research, and develop
 
 The R packages were used for this work were: `tidyverse` [@tidyverse], `RColorBrewer` [@RColorBrewer], `scales` [@scales], `sf` [@sf], `urbnmapr` [@urbnmapr], `flextable` [@flextable], `colorspace` [@colorspace], `ggdist` [@Kay2023], `ggdibbler` [@ggdibbler], `patchwork` [@patchwork], `distributional` [@distributional], `ggthemes` [@ggthemes], `broom` [@broom], and `rgeos` [@rgeos]. 
 The GitHub repository for this paper can be found at https://github.com/harriet-mason/ARSA-UncertaintyLitReview, which contains the files required to reproduce this article in full.
+
+
 
 
 
