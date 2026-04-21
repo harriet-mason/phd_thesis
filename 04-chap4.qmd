@@ -148,8 +148,8 @@ When we restrict this to the case of a choropleth map, we are trying to measure 
 When the latent variable we are trying to measure is a colour vision deficiency, this is known as a colour blind test.
 
 Our connection between statistical maps and colour blind tests is not particularly unusual.
-According to a 1930 review of colourblind tests, methods such as sorting or matching coloured objects, naming coloured lights, and distinguishing objects presented in complementary colours have been used as tests for red-green distinction [@haupt-tests-1930], tasks that would not be out of place in a visual evaluation study. 
-In particular, we are interested in pseudo-isochromatic colourblind tests, the most popular of which involve identifying patterns on coloured cards that are visible to those with standard colour vision, but invisible to those with colour vision deficiencies [@haupt-tests-1930].
+According to a 1930 review of colour blind tests, methods such as sorting or matching coloured objects, naming coloured lights, and distinguishing objects presented in complementary colours have been used as tests for red-green distinction [@haupt-tests-1930], tasks that would not be out of place in a visual evaluation study. 
+In particular, we are interested in pseudo-isochromatic colour blind tests, the most popular of which involve identifying patterns on coloured cards that are visible to those with standard colour vision, but invisible to those with colour vision deficiencies [@haupt-tests-1930].
 The Ishihara test is a specific version of a pseudo-isochromatic test that is commonly used today [@gobira-assessing-2025; @plutino-aging-2023], where the coloured dots form numbers or paths on a white background [@tamura-light-2017;@plutino-aging-2023].
 Notably, these tests use familiar shapes (in the form of numbers), which provide readily identifiable spatial clusters without the need for complex definitions.
 Additionally, it allows us to perform one of the most under-researched uncertainty visualisation tasks, aggregations of uncertain information over an area [@Kinkeldey2014].
@@ -657,7 +657,7 @@ ggsave(plot = transmap,
 
 ![Theoretical distributions](figures/dist_5x5.png){#fig-dist25 width=90%} 
 
-![Chropleth map](figures/choro_5x5.png){#fig-choro25 width=90%} 
+![Choropleth map](figures/choro_5x5.png){#fig-choro25 width=90%} 
 
 ![Bivariate map](figures/bivar_5x5.png){#fig-vsup25 width=90%} 
 
@@ -740,7 +740,7 @@ For the sake of completeness, we will evaluate participants' responses against b
 
 Using accuracy to comparing the plots and hypothesis tests might feel like a natural approach to comparison, but it would be naive as it would end up penalising visualisations that do exactly what we have designed them to do, hide statistically spurious signal.
 This approach would always suggest our choropleth map to be the best approach, for the very reason we want to avoid using it in the first place.
-We are not looking for accross the board "accuracy", but rather, a visualisation that is accurate when a statistical test would be accurate, and inaccurate when a statistical test would be inaccurate.
+We are not looking for across the board "accuracy", but rather, a visualisation that is accurate when a statistical test would be accurate, and inaccurate when a statistical test would be inaccurate.
 Therefore, we opt to compare visualisations using power curves, which is the same approach taken by the lineup literature [@Majumder2013].
 Power curves show the probability of a statistical test detecting an effect, given that the effect actually exists, across a range of effect sizes.
 Power curves allow us to compare the efficiency of different tests, so, for a give significance level, $\alpha$, a higher power curve (a higher probability of correctly rejecting a false hypothesis) makes a better test.
@@ -835,7 +835,7 @@ Demographically, participants tended to be younger, use he/him pronouns, and hav
 `r round(sum(demo_data$age=="18 - 25")/nrow(demo_data)*100, 2)`% of individuals identified as being between 18 and 25, while `r round(sum(demo_data$age=="26 - 35")/nrow(demo_data)*100, 2)`% identified as 26 to 35; the remaining individuals identified as older than 35.
 `r round(sum(demo_data$pronouns=="He/His")/nrow(demo_data)*100,2)`% of individuals use he/him pronouns, `r round(sum(demo_data$pronouns=="She/Her")/nrow(demo_data)*100,2)`% use she/her, and the remaining individuals use they/them, or prefer not to answer.
 `r round(sum(demo_data$education=="Tertiary education")/nrow(demo_data)*100, 2)`% of individuals indicated that their highest education level was tertiary, while the remaining individuals identified their education level as below tertiary or post-secondary non-tertiary education.
-A large number of participants were from Africa and Europe (`r round(sum(demo_data$continent=="Africa", na.rm=TRUE)/nrow(demo_data)*100,2)`% and `r round(sum(demo_data$continent=="Europe", na.rm=TRUE)/nrow(demo_data)*100,2)`%, respectively), and `r round(sum(demo_data$colourblind=="Yes/Unsure")/nrow(demo_data)*100,2)`% of participants indicated that they were colourblind or unsure.
+A large number of participants were from Africa and Europe (`r round(sum(demo_data$continent=="Africa", na.rm=TRUE)/nrow(demo_data)*100,2)`% and `r round(sum(demo_data$continent=="Europe", na.rm=TRUE)/nrow(demo_data)*100,2)`%, respectively), and `r round(sum(demo_data$colourblind=="Yes/Unsure")/nrow(demo_data)*100,2)`% of participants indicated that they were colour blind or unsure.
 
 ### Results Overview
 
@@ -1044,7 +1044,7 @@ However, the theoretical hypothesis data does not appear to have the same sensit
 
 ### Power analysis
 #### Estimating significance levels
-To set the $\alpha$ for the theoretical test, we need to calculate the $\hat\alpha$ value for each plot type, $k$, where $k \in \{chropleth, bivariate, vsup, pixel, transparency \}$. 
+To set the $\alpha$ for the theoretical test, we need to calculate the $\hat\alpha$ value for each plot type, $k$, where $k \in \{choropleth, bivariate, vsup, pixel, transparency \}$. 
 While the lineup protocol has a theoretical calculation that can be used to estimate $\alpha$ due to the fact that any plot being picked by chance is $\frac 1 M$ for a lineup with $M$ plots (assuming there is no dependence structure between the plots) [@Majumder2013; @Vanderplas2021], this calculation does not translate to uncertainty visualisation.
 As graphics do not come with a significance threshold [@Vanderplas2021], and a significance threshold is required to compare our plots to classic hypothesis tests, we estimate $\hat{\alpha}_k$, using the proportion of participants who identified a number in a plot that was just random noise.
 
@@ -1191,7 +1191,7 @@ Ideally, this drop off would occur at a rate that is similar to the hypothesis t
 If the coloured line for a plot sits above the hypothesis test, then the plot is showing a pattern that the classical hypothesis tests would consider to be insignificant.
 While this can be a desirable property when comparing standard hypothesis tests, this is not necessarily a desirable property for uncertainty visualisation.
 It is important to remember that the key issue with choropleth maps, and the reason we need uncertainty visualisation at all, is that they *always* show statistical signal, even if that signal is spurious.
-We have designed this experiment such that the visibiltiy *does* link to a signal, but that will not always be the case. 
+We have designed this experiment such that the visibility *does* link to a signal, but that will not always be the case. 
 Therefore, the power curve of the most appropriate plot will not necessarily sit above the black dashed lines, but rather, should have a shape that is similar to the to the hypothesis test curves accross the different values of $D$. 
 
 These charts seem to largely agree with our initial findings.
@@ -1375,11 +1375,11 @@ The GitHub repository for this paper can be found at https://github.com/harriet-
 
 ```{r, include=FALSE, eval=FALSE}
 library(spelling)
-qmd <- "paper/experiment-paper-formatting.qmd"
-ignore <- readLines("paper/WORDLIST")
+qmd <- "04-chap4.qmd"
+#ignore <- readLines("WORDLIST")
 check_spelling <- spell_check_files(
   qmd,
-  ignore = ignore,
+  #ignore = ignore,
   lang = "en_GB"
 )
 if (nrow(check_spelling) > 0) {
