@@ -79,6 +79,7 @@ To understand the influence of the number displayed on the participant response,
 #| out-width: 100%
 #| tbl-cap: "A confusion matrix of the number participants gave, alongside the true number in the plot. The off-diagonal elements are incorrect responses, with any concentration of numbers indicating values that are frequently mistaken for one another: 8 for 3, 6 and 9, and 6 for 5 are the most common."
 # set up
+extrafont::loadfonts(quiet = TRUE)
 confusion_mat <- study_data |>
   group_by(number_selected, correct_number) |>
   summarise(total = n()) |>
