@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.30">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>3&nbsp; A Mathematical Framework and Software Implementation for Uncertainty Visualisation – Visualising Uncertainty: Conceptual Framework, Software, and Perception</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-chap4.html" rel="next">
+<link href="./02-chap2.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-176907cd988ceaceaf6a68569455b2d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-524fbef8baf2e3dab69d0bed693833d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather|Source%20Code%20Pro" rel="stylesheet">
+<script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+</head>
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-chap3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Mathematical Framework and Software Implementation for Uncertainty Visualisation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Visualising Uncertainty: Conceptual Framework, Software, and Perception</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/harriet-mason/phd_thesis" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Visualising-Uncertainty--Conceptual-Framework,-Software,-and-Perception.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Front matter</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-chap1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-chap2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-chap3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Mathematical Framework and Software Implementation for Uncertainty Visualisation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-chap4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Colour Blinded by the Noise</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-chap5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./refs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliography</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-appA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Appendix A — Supplementary Material for “Colour Blinded by the Noise”</span></span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title"><b>Sections</b></h2>
+   
+  <ul class="collapse">
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
+  <li><a href="#making-a-density-plot" id="toc-making-a-density-plot" class="nav-link" data-scroll-target="#making-a-density-plot"><span class="header-section-number">3.2</span> Making a density plot</a></li>
+  <li><a href="#visual-statistics" id="toc-visual-statistics" class="nav-link" data-scroll-target="#visual-statistics"><span class="header-section-number">3.3</span> Visual Statistics</a></li>
+  <li><a href="#generalising-the-visual-function" id="toc-generalising-the-visual-function" class="nav-link" data-scroll-target="#generalising-the-visual-function"><span class="header-section-number">3.4</span> Generalising the visual function</a></li>
+  <li><a href="#implementation-in-ggdibbler" id="toc-implementation-in-ggdibbler" class="nav-link" data-scroll-target="#implementation-in-ggdibbler"><span class="header-section-number">3.5</span> Implementation in <code>ggdibbler</code></a></li>
+  <li><a href="#conclusions-and-future-research" id="toc-conclusions-and-future-research" class="nav-link" data-scroll-target="#conclusions-and-future-research"><span class="header-section-number">3.6</span> Conclusions and future research</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">3.7</span> Acknowledgements</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-second-paper" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Mathematical Framework and Software Implementation for Uncertainty Visualisation</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><section id="introduction" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">3.1</span> Introduction</h2>
+<blockquote class="blockquote">
+<p>“Elegant design requires us to think about a theory of graphics, not charts.” <span class="citation" data-cites="Leland2005">Wilkinson (<a href="#ref-Leland2005" role="doc-biblioref">2005</a>)</span></p>
+</blockquote>
+<p>Uncertainty visualisation has suffered from a serious lack of formalisation in recent years, which has resulted in an overwhelming tsunami of named plots, touching every corner of the literature. No visualisation problem is too niche as we see visualisations of 2D-intervals called a cross plot, rectangle plot, segment plot, and dandelion plot <span class="citation" data-cites="Zhang2022">(<a href="#ref-Zhang2022" role="doc-biblioref">Zhang and Lin 2022</a>)</span>. No plot change is too small with simulated outcomes on lines called spaghetti plots (or lasagne plots for gradients) <span class="citation" data-cites="Swihart2010">(<a href="#ref-Swihart2010" role="doc-biblioref">Swihart et al. 2010</a>)</span>, on maps called pixel maps <span class="citation" data-cites="Vizumap">(<a href="#ref-Vizumap" role="doc-biblioref">Lucchesi and Kuhnert 2020</a>)</span>, on bar charts called fuzzygrams <span class="citation" data-cites="Kay2023">(<a href="#ref-Kay2023" role="doc-biblioref">Kay 2023</a>)</span>, and when the outcomes are animated, we call them hypothetical outcome plots (HOPs) <span class="citation" data-cites="Hullman2015">(<a href="#ref-Hullman2015" role="doc-biblioref">Hullman et al. 2015</a>)</span>. No dead horse is too beaten with probability functions having more names than ways to differentiate them with terms like histogram, density plot, violin plot, ridgeline plot, rain plot, dot plot, and gradient plot, only scratching the surface <span class="citation" data-cites="Kay2023">(<a href="#ref-Kay2023" role="doc-biblioref">Kay 2023</a>)</span>. The practice of naming plots turns the field into a race, where authors are incentivised to brand their name on as many graphics as possible, rather than work towards a cohesive theory of visualisation. This problem is as pervasive as it is frustrating.</p>
+<p>According to <span class="citation" data-cites="Leland2005">Wilkinson (<a href="#ref-Leland2005" role="doc-biblioref">2005</a>)</span>, “the computer woefully focuses the mind”, so we might assume that these hyper-specific naming conventions do not extend to the landscape of uncertainty visualisation software. This assumption would be wrong. Even just within the R ecosystem of <code>ggplot2</code> extensions, there is an overwhelming number of choices, leaving users unclear when each package should be used and for what purposes. A density plot can be made using <code>ggplot2</code>, <code>ggbeeswarm</code>, <code>ggridges</code>, <code>ggrain</code>, <code>ggdist</code>, <code>ggpointdensity</code>, and <code>ggdensity</code>, all packages with similar descriptions and overlapping designs. This is not to say these packages are pointless: they have thousands of downloads per week and were motivated by a gap in the literature. Rather, this example illustrates the havoc that named plots contribute to our software ecosystem.</p>
+<p>With this wealth of choices in plots and software, it would be reasonable to assume that the field is meeting the needs of its users, albeit in a messy, roundabout way, but this assumption would be incorrect. Despite this wealth of choice, each package is brittle and constrained by its own set of assumptions. There is a cry for flexibility among the users of uncertainty visualisation software, dating back more than 30 years <span class="citation" data-cites="MacEachren1992">(<a href="#ref-MacEachren1992" role="doc-biblioref">MacEachren 1992</a>)</span>. A useful uncertainty visualisation system should allow for exploration with uncertain data from multiple different sources, dimensions, and data types <span class="citation" data-cites="Hadjimichael2024 geointerviews MacEachren2005">(<a href="#ref-Hadjimichael2024" role="doc-biblioref">Hadjimichael et al. 2024</a>; <a href="#ref-MacEachren2005" role="doc-biblioref">MacEachren et al. 2005</a>; <a href="#ref-geointerviews" role="doc-biblioref">Peña-Araya et al. 2025</a>)</span>, a flexibility that all current implementations fail to provide.</p>
+<p>This implies the real gap in uncertainty visualisation is not new plots or bespoke software, but structure, and the flexibility that comes with it. Structure is not so alien to the visualisation community that this is an unreasonable request. Standard statistical graphics have been formalised within <strong>the grammar of graphics</strong> <span class="citation" data-cites="Leland2005 ggplot2">(<a href="#ref-ggplot2" role="doc-biblioref">Wickham 2010</a>; <a href="#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span> for several decades. This structure has largely been ignored by the uncertainty visualisation community, with the exception of <span class="citation" data-cites="Kay2023">Kay (<a href="#ref-Kay2023" role="doc-biblioref">2023</a>)</span> and the <code>ggdist</code> R package. Along with this formalisation of visualisations of univariate probability functions, Kay expressed hope for a single coherent uncertainty visualisation framework. This single unified framework, and its implementation in the <code>ggdibbler</code> package, is what will be discussed in the rest of this paper.</p>
+</section><section id="making-a-density-plot" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="making-a-density-plot">
+<span class="header-section-number">3.2</span> Making a density plot</h2>
+<p>We are going to design our uncertainty visualisation based on a simple assumption based on the existing literature: the input for an uncertainty visualisation is a data set where every cell is a random variable <span class="citation" data-cites="Kay2023">(<a href="#ref-Kay2023" role="doc-biblioref">Kay 2023</a>)</span> which contains all the quantified uncertainty we wish to represent <span class="citation" data-cites="Mason2026">(<a href="#ref-Mason2026" role="doc-biblioref">Mason et al. 2026a</a>)</span>. Once we have our distribution inputs, there is only one question left for our uncertainty visualisation system to solve. What exactly should it <em>do</em> with these distributions?</p>
+<p>Consider the case of a vector, <span class="math inline">X</span>, that contains the heights of 15 different women, where each <span class="math inline">x_i \in \mathbb{R}</span> represents one measured height. If we feed this vector into a density plot function, such as <code>geom_density()</code> from <code>ggplot2</code>, how should it behave? Hopefully, this case is obvious, and the output of this function is shown in the <code>ggplot2</code> example in <a href="#fig-dist-example" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dist-example</span></a>. A density curve of our data is estimated and displayed using a line geometry. This is a straightforward example, but what happens when our input is a distribution? This can occur if, for example, the tool used to record the heights has an inherent measurement error. Now, we have a vector, <span class="math inline">\textbf{X}</span>, of 15 distributions, where each <span class="math inline">\textbf{x}_i \sim N(x_i, \sigma_i)</span>, where <span class="math inline">x_i \in X</span> is the recorded value, and <span class="math inline">\sigma_i</span> is an estimated variance based on the environmental conditions of the measurement. There are two routes we can take when it comes to visualising this estimate. The second plot in <a href="#fig-dist-example" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dist-example</span></a> is made using <code>ggdist</code>, and it shows the case where we are interested in the distribution of each individual measurement. The third plot is made using <code>ggdibbler</code>, <!--and it shows the distribution of the entire population,--> which places the emphasis on the full data density <em>but</em> carries forward the variability in the density that comes with having distributional inputs.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-dist-example" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-dist-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-chap3_files/figure-html/fig-dist-example-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dist-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Alternative interpretations of how to render a density plot when the input is a set of distributions describing uncertainty of measurements, according to three plotting packages: (a) <code>ggplot2</code> forms the density from the mean values, (b) <code>ggdist</code> puts the distribution on each observation, treating uncertainty as signal, (c) <code>ggdibbler</code> shows the densities for multiple samples, which puts the focus on how the density might look given the uncertainty. These differences illustrate how uncertainty is interpreted in different ways. Which is correct?
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>The distinction between the two approaches presented in <a href="#fig-dist-example" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dist-example</span></a> is the same signal and noise paradigm presented by <span class="citation" data-cites="Mason2026">Mason et al. (<a href="#ref-Mason2026" role="doc-biblioref">2026a</a>)</span>. In the <code>ggdist</code> plot, we are interested in the shape of the distribution of each observation, so we are visualising the uncertainty as a signal. In the <code>ggdibbler</code> plot, we are not interested in the uncertainty in and of itself, but rather, we only included it to see how it would change the conclusions from the <code>ggplot2</code> plot, thus, visualising it as noise. Given these two approaches, which plot is the “correct” visualisation depends on the goals of our analysis and what we are looking to infer from making the plot.</p>
+<p>However, if we want to design a visualisation system for EDA, the method must always work, which means any <em>existing</em> plot should always have an “uncertain” counterpart. Therefore, we are actually interested in a slightly different question: “Which plot is the correct behaviour of <code>geom_density</code> with the distributional input, <span class="math inline">\textbf{X}</span>?”. The answer to this question is definitively, the <code>ggdibbler</code> plot. The reasoning is rooted in strong statistical foundations; we just need to expand the concepts to visual statistics.</p>
+</section><section id="visual-statistics" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="visual-statistics">
+<span class="header-section-number">3.3</span> Visual Statistics</h2>
+<section id="the-deterministic-visual-function" class="level3" data-number="3.3.1"><h3 data-number="3.3.1" class="anchored" data-anchor-id="the-deterministic-visual-function">
+<span class="header-section-number">3.3.1</span> The deterministic visual function</h3>
+<p>When you really think about it, what is a visualisation? One of the most definitive answers to this question can be found in the grammar of graphics, which is a theoretical framework that characterises a visualisation as a series of composite functions <span class="citation" data-cites="Leland2005">(<a href="#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span>. Under this formalisation, a visualisation is a function that takes a deterministic matrix (<a href="#def-deterministic" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-deterministic</span></a>) as input and outputs a statistical graphic. This formalisation is lengthy, so we summarise the key aspects of it in <a href="#def-vfunc" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-vfunc</span></a>, and <a href="#fig-gog" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-gog</span></a>, which shows each step of the visualisation process with highlighted sections indicating the sections we will need to adjust for uncertainty visualisation. By leveraging the graphics pipeline, we make the implicit explicit, which will allow us to compare different uncertainty visualisation systems on a deeper and more objective level <span class="citation" data-cites="Wickham2009">(<a href="#ref-Wickham2009" role="doc-biblioref">Wickham et al. 2009</a>)</span>. Note that these steps summarise the underlying architecture of the <code>ggplot2</code> <span class="citation" data-cites="ggplot2">(<a href="#ref-ggplot2" role="doc-biblioref">Wickham 2010</a>)</span> implementation of the grammar, which is an essential foundation for this new software. However, the conceptual framework described here is not dependent on any particular implementation of the grammar and could easily be implemented in another grammar of graphics system, such as Vega-Lite <span class="citation" data-cites="Satyanarayan2016">(<a href="#ref-Satyanarayan2016" role="doc-biblioref">Satyanarayan et al. 2016</a>)</span>. The notation used for visual statistics builds on that developed in <span class="citation" data-cites="Majumder2013">Majumder et al. (<a href="#ref-Majumder2013" role="doc-biblioref">2013</a>)</span> where the term was first introduced in the context of conducting statistical inference.</p>
+<div id="def-deterministic" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.1 (Deterministic matrix)</strong></span> Let <span class="math inline">\textbf{A}</span> be an <span class="math inline">m \times n</span> matrix on the sample space <span class="math inline">\Omega</span>. A is a deterministic matrix if <span class="math inline">a_{i,j} \forall i,j</span> are single-value (non-random) entries.</p>
+</div>
+<div id="def-vfunc" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.2 (The deterministic visual function)</strong></span> Let <span class="math inline">X_{n_1,m_1}</span> be a matrix of outcomes with <span class="math inline">n_1</span> rows and <span class="math inline">m_1</span> columns on the sample space <span class="math inline">\Omega</span>. Let <span class="math inline">V</span> be a function that maps <span class="math inline">X</span> from our sample space <span class="math inline">\Omega</span> to the space of all visual statistics, <span class="math inline">\Psi</span>. We refer to <span class="math inline">V</span> as a visual function, and its output <span class="math inline">V(.)</span> as a visual statistic. The visual function, <span class="math inline">V</span>, can be decomposed into the following composite function:</p>
+<p><span class="math display">
+V = A \circ O \circ G \circ S \circ M
+</span> where:</p>
+<ul>
+<li>
+<span class="math inline">M = [M_1, M_2, ..., M_{m_1}]'</span> is a set of <span class="math inline">m_1</span> functions that each scale one column of our <span class="math inline">X_{n_1,m_1}</span> matrix. This function maps the individual cells of <span class="math inline">X_{n_1,m_1}</span>, <span class="math inline">x_{i,j}</span> <span class="math inline">\forall i = 1,...,n_1</span> and <span class="math inline">j = 1,...,m_1</span> from the sample space, <span class="math inline">\Omega</span>, to the space of real numbers, <span class="math inline">R</span>.</li>
+<li>
+<span class="math inline">S</span> is a statistic function that summarises our <span class="math inline">X_{n_1,m_1}</span> matrix down to an <span class="math inline">X_{n_2,m_2}</span> matrix. There are no strict requirements for the statistic function. The function is a transformation from <span class="math inline">R</span> to <span class="math inline">R</span>.</li>
+<li>
+<span class="math inline">G</span> converts two (for a 2D graph) position columns <span class="math inline">X_{[.,k]},X_{[.,l]}</span> to values that represent magnitudes in space returning an <span class="math inline">X_{n_2,m_2}</span> matrix on the bounded plane <span class="math inline">B^2</span>. We can further decompose <span class="math inline">G</span> into <span class="math inline">G = E\circ P</span>, where <span class="math inline">E</span> is the geometry function that <span class="math inline">x_{i,j} \forall j=k,l</span> from <span class="math inline">R</span> to the bounded plane <span class="math inline">B^2</span>, and <span class="math inline">P</span> is a position modifier function that checks for overlapping values in <span class="math inline">X_{n_2,m_2}</span> and either stacks them on top of each other in the dependent axis, or dodges them next to each other on the independent axis.</li>
+<li>
+<span class="math inline">O</span> is a transformation of our coordinate system. The function is a transformation from <span class="math inline">B^2</span> to <span class="math inline">B^2</span>.</li>
+<li>
+<span class="math inline">A</span> is an injective function that transforms our <span class="math inline">X_{n_2,m_2}</span> matrix into physically observable stimuli. The function maps our data from <span class="math inline">B</span> to the space of visual statistics <span class="math inline">\Psi</span>.</li>
+</ul>
+</div>
+<div id="fig-gog" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-gog-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/grammar3.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gog-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Illustration of the steps to render a plot, as defined by the grammar of graphics. For uncertainty visualisation, changes are needed for the highlighted steps: data, scales, statistics, and the position adjustment within the geometry.
+</figcaption></figure>
+</div>
+</section><section id="random-matrices-and-continuous-mapping-theorem" class="level3" data-number="3.3.2"><h3 data-number="3.3.2" class="anchored" data-anchor-id="random-matrices-and-continuous-mapping-theorem">
+<span class="header-section-number">3.3.2</span> Random matrices and continuous mapping theorem</h3>
+<p>Unlike a standard visualisation, an uncertainty visualisation has a random matrix (<a href="#def-random" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-random</span></a>) input, where distributions replace the single values of our deterministic matrix (<a href="#def-deterministic" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-deterministic</span></a>).</p>
+<div id="def-random" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.3 (Random matrix)</strong></span> Let <span class="math inline">\textbf{A}</span> be an <span class="math inline">m \times n</span> matrix-valued random variable on the probability space <span class="math inline">(\Omega, \mathcal{F}, Pr)</span>. This is a matrix where some or all of its entries are random variables drawn from some probability distribution.</p>
+</div>
+<p>Combined, <a href="#def-random" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-random</span></a> and <a href="#def-vfunc" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-vfunc</span></a> boil uncertainty visualisation down to a simple problem. Our visualisation system needs to be designed in such a way that it follows existing mathematical principles of random variables and functions. More specifically, our graphics should uphold the <em>continuous mapping theorem</em> <a href="#thm-cmt" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-cmt</span></a>.</p>
+<div id="thm-cmt" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.1 (Continuous mapping theorem)</strong></span> Let <span class="math inline">\textbf{X}</span> and <span class="math inline">\textbf{Y}</span> be <span class="math inline">n \times m</span> random matrices, and let <span class="math inline">Z</span> be an <span class="math inline">n \times m</span> deterministic matrix. Let <span class="math inline">f: E\xrightarrow{} E'</span> be a continuous function from one metric space, <span class="math inline">E</span>, to another <span class="math inline">E'</span>. Then: <span class="math display">\textbf{X} \xrightarrow{} \textbf{Y} \Rightarrow f(\textbf{X}) \xrightarrow{} f(\textbf{Y})</span></p>
+<p>and</p>
+<p><span class="math display">\textbf{X} \xrightarrow{} Z \Rightarrow f(\textbf{X}) \xrightarrow{} f(Z)</span></p>
+</div>
+<p>In simple terms, <a href="#def-vfunc" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-vfunc</span></a> and <a href="#thm-cmt" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-cmt</span></a> mean that our uncertainty visualisations should have similar convergence properties to their underlying distributions. For example, if we visualise a <span class="math inline">N(0,1)</span> distribution as a sample, and a sample from a <span class="math inline">N(0,1)</span> distribution, as the size of both samples approaches <span class="math inline">\infty</span>, the two visualisations should look identical.</p>
+<p>If we accept the definition of an idea that a visualisation is a continuous function, adhering to <a href="#thm-cmt" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-cmt</span></a> is not a nice property or an opinion on how visualisations should behave, but rather a <em>fundamental requirement</em> of any visualisation of a random matrix. Or, at least it will be after we establish that the assumptions of <a href="#thm-cmt" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-cmt</span></a> are true. This will require us to show that <span class="math inline">\Omega</span> and <span class="math inline">\Psi</span> are metric spaces, and then use those metric spaces to define convergence for visual functions.</p>
+<section id="visual-metric-spaces" class="level4"><h4 class="anchored" data-anchor-id="visual-metric-spaces">Visual metric spaces</h4>
+<p>The idea that both <span class="math inline">\Omega</span> and <span class="math inline">\Psi</span> are metric spaces is not particularly strange: one of the core tenets of statistical graphics is that they maintain the link between data and visual aesthetic <span class="citation" data-cites="Leland2005">(<a href="#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span>. This point was made rather comically by <span class="citation" data-cites="Bartonicek2025">Bartonicek et al. (<a href="#ref-Bartonicek2025" role="doc-biblioref">2025</a>)</span>, who drew two rectangles stacked on top of each other, and pointed out that it was not a stacked bar chart. The idea that there is some kind of structure, or ordering that we need to maintain, implies that <span class="math inline">\Omega</span> is a metric space. In most cases, <span class="math inline">\Omega \subseteq \mathbb{R}^p</span> and it immediately follows that the ordered pair (<span class="math inline">\Omega</span>, <span class="math inline">d</span>) is a metric space, where <span class="math inline">d</span> is Euclidean distance. In the cases where <span class="math inline">\Omega \not\subseteq \mathbb{R}^p</span>, the first step of the analysis is to scale the data to use <span class="math inline">M</span> to <span class="math inline">\mathbb{R}^p</span>, so we can say that (<span class="math inline">\Omega</span>, <span class="math inline">d \circ M</span>) is a metric space. For our visual space, <span class="math inline">\Psi</span>, we can actually do exactly the same thing, but in reverse. Since our aesthetic function is defined as <span class="math inline">A: B\xrightarrow{} \Psi</span>, and <span class="math inline">B \subseteq \mathbb{R}^p</span>, we can set our metric to be the inverse of our aesthetic function, such that the ordered pair (<span class="math inline">\Psi</span>, <span class="math inline">d \circ A^{-1}</span>).</p>
+<p>Ideally, as visualisations are designed to be viewed by humans, we would have set our distance on <span class="math inline">\Psi</span> to be the human ability to visually differentiate two plots. This is similar to the notion of distance that is leveraged by the line-up protocol <span class="citation" data-cites="Buja2009">(<a href="#ref-Buja2009" role="doc-biblioref">Buja et al. 2009</a>)</span>. In the line-up protocol, viewers are shown <span class="math inline">M-1</span> null plots, <span class="math inline">V(X_{N_i})</span>, where <span class="math inline">X_{N_i}</span> for <span class="math inline">i=1, ..., M-1</span> are independent draws generated from some null distribution, and a visual test statistic, <span class="math inline">V(X_T)</span>, where <span class="math inline">X_T</span> is our actual data. If the test statistic, <span class="math inline">V(X_T)</span>, is significantly different, visually, from <span class="math inline">V(X_{N_i}) \forall i</span>, then viewers will be able to pick it out of the line-up, and we would reject our null hypothesis that <span class="math inline">X_T</span> was generated from the same distribution as <span class="math inline">X_{N_i}</span>. This test actually measures Mahalanobis distance on <span class="math inline">\Psi</span>, as Mahalanobis distance is a multivariate generalisation of a Z score, and the line-up protocol is the visual equivalent of a hypothesis test. Given that human perception is the natural metric for statistical graphics, it is not a metric space. This is because it violates the triangular inequality due to the existence of “just noticeable differences” (JND) <span class="citation" data-cites="Luce1958">(<a href="#ref-Luce1958" role="doc-biblioref">Luce and Edwards 1958</a>)</span>. We can show that human perception is not a metric space with a quick proof.</p>
+<div id="prp-metric" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.1</strong></span> Let <span class="math inline">h: \Psi \xrightarrow{} \mathbb{R}</span> be a piecewise distance function that measures the human perception of statistical graphics, defined as: <span class="math display">
+h(x, y) = \begin{cases}
+      g(x,y) &amp; g(x,y) \geq \epsilon \\
+      0 &amp;  g(x,y) &lt; \epsilon
+   \end{cases}
+</span> where <span class="math inline">\epsilon</span> is the JND of our human observer (with <span class="math inline">\epsilon&gt;0</span>), and <span class="math inline">g(x,y) = d(A^{-1}(x), A^{-1}(y))</span> is the Euclidean distance in the rendered graphics; <span class="math inline">h</span> is not a metric.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">a,b,c \in \Psi</span> be three different visualisations, where <span class="math inline">a</span> and <span class="math inline">c</span> are plots in the metric space, and <span class="math inline">b</span> is exactly halfway between them, such that <span class="math inline">g(a, c) =  \epsilon</span>, <span class="math inline">g(a,b) = \frac {1}{2} \epsilon</span>, and <span class="math inline">g(b, c) = \frac {1}{2} \epsilon</span>. Therefore, <span class="math inline">h(a, c) =  \epsilon</span>, <span class="math inline">h(a,b) = 0</span>, and <span class="math inline">h(b, c) = 0</span>. If we assume <span class="math inline">h</span> is a metric space, then the triangular inequality will hold, and we can state <span class="math display">h(a, c) \leq h(a,b) + h(b, c)</span> which implies <span class="math display">0 \leq \epsilon</span> Therefore, by contradiction, <span class="math inline">h</span> is not a metric.</p>
+</div>
+<p>As long as our graphics system does not let <span class="math inline">A</span> map to increments <span class="math inline">&lt; \epsilon</span>, this should not be a problem, but due to differences in human perception, <span class="math inline">\epsilon</span> is not constant for the entire human population, and this system would be impossible to implement. This means that we might not be able to visually distinguish every plot that is different in <span class="math inline">\Psi</span>, but if we are able to <em>see</em> a difference in two plots, it is definitely there.</p>
+</section><section id="visual-convergence" class="level4"><h4 class="anchored" data-anchor-id="visual-convergence">Visual convergence</h4>
+<p>With the metric space out of the way, we need to define the concept of convergence for visual functions. Thankfully, this is also covered by our definition of a metric space. Two plots have converged if their renderings are identical.</p>
+<div id="def-converge" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.4 (Visual convergence)</strong></span> Let <span class="math inline">\textbf{X}</span> and <span class="math inline">\textbf{Y}</span>, be <span class="math inline">n \times m</span> random matrices, and let <span class="math inline">Z</span> be an <span class="math inline">n \times m</span> deterministic matrix. Let <span class="math inline">V</span> be a visual function <span class="math inline">V</span>: <span class="math inline">\Omega\xrightarrow{} \Psi</span>. Let <span class="math inline">g</span>: <span class="math inline">\Psi\xrightarrow{} R</span> where <span class="math inline">g = d \circ A^{-1}</span>, and <span class="math inline">(\Psi, g)</span> is a metric space. We say two random graphics have visually converged, that is, <span class="math inline">V(\textbf{X}) \xrightarrow{} V(\textbf{Y})</span> when <span class="math inline">g(V(\textbf{X}), V(\textbf{Y})) = 0</span>. We say that a random graphic has converged to a deterministic graphic, that is, <span class="math inline">V(\textbf{X}) \xrightarrow{} V(X)</span> when <span class="math inline">g(V(\textbf{X}), V(X)) = 0</span>.</p>
+</div>
+<p>We will usually approximate this convergence by using visual distinguishability, similar to the approach taken by the line-up protocol.</p>
+</section></section><section id="returning-to-the-density-plot-example" class="level3" data-number="3.3.3"><h3 data-number="3.3.3" class="anchored" data-anchor-id="returning-to-the-density-plot-example">
+<span class="header-section-number">3.3.3</span> Returning to the density plot example</h3>
+<p>In our density example, we defined <span class="math inline">\textbf{X}</span> and <span class="math inline">X</span> such that <span class="math inline">\textbf{x}_i \xrightarrow{p} x_i, \forall i = 1,...,15</span>, then as <span class="math inline">var(\textbf{x}_i) \xrightarrow{} 0</span>, <span class="math inline">\textbf{X}\xrightarrow{p}X</span> and we should see <span class="math inline">V(\textbf{X})\xrightarrow{p}V(X)</span>. That is, as the variance of all the heights in <span class="math inline">\textbf{X}</span> approaches zero, our uncertainty visualisation should be visually indistinguishable from the <code>ggplot2</code> plot of <a href="#fig-dist-example" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dist-example</span></a>. Looking at the plots, we would observe this behaviour in the <code>ggdibbler</code>, but not the <code>ggdist</code> plot. This is why we assert that the <code>ggdibbler</code> plot is the random matrix version of the <code>geom_density</code> function in the <code>ggplot2</code> plot.</p>
+</section></section><section id="generalising-the-visual-function" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="generalising-the-visual-function">
+<span class="header-section-number">3.4</span> Generalising the visual function</h2>
+<p>The visual function, as described in the <em>grammar of graphics</em>, has one key limitation; it assumes each data point is deterministic. That is, <a href="#def-vfunc" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-vfunc</span></a> in its current form does not allow for random matrix input. This is an issue for uncertainty visualisation, as a random matrix input is one of the core assumptions of the approach. To redefine our visual function such that it accepts random matrix inputs, we will need to adjust the definition of our <strong>scale</strong>, <strong>statistic</strong>, and <strong>geometry</strong> to generalise <a href="#def-vfunc" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-vfunc</span></a>. In doing so, we will also ensure we do not make any changes that will result in a violation to <a href="#thm-cmt" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-cmt</span></a>. When we finish, we should have a generalised visual function that will accept random matrix inputs for any graphic created using the <em>grammar of graphics</em>, with the additional property that the plots always obey <a href="#thm-cmt" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-cmt</span></a>.</p>
+<section id="the-adjustment-to-scales" class="level3" data-number="3.4.1"><h3 data-number="3.4.1" class="anchored" data-anchor-id="the-adjustment-to-scales">
+<span class="header-section-number">3.4.1</span> The adjustment to <code>scales</code>
+</h3>
+<p>Scales map our data to a set of real number outcomes; they determine how we perceive the size, shape, and location of our data, and give our data meaning <span class="citation" data-cites="Leland2005">(<a href="#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span>. This sentiment is echoed in the construction of our visual statistics, as the scale <span class="math inline">M</span> is used to define the distance metric for our metric space. To use the same scale, <span class="math inline">M</span>, that was defined for our deterministic matrix <span class="math inline">X</span> on our random matrix <span class="math inline">\textbf{X}</span>, we will need to perform a “change of variable”. <span class="citation" data-cites="Kay2023">Kay (<a href="#ref-Kay2023" role="doc-biblioref">2023</a>)</span> would refer to this as a “scale aware” requirement for uncertainty visualisation systems. This means we are not changing the function <span class="math inline">M</span> itself, but we are just expanding the definition to allow for random matrix input. This formalisation of this scale is summarised in <a href="#def-scale" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-scale</span></a>, and <a href="#fig-scale" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-scale</span></a>,</p>
+<div id="def-scale" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.5 (Generalised scale)</strong></span> Let <span class="math inline">\Omega</span> be a sample space and <span class="math inline">M</span>: <span class="math inline">\Omega\xrightarrow{} R</span> be a scale function that maps our data from <span class="math inline">\Omega</span> to <span class="math inline">R</span>. Let <span class="math inline">\textbf{X}</span> be a random matrix on the probability space <span class="math inline">(\Omega, \mathcal{F}, P)</span>. Then the scale function <span class="math inline">M</span>, applied to <span class="math inline">\textbf{X}</span> will give us <span class="math inline">M(\textbf{X})</span> with the induced probability measure <span class="math inline">P_{M(X)}(A) = P(M^{-1}(A))</span>.</p>
+</div>
+<div id="fig-scale" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-scale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/scale.jpeg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: An illustration that highlights the difference between scaling distributions and scaling deterministic variables. Scaling deterministic variables only requires us to map individual values, but scaling a distribution requires us to scale the distribution’s domain.
+</figcaption></figure>
+</div>
+<p>The illustration in <a href="#fig-scale" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-scale</span></a> shows that our distribution also changes names (i.e.&nbsp;we scale a binary categorical random variable to {0,1} to create a Bernoulli distribution), but this is simply a function of the scaling, and does not represent any meaningful change in the shape of the distributions.</p>
+</section><section id="the-adjustment-to-statistics" class="level3" data-number="3.4.2"><h3 data-number="3.4.2" class="anchored" data-anchor-id="the-adjustment-to-statistics">
+<span class="header-section-number">3.4.2</span> The adjustment to <code>statistics</code>
+</h3>
+<p>Statistics provide a summary of our data. Several graphics, such as box plots or bar charts, are inherently linked to a statistic (the five-number summary and summation, respectively). This is the current role of our statistic function, <span class="math inline">S</span>, which is only well defined for deterministic inputs. Unlike deterministic variables, random variables are more abstract and cannot be expressed as a single concrete value. Therefore, there is a second statistic that needs to be computed, which is the statistic that represents the distribution. The distributional statistic must be calculated at this stage, as the geometry assumes we are working with concrete values that can be mapped to a position in Euclidean space. Therefore, in uncertainty visualisation, there are two statistics that must be defined: the statistic that represents the distribution, and the statistic that summarises the data. The generalised statistic function that accepts random variables is shown in <a href="#def-stat" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-stat</span></a>.</p>
+<div id="def-stat" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.6 (Generalised statistic)</strong></span> Let <span class="math inline">\textbf{X}_{n_1,m_1}</span> be a random matrix on the probability space <span class="math inline">(R, \mathcal{F}, P)</span>. Let <span class="math inline">S_{sample}: (R, \mathcal{F}, P)\xrightarrow{} R</span> be a function that transforms the random matrix <span class="math inline">\textbf{X}_{n_1,m_1}</span> into the deterministic <span class="math inline">X_{n_1,m_1, t}</span> array, where <span class="math inline">t</span> is the number of samples drawn from <span class="math inline">\textbf{X}_{n_1,m_1}</span>. Let <span class="math inline">S</span>: <span class="math inline">R\xrightarrow{} R</span> is a function that transforms the deterministic matrix, <span class="math inline">X_{n_1,m_1, t}</span> into a statistical summary, <span class="math inline">X_{n_2,m_2, t}</span>. Note that <span class="math inline">S</span> covers all statistics that can be implemented in the deterministic grammar of graphics. We define <span class="math inline">S^*: (R, \mathcal{F}, P)\xrightarrow{} R</span> to be the composite function <span class="math inline">S = S_{sample} \circ S^*</span> that transforms the random matrix <span class="math inline">\textbf{X}_{n_1,m_1}</span> into the deterministic matrix, <span class="math inline">X_{n_2,m_2, t}</span>.</p>
+</div>
+<p>The definition presented in <a href="#def-stat" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-stat</span></a> may leave you with some questions, specifically, why we have limited the distribution representation to a sample of outcomes. This is the question we will spend the rest of this section answering.</p>
+<section id="representing-a-distribution" class="level4"><h4 class="anchored" data-anchor-id="representing-a-distribution">Representing a distribution</h4>
+<p>Distributions are abstract concepts, needing some kind of concrete representation to visualise them. This is a common consideration in uncertainty visualisation where we frequently see software that lets us visualise our distribution as a sample of outcomes, a mean and variance, a confidence interval, or even several of these statistics at once <span class="citation" data-cites="Potter2010 Kay2023">(<a href="#ref-Kay2023" role="doc-biblioref">Kay 2023</a>; <a href="#ref-Potter2010" role="doc-biblioref">Potter et al. 2010</a>)</span>. Authors often opt for flexibility in the distribution level statistic, with very little consideration as to how this might affect the rest of the plot. It is not unreasonable to assume that the distribution statistic should be interchangeable, as this is how the <em>rest</em> of the grammar operates. Even <span class="citation" data-cites="Leland2005">Wilkinson (<a href="#ref-Leland2005" role="doc-biblioref">2005</a>)</span> himself expressed this sentiment in the uncertainty visualisation chapter of The Grammar of Graphics. What this sentiment fails to realise is that the interchangeable nature of the grammar comes from its formalisation, a formalisation that does not properly integrate uncertainty. When we take the time to formalise uncertainty within the visualisation function, we quickly see that the way we represent our distribution does not have a neutral impact on the other components of the grammar.</p>
+</section><section id="beyond-point-estimates" class="level4"><h4 class="anchored" data-anchor-id="beyond-point-estimates">Beyond point estimates</h4>
+<p>The first problem is obvious: not all distribution representations can perform signal suppression. We briefly illustrate the problem here. <a href="#fig-meanprob" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-meanprob</span></a> shows a set of bivariate densities as raster plots visualising the <code>uncertain_faithfuld</code> data from <code>ggdibbler</code>, which is a random matrix variation of the <code>faithfuld</code> data from the <code>ggplot2</code> package. Plot (a) visualises only the estimate, while the other three plots represent the data using a sample. As we move from plot (b) to plot (d), the variance in our distribution increases. This variance is independent of our expected value, so the increasing variance has no impact on the expected value of the distribution - the visualisation of our point estimate does not change as the variance increases and is always represented by plot (a).</p>
+<p>You may still want to visualise summary statistics alongside other representations, such as displaying the variance as a separate density plot. This might seem absurd, and there is a reasonable amount of evidence that visualising summary statistics alongside uncertainty information causes that uncertainty information to be ignored <span class="citation" data-cites="uncertchap2022">(<a href="#ref-uncertchap2022" role="doc-biblioref">Padilla et al. 2022</a>)</span>. The whole point of signal suppression is that it hides a signal that is statistically invalid.</p>
+<p>Allowing you to include the point estimates, because the visualisation is too noisy, defeats the entire purpose of the approach. This property should also ensure the convergence to another distribution, as covered by <a href="#thm-cmt" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-cmt</span></a>. If we are only concerned about convergence to constant values, we do not need to include uncertainty at all. Therefore, whichever representation we choose, it needs to convey a complete view of this distribution; a point estimate cannot do that. <a href="#fig-meanprob" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-meanprob</span></a> shows how <code>ggdibbler</code> handles increasing variance in a density plot, as the “graininess” of the plot increases with the uncertainty. As the variance increases, these grains dominate the plot, making the visualisation harder to read, as it should be.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-meanprob" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-meanprob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-chap3_files/figure-html/fig-meanprob-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meanprob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: How uncertainty is handled (or not) in raster displays of bivariate density. The axes show the eruption time vs waiting time, and colour indicates density value, with lighter indicating higher density. In plot (a), uncertainty is ignored by showing only the estimate, and plots (b, c, d) show samples reflecting different scales of uncertainty in the density estimate. We can see that as the variance in the estimates increases, the visualisation of the sample becomes harder to read and conveys more uncertainty.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</section><section id="why-not-probability-functions" class="level4"><h4 class="anchored" data-anchor-id="why-not-probability-functions">Why not probability functions <!-- Not sure, do you need a ? at the end?? -->
+</h4>
+<p>Disallowing point estimates doesn’t actually limit our flexibility, as we still have samples, quantiles, and probability functions at our disposal. This is where the “Mr Potato Head” approach to distributional statistics starts to cause problems as we bump up against the orthogonality requirement that is built into the grammar of graphics. Flexibility requires that <em>every</em> deterministic graphic should have an uncertain counterpart, even ones that have a pre-defined statistic comprised of point estimates, such as a box plot or bar chart. This is a fundamental requirement, otherwise the system will not be an effective EDA tool. If we allow for any statistic, we will create a mismatch where the values we are trying to feed into our statistic, <span class="math inline">S</span>, are not on the same domain as expected by the function. To be more explicit, our statistic is expecting values on the domain, <span class="math inline">M(\Omega)</span>. If we define a new statistic, <span class="math inline">S^* = S \circ S_{dist}</span>, where the range of <span class="math inline">S_{dist}</span> is not <span class="math inline">M(\Omega)</span>, such as <span class="math inline">P_{M(\Omega)}(M(\Omega))</span>, then we have produced invalid input for the next stage of our visual function, <span class="math inline">S</span>. For example, if our statistic is expecting heights that range from 150 to 200, we cannot feed in a set of probabilities on [0,1] and expect there to be no issues. The statistics that create a domain mismatch also tend to create an implicit inference problem, as changing the statistic used to represent the random variables can also change the role of uncertainty in our analysis <span class="citation" data-cites="Mason2026">(<a href="#ref-Mason2026" role="doc-biblioref">Mason et al. 2026a</a>)</span>. This means that violating this rule will not only result in unusable inputs or nonsensical outputs for <span class="math inline">S</span>, it will also fundamentally change our visual function, <span class="math inline">V</span>. This change means our visualisation will not adhere to <a href="#thm-cmt" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-cmt</span></a>, which is the primary requirement of our system. For these reasons, we can only allow statistical representations that output a range that is equivalent to the input space.</p>
+</section><section id="why-not-quantiles" class="level4"><h4 class="anchored" data-anchor-id="why-not-quantiles">Why not quantiles</h4>
+<p>This leaves quantiles and samples as our remaining distribution statistics. It makes sense that these methods would be the most flexible, as a sample is just outcomes on <span class="math inline">M(\Omega)</span>, and quantiles are just ordered samples. However, the notion of “ordering”, which is required for quantile representations, produces two problems for a flexible visualisation system. The first problem is that quantiles communicate an explicit ordering on <span class="math inline">\Omega</span>. While the data at this stage is technically on the real line <span class="math inline">M(\Omega)</span>, the quantiles will not have meaning if <span class="math inline">\Omega</span> is unordered. When visualising Using quantiles to visualise uncertain categorical data will either result in meaningless graphics or an inability to visualise the data at all. This limitation would prevent us from visualising uncertain categorical data, which is a common output of classification models. The second problem with quantiles is that they don’t have a natural extension to multivariate data. Quantiles are well-defined for univariate cases, but multivariate spaces require several assumptions on the relative magnitude of our variables, which are unlikely to always be correct. <a href="#fig-circle-line" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-circle-line</span></a> visualises the four scenarios that arise from passing a univariate or multivariate random variable, represented as a quantile or a sample, to the slope or intercept of a <code>geom_abline</code>. This is not an unreasonable scenario, as a linear regression with a random intercept and slope is a common topic even in introductory statistics courses. We can see that in the univariate case, where the intercept of the line is an <span class="math inline">N(0,1)</span> distribution, the information conveyed by the quantile (a) and the sample (b) is very similar. This is because quantiles are well defined in the univariate case. However, for the multivariate case, adding a second random variable in the slope (such that we are now visualising a multivariate normal distribution with marginal distributions <span class="math inline">N(0,1)</span>, and a covariance of <span class="math inline">-0.8</span>) throws our notion of ordering out the window. In this case, quantiles are not well defined, as any quantile, <span class="math inline">q</span>, will have an infinite number of (intercept, slope) pairs that could produce that probability, and are better conveyed by a function (hence why contour plots are typically used). As we cannot visualise the slope of a line as a function, a sensible alternative might be to use the marginal or equicoordinate quantiles <span class="citation" data-cites="Bornkamp2018">(<a href="#ref-Bornkamp2018" role="doc-biblioref">Bornkamp 2018</a>)</span>. We opted to use the marginal quantiles, which are also used to colour the lines in both representations, but the conclusions are the same if we use the equicoordinate approach instead. This allows us to see the danger of using quantiles as our distribution representation. The first issue is that the notion of ordering we have imposed on the quantiles does not translate in the multivariate case, which can be seen in the haphazard colouring of the lines in the sample, which was not a problem in the univariate case. The implicit pairing of values has also changed the point of intersection of the lines, and the neatness of the quantiles conveys more certainty in our conclusions than is warranted by the actual data. Even if we tried to work around these problems by coming up with some abstract definition of a visual quantile, we wouldn’t be able to draw the output with a straight line, which is the only real requirement for <code>geom_abline</code>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-circle-line" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-circle-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-chap3_files/figure-html/fig-circle-line-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-circle-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: Why quantiles are problematic for representing our distribution variables, using regression coefficients. Intercepts and slopes were simulated using marginal distributions of N(0,1) and a covariance of -0.8. Plots (a) and (b) have only the intercept treated as random, and show the quantiles and samples, respectively. Colour maps to quantile in (a) and to the value of the intercept in (b): both plots convey similar information. It breaks down when both slope and intercept are treated as random, shown as quantiles (c) and samples (d). Colour is mapped to the same notion of distance that is used to construct the quantiles. But distance is not well defined, and we can see the approaches diverge in the erratic colouring of the lines. Ordering beyond one variable makes quantiles inflexible representations of distributions.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</section><section id="distributions-as-samples" class="level4"><h4 class="anchored" data-anchor-id="distributions-as-samples">Distributions as samples</h4>
+<p>This means that the only representation of a distribution that is equally as flexible as a point prediction is a sample of outcomes. Of course, we don’t want a sample of individual points; we want a sample of geometric objects. To get this, we need to pass the data through the visual function in batches, where each batch represents an outcome of the full random matrix. In practice, this translates to “splitting” on the <code>drawID</code> in the Grammar of Graphics <span class="citation" data-cites="Leland2005">(<a href="#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span>, which involves modifying the <code>group</code> variable in <code>ggplot2</code> <span class="citation" data-cites="ggplot2">(<a href="#ref-ggplot2" role="doc-biblioref">Wickham 2010</a>)</span> to include the <code>drawID</code>. <a href="#fig-grouping-need" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-grouping-need</span></a> demonstrates the effect of grouping in the implementation. Without appropriately handling the grouping in <code>geom_smooth</code>, the plot has only one fitted curve with a standard error artificially small due to a larger number of observations being used, which is wrong. Once the group variable is modified to include the <code>drawID</code>, the result is a fitted line for each sample, and also the choice to include a standard error ribbon faintly in the background for each sample.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-grouping-need" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-grouping-need-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-chap3_files/figure-html/fig-grouping-need-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-grouping-need-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: Modifying the group variable is essential for handling samples: (a) not done, giving an incorrect representation of the uncertainty, (b) group variable includes the <code>drawID</code>. We can see that we need to pass our samples through the visual function in batches to ensure that the statistics are not artificially changed by the sample size.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>The requirement for samples and <em>only</em> samples as our distribution representation is why the formalisation by <span class="citation" data-cites="Kay2023">Kay (<a href="#ref-Kay2023" role="doc-biblioref">2023</a>)</span>, despite having the insight to use distributional inputs, did not have the full flexibility required for EDA. By allowing flexible distribution representations, <code>ggdist</code> is focused on looking at distribution as values in their own right, rather than integrating uncertainty into existing visualisation systems. This is also how the visual functions of <code>ggdist</code> and <code>ggdibbler</code> in <a href="#fig-dist-example" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dist-example</span></a> diverge from one another. It is important to understand that neither approach is a subset of the other; they are orthogonal, and most of the plots made in <code>ggdist</code> cannot be made using <code>ggdibbler</code>. While there are instances that both <code>ggdist</code> and <code>ggdibbler</code> produce similar-looking plots, these plots cannot be made using the same data or the same code. The distinction between the two approaches translates directly from the philosophy of <span class="citation" data-cites="Mason2026">Mason et al. (<a href="#ref-Mason2026" role="doc-biblioref">2026a</a>)</span>, who pointed out that the difference between the role of signal and noise is in our inferential statistics. By having the distribution statistic subsume the statistic of the plot, we are changing our inferential statistic and visualising uncertainty as a signal. This is why we repeatedly say that <code>ggdist</code> is for looking at uncertainty as signal, and <code>ggdibbler</code> is for looking at uncertainty as noise. The visualisations of <code>ggdist</code> cannot be made by <code>ggdibbler</code> due to the limitations in the distribution statistic, and the opposite is true due to a limitation in the global statistic. Ultimately, both packages are required if we want a complete picture of uncertain data.</p>
+</section></section><section id="the-adjustment-to-geometry" class="level3" data-number="3.4.3"><h3 data-number="3.4.3" class="anchored" data-anchor-id="the-adjustment-to-geometry">
+<span class="header-section-number">3.4.3</span> The adjustment to <code>geometry</code>
+</h3>
+<p>The geometry component of the grammar translates our data to a magnitude in space <span class="citation" data-cites="Leland2005">(<a href="#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span>. By displaying each distribution as a sample, we have distilled uncertainty visualisation down to a simple over-plotting problem; where we previously had a matrix, <span class="math inline">X_{n,m}</span>, we now have an array, <span class="math inline">X_{n,m,t}</span>. Therefore, to pass our data through the following stages of the grammar, we need to flatten our array back into a matrix in such a way that we ensure each outcome from our random matrix is equally weighted. Over-plotting is usually managed by the geometry component of our visual function by using position adjustments such as dodging to prevent overlap or transparency to make the overlapping visible <span class="citation" data-cites="Cook2016 ggplot2 Leland2005">(<a href="#ref-Cook2016" role="doc-biblioref">Cook et al. 2016</a>; <a href="#ref-ggplot2" role="doc-biblioref">Wickham 2010</a>; <a href="#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span>. Position adjustments are an umbrella term used to describe any small changes to the position of a geometric object, and are usually implemented to ensure different groups are equally visible. We can replicate this system with a nested position system that performs our sample position adjustment within any position adjustments already existing in the plot. This is the final change we will make to our visual function to allow the visualisation of random variables, and it is formalised in <a href="#def-geom" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-geom</span></a>.</p>
+<div id="def-geom" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.7 (Generalised geometry)</strong></span> Let <span class="math inline">G^*</span>: <span class="math inline">R\xrightarrow{} B</span> be a geometry function that transforms an array of data into a matrix of geometric positions. We can further decompose <span class="math inline">G^*</span> into <span class="math inline">G = E\circ P^*</span>, where <span class="math inline">E:R\xrightarrow{} B</span> is the geometry function, and <span class="math inline">P^*:B\xrightarrow{} B</span> is the position adjustment. Let <span class="math inline">C_{n,m,t}</span>, <span class="math inline">B_{n,m,t}</span>, <span class="math inline">A_{n \times t,m}</span> be matrices of geometric positions. We can further decompose <span class="math inline">P^*</span> into <span class="math inline">P^* = P_{within} \circ P_{between}</span>, where</p>
+<ul>
+<li>
+<span class="math inline">P_{within}</span> is a within sample position adjustment that transforms <span class="math inline">C_{n,m,t}</span> to <span class="math inline">B_{n,m,t}</span>, by identifying overlapping points on <span class="math inline">C_{n,m,i}</span> <span class="math inline">\forall i = 1,...,t</span> and applying the specified sample position function, and.<br>
+</li>
+<li>
+<span class="math inline">P_{between}</span> is a between sample position adjustment that transforms <span class="math inline">B_{n,m,t}</span> to <span class="math inline">A_{n \times t,m}</span> by flattening <span class="math inline">B_{n,m,t}</span> into <span class="math inline">B_{n\times t,m}</span>, identifying overlapping points on <span class="math inline">B_{n\times t,m}</span> and applying the specified position adjustment.</li>
+</ul>
+</div>
+<p>We will spend the rest of this section detailing the nested position system.</p>
+</section><section id="nested-position-adjustments" class="level3" data-number="3.4.4"><h3 data-number="3.4.4" class="anchored" data-anchor-id="nested-position-adjustments">
+<span class="header-section-number">3.4.4</span> Nested position adjustments</h3>
+<p>Position adjustments adjust the location or size of a geometric object to prevent overlap and ensure all geometric objects remain visible. They achieve this by placing objects beside one another (dodging), stacking them on top of each other (stacking), placing them in front of each other and making them see through (transparency), or showing them one after each other in quick succession (animations). These options make up the four dimensions that we have available for position adjustments: x (dodge), y (stack), z (transparency), and time (animation). Including transparency and time as position adjustments is not the standard approach in the literature, as these plots are typically considered separate axes. This is not unique to uncertainty visualisation, even <span class="citation" data-cites="Leland2005">Wilkinson (<a href="#ref-Leland2005" role="doc-biblioref">2005</a>)</span> did not discuss positions relative to the axis of x-y-z-t, but rather specified position adjustments as being on the measured scale (stack) or in the spare space (dodge). This is an important distinction, but we choose to frame the positions in terms of x-y-z-t to highlight that there may be multiple measured or spare axes in a single plot.</p>
+<p>Unlike the statistics, (most) position adjustments do not meaningfully change the inferential statistic of our plot, so we can nest them freely without concern. This is particularly useful because without nested position adjustments, we would need to apply the same position adjustments to the over-plotting caused by both the original grouping and the sampling. Since we cannot use stacking on the measured axis for our samples, this would prohibit us from making uncertain versions of stacked bar charts, which, again, would be an undesirable limitation to our uncertainty visualisation system. We can see this problem in <a href="#fig-positions" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-positions</span></a>, which shows the visualisation of a stacked bar chart of the <code>mpg</code> data (a), alongside a visualisation of its random counterpart, the <code>uncertain_mpg</code> data, visualised using a “stack” (b), “stack_dodge” (c), and “stack_identity” (d), position adjustment. The fact that stacking is not a viable approach should be obvious: the scale has been artificially inflated, and the visualisation provides little to no information about our data. In the case of a bar chart, stacking is aligned with our measurement axis (y), which leads to it being a problematic adjustment, as our between-sample position adjustment, <span class="math inline">P_{between}</span>, can only be implemented on an axis representing spare space. In other words, stacking is only a viable position adjustment when the sum of the stacked groups holds meaning <span class="citation" data-cites="Leland2005">(<a href="#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span>, which is not true for an arbitrary number of samples. Interestingly, this split of appropriate versus inappropriate position adjustments is opposite to the findings of <span class="citation" data-cites="Bartonicek2025">Bartonicek et al. (<a href="#ref-Bartonicek2025" role="doc-biblioref">2025</a>)</span>, who found that stacking was the only appropriate axis to use for interactivity, for similar arbitrary scale change issues. This suggests the possibility of an underlying orthogonal relationship between uncertainty and interactivity in statistical graphics that would allow us to implement both interactivity and uncertainty visualisation simultaneously.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-positions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-positions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-chap3_files/figure-html/fig-positions-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-positions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: Why we need nested position adjustments illustrated using stacked bar charts made using different position adjustments. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples’ position adjustment.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Using this framework, we find that a lot of plots with distinct names can actually be described by a single plot with different position adjustments. For example, if we have a map with the fill of each area represented by a random variable, then we could capture this uncertainty using a HOPs <span class="citation" data-cites="Hullman2015">(<a href="#ref-Hullman2015" role="doc-biblioref">Hullman et al. 2015</a>)</span>, a pixel map <span class="citation" data-cites="Vizumap">(<a href="#ref-Vizumap" role="doc-biblioref">Lucchesi and Kuhnert 2020</a>)</span>, or a value-suppressing uncertainty palette <span class="citation" data-cites="Correll2018">(<a href="#ref-Correll2018" role="doc-biblioref">Correll et al. 2018</a>)</span>. These plots could all be made in <code>ggdibbler</code> using a <code>geom_sf_sample</code> and an animation, subdivide (a simultaneous dodge and stack), or transparency position adjustment, respectively. If we consider a facet to be a “between” plot position adjustment, in contrast to the “within” plot position adjustments we get with dodging and transparency, we can extend this idea further. Under this framework, the uncertainty visualisations that map a null distribution with an alternative on the same plot <span class="citation" data-cites="Guo2024 Hullman2021 Savvides2019 McNutt2020">(<a href="#ref-Guo2024" role="doc-biblioref">Guo et al. 2025</a>; <a href="#ref-Hullman2021" role="doc-biblioref">Hullman and Gelman 2021</a>; <a href="#ref-McNutt2020" role="doc-biblioref">McNutt et al. 2020</a>; <a href="#ref-Savvides2019" role="doc-biblioref">Savvides et al. 2019</a>)</span> are just the line-up protocol <span class="citation" data-cites="Buja2009">(<a href="#ref-Buja2009" role="doc-biblioref">Buja et al. 2009</a>)</span> without the “between plot” position adjustment.</p>
+<p>The most appropriate position adjustment to use can depend on which aesthetic the random variable is mapped to, and impacts on our ability to read a plot. <a href="#fig-rightposition" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-rightposition</span></a> illustrates the change in plot appearance when a random variable is mapped to text using a transparency (a) and jitter (b), or mapped to colour using a dodge (c) and transparency (d). We can see that transparency works quite well for text, while position adjustments such as jitter make the overlapping text harder to read, regardless of the uncertainty in the estimate. We can see that colour works well with dodged positions, as it allows us to see the full sample and do the final calculation visually. Managing colour with transparency will still produce a technically correct plot, but it can lead to colours that cannot be matched to the legend, as high variance colours mix and create new colours that do not belong to the palette. Differences in the most appropriate position adjustment can cause conflict when there are multiple sources of uncertainty in a plot. It would be interesting to investigate this further with a perceptual experiment to test the effectiveness of different position adjustments for different aesthetics, but that is well beyond the scope of this paper.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-rightposition" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rightposition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-chap3_files/figure-html/fig-rightposition-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rightposition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.8: Illustration of the change in plot appearance based on aesthetic mapping and position adjustment. Plots (a, b) map the random variable to text with transparency and jitter, respectively, and plots (c, d) map to tile colour using dodging and transparency. Although this needs experimental evidence, mapping the samples to transparency improves readability for text, but for colour, dodging produces better readability than transparency.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</section><section id="the-generalised-visual-function" class="level3" data-number="3.4.5"><h3 data-number="3.4.5" class="anchored" data-anchor-id="the-generalised-visual-function">
+<span class="header-section-number">3.4.5</span> The generalised visual function</h3>
+<p>If we combine the definitions from <a href="#def-vfunc" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-vfunc</span></a>, <a href="#def-scale" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-scale</span></a>, <a href="#def-stat" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-stat</span></a>, and <a href="#def-geom" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-geom</span></a> we have a generalised visual function that accepts random variable inputs. In this generalised visual function, the deterministic graphics made by <a href="#def-vfunc" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-vfunc</span></a> are simply a special case of <a href="#def-vgeneral" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-vgeneral</span></a>, where every cell is a degenerate distribution.</p>
+<div id="def-vgeneral" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.8 (The generalised visual function)</strong></span> Let <span class="math inline">\textbf{X}</span> be a random matrix on the probability space <span class="math inline">(\Omega, \mathcal{F}, Pr)</span>. Let <span class="math inline">V</span> be a function that maps <span class="math inline">\textbf{X}</span> from <span class="math inline">(\Omega, \mathcal{F}, Pr)</span> to the space of all visual statistics, <span class="math inline">\Psi</span>. The visual function, <span class="math inline">V</span>, can be decomposed into the following composite function:</p>
+<p><span class="math display">
+V = A \circ O \circ G^* \circ S^* \circ M
+</span></p>
+</div>
+</section></section><section id="implementation-in-ggdibbler" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="implementation-in-ggdibbler">
+<span class="header-section-number">3.5</span> Implementation in <code>ggdibbler</code>
+</h2>
+<p>The visual function given by <a href="#def-vgeneral" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-vgeneral</span></a> should allow you to make an uncertainty visualisation version of any graphic that can be described with the grammar of graphics. We have implemented this theory in the R package, <code>ggdibbler</code>, which is a <code>ggplot2</code> extension that allows users to create an uncertain version of any <code>ggplot2</code> graphic. <a href="#fig-illustration" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-illustration</span></a> illustrates this flexibility by showing a collection of plots that were all made using this generalised visual function. We can see that there is flexibility in both plot type, as we display line plots, maps, pie charts, histograms, bubble charts, and network diagrams, and in aesthetics, as position, colour, size, slope, and other aesthetics all have a random variable mapped to them. A single plot can even have multiple sources of uncertainty simultaneously mapped to different aesthetics. By establishing a set of rules that will almost always work, we save ourselves from having to design bespoke software for every single individual case.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-illustration" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-illustration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-chap3_files/figure-html/fig-illustration-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-illustration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.9: This formalisation of uncertainty visualisation offers extensive flexibility, illustrated by six plots: line, pie chart, histogram, map, bubble chart, and network diagram. These plots are made with almost identical syntax with <code>ggdibbler</code> as that of the deterministic <code>ggplot2</code> equivalent. These aesthetics - position, colour, size, slope - are all mapped using random variables.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>While we have established the conceptual theory that would underpin a flexible uncertainty visualisation system, there are considerations that need to be made when implementing the theory as practical software. Specifically, we should discuss the data objects that allow us to work with random matrices, the design of the user interface, and the computational complexity that comes with uncertain plots. This section will detail these components.</p>
+<section id="the-software-design" class="level3" data-number="3.5.1"><h3 data-number="3.5.1" class="anchored" data-anchor-id="the-software-design">
+<span class="header-section-number">3.5.1</span> The software design</h3>
+<p>The way that a user interacts with a piece of software can help communicate the mechanisms or theory that underpins it. The statistical theory behind random matrices, visual convergence, and the continuous mapping theorem that underpins the <code>ggdibbler</code> package might be too complicated for someone trying to make a simple scatter plot, but a basic understanding of these ideas is required to use the package correctly. Therefore, when designing the functions, we opted to subtly communicate these ideas through coding paradigms and function names.</p>
+<p>Readers familiar with programming paradigms might look at <a href="#def-vfunc" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-vfunc</span></a> and <a href="#thm-cmt" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-cmt</span></a> and immediately think of object-oriented programming (OOP). These readers would be right, <code>ggplot2</code> can be considered to be an object-oriented system with a functional-feeling interface. Actually, the bulk of functionality underlying R structures can be considered to be object-oriented.</p>
+<p>In OOP systems, data is stored as objects and methods that operate on these objects. The user interacts with these objects only through the methods, not by directly inspecting the elements. Objects can inherit, so special objects have features that will work in a variety of settings, and also some additional special features. Different objects can respond to the same method call in different ways (polymorphisms).</p>
+<!-- what about proto/ggproto? see https://www.reddit.com/r/rstats/comments/1sk313c/why_r_has_four_oop_systems_s3_s4_r5_r6/ and hadley's comments about other OOP options. You've also left out R5. Not that this needs to be complete, but you might at least mention that there are a few others floating around for specific use-cases. -->
+<p>Today’s R contains several choices in data management: S3, S4, R6, and the latest, S7. S3 forms the original framework, and an example of the polymorphism is the <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function, where what is printed will change depending on the object provided. For example, a <code>data.frame</code> will be printed differently from an <code>lm</code> (linear model object). It lacks the full characteristics of OOP, though, because there are no formal class definitions, and it is easy to misuse. S4 is stricter and underlies all of the Bioconductor <span class="citation" data-cites="bioconductor">(<a href="#ref-bioconductor" role="doc-biblioref"><span class="nocase">Gentleman et al.</span> 2004</a>)</span>, but more cumbersome for the user. S7 is designed to have the ease-of-use of S3 but the strict checks of S4.</p>
+<p>The main reason to use OOP is polymorphism, which allows us to apply the same function to different classes of input <span class="citation" data-cites="Wickham2019">(<a href="#ref-Wickham2019" role="doc-biblioref">Wickham 2019</a>)</span>. For example, this paradigm would allow us to create a <code>draw</code> function that accepts both <code>polygons</code> and <code>lines</code>, drawing either one without any special input from the user. The <code>sf</code> package’s <code>geom_sf</code> function allows users to indiscriminately pass points, lines, and polygons to the function, which responds exactly as the user expects, plotting geoms appropriate to the spatial class passed in. OOP is the logical approach for uncertainty visualisation, as we want to convey that <span class="math inline">V</span> is the same function regardless of the input type. From the perspective of the user, the function should be the same whether we input <span class="math inline">\textbf{X}</span> or <span class="math inline">X</span>.</p>
+<p>Not only is OOP theoretically consistent with our goals, but it is also the most practical approach. Using OOP allows us to hide unnecessary complexity, which is particularly helpful for uncertainty visualisation, as the abstract nature of uncertainty causes it to be quite error-prone. Visualising uncertainty without the guardrails put up by <code>ggdibbler</code> can lead to cases where uncertainty is visualised as a separate variable, and the graphic does not have the statistical properties guaranteed by the package. This approach will also make it easier to perform EDA, as the most flexible programming systems make no assumptions about our data; instead, they react to the object input by the user to determine the initial mapping <span class="citation" data-cites="Leland2005">(<a href="#ref-Leland2005" role="doc-biblioref">Wilkinson 2005</a>)</span>. This principle is already carried through in <code>ggplot2</code>, where plots automatically adapt to categorical, continuous, discrete, or date-time inputs by having an OOP scale, <span class="math inline">M</span>. While it would be nice to implement <code>ggdibbler</code> as an uncertainty visualisation system requires more intensive changes to <span class="math inline">V</span>.</p>
+<p>The implicit relationship between <code>ggdibbler</code> and <code>ggplot2</code> is communicated through the syntax of the code. Ideally, if all of <code>ggplot2</code> were built on an OOP system, we could just create an “uncertainty” version of all the <code>ggplot2</code> functions, allowing users to pass distributions without even noticing the change in the underlying package. That is, both the <code>ggplot2</code> and <code>ggdibbler</code>plots from <a href="#fig-dist-example" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dist-example</span></a> would use the syntax, <code>ggplot(data = density_data) + geom_density(aes(x = x))</code> where the visualisation software runs the <code>ggdibler</code> code if <code>x</code> is a <code>distributional</code> object. As <code>ggplot2</code> is not built on an OOP system, this is not possible, so instead, <code>ggdibbler</code> adds a <code>*_sample</code> suffix in the function name. This allows us to maintain similar naming conventions to the related <code>ggplot2</code> function, while also being explicit about what the function does. For example, the code that makes the <code>ggplot2</code> density is <code>ggplot(data = density_data) + geom_density(aes(x = xmean))</code>, while the code that makes the <code>ggdibbler</code> density is <code>ggplot(data = density_data) + geom_density_sample(aes(x=xdist))</code>. This syntax still conveys the idea that the visual function is identical; it is only the input that has changed.</p>
+<p>This strong theoretical foundation not only gives us an intuitive function design, but it also allows us to have a lot of versatility built on a shockingly simple code base. Despite the package covering the full range of geoms in <code>ggplot2</code>, the bulk of <code>ggdibbler</code> is a single function that does the sample and group adjustment, and a second function that nests the positions (if needed). Every <code>geom_*</code> has a <code>geom_*_sample</code> counterpart that calls these core functions, and then passes the data through the standard <code>geom_*</code> pipeline, with little to no bespoke adjustments for individual geoms. A significant amount of the simplicity of the design comes from the packages dependencies: <code>distributional</code> <span class="citation" data-cites="distributional">(<a href="#ref-distributional" role="doc-biblioref">O’Hara-Wild et al. 2024</a>)</span>, <code>ggplot2</code> <span class="citation" data-cites="ggplot2">(<a href="#ref-ggplot2" role="doc-biblioref">Wickham 2010</a>)</span>, <code>dplyr</code> <span class="citation" data-cites="dplyr">(<a href="#ref-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span>, <code>rlang</code> <span class="citation" data-cites="rlang">(<a href="#ref-rlang" role="doc-biblioref">Henry and Wickham 2026a</a>)</span>, <code>lifecycle</code> <span class="citation" data-cites="lifecycle">(<a href="#ref-lifecycle" role="doc-biblioref">Henry and Wickham 2026b</a>)</span>, <code>scales</code> <span class="citation" data-cites="scales">(<a href="#ref-scales" role="doc-biblioref">Wickham et al. 2025a</a>)</span>, <code>tidyr</code> <span class="citation" data-cites="tidyr">(<a href="#ref-tidyr" role="doc-biblioref">Wickham et al. 2025b</a>)</span>, <code>tibble</code> <span class="citation" data-cites="tibble">(<a href="#ref-tibble" role="doc-biblioref">Müller and Wickham 2025</a>)</span>, <code>cli</code> <span class="citation" data-cites="cli">(<a href="#ref-cli" role="doc-biblioref">Csárdi 2025</a>)</span>, and <code>sf</code> <span class="citation" data-cites="sfpack">(<a href="#ref-sfpack" role="doc-biblioref">Pebesma 2018</a>)</span>.</p>
+</section><section id="representing-uncertainty-using-distributional" class="level3" data-number="3.5.2"><h3 data-number="3.5.2" class="anchored" data-anchor-id="representing-uncertainty-using-distributional">
+<span class="header-section-number">3.5.2</span> Representing uncertainty using <code>distributional</code>
+</h3>
+<p>The theoretical framework we have presented assumes you already have a random matrix input, and thus far, we have somewhat ignored how you would go about making one. This is because quantifying uncertainty and representing it as a data object is fundamentally part of the data manipulation stage of our analysis, so it should be kept as separate as possible from the visualisation stage <span class="citation" data-cites="ggplot2">(<a href="#ref-ggplot2" role="doc-biblioref">Wickham 2010</a>)</span>. This gives users full transparency in <em>what</em> precisely they are visualising <span class="citation" data-cites="ggplot2">(<a href="#ref-ggplot2" role="doc-biblioref">Wickham 2010</a>)</span>. In <code>ggdibbler</code>, this separation is created by leveraging the <code>distributional</code> package <span class="citation" data-cites="distributional">(<a href="#ref-distributional" role="doc-biblioref">O’Hara-Wild et al. 2024</a>)</span>, which allows users to store distributions inside data frames as individual cells. <code>ggdibbler</code> works from the assumption that users have already quantified the uncertainty as distributions before attempting to visualise it, building a system that allows for <code>distributional</code> inputs.</p>
+<p>The <code>ggdibbler</code> package is designed to accept any <code>distributional</code> input. There are two ways you can define a distribution in <code>distribtional</code>:</p>
+<ol type="1">
+<li>A theoretical distribution defined by the distribution and its parameters, or</li>
+<li>An empirical distribution defined by a set of samples</li>
+</ol>
+<p>Most types of uncertainty can be represented as one of the two cases, so the software is surprisingly flexible. The purpose of the distribution is to accommodate classical statistics, or even Bayesian thinking, where the distribution is known or specified. The reason for being able to specify the distribution through samples is to accommodate the common situation today that the distribution may not be known, but we can describe it with samples. Such a situation might arise when we have bootstrap samples describing the variability.</p>
+<p>The <code>ggdibbler</code> software implements a full uncertain replication of <code>ggplot2</code>, including the examples. This requires <code>ggdibbler</code> to have uncertain versions of all the data sets used in the<code>ggplot2</code> examples, made in distributional, including (but not limited to) <code>uncertain_mpg</code>, <code>uncertain_faithful</code>, and <code>uncertain_economics</code>. These examples make use of both the theoretical and empirical distribution types. This allows users to immediately start using <code>ggdibbler</code> with familiar data and plots, making the system less daunting to integrate into an existing data analysis pipeline.</p>
+</section><section id="additional-computational-complexity" class="level3" data-number="3.5.3"><h3 data-number="3.5.3" class="anchored" data-anchor-id="additional-computational-complexity">
+<span class="header-section-number">3.5.3</span> Additional computational complexity</h3>
+<p>Replacing a single plot with a large sample of plots can significantly increase the computational complexity of the visualisation. The more random variables we feed into the plot, the bigger the sample size needs to be, but the bigger the sample size gets, the more computationally expensive the plots become to make and render. These are simply manifestations of the classic statistics trade-off between computational cost and accuracy, and the curse of dimensionality.</p>
+<p>In <code>ggdibbler</code>, this sample size is controlled by the <code>times</code> argument, which is set to <code>10</code> by default. Sometimes this is appropriate, sometimes it is not; it depends on the variance of the distributions, the particular plot type, the number of random variables fed in, etc. We cannot set a reliable and sensible <code>times</code> argument that works for every plot in every situation, so instead we advise you to pick a sample size that allows your plot to <!--visually? --> converge. This is a different type of convergence from the deterministic <code>ggplot2</code> plot we discussed earlier. Technically, a <code>ggdibbler</code> visualisation is a random variable, so every time you print one, it will draw a new random sample and look slightly different from the previous renderings. If your sample size is big enough, the variability between each visualisation should be small enough that your conclusions do not change between renderings. We could take this a little further and suggest that your sample size should be large enough that different renderings are visually indistinguishable from one another. In other words, they have visually converged by <a href="#def-converge" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-converge</span></a>. To be more specific, let <span class="math inline">V(\textbf{X})_i</span> be the <span class="math inline">i^{th}</span> rendering of a <code>ggdibbler</code> plot, then we would say that the plot has converged (and our sample size is large enough) when <span class="math inline">d(V(\textbf{X})_i, V(\textbf{X})_j)=0 \forall i</span>. This process of visual convergence is shown in <a href="#fig-correct-times" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-correct-times</span></a>. We can see that the full shape of the distribution becomes more visible as the <code>times</code> argument increases (the input is a scatter plot of uniform distributions).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-correct-times" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-correct-times-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-chap3_files/figure-html/fig-correct-times-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-correct-times-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.10: A scatter plot of a random matrix version of the <code>mtcars</code> data from the ‘datasets’ R package, with the aesthetic mapping <code>x=mpg</code>, <code>y=wt</code> and <code>colour=cyl</code>. This plot shows the impact of an appropriately chosen times argument. We can see that as the sample size increases, the distributions form cohesive units and stop looking like a collection of separate points with little connection. This is not always achievable due to computational cost, but we should, at the very least, select a sample size that means our conclusions are not changing between renderings of the plot.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Given this additional complexity, we might opt to skip the entire sampling procedure and instead just map the “uncertainty” to some kind of aesthetic. After all, despite only using samples to depict uncertainty, the <code>ggdibbler</code> documentation (along with this paper) is littered with plots that appear to be using the explicit mappings that are commonly associated with uncertainty. Blur, fuzziness, colour lightness, and shape/size frequently appear despite never being controlled through the aesthetics. Therefore, it might be more computationally effective to just control these elements directly.</p>
+<p>While this idea is not unreasonable and might be possible to implement in the future, we do not take this approach in <code>ggdibbler</code>, as directly mapping uncertainty seems to be fraught with danger. The source of the uncertainty and its visual expression are tightly linked in a <code>ggdibbler</code> plot. Take, for example, the appearance of blurring and fuzziness shows in <a href="#fig-fuzzy-blur" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fuzzy-blur</span></a>, which depicts <code>ggdibbler</code> fuzziness in a bubble chart, <code>ggdibbler</code> blur in a dotplot, and <code>ggdist</code> blur in a dotplot. Both blur and fuzziness use a transparent position adjustment, but blur is created through uncertainty in position, while fuzziness is created through uncertainty in size. This allows us to convey multiple types of uncertainty at once, as blur makes it more difficult to read the position but does not affect our ability to read the size, and vice versa for fuzziness. The inability to convey multiple types of uncertainty is the most common difficulty faced by uncertainty visualisation approaches <span class="citation" data-cites="geointerviews Hadjimichael2024 MacEachren2005">(<a href="#ref-Hadjimichael2024" role="doc-biblioref">Hadjimichael et al. 2024</a>; <a href="#ref-MacEachren2005" role="doc-biblioref">MacEachren et al. 2005</a>; <a href="#ref-geointerviews" role="doc-biblioref">Peña-Araya et al. 2025</a>)</span>. The blur and fuzziness in the <code>ggdibbler</code> plots is more of an “emergent” aesthetic, which appears through the combination of transparency and randomness; this is in direct contrast to the <code>ggdist</code> blur, which is controlled top-down. This type of plot is rather unusual for the <code>ggdist</code> package, as the uncertainty is controlled by a standard error, rather than a distributional input, and that error is mapped to a “blur” aesthetic. Looking closely at the plot, we can see a blurred cliff effect, where the blurring of some dots extends over the dots beneath them. Since the dots in a dotplot must be stacked on top of each other, this type of blurring would not be possible. This makes it unclear as to how the blur should be interpreted, and it indicates some kind of breakdown in the relationship between the data and its visual representation.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fuzzy-blur" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fuzzy-blur-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-chap3_files/figure-html/fig-fuzzy-blur-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fuzzy-blur-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.11: Two examples from the <code>ggdibbler</code> documentation, and one example from the <code>ggdist</code> documentation to illustrate the difference in the top-down versus emergent aesthetic approach. The blur and fuzziness emerge from the <code>ggdibbler</code> plots due to the sampling procedures, while the blur in <code>ggdist</code> is added manually as a top-down aesthetic. We can see that the ‘cliff’ effect in the <code>ggdist</code> plot is not visible in the blurred <code>ggdibbler</code> plot, because it would be impossible to generate that appearance from the underlying data.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Breaking the connection between the data and its visual representation would result in us losing the desirable statistical properties that are guaranteed by <code>ggdibbler</code>. This breakdown appears to be quite common when we try to manually map uncertainty to an aesthetic <span class="citation" data-cites="Mason2026">(<a href="#ref-Mason2026" role="doc-biblioref">Mason et al. 2026a</a>)</span>. Additionally, a flexible EDA system should allow <em>any</em> combination of <em>any</em> uncertain aesthetics, and working out how these combinations of random variables should appear would be incredibly laborious, if not impossible. Additionally, this approach would almost defeat the purpose of the system, as the whole point of visualising the data to begin with is that we <em>don’t already know</em> what it should look like. For these reasons, trying to directly map uncertainty to an aesthetic might be better computationally, but would likely result in more headaches than it would be worth, if it were possible at all.</p>
+</section></section><section id="conclusions-and-future-research" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="conclusions-and-future-research">
+<span class="header-section-number">3.6</span> Conclusions and future research</h2>
+<p>This paper set out to formalise uncertainty visualisation in order to design a flexible uncertainty visualisation system that aligns with the goals of signal suppression. The value of this formalisation is not only in the power of a truly flexible system, but also in the mathematical foundation itself that ensures the connection between data and visual aesthetic is always maintained.</p>
+<p>By defining the visual function mathematically, we leveraged the concept of continuity to evaluate the behaviour of visual statistics. This approach uncovers a wealth of other statistical concepts we could translate to statistical graphics. Building on this work, we should investigate other concepts like bias/variance trade-off, statistical sufficiency, and other convergence properties for visual statistics. In this vein, we should also identify the minimum level of variance in a plot that is required for the human perception of visual convergence, related to the concept of “just noticeable differences” in psychophysics. Similarly, it would be useful to know if there are principles for determining the sample size required for visual convergence, as it would give us a convenient ceiling on the computational complexity of the plots.</p>
+<p>On the topic of convergent graphics, it would be interesting to find out if all plots with the same limiting visual statistic have some underlying computation in common. This curiosity is quite similar to the question posed by <span class="citation" data-cites="ggplot2">Wickham (<a href="#ref-ggplot2" role="doc-biblioref">2010</a>)</span>, where they asked if plots that are visually identical, that are made using different grammar adjustments, have some underlying principle in common. When looking into interactive visualisations <span class="citation" data-cites="Bartonicek2025">Bartonicek et al. (<a href="#ref-Bartonicek2025" role="doc-biblioref">2025</a>)</span> also found underlying links between the mathematical functions we plot and their visual representations, so we wonder if there is a more “fundamental” version of the grammar of graphics that can make this link more explicit. In mathematics, all functions can essentially be broken down into a basic increment/step function (something akin to stacking in graphics), so we do wonder if a similar principle can be applied to plots.</p>
+<p>The motivation for a more fundamental building block of statistical graphics can also be found in our brief discussion on emergent aesthetics. The emergent aesthetics blur the line between the statistic and geometric stages of plot building, begging the question “Should we explicitly map a statistic, or allow it to emerge through the visualisation process?” To solve this problem, we would need to start by untangling which aesthetics are primary aesthetics and which are emergent aesthetics. We would also need to understand the conditions under which each of these aesthetics arises and the position adjustments that lead to them.</p>
+<p>Position adjustments have historically been an afterthought when building graphics, but this work, alongside the work of <span class="citation" data-cites="Bartonicek2025">Bartonicek et al. (<a href="#ref-Bartonicek2025" role="doc-biblioref">2025</a>)</span>, who leveraged position in their interactive graphics framework, suggests they are more important than the visualisation literature has historically implied. We discussed how text/shape works well with alpha, and dodging/subdividing is good for colour, but this is just an anecdotal observation. A more formal theory on how position adjustments change our ability to read a plot is much needed.</p>
+<p>Finally, the <code>ggdibbler</code> software has room for improvement. Currently, the software only accepts individual distributions and, if multiple distributions are passed, they are assumed to be independent. The <code>distributional</code> software allows for joint distributions, which are functionally a random matrix collapsed into a vector. Expanding <code>ggdibbler</code> to accept these joint distributions is a natural extension for the software. Additionally, <code>ggdibbler</code> does not work with <code>ggplot2</code> extensions due to the way the software is implemented. We plan to extend the package to make this possible. A full list of the planned changes is available, along with the package source code in the <code>ggdibbler</code> GitHub.</p>
+</section><section id="acknowledgements" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="acknowledgements">
+<span class="header-section-number">3.7</span> Acknowledgements</h2>
+<p>The first author of this paper is supported in part by a scholarship from the the Australian Energy Market Operator. This research was supported by the Commonwealth through an Australian Government Research Training Program Scholarship [DOI: https://doi.org/10.82133/C42F-K220]. The first author would also like to thank Mitchell O’Hara-Wild, Cynthia Huang for their comments and feedback which substantially improved the work, and Ze-Yu Zhong for several interesting applications of the work. The R packages used for this work were: <code>tidyverse</code> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>, <code>distributional</code> <span class="citation" data-cites="distributional">(<a href="#ref-distributional" role="doc-biblioref">O’Hara-Wild et al. 2024</a>)</span>, <code>ggdist</code> <span class="citation" data-cites="Kay2023">(<a href="#ref-Kay2023" role="doc-biblioref">Kay 2023</a>)</span>, <code>ggdibbler</code> <span class="citation" data-cites="ggdibbler">(<a href="#ref-ggdibbler" role="doc-biblioref">Mason et al. 2026b</a>)</span>, <code>patchwork</code> <span class="citation" data-cites="patchwork">(<a href="#ref-patchwork" role="doc-biblioref">Pedersen 2025a</a>)</span>, <code>khroma</code> <span class="citation" data-cites="khroma">(<a href="#ref-khroma" role="doc-biblioref">Frerebeau 2025</a>)</span>, <code>tidygraph</code> <span class="citation" data-cites="tidygraph">(<a href="#ref-tidygraph" role="doc-biblioref">Pedersen 2024</a>)</span>, <code>colourspace</code> <span class="citation" data-cites="colorspace">(<a href="#ref-colorspace" role="doc-biblioref">Stauffer et al. 2009</a>)</span>, <code>ggraph</code> <span class="citation" data-cites="ggraph">(<a href="#ref-ggraph" role="doc-biblioref">Pedersen 2025b</a>)</span>, <code>ozmaps</code> <span class="citation" data-cites="ozmaps">(<a href="#ref-ozmaps" role="doc-biblioref">Sumner 2021</a>)</span>, <code>sf</code> <span class="citation" data-cites="sfpack">(<a href="#ref-sfpack" role="doc-biblioref">Pebesma 2018</a>)</span>, and <code>ggthemes</code> <span class="citation" data-cites="ggthemes">(<a href="#ref-ggthemes" role="doc-biblioref">Arnold 2024</a>)</span>. The GitHub repository for this paper can be found at https://github.com/harriet-mason/paper-ggdibbler, which contains the files required to reproduce this article in full.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ggthemes" class="csl-entry" role="listitem">
+Arnold, J. B. (2024), <em>Ggthemes: Extra themes, scales and geoms for ’ggplot2’</em>. <a href="https://doi.org/10.32614/CRAN.package.ggthemes">https://doi.org/10.32614/CRAN.package.ggthemes</a>.
+</div>
+<div id="ref-Bartonicek2025" class="csl-entry" role="listitem">
+Bartonicek, A., Urbanek, S., and Murrell, P. (2025), <span>“No <span>More</span>, <span>No</span> <span>Less</span> than <span>Sum</span> of <span>Its</span> <span>Parts</span>: <span>Groups</span>, <span>Monoids</span>, and the <span>Algebra</span> of <span>Graphics</span>, <span>Statistics</span>, and <span>Interaction</span>,”</span> <em>Journal of Computational and Graphical Statistics</em>, 34, 1063–1074. <a href="https://doi.org/10.1080/10618600.2024.2429708">https://doi.org/10.1080/10618600.2024.2429708</a>.
+</div>
+<div id="ref-Bornkamp2018" class="csl-entry" role="listitem">
+Bornkamp, B. (2018), <span>“Calculating quantiles of noisy distribution functions using local linear regressions,”</span> <em>Computational Statistics</em>, Springer, 33, 487–501.
+</div>
+<div id="ref-Buja2009" class="csl-entry" role="listitem">
+Buja, A., Cook, D., Hofmann, H., Lawrence, M., Lee, E. K., Swayne, D. F., and Wickham, H. (2009), <span>“Statistical inference for exploratory data analysis and model diagnostics,”</span> <em>Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences</em>, Royal Society, 367, 4361–4383. <a href="https://doi.org/10.1098/rsta.2009.0120">https://doi.org/10.1098/rsta.2009.0120</a>.
+</div>
+<div id="ref-Cook2016" class="csl-entry" role="listitem">
+Cook, D., Lee, E.-K., and Majumder, M. (2016), <span>“Data visualization and statistical graphics in big data analysis,”</span> <em>Annual Review of Statistics and Its Application</em>, 3, 133–159. <a href="https://doi.org/10.1146/annurev-statistics-041715-033420">https://doi.org/10.1146/annurev-statistics-041715-033420</a>.
+</div>
+<div id="ref-Correll2018" class="csl-entry" role="listitem">
+Correll, M., Moritz, D., and Heer, J. (2018), <span>“Value-suppressing uncertainty palettes,”</span> <em>Conference on Human Factors in Computing Systems - Proceedings</em>, 2018-April, 1–11. <a href="https://doi.org/10.1145/3173574.3174216">https://doi.org/10.1145/3173574.3174216</a>.
+</div>
+<div id="ref-cli" class="csl-entry" role="listitem">
+Csárdi, G. (2025), <em>Cli: Helpers for developing command line interfaces</em>. <a href="https://doi.org/10.32614/CRAN.package.cli">https://doi.org/10.32614/CRAN.package.cli</a>.
+</div>
+<div id="ref-khroma" class="csl-entry" role="listitem">
+Frerebeau, N. (2025), <em><span class="nocase">khroma: Colour Schemes for Scientific Data Visualization</span></em>, Pessac, France: Université Bordeaux Montaigne. <a href="https://doi.org/10.5281/zenodo.1472077">https://doi.org/10.5281/zenodo.1472077</a>.
+</div>
+<div id="ref-bioconductor" class="csl-entry" role="listitem">
+<span class="nocase">Gentleman, R. C., Carey, V. J., Bates, D. M., and others</span> (2004), <span>“Bioconductor: Open software development for computational biology and bioinformatics,”</span> <em>Genome Biology</em>, 5, R80. <a href="https://doi.org/10.1186/gb-2004-5-10-r80">https://doi.org/10.1186/gb-2004-5-10-r80</a>.
+</div>
+<div id="ref-Guo2024" class="csl-entry" role="listitem">
+Guo, Z., Kale, A., Kay, M., and Hullman, J. (2025), <span>“<span>VMC</span>: A grammar for visualizing statistical model checks,”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em>, IEEE Educational Activities Department, 31, 798–808. <a href="https://doi.org/10.1109/TVCG.2024.3456402">https://doi.org/10.1109/TVCG.2024.3456402</a>.
+</div>
+<div id="ref-Hadjimichael2024" class="csl-entry" role="listitem">
+Hadjimichael, A., Schlumberger, J., and Haasnoot, M. (2024), <span>“Data visualisation for decision making under deep uncertainty: Current challenges and opportunities,”</span> <em>Environmental Research Letters</em>, 19, 111011. <a href="https://doi.org/10.1088/1748-9326/ad858b">https://doi.org/10.1088/1748-9326/ad858b</a>.
+</div>
+<div id="ref-rlang" class="csl-entry" role="listitem">
+Henry, L., and Wickham, H. (2026a), <em>Rlang: Functions for base types and core r and ’tidyverse’ features</em>. <a href="https://doi.org/10.32614/CRAN.package.rlang">https://doi.org/10.32614/CRAN.package.rlang</a>.
+</div>
+<div id="ref-lifecycle" class="csl-entry" role="listitem">
+Henry, L., and Wickham, H. (2026b), <em>Lifecycle: Manage the life cycle of your package functions</em>. <a href="https://doi.org/10.32614/CRAN.package.lifecycle">https://doi.org/10.32614/CRAN.package.lifecycle</a>.
+</div>
+<div id="ref-Hullman2021" class="csl-entry" role="listitem">
+Hullman, J., and Gelman, A. (2021), <span>“Designing for interactive exploratory data analysis requires theories of graphical inference,”</span> <em>Harvard Data Science Review</em>, 1–70. <a href="https://doi.org/10.1162/99608f92.3ab8a587">https://doi.org/10.1162/99608f92.3ab8a587</a>.
+</div>
+<div id="ref-Hullman2015" class="csl-entry" role="listitem">
+Hullman, J., Resnick, P., and Adar, E. (2015), <span>“Hypothetical outcome plots outperform error bars and violin plots for inferences about reliability of variable ordering,”</span> <em>PLoS ONE</em>, Public Library of Science, 10. <a href="https://doi.org/10.1371/journal.pone.0142444">https://doi.org/10.1371/journal.pone.0142444</a>.
+</div>
+<div id="ref-Kay2023" class="csl-entry" role="listitem">
+Kay, M. (2023), <span>“<span class="nocase">ggdist</span>: Visualizations of distributions and uncertainty in the grammar of graphics,”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em>, IEEE, 30, 414–424.
+</div>
+<div id="ref-Vizumap" class="csl-entry" role="listitem">
+Lucchesi, L., and Kuhnert, P. (2020), <em><a href="https://lydialucchesi.github.io/Vizumap/"><span>Vizumap</span>: Visualizing uncertainty in spatial data</a></em>.
+</div>
+<div id="ref-Luce1958" class="csl-entry" role="listitem">
+Luce, R. D., and Edwards, W. (1958), <span>“The derivation of subjective scales from just noticeable differences.”</span> <em>Psychological review</em>, American Psychological Association, 65, 222.
+</div>
+<div id="ref-MacEachren1992" class="csl-entry" role="listitem">
+MacEachren, A. M. (1992), <span>“Visualizing uncertain information,”</span> <em>Cartographic Perspectives</em>, 10–19. <a href="https://doi.org/10.14714/CP13.1000">https://doi.org/10.14714/CP13.1000</a>.
+</div>
+<div id="ref-MacEachren2005" class="csl-entry" role="listitem">
+MacEachren, A. M., Robinson, A., Hopper, S., Gardner, S., Murray, R., Gahegan, M., and Hetzler, E. (2005), <span>“Visualizing geospatial information uncertainty: <span>What</span> we know and what we need to know,”</span> <em>Cartography and Geographic Information Science</em>, 32, 139–160. <a href="https://doi.org/10.1559/1523040054738936">https://doi.org/10.1559/1523040054738936</a>.
+</div>
+<div id="ref-Majumder2013" class="csl-entry" role="listitem">
+Majumder, M., Hofmann, H., and Cook, D. (2013), <span>“Validation of visual statistical inference, applied to linear models,”</span> <em>Journal of the American Statistical Association</em>, 108, 942–956. <a href="https://doi.org/10.1080/01621459.2013.808157">https://doi.org/10.1080/01621459.2013.808157</a>.
+</div>
+<div id="ref-Mason2026" class="csl-entry" role="listitem">
+Mason, H., Cook, D., Goodwin, S., Tanaka, E., and VanderPlas, S. (2026a), <span>“<a href="https://arxiv.org/abs/2411.10482">The noisy work of uncertainty visualisation research: A review</a>.”</span>
+</div>
+<div id="ref-ggdibbler" class="csl-entry" role="listitem">
+Mason, H., Cook, D., Goodwin, S., and VanderPlas, S. (2026b), <em><a href="https://github.com/harriet-mason/ggdibbler">Ggdibbler: Add uncertainty to data visualisations</a></em>.
+</div>
+<div id="ref-McNutt2020" class="csl-entry" role="listitem">
+McNutt, A., Kindlmann, G., and Correll, M. (2020), <span>“Surfacing visualization mirages,”</span> in <em>Proceedings of the 2020 <span>CHI</span> <span>Conference</span> on <span>Human</span> <span>Factors</span> in <span>Computing</span> <span>Systems</span></em>, Honolulu HI USA: ACM, pp. 1–16. <a href="https://doi.org/10.1145/3313831.3376420">https://doi.org/10.1145/3313831.3376420</a>.
+</div>
+<div id="ref-tibble" class="csl-entry" role="listitem">
+Müller, K., and Wickham, H. (2025), <em>Tibble: Simple data frames</em>. <a href="https://doi.org/10.32614/CRAN.package.tibble">https://doi.org/10.32614/CRAN.package.tibble</a>.
+</div>
+<div id="ref-distributional" class="csl-entry" role="listitem">
+O’Hara-Wild, M., Kay, M., Hayes, A., and Hyndman, R. (2024), <em><span class="nocase">distributional</span>: Vectorised probability distributions</em>. <a href="https://doi.org/10.32614/CRAN.package.distributional">https://doi.org/10.32614/CRAN.package.distributional</a>.
+</div>
+<div id="ref-uncertchap2022" class="csl-entry" role="listitem">
+Padilla, L., Kay, M., and Hullman, J. (2022), <span>“Uncertainty visualization,”</span> in <em>Computational statistics in data science</em>, eds. W. W. Piegorsch, R. A. Levine, H. H. Zhang, and T. C. M. Lee, Hoboken, NJ: John Wiley &amp; Sons, pp. 405–426.
+</div>
+<div id="ref-sfpack" class="csl-entry" role="listitem">
+Pebesma, E. (2018), <span>“<span class="nocase">Simple Features for R</span>: Standardized support for spatial vector data,”</span> <em>The R Journal</em>, 10, 439–446. <a href="https://doi.org/10.32614/RJ-2018-009">https://doi.org/10.32614/RJ-2018-009</a>.
+</div>
+<div id="ref-tidygraph" class="csl-entry" role="listitem">
+Pedersen, T. L. (2024), <em>Tidygraph: A tidy API for graph manipulation</em>. <a href="https://doi.org/10.32614/CRAN.package.tidygraph">https://doi.org/10.32614/CRAN.package.tidygraph</a>.
+</div>
+<div id="ref-patchwork" class="csl-entry" role="listitem">
+Pedersen, T. L. (2025a), <em><span class="nocase">patchwork</span>: The composer of plots</em>. <a href="https://doi.org/10.32614/CRAN.package.patchwork">https://doi.org/10.32614/CRAN.package.patchwork</a>.
+</div>
+<div id="ref-ggraph" class="csl-entry" role="listitem">
+Pedersen, T. L. (2025b), <em>Ggraph: An implementation of grammar of graphics for graphs and networks</em>. <a href="https://doi.org/10.32614/CRAN.package.ggraph">https://doi.org/10.32614/CRAN.package.ggraph</a>.
+</div>
+<div id="ref-geointerviews" class="csl-entry" role="listitem">
+Peña-Araya, V., Fontaine, C. M., Wei, X., Delpech, G., and Bezerianos, A. (2025), <span>“Uncertainty in science is malleable. Advocating for user-agency in defining uncertainty in visualizations: A case study in geology,”</span> in <em>Proceedings of the 2025 CHI conference on human factors in computing systems</em>, pp. 1–18.
+</div>
+<div id="ref-Potter2010" class="csl-entry" role="listitem">
+Potter, K., Kniss, J., Riesenfeld, R., and Johnson, C. R. (2010), <span>“Visualizing summary statistics and uncertainty,”</span> <em>Computer Graphics Forum</em>, 29, 823–832. <a href="https://doi.org/10.1111/j.1467-8659.2009.01677.x">https://doi.org/10.1111/j.1467-8659.2009.01677.x</a>.
+</div>
+<div id="ref-Satyanarayan2016" class="csl-entry" role="listitem">
+Satyanarayan, A., Moritz, D., Wongsuphasawat, K., and Heer, J. (2016), <span>“Vega-lite: A grammar of interactive graphics,”</span> <em>IEEE transactions on visualization and computer graphics</em>, IEEE, 23, 341–350.
+</div>
+<div id="ref-Savvides2019" class="csl-entry" role="listitem">
+Savvides, R., Henelius, A., Oikarinen, E., and Puolamäki, K. (2019), <span>“Significance of patterns in data visualisations,”</span> in <em>Proceedings of the 25th ACM SIGKDD international conference on knowledge discovery &amp; data mining</em>, Anchorage AK USA: Association for Computing Machinery, pp. 1509–1517. <a href="https://doi.org/10.1145/3292500.3330994">https://doi.org/10.1145/3292500.3330994</a>.
+</div>
+<div id="ref-colorspace" class="csl-entry" role="listitem">
+Stauffer, R., Mayr, G. J., Dabernig, M., and Zeileis, A. (2009), <span>“Somewhere over the rainbow: How to make effective use of colors in meteorological visualizations,”</span> <em>Bulletin of the American Meteorological Society</em>, 96, 203–216. <a href="https://doi.org/10.1175/BAMS-D-13-00155.1">https://doi.org/10.1175/BAMS-D-13-00155.1</a>.
+</div>
+<div id="ref-ozmaps" class="csl-entry" role="listitem">
+Sumner, M. (2021), <em>Ozmaps: Australia maps</em>. <a href="https://doi.org/10.32614/CRAN.package.ozmaps">https://doi.org/10.32614/CRAN.package.ozmaps</a>.
+</div>
+<div id="ref-Swihart2010" class="csl-entry" role="listitem">
+Swihart, B. J., Caffo, B., James, B. D., Strand, M., Schwartz, B. S., and Punjabi, N. M. (2010), <span>“Lasagna plots: A saucy alternative to spaghetti plots,”</span> <em>Epidemiology</em>, LWW, 21, 621–625.
+</div>
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+Wickham, H. (2010), <span>“A layered grammar of graphics,”</span> <em>Journal of Computational and Graphical Statistics</em>, 19, 3–28. <a href="https://doi.org/10.1198/jcgs.2009.07098">https://doi.org/10.1198/jcgs.2009.07098</a>.
+</div>
+<div id="ref-Wickham2019" class="csl-entry" role="listitem">
+Wickham, H. (2019), <em>Advanced <span>R</span></em>, chapman; hall/CRC.
+</div>
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
+Wickham, H., Averick, M., Bryan, J., Chang, W., D’Agostino McGowan, L., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., Takahashi, K., Vaughan, D., Wilke, C., Woo, K., and Yutani, H. (2019), <span>“Welcome to the tidyverse,”</span> <em>Journal of Open Source Software</em>, 4, 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-dplyr" class="csl-entry" role="listitem">
+Wickham, H., François, R., Henry, L., Müller, K., and Vaughan, D. (2023), <em>Dplyr: A grammar of data manipulation</em>. <a href="https://doi.org/10.32614/CRAN.package.dplyr">https://doi.org/10.32614/CRAN.package.dplyr</a>.
+</div>
+<div id="ref-Wickham2009" class="csl-entry" role="listitem">
+Wickham, H., Lawrence, M., Cook, D., Buja, A., Hofmann, H., and Swayne, D. F. (2009), <span>“The plumbing of interactive graphics,”</span> <em>Computational Statistics</em>, Springer, 24, 207–215.
+</div>
+<div id="ref-scales" class="csl-entry" role="listitem">
+Wickham, H., Pedersen, T. L., and Seidel, D. (2025a), <em>Scales: Scale functions for visualization</em>. <a href="https://doi.org/10.32614/CRAN.package.scales">https://doi.org/10.32614/CRAN.package.scales</a>.
+</div>
+<div id="ref-tidyr" class="csl-entry" role="listitem">
+Wickham, H., Vaughan, D., and Girlich, M. (2025b), <em>Tidyr: Tidy messy data</em>. <a href="https://doi.org/10.32614/CRAN.package.tidyr">https://doi.org/10.32614/CRAN.package.tidyr</a>.
+</div>
+<div id="ref-Leland2005" class="csl-entry" role="listitem">
+Wilkinson, L. (2005), <em>The grammar of graphics</em>, Berlin, Heidelberg: Springer-Verlag.
+</div>
+<div id="ref-Zhang2022" class="csl-entry" role="listitem">
+Zhang, M., and Lin, D. K. J. (2022), <span>“Visualization for interval data,”</span> <em>Journal of Computational and Graphical Statistics</em>, 31, 960–975. <a href="https://doi.org/10.1080/10618600.2022.2066678">https://doi.org/10.1080/10618600.2022.2066678</a>.
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./02-chap2.html" class="pagination-link" aria-label="The Noisy Work of Uncertainty Visualisation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Noisy Work of Uncertainty Visualisation</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-chap4.html" class="pagination-link" aria-label="Colour Blinded by the Noise">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Colour Blinded by the Noise</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -51,8 +51,6 @@ rsconnect/
 # dsstore
 .DS_Store
 **/.DS_Store
-inst/doc
-docs
 
 # specifically for this template
 /.quarto/

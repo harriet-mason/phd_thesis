@@ -60,8 +60,3 @@ The authors draw a link between statistical graphics and their underlying distri
 Strengthening this connection is likely a good avenue for future research.
 
 
-
-
-
-
-
