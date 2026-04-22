@@ -101,61 +101,61 @@ This seems to suggest that, when participants could not make out the number with
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 324 </td>
-   <td style="text-align:right;"> 114 </td>
+   <td style="text-align:right;"> 129 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 7 </td>
    <td style="text-align:right;"> 306 </td>
-   <td style="text-align:right;"> 141 </td>
+   <td style="text-align:right;"> 140 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 4 </td>
    <td style="text-align:right;"> 282 </td>
-   <td style="text-align:right;"> 187 </td>
+   <td style="text-align:right;"> 179 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 5 </td>
    <td style="text-align:right;"> 258 </td>
-   <td style="text-align:right;"> 215 </td>
+   <td style="text-align:right;"> 235 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 8 </td>
    <td style="text-align:right;"> 251 </td>
-   <td style="text-align:right;"> 235 </td>
+   <td style="text-align:right;"> 242 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 3 </td>
    <td style="text-align:right;"> 228 </td>
-   <td style="text-align:right;"> 214 </td>
+   <td style="text-align:right;"> 204 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 9 </td>
    <td style="text-align:right;"> 227 </td>
-   <td style="text-align:right;"> 253 </td>
+   <td style="text-align:right;"> 229 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 6 </td>
    <td style="text-align:right;"> 220 </td>
-   <td style="text-align:right;"> 236 </td>
+   <td style="text-align:right;"> 228 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 207 </td>
-   <td style="text-align:right;"> 214 </td>
+   <td style="text-align:right;"> 226 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 165 </td>
-   <td style="text-align:right;"> 198 </td>
+   <td style="text-align:right;"> 214 </td>
   </tr>
 </tbody>
 </table>
