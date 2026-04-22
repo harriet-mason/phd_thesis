@@ -383,7 +383,7 @@ p0 + p1 + p2 + p3 + plot_layout(ncol=4)
 
 ```
 
-#### Why not probability functions
+#### Why not probability functions <!-- Not sure, do you need a ? at the end?? -->
 
 Disallowing point estimates doesn't actually limit our flexibility, as we still have samples, quantiles, and probability functions at our disposal.
 This is where the "Mr Potato Head" approach to distributional statistics starts to cause problems as we bump up against the orthogonality requirement that is built into the grammar of graphics.
@@ -859,7 +859,8 @@ The user interacts with these objects only through the methods, not by directly 
 Objects can inherit, so special objects have features that will work in a variety of settings, and also some additional special features. 
 Different objects can respond to the same method call in different ways (polymorphisms). 
 
-Today's R contains several choices in data management, S3, S4, R6, and the latest S7. 
+<!-- what about proto/ggproto? see https://www.reddit.com/r/rstats/comments/1sk313c/why_r_has_four_oop_systems_s3_s4_r5_r6/ and hadley's comments about other OOP options. You've also left out R5. Not that this needs to be complete, but you might at least mention that there are a few others floating around for specific use-cases. -->
+Today's R contains several choices in data management: S3, S4, R6, and the latest, S7. 
 S3 forms the original framework, and an example of the polymorphism is the `print()` function, where what is printed will change depending on the object provided. For example, a `data.frame` will be printed differently from an `lm` (linear model object). 
 It lacks the full characteristics of OOP, though, because there are no formal class definitions, and it is easy to misuse. 
 S4 is stricter and underlies all of the Bioconductor [@bioconductor], but more cumbersome for the user. 
@@ -923,7 +924,7 @@ These are simply manifestations of the classic statistics trade-off between comp
 
 In `ggdibbler`, this sample size is controlled by the `times` argument, which is set to `10` by default.
 Sometimes this is appropriate, sometimes it is not; it depends on the variance of the distributions, the particular plot type, the number of random variables fed in, etc. 
-We cannot set a reliable and sensible `times` argument that works for every plot in every situation, so instead we advise you to pick a sample size that allows your plot to converge. 
+We cannot set a reliable and sensible `times` argument that works for every plot in every situation, so instead we advise you to pick a sample size that allows your plot to <!--visually? --> converge. 
 This is a different type of convergence from the deterministic `ggplot2` plot we discussed earlier.
 Technically, a `ggdibbler` visualisation is a random variable, so every time you print one, it will draw a new random sample and look slightly different from the previous renderings.
 If your sample size is big enough, the variability between each visualisation should be small enough that your conclusions do not change between renderings.
