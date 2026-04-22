@@ -22,18 +22,32 @@ image_read_pdf("_book/This-is-my-thesis.pdf", pages = 1) |>
 fs::file_copy("_book/This-is-my-thesis.pdf", "examples/template.pdf", overwrite = TRUE)
 ```
 
-# Monash Thesis Template
+# PhD Thesis
+## Title: "Visualising Uncertainty: Conceptual Framework, Software, and Perception"
 
 This is a Quarto template that assists you in creating a Monash University thesis. 
 
-## Installation
+## Abstract
+Visualisation is a powerful tool in data analysis, as it allows us to learn from our data, identifying new insights or hypotheses that we would otherwise have missed.
+These insights are only possible thanks to the tools that allow us to render accurate and reliable representations of our data.
+Unfortunately, despite the prevalence of random variables in statistical analysis, these powerful tools do not extend to the visualisation of estimates, as we are unable to incorporate uncertainty into our plots. 
+Limiting our visualisations to point estimates restricts our ability to gain insights into uncertain data, which is especially problematic given their prevalence.
+Working past this limitation has remained difficult, as data visualisation is a broad area, simultaneously touching several fields at once, including philosophy, mathematical statistics, and studies of human perception.
 
-You can create a thesis based on this template with the following command:
+Properly addressing these issues requires a critical assessment of existing uncertainty visualisation approaches under each lens.
+This is the work done by this thesis, which presents three original contributions.
+The first contribution is a philosophical argument that untangles the current literature and provides guidance on what it means to make a "good" uncertainty visualisation.
+The second contribution is both conceptual and practical, as it provides a mathematical formalisation of uncertainty visualisation, which is then used to create the R package `ggdibbler`, which is a flexible uncertainty visualisation software that facilitates exploratory data analysis of random matrices.
+The final contribution is a human study on the perception of uncertain plots, which evaluates uncertainty visualisations on their ability to align with the conclusions of classical hypothesis tests, and provides some guiding principles on the perception of uncertain plots.
+These contributions allow us to visualise random variables with as much ease as we do normal data, assured by the knowledge that what we see is actually there.
 
-```bash
-quarto use template quarto-monash/thesis
+# Copyright notice {-}
+
+```{r}
+#| output: asis
+cat("Produced on",format(Sys.Date(), "%e %B %Y.\n\n"))
+cat("© {{< meta author >}} (",format(Sys.Date(), "%Y"),").", sep="")
 ```
 
-This will install the extension and create the files that you can use as a starting place for your thesis.
+This work is licensed under a [Creative Commons  Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-[![](examples/template.png)](examples/template.pdf)
