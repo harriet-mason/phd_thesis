@@ -1,6 +1,6 @@
 # Conclusion {#sec-conc}
 
-The three papers presented in this thesis share a common theme of visualising uncertainty for exploratory data analysis (EDA).
+The three papers presented in this thesis share a common theme of communicating uncertainty in a way that it can be *seen*.
 These papers present a cohesive vision for the future of uncertainty visualisation, one that is defined within the infrastructure set by statistical graphics.
 We established the foundations of this vision by approaching the uncertainty visualisation problem from three separate angles: the philosophical goals of the field, the practical limitations of the mathematical objects we are working with, and the human perception of uncertainty in visualisation.
 
