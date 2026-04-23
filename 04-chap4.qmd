@@ -55,11 +55,12 @@ Because this uncertainty can change the conclusions we draw from our data, it is
 There are many practical reasons to visualise uncertainty.
 Visualisations that do not include uncertainty can be misleading.
 Authors argue that effective uncertainty visualisations should soften unjustified conclusions [@Leland2005], prevent the identification of false discoveries [@Sarma2024; @Koonchanok2023], or improve decision making [@uncertchap2022].
-Uncertainty visualisations can also be supported from a moral standpoint. <!-- I'd probably phrase this as 'Uncertainty visualizations may be more honest or less likely to mislead viewers.' or just 'Uncertainty visualizations may be more transparent.' -->
+Uncertainty visualizations may also be more transparent.
 @Hullman2020a likens failing to visualise uncertainty to fraud or lying, while @Zhao2023 found that including uncertainty can improve trust in our models or analysis.
 These notions of trust, clarity, and transparency imply that uncertainty visualisation should act as a sort of visual hypothesis test, where statistically valid signals are visible, while statistically spurious signals are not.
-Under this framework, the best uncertainty visualisations will simultaneously minimise the chance of seeing something that isn't there (type I error) and the chance of missing something that is there (type II error) [@MacEachren1992], in a way that does not rely on any statistical expertise from the viewer [@Correll2014].
+Under this framework, the best uncertainty visualisations will simultaneously minimise the chance of seeing something that isn't there (type I error) as well as the chance of missing something that is there (type II error) [@MacEachren1992], in a way that does not rely on any statistical expertise from the viewer [@Correll2014].
 For this to be true, it is not enough to simply include uncertainty in our visualisation; it needs to be incorporated in such a way that false signals become invisible without damaging the visibility of true signals.
+This property, where statistical validity translates to visibility of signal in a plot is called "signal suppression" [@Mason2026].
 This is what it means to visualise uncertainty in a way that it can be **seen**. 
 
 Interestingly, despite the wealth of evaluation studies in uncertainty visualisation [@Hullman2019] and the fact that the connection between signal visibility and statistical validity originates with the field itself [@MacEachren1992], this simple hypothesis has not been tested.
@@ -71,17 +72,17 @@ However, this is not the only source of noise in the field.
 This noise makes it difficult to synthesise the results of evaluation studies into a cohesive framework or set of recommendations [@Kinkeldey2014; @Bostrom2008].
 Synthesising results is so difficult, in fact, that @MacEachren2005 wondered whether we should be visualising uncertainty at all, or if it would be better to just suppress it.
 Addressing this problem will require boiling the evaluation of uncertainty visualisation down to a simple question: "Are statistically insignificant signals visible in this visualisation, and if not, why?"
-Answering the "Why?" component of this question will require a systematic comparison of graphics. <!-- requires -->
+Answering the "Why?" component of this question requires a systematic comparison of graphics. 
 
 Systematically changing plots becomes far easier when our scope is narrowed to a specific scenario or plot type.
-Maps have been one of the key focal points for uncertainty visualisation, in part because they offer a particularly challenging case study, as many familiar statistical visualisation tools become unavailable when data is referenced on a map [@Waller2024]. <!-- combined to avoid having a fragment as the 2nd "sentence" -->
+Maps have been one of the key focal points for uncertainty visualisation, in part because they offer a particularly challenging case study, as many familiar statistical visualisation tools become unavailable when data is referenced on a map [@Waller2024]. 
 Cartography also has a tradition of attention to data quality and a strong desire for visualisations that ensure the accuracy and reliability of their conclusions [@MacEachren1992].
 Geoscience also offers a classic case study in the importance of conveying uncertainty through the communication of climate change or extreme weather events.
 We see these scenarios frequently in evaluations of uncertainty visualisations as participants are asked to make decisions about sea level projections [@Benjamin2018], flood uncertainties [@Lim2016], wildfire hazards [@Cheong2016], and hurricane forecasts [@Padilla2017].
 While narrowing our scope down to mapping makes sense given the context of the field, it is still not simplified enough for our purposes.
 A single map may have multiple measurements, with multiple sources of uncertainty [@MacEachren2005; @Kinkeldey2014], and trying to test all these sources of uncertainty at once will overcomplicate our experiment.
 Effective evaluations require us to isolate and test marginal units.
-Trying to test too many sources of uncertainty at once will be equivalent to testing none at all. <!-- well, not equivalent, but equally useless. Can we go with 'as effective as'? -->
+Trying to test too many sources of uncertainty at once will be as effective as testing none at all. 
 For this reason, we choose to focus on a single commonly-used aesthetic within a map: colour.
 
 Choropleth maps are visualisations that use colour to represent a statistic aggregated over a region (such as a county, state, or country), with their first uses dating back over 200 years [@Dupin1826].
@@ -90,7 +91,7 @@ We can see an example of this in the American Community Survey (ACS), an annual 
 These aggregation problems go beyond cartography alone.
 On-Farm Precision Experiments (OFPE) will often aggregate measurements on yield, nitrogen rate, or seed levels [@bullock-farm-2019; @kyveryga-farm-2019] to reduce clutter, removing the uncertainty inherent to the calculations.
 
-While our study will focus on choropleth maps, the hypotheses of our experiment are built upon foundations in perception and colour theory. <!-- our experimental hypotheses will be clearer than the chained clauses imo -->
+While our study will focus on choropleth maps, our experimental hypotheses are built upon foundations in perception and colour theory. 
 We present an experimental approach for evaluating uncertainty as noise, in the hopes that it can provide a foundation for evaluation studies that will go beyond our modest choropleth map.
 
 ## Background
@@ -138,7 +139,7 @@ This means that a rejection, or failure to reject, in the lineup protocol does n
 It is unlikely that we will be able to design a fully implicit test for uncertainty visualisation, as the assumptions of the approach require the viewer to bring a null hypothesis with them in the form of an explicit question.
 However, we can still use some of the lineup protocol's design principles as guidance when designing our implicit tests. 
 One of the unusual design elements of a lineup protocol is that all the context is removed, as the point is to "see" the patterns in the plot, unhindered by prior beliefs [@cookhdr].
-Therefore, if we can boil our question down to such an intuitive level of psychophysical stimuli that we don't even need scales to interpret <!--the plot-->, we can leverage some of the benefits that come with the lineup protocol.
+Therefore, if we can boil our question down to such an intuitive level of psychophysical stimuli that we don't even need scales to interpret, we can leverage some of the benefits that come with the lineup protocol.
 As a matter of fact, if we do not need the context of a statistical graphic, we can look outside standard visualisation evaluation approaches to come up with an effective method. 
 
 ### The Ishihara colour blind test
@@ -151,7 +152,7 @@ The connection between statistical maps and colour blind tests is not particular
 According to a 1930 review of colour blind tests, methods such as sorting or matching coloured objects, naming coloured lights, and distinguishing objects presented in complementary colours have been used as tests for red-green distinction [@haupt-tests-1930], tasks that would not be out of place in a visual evaluation study. 
 In particular, we are interested in pseudo-isochromatic colour blind tests, the most popular of which involve identifying patterns on coloured cards that are visible to those with standard colour vision, but invisible to those with colour vision deficiencies [@haupt-tests-1930].
 The Ishihara test is a specific version of a pseudo-isochromatic test that is commonly used today [@gobira-assessing-2025; @plutino-aging-2023], where the coloured dots form numbers or paths on a white background [@tamura-light-2017;@plutino-aging-2023].
-Notably, these tests use familiar shapes (in the form of numbers <!-- or simple shapes, in versions for young children -->), which provide readily identifiable spatial clusters without the need for complex definitions.
+Notably, these tests use familiar shapes (in the form of numbers), which provide readily identifiable spatial clusters without the need for complex definitions.
 Additionally, it allows us to perform one of the most under-researched uncertainty visualisation tasks, aggregations of uncertain information over an area [@Kinkeldey2014].
 The widespread use of this test also lends an air of familiarity to test-takers, and the simple numerical response reduces the amount of time needed for each individual trial, allowing for a single individual to view many plots.
 
@@ -445,11 +446,10 @@ While we will be using a sample, theoretically, any statistic that gives a full 
 
 Finally, we will test the transparency map, which is identical to the pixel map, but does not perform the subdivision.
 Instead, to maintain equal weighting of every draw, the transparency is set to $\frac1 n$, meaning we represent each area using a single colour, but that colour will not necessarily be able to be matched to a palette.
-Both plots are made using the `ggdibbler` [@ggdibbler] R package, with the only distinction between them being the position adjustment.
-
 This is not a problem for the artificial environment of our colour blind tests, but it would be for standard statistical graphics.
 As we draw meaning from our visual signals using the legend of our plot, having values that are impossible to identify on the scale will leave us unable to interpret our visual signal. 
 Unlike the other maps, this plot is not a standard alternative to the choropleth map, but we have included it in our evaluation as it provides some insight into the design requirements for uncertainty visualisation.
+Both the pixel and transparency maps are made using the `ggdibbler` [@ggdibbler] R package, with the only distinction between them being the position adjustment.
 The pixel map diverges from the choropleth map in two ways: through the statistic it visualises, as well as the number of values it shows.
 If the pixel map results in successful signal suppression, the transparency map will allow us to isolate which of those design changes caused it.
 
@@ -483,7 +483,7 @@ To keep the experiment simple and reduce the confounding signal from the varianc
 The relative distance between these two groups, $D$, as well as the standard deviation within each observation, $V$, were factors of interest when generating the data, as both affect the visibility of the numbers.
 This resulted in three factors, each with five levels:
 
-- The five plot types of interest: choropleth, bivariate, VSUP, pixel, and transparency
+- The five plot types of interest: choropleth, bivariate, VSUP, pixel, and transparency.
 - The group difference, $D$, with values of  0, 1, 2, 3, and 4 were chosen, where 0 results in no difference between the two groups.
 - The standard deviation within each observation, $V$, was set at 1, 2, 3, 4, and 5.
 
@@ -776,8 +776,8 @@ These $p$-values are then used to calculate the theoretical power curves.
 
 Estimating power curves for the theoretical hypothesis tests is not straightforward, so we will adapt the methods used by @Patrick2023.
 When comparing hypothesis tests, it is standard to restrict the comparison to tests that have the same Type I error probability [@Casella2024].
-Using the null plots, that is, when $D=0$, we can estimate the probability of rejecting $H_0$ when $H_0$ is true, which we denote as $\hat\alpha$, for each plot type.
-Using this $\hat\alpha$ value, we can set the $\alpha_t$ for our theoretical tests, turning our $p$-values into accept/reject outcomes. 
+Using the null plots, that is, when $D=0$, we can estimate the probability of rejecting $H_0$ when $H_0$ is true, which we denote as $\hat\alpha_k$, for each plot type, $k$.
+Using this $\hat\alpha_k$ value, we can set the $\alpha$ for our theoretical tests, turning our $p$-values into accept/reject outcomes. 
 These data points are comparable to the accept/reject outcomes we were able to observe in the participants' responses.
 We then use these data points to model the theoretical power of the test using a generalised linear mixed model of the response variable, where $D$ and $V$ are treated as explanatory variables, with a two-way interaction.
 The correct number is also included as a random effect.
@@ -1048,9 +1048,8 @@ To set the $\alpha$ for the theoretical test, we need to calculate the $\hat\alp
 While the lineup protocol has a theoretical calculation that can be used to estimate $\alpha$ due to the fact that any plot being picked by chance is $\frac 1 M$ for a lineup with $M$ plots (assuming there is no dependence structure between the plots) [@Majumder2013; @Vanderplas2021], this calculation does not translate to uncertainty visualisation.
 As graphics do not come with a significance threshold [@Vanderplas2021], and a significance threshold is required to compare our plots to classic hypothesis tests, we estimate $\hat{\alpha}_k$ using the proportion of participants who identified a number in a plot that was just random noise.
 
-@fig-h0calc shows the 95% confidence bootstrapped confidence interval for the significance level of each plot, $\hat{\alpha}_k$.  
-We can see that there is quite a large range in the distribution, driven by a left skew in the distribution of all estimates of $\hat{\alpha}_k$. 
-This is likely caused by individual differences in risk aversion.
+@fig-h0calc shows the bootstrapped distribution for the significance level of each plot, $\hat{\alpha}_k$.
+We can see that there is quite a large range in the distribution, which is likely caused by individual differences in risk aversion.
 Reading the comments in the study, we found that some participants thought they were always supposed to see a number, and would make a guess if they had the slightest inkling towards a specific number, while other participants would only make a guess if they could fully make out the number's shape.
 These tactics align with Moran's I test and $t$-test, respectively.
 It may be more appropriate to also treat our value of $\hat{\alpha}_k$ as a random effects model, but this will theoretically and computationally overcomplicate the model.
@@ -1061,7 +1060,7 @@ Therefore, we will use the average number of false positives within each plot ty
 #| echo: false
 #| warning: false
 #| message: false
-#| out-width: 80%
+#| out-width: 70%
 #| fig-cap: "Bootstrapped significance levels for each plot type, shown as jittered dotplots, computed using the null plots, $D=0$. The large points are the full sample values that are used in the power analysis. The vertical line indicates the conventional significance level, 0.05. We can see that all the significance levels seem to hover around 0.03, with pixel maps sitting slightly lower than the other plot types."
 
 load("data/combined.rda")
@@ -1121,7 +1120,7 @@ if (file.exists("data/glmer_models.rda")) {
 #| message: false
 #| fig-width: 7
 #| fig-height: 13
-#| out-width: 75%
+#| out-width: 70%
 #| fig-cap: "A visualisation of the experimental power curves, estimated using a generalised linear random effects model (top) and generalised linear fixed effects model (bottom) for all 125 experimental factors: V (standard deviation), D (Distance), and K (plot type). The results of the theoretical hypothesis tests, the t-test, and Moran's I test, are shown using two different black dashed lines. We can see that the variance has little impact on the signal visibility in the choropleth and bivariate map, the visibility of the signal in the VSUP map shrinks to zero when V=5, regardless of the effect size, and the pixel and transparency map broadly follow the shape of the theoretical tests."
 
 # load simulated models
@@ -1199,9 +1198,9 @@ The choropleth and bivariate maps are constant, and the visibility of the plot a
 The VSUP appears to follow the theoretical line for $D=1,2$, but diverges for $D=3,4$ as the statistically significant difference at $V=5$ is hidden by the monochrome plate.
 This divergence suggests that the alignment when $D=1,2$ is a coincidence born from the fact that when $D=1,2$, the power of the hypothesis test should be zero, and $V=5$ will also produce a power of zero, independent of the effect size in the plot.
 Finally, we see that the pixel and transparency maps appear to do a reasonably good job of following the power curve of the theoretical hypothesis test, but the power is falling short at both ends of the spectrum.
-The signal is not visible enough when variance is low, but it is too visible when variance is low.
+The signal is not visible enough when variance is low, but it is too visible when variance is high.
 This indicates that the test is not quite sensitive enough to changing values of $V$.
-This issue in the pixel and transparency maps becomes less prevalent as $D$ increases, and at higher values of $D$, the visualisation actually sits between the results of the T-test and Moran's I test.
+This issue in the pixel and transparency maps becomes less prevalent as $D$ increases, and at higher values of $D$, the visualisation actually sits between the results of the $t$-test and Moran's I test.
 
 A closer inspection of the random effects models reveals some patterns in the participants' ability to read the plot. 
 There is quite a bit of variation among participants, especially when $D=1$.
@@ -1307,10 +1306,10 @@ For example, it cannot handle discontinuous distributions that oscillate between
 The VSUP approach also only works for ordered variables, and does not make intuitive sense if we are uncertain about a categorical fill.
 These limitations are absent in the pixel and transparency map.
 
-Finally, the confirmation of the pixel and transparency map has some interesting implications for the statistical properties of plots.
+Finally, the results for the pixel and transparency maps have some interesting implications for the statistical properties of plots.
 Given that the two plots were aligned, we can isolate the benefit in the approach to the display of a full distribution, rather than the representation of a distribution as multiple values.
 This means we can still effectively perform signal suppression in a situation where the pixel map is inappropriate.
-These plots showed that we *can* achieve a signal that aligns with hypothesis testing. 
+These plots showed that we *can* achieve a signal that aligns with hypothesis testing (or at least a signal that has a consistently similar shape). 
 There are likely several design changes that could improve this alignment, such as an optimised colour palette or sample size. 
 
 Our results also have implications for the broader concepts of design in uncertainty visualisations.
@@ -1346,14 +1345,14 @@ Therefore, values resulting from visibility calculations should not be treated a
 
 There were also several extensions to this work that might improve the sensitivity issues in the pixel and transparency maps. 
 One is the effect of sample size in the visualisations.
-We set the number of pixels within each plot to be 50, which reduces the variance within the visualisation, but also compresses the colour scale, making individual colours harder to discern.
+We set the number of samples within each plot to be 50, which reduces the variance within the visualisation, but also compresses the colour scale, making individual colours harder to discern.
 There may be a sample size trade-off in designing these visualisations that is having an effect on their sensitivity.
 Theoretically, the pixel map approach could be generalised to any visualisation that can be made in `ggplot2` [@ggdibbler], so the signal suppression approach could be investigated for other aesthetics in other types of plots.
-Additionally, we could extend the question to cases where there are multiple uncertain variables at once, rather than only allowing variability in colour.
+Additionally, we could extend our question to the cases where we have multiple uncertain variables at once, rather than only allowing variability in colour.
 The size of the plot also seemed to have an effect on the visibility of the pattern, with smaller plots making the pattern easier to see.
 
 Given the fact that the transparency map was effective, it would become a viable visualisation approach if an interpretable legend could be presented alongside the map. 
-In its current state, as can be seen in @fig-maps, the colours do not exactly map to the legend, and as the standard error increases, that issue only gets worse as sample outcomes jump wildly around the colour scale and mix the colours in the scale.
+In its current state, as can be seen in @fig-maps, the colours do not exactly map to the legend, and as the standard error increases, that issue only gets worse as sample outcomes jump wildly around the colour scale and mix the colours shown in the plot.
 
 There are also several potential extensions or issues we encountered when implementing the colour blind test that should be of note to anyone who wants to implement a similar method. 
 We noticed an afterimage occasionally when doing the test, so including an image as a mask between plots may help alleviate this issue.
