@@ -64,7 +64,7 @@ This structure has largely been ignored by the uncertainty visualisation communi
 Along with this formalisation of visualisations of univariate probability functions, Kay expressed hope for a single coherent uncertainty visualisation framework.
 This single unified framework, and its implementation in the `ggdibbler` package, is what will be discussed in the rest of this paper. 
 
-## Making a density plot
+## A motivating example
 We are going to design our uncertainty visualisation based on a simple assumption based on the existing literature: the input for an uncertainty visualisation is a data set where every cell is a random variable [@Kay2023] which contains all the quantified uncertainty we wish to represent [@Mason2026].
 Once we have our distribution inputs, there is only one question left for our uncertainty visualisation system to solve.
 What exactly should it *do* with these distributions?
