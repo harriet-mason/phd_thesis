@@ -431,6 +431,8 @@ Even if we tried to work around these problems by coming up with some abstract d
 #| fig-height: 3.5
 #| fig-width: 10
 #| out-width: 100%
+#| dev: "png"
+
 
 # Random intercept
 
@@ -470,7 +472,7 @@ q1 <- qdf |>
 q2 <- sdf |>
   ggplot() + 
   geom_abline(aes(intercept = x, slope = 1, colour = x), 
-              alpha=0.7, linewidth=1.5) +
+              alpha=0.5, linewidth=1.5) +
   scale_colour_continuous_sequential(palette = "Batlow") +
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
@@ -490,7 +492,7 @@ q3 <- qdf |>
 q4 <- sdf |>
   ggplot() + 
   geom_abline(aes(intercept = x, slope = y, colour = rawdist), 
-              alpha=0.7, linewidth=1.5) +
+              alpha=0.5, linewidth=1.5) +
   scale_colour_continuous_sequential(palette = "Batlow") +
   scale_x_continuous_distribution(limits = c(-2,2)) +
   scale_y_continuous_distribution(limits = c(-2,2)) +
@@ -516,7 +518,7 @@ Without appropriately handling the grouping in `geom_smooth`, the plot has only 
 #| fig-height: 4
 #| fig-width: 8
 #| out-width: 100%
-
+#| dev: "png"
 
 set.seed(4453)
 
@@ -597,6 +599,7 @@ This suggests the possibility of an underlying orthogonal relationship between u
 #| fig-width: 10
 #| out-width: 100% 
 #| fig-cap: "Why we need nested position adjustments illustrated using stacked bar charts made using different position adjustments. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples' position adjustment."
+#| dev: "png"
 
 p1 <- ggplot(mpg, aes(class)) + 
   geom_bar_sample(aes(fill = drv), 
@@ -675,6 +678,7 @@ It would be interesting to investigate this further with a perceptual experiment
 #| fig-height: 10
 #| fig-width: 10
 #| out-width: 80%
+#| dev: "png"
 
 set.seed(10)
 textdata <- expand_grid(x = c(1,2,3,4,5), y= c(1,2,3,4,5)) |>
@@ -770,6 +774,8 @@ By establishing a set of rules that will almost always work, we save ourselves f
 #| fig-height: 6
 #| fig-width: 15
 #| out-width: 100%
+#| dev: "png"
+
 
 set.seed(10)
 # any data edits
@@ -941,7 +947,9 @@ This process of visual convergence is shown in @fig-correct-times. We can see th
 #| fig-height: 5
 #| fig-width: 12
 #| out-width: 100%
- 
+#| dev: "png"
+
+
 # make factors consistent across plots
 new_factor <- function(cly) {
   factor(cly, levels = c(4,6,8))
@@ -999,6 +1007,8 @@ This makes it unclear as to how the blur should be interpreted, and it indicates
 #| fig-height: 6
 #| fig-width: 18
 #| out-width: 100%
+#| dev: "png"
+
 
 # examples from ggdibbler
 p9 <- ggplot(uncertain_mpg, aes(cty, hwy)) +
