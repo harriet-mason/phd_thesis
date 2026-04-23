@@ -1,7 +1,9 @@
 # The Noisy Work of Uncertainty Visualisation {#sec-first-paper}
 
 
+::: {.cell}
 
+:::
 
 
 
@@ -9,25 +11,7 @@
 
 :::
 
-::: {.cell}
 
-:::
-
-::: {.cell}
-
-:::
-
-::: {.cell}
-
-:::
-
-::: {.cell}
-
-:::
-
-::: {.cell}
-
-:::
 
 ::: {.cell}
 
@@ -35,7 +19,27 @@
 
 
 
+::: {.cell}
 
+:::
+
+
+
+::: {.cell}
+
+:::
+
+
+
+::: {.cell}
+
+:::
+
+
+
+::: {.cell}
+
+:::
 
 
 
@@ -102,7 +106,7 @@ This is the main criterion we will use to assess the current literature on uncer
 ### Ignoring uncertainty
 The most common way to visualise uncertainty is to simply not. 
 A study conducted by @Hullman2020a found that only a quarter of authors surveyed included uncertainty in 50% or more of their visualisations, in part because authors are not sure how to calculate uncertainty.
-This is not entirely unreasonable, given that even visualisation authors themselves seem to be in conflict about what exactly uncertainty is. 
+This is not entirely unreasonable, given that even <!--uncertainty? --> visualisation authors <!--researchers?--> themselves seem to be in conflict about what exactly uncertainty is. 
 We will start with visualisations that ignore uncertainty with the hope that by looking at where uncertainty isn't, we can better understand where it is. 
 
 #### What is uncertainty?
@@ -122,6 +126,7 @@ Positivists believed referencing the unobservable was bad science, embracing des
 Since uncertainty is nonexistent in descriptive statistics, it is clear that uncertainty is a by-product of inference: uncertainty is the noise that is both inseparable from our inference and meaningless without it. 
 
 Rather than extracting just one element of the distribution, if you can retain the whole distribution, that not only allows the uncertainty calculation to be reproduced, but also makes it possible to derive other estimates as well.
+<!-- THis also works without the "I think", if you want it to sound slightly more formal? as it is, the first-person language is a bit jarring, going from 'you' to 'I'-->
 I think it's also important to acknowledge that if you use this approach, you need to know the "chicken" (i.e. distribution) that gave birth to the "egg" (uncertainty estimate). In practice, uncertainties are sometimes calculated by other people or organisations, and the process used to derive them may not be known.
 
 
@@ -130,7 +135,7 @@ The most complete description of these estimates is their distributions.
 Rather than extracting just one element of the distribution, if you can retain the whole distribution, that not only allows the uncertainty calculation to be reproduced, but also makes it possible to derive other estimates as well.
 Suggesting distributions as a representation of uncertainty is not new.
 @Kay2023 originally suggested thinking about uncertainty visualisations as visualisations with distribution inputs, to replace the commonly used mean and standard deviation, removing the assumption of a Gaussian distribution.
-In practice, uncertainties are sometimes calculated by other people or organisations, and the process used to derive them may not be known.
+In practice, uncertainties are sometimes calculated by other people or organisations, and the process used to derive them may not be known. <!-- This is a replicate of the last sentence of the previous paragraph? did you mean that to be here? -->
 While some researchers believe these abstract notions of uncertainty, such as credibility [@Thomson2005], forecaster confidence [@Padilla2021], or uncertainty about uncertainty [@Hadjimichael2024], are too complex to be quantified, this is not necessarily true.
 Abstract concepts such as human belief or credibility are regularly quantified by Bayesians, and hierarchical approaches are often used to model uncertainty about uncertainty.
 
@@ -147,19 +152,11 @@ Is the strength of the trend communicated through the visualisation?"
 The answer to both of these questions will be no for S1, S2, G1, and G2, as the high and low variance cases are identical. For R1 and R2, the answer would likely only relate to the points in the plots, not the regression line.
 
 
-
-
-
-
 ::: {.cell}
 ::: {.cell-output-display}
 ![Three example types of data and associated plots that will be used to illustrate various choices of uncertainty representation throughout the paper: scatterplot and regression line (R1, R2), spatial choropleth map (S1, S2), grouped dotplot (G1, G2). Two levels of uncertainty (low, high) are used with each example. Ignoring the points in R1 and R2, there are no differences between the high and low uncertainty versions. Ignoring uncertainty can lead to misrepresentation of data.](02-chap2_files/figure-pdf/fig-ignore-1.pdf){#fig-ignore fig-pos='t' width=100%}
 :::
 :::
-
-
-
-
 
 
 These examples will serve as touchstones for a discussion of uncertainty visualisation, focusing on the approaches suggested in the literature. 
@@ -179,19 +176,11 @@ Our visualisation of the univariate groups does reveal something interesting: th
 In practice, two plots are typically presented: one showing the main estimate and the other showing the uncertainty.
 
 
-
-
-
-
 ::: {.cell}
 ::: {.cell-output-display}
 ![Treating the uncertainty as a statistic,  with the same six examples. The regression (R1 and R2) is a scatterplot of residuals vs explanatory variable, separated from the regression, making comparison of uncertainty related to the trend more difficult. For the choropleth (S1, S2): instead of temperature, the probability of exceeding 27$^o$C is shown. This has the effect of highlighting (sine wave) trend in the low error data, and de-emphasising it in the high error data. The plots G1 and G2 have replaced the treatment effect with the variance of our treatment effect. It is a bit nonsensical, but we learn something interesting that was not seen earlier: the variance in G2 is not uniform like that in G1.](02-chap2_files/figure-pdf/fig-statistic-1.pdf){#fig-statistic width=100%}
 :::
 :::
-
-
-
-
 
 
 #### What is an uncertainty visualisation, then?
@@ -244,19 +233,11 @@ Because all of these graphics visualise the distribution's estimate and uncertai
 It is worthwhile to examine why this occurs, to see if we can move towards a version of this plot where we are able to communicate signal and noise simultaneously.
 
 
-
-
-
-
 ::: {.cell}
 ::: {.cell-output-display}
 ![Treating the uncertainty as a variable, with the same six examples. In plots R1 and R2, the standard error of the slope is mapped to the line width. The standard error of the intercept is mapped to the transparency, which is less conventional. In plots S1 and S2, a bivariate colour palette is used with mean mapped to the hue, and error mapped to saturation. Plots G1 and G2 represent the mean of each group as a point, and the variance as an interval. The uncertainty is integrated well with the signal, but for the choropleth, the result is undesirable: the signal is easier to see when the error is higher.](02-chap2_files/figure-pdf/fig-variable-1.pdf){#fig-variable width=100%}
 :::
 :::
-
-
-
-
 
 
 #### Can we visualise a "single integrated uncertain value"?
@@ -280,19 +261,11 @@ The Value Suppressing Uncertainty Palette (VSUP) [@Correll2018] was designed wit
 Since the palette was designed with the extraction of individual values in mind and it has only been tested on simple value extraction tasks [@Correll2018] or search tasks [@Ndlovu2023], we can see that, at least for our example, when the uncertainty is high, the spatial trend has functionally disappeared. 
 
 
-
-
-
-
 ::: {.cell}
 ::: {.cell-output-display}
 ![The spatial examples displayed with a choropleth map using a VSUP colour palette, where hue is blended when increased uncertainty. Plot B has successfully produced signal suppression. Look closely at the scales, though: it may have another explanation.](02-chap2_files/figure-pdf/fig-vsup-1.pdf){#fig-vsup width=80%}
 :::
 :::
-
-
-
-
 
 
 Finally, we have signal suppression!
@@ -347,19 +320,11 @@ Visualising the random variable as a distribution gives additional information, 
 
 
 
-
-
-
-
 ::: {.cell}
 ::: {.cell-output-display}
 ![Treating the uncertainty as a distribution, with the same six examples. Plots R1 and R2 show a linear regression as a sample of possible outcomes from the distribution. Plots S1 and S2 show a pixel map. Plots G1 and G2 show the groups as quantile dot plots. In each case, the signal (regression line, sine wave, increasing trend) has disappeared with high uncertainty.](02-chap2_files/figure-pdf/fig-distribution-1.pdf){#fig-distribution width=100%}
 :::
 :::
-
-
-
-
 
 
 #### Quantified versus unquantified uncertainty
@@ -461,7 +426,7 @@ The implicit test does not limit the versatility of the approach, with the lineu
 
 Lineup protocols are not only useful for implicit testing: they also have parallels to hypothesis testing that can be leveraged in uncertainty visualisation.
 The concept of signal suppression is, at its core, an assertion of statistical validity: the visibility of signals should be directly proportional to $p$-values or some equivalent measure.
-This comparison is not new in uncertainty visualisation, where parallels have been drawn to frequentist statistics by @Correll2014, who compared results to Cohen's D, and to Bayesian statistics by @Kim2019, who evaluated plots based on their impact on the users' prior beliefs. 
+This comparison is not new in uncertainty visualisation, where parallels have been drawn to frequentist statistics by @Correll2014, who compared results to Cohen's D, and to Bayesian statistics by @Kim2019, who evaluated plots based on their impact on the users' prior beliefs. <!-- The feature hierarchy paper in 2017 also resulted in a sort of bayes factor lineup protocol with two targets -->
 The comparison to hypothesis testing is far more natural for the lineup protocol, which has a visual test statistic [@Majumder2013] and can be compared to standard statistical tests using power curves [@Patrick2023]. 
 The connections between lineups and uncertainty visualisation are numerous and have been previously identified in the development of HOPs [@Hullman2015].
 
@@ -495,8 +460,6 @@ Signal suppression is an undeveloped area of visualisation research, and develop
 
 The R packages were used for this work were: `tidyverse` [@tidyverse], `RColorBrewer` [@RColorBrewer], `scales` [@scales], `sf` [@sf], `urbnmapr` [@urbnmapr], `flextable` [@flextable], `colorspace` [@colorspace], `ggdist` [@Kay2023], `ggdibbler` [@ggdibbler], `patchwork` [@patchwork], `distributional` [@distributional], `ggthemes` [@ggthemes], `broom` [@broom], and `rgeos` [@rgeos]. 
 The GitHub repository for this paper can be found at https://github.com/harriet-mason/ARSA-UncertaintyLitReview, which contains the files required to reproduce this article in full.
-
-
 
 
 
