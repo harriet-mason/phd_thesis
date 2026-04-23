@@ -17,7 +17,7 @@ Second, @sec-second-paper presents two key contributions: a mathematical framewo
 The mathematical framework presents the argument that the grammar of graphics is a continuous function, and therefore, statistical graphics should adhere to the continuous mapping theorem.
 The key insights of this formalisation are translated into the flexible uncertainty visualisation software, `ggdibbler`, the second contribution from this chapter.
 The `ggdibbler` software allows us to substitute any vector of values with a vector of random variables, and make an uncertain version of any graphic that can be made in `ggplot2`.
-This software received the 2025 John Chambers Award for Statistical Software from the ASA Sections on Statistical Computing and Statistical  Graphics, it has 21 stars on GitHub, and has been downloaded over 1800 times on CRAN since it was uploaded in July 2025.
+This software received the 2026 John Chambers Award for Statistical Software from the ASA Sections on Statistical Computing and Statistical  Graphics, it has 21 stars on GitHub, and has been downloaded over 1800 times on CRAN since it was uploaded in July 2025.
 This indicates the value the statistics community has placed on flexible uncertainty visualisation software that can be used for EDA.
 
 Finally, @sec-third-paper uses the mathematical formalisation of @sec-second-paper in a perceptual evaluation of choropleth maps to confirm the hypotheses discussed in @sec-first-paper.

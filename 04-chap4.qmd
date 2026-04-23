@@ -1243,7 +1243,7 @@ emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(1,2,3,4)
 If the marginal effect is significantly different from zero, then $V$ has some effect on the visibility in the signal in the plot, but if it isn't significantly different from zero, then the variance does not have any impact on signal visibility at all.
 We can see that the effect associated with $V$ for each plot type is insignificant in the case of the bivariate map and choropleth map, but significant for all other map types.
 These conclusions remain true if we perform significance tests at set $D=1, 2, 3, 4$, instead of looking at the average across $D$.
-These distance-based results are available in @sec-appa.
+These distance-based results are available in @sec-appendix-a.
 This indicates that $V$ has no significant effect on the visibility of the signal in the bivariate and choropleth maps, given the generalised linear mixed effects model.
 
 *Relating to H1 and H3: The probability of correctly reading the transparency and pixel map, as well as the probability of correctly reading the choropleth and bivariate map, will be similar.*
@@ -1277,7 +1277,7 @@ Comparisons of the standard deviation effect between plot types of interest are 
 The $p$-values were adjusted for multiple comparisons using the Sidak adjustment.
 If the statistical information conveyed by two plots is equivalent, the signal visibility between the two plots will be equivalent. If this is true, the probability of correctly reading the transparency and pixel maps will be similar.
 For the pairwise comparisons of the transparency/pixel map and the choropleth/bivariate map, significance tests at $D=1, 2, 3, 4$ result in the same conclusions in terms of significance. 
-Distance-based results as well as all pairwise comparisons are available in the @sec-appa.
+Distance-based results as well as all pairwise comparisons are available in the @sec-appendix-a.
 The non-significant difference between the transparency and pixel map, as well as between the choropleth and bivariate map, indicates that standard deviation effects are similar between the plot types, as expected.
 
 ## Discussion
