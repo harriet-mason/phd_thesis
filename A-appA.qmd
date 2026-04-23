@@ -329,84 +329,102 @@ p6 + p1 + p2 + p3 + p4 + p5 + plot_layout(guides = "collect")
 ## Additional model comparison results
 The distance-based results as well as all pairwise comparisons, as mentioned in the main text.
 
-```{r tbl-v-trend1}
+```{r}
+#| label: tbl-v-trend1
 #| echo: false
 #| eval: true
 #| message: false
 #| cache: true
 #| tbl-pos: "H"
+#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 1"
 glmer_model <- glmer(correct_original ~  D*V*plot_type +    (1|correct_number) + (1|id),
                    family="binomial", 
                    data = study_data)
  
 emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(1))) |> as.data.frame() %>%
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
-  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 1",
-        digits=3, format="latex", longtable=FALSE) 
+  kable(digits=3, format=if_else(knitr::is_latex_output(), "latex", "html"), longtable=FALSE) 
 ```
 
-```{r tbl-v-trend2}
+```{r }
+#| label: tbl-v-trend2
 #| echo: false
 #| eval: true
 #| message: false
 #| cache: true
 #| tbl-pos: "H"
+#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 2"
 emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(2))) |> as.data.frame() %>%
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
-  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 2",
-        digits=3, format="latex", longtable=FALSE) 
-
-emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(3))) |> as.data.frame() %>%
-  select(plot_type, V.trend, SE, z.ratio, p.value) %>%
-  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 3",
-        digits=3, format="latex", longtable=FALSE) 
+  kable(digits=3, format="latex", longtable=FALSE) 
 ```
 
-```{r tbl-v-trend3}
+```{r }
+#| label: tbl-v-trend3
 #| echo: false
 #| eval: true
 #| message: false
 #| cache: true
 #| tbl-pos: "H"
+#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 3"
+emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(3))) |> as.data.frame() %>%
+  select(plot_type, V.trend, SE, z.ratio, p.value) %>%
+  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE) 
+```
+
+```{r }
+#| label: tbl-v-trend4
+#| echo: false
+#| eval: true
+#| message: false
+#| cache: true
+#| tbl-pos: "H"
+#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 4"
 emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4))) |> as.data.frame() %>%
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
-  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 4",
-        digits=3, format="latex", longtable=FALSE) 
+  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE) 
 
 ```
 
-```{r tbl-basicmodel1}
+```{r }
+#| label: tbl-basicmodel1
 #| echo: false
 #| eval: true
 #| message: false
-
+#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 1"
 
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(1)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
-  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 1", digits=3, format="latex", longtable=FALSE)
+  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE)
 ```
 
-```{r tbl-basicmodel2}
+```{r }
+#| label: tbl-basicmodel2
 #| echo: false
 #| eval: true
 #| message: false
+#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 2"
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(2)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
-  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 2", digits=3, format="latex", longtable=FALSE,)
+  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE,)
 ```
 
-```{r tbl-basicmodel3}
+```{r }
+#| label: tbl-basicmodel3
 #| echo: false
 #| eval: true
 #| message: false
+#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 3"
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(3)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
-  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 3", digits=3, format="latex", longtable=FALSE)
+  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE)
 ```
 
-```{r tbl-basicmodel4}
+```{r }
+#| label: tbl-basicmodel4
 #| echo: false
 #| eval: true
 #| message: false
+#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 4"
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(4)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
-  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 4", digits=3, format="latex", longtable=FALSE)
+  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE)
 
 # compare2 <- pairs(emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4), plot_type=c(c("Transparency", "Pixel")))))
 # compare1 <- pairs(emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4), plot_type=c(c("Choropleth", "Bivariate")))))

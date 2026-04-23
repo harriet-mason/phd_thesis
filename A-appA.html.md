@@ -72,61 +72,61 @@ This seems to suggest that, when participants could not make out the number with
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 324 </td>
-   <td style="text-align:right;"> 113 </td>
+   <td style="text-align:right;"> 121 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 7 </td>
    <td style="text-align:right;"> 306 </td>
-   <td style="text-align:right;"> 164 </td>
+   <td style="text-align:right;"> 155 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 4 </td>
    <td style="text-align:right;"> 282 </td>
-   <td style="text-align:right;"> 192 </td>
+   <td style="text-align:right;"> 189 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 5 </td>
    <td style="text-align:right;"> 258 </td>
-   <td style="text-align:right;"> 219 </td>
+   <td style="text-align:right;"> 229 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 8 </td>
    <td style="text-align:right;"> 251 </td>
-   <td style="text-align:right;"> 238 </td>
+   <td style="text-align:right;"> 241 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 3 </td>
    <td style="text-align:right;"> 228 </td>
-   <td style="text-align:right;"> 208 </td>
+   <td style="text-align:right;"> 212 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 9 </td>
    <td style="text-align:right;"> 227 </td>
-   <td style="text-align:right;"> 241 </td>
+   <td style="text-align:right;"> 255 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 6 </td>
    <td style="text-align:right;"> 220 </td>
-   <td style="text-align:right;"> 231 </td>
+   <td style="text-align:right;"> 221 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 207 </td>
-   <td style="text-align:right;"> 217 </td>
+   <td style="text-align:right;"> 218 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 165 </td>
-   <td style="text-align:right;"> 197 </td>
+   <td style="text-align:right;"> 218 </td>
   </tr>
 </tbody>
 </table>
@@ -181,42 +181,68 @@ The demographic analysis indicates no relationship between the demographic detai
 The distance-based results as well as all pairwise comparisons, as mentioned in the main text.
 
 
-::: {#tbl-v-trend1 .cell tbl-pos='H'}
+::: {#tbl-v-trend1 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 1'}
 ::: {.cell-output-display}
-\begin{table}
+`````{=html}
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> plot_type </th>
+   <th style="text-align:right;"> V.trend </th>
+   <th style="text-align:right;"> SE </th>
+   <th style="text-align:right;"> z.ratio </th>
+   <th style="text-align:right;"> p.value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Choropleth </td>
+   <td style="text-align:right;"> -0.026 </td>
+   <td style="text-align:right;"> 0.056 </td>
+   <td style="text-align:right;"> -0.459 </td>
+   <td style="text-align:right;"> 0.646 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate </td>
+   <td style="text-align:right;"> -0.037 </td>
+   <td style="text-align:right;"> 0.055 </td>
+   <td style="text-align:right;"> -0.675 </td>
+   <td style="text-align:right;"> 0.500 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VSUP </td>
+   <td style="text-align:right;"> -0.576 </td>
+   <td style="text-align:right;"> 0.059 </td>
+   <td style="text-align:right;"> -9.704 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pixel </td>
+   <td style="text-align:right;"> -0.516 </td>
+   <td style="text-align:right;"> 0.063 </td>
+   <td style="text-align:right;"> -8.252 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Transparency </td>
+   <td style="text-align:right;"> -0.540 </td>
+   <td style="text-align:right;"> 0.066 </td>
+   <td style="text-align:right;"> -8.231 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+</tbody>
+</table>
 
-\caption{\label{tab:tbl-v-trend1}Results for Standard Deviation Trend by Plot Type at Distance = 1}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
-\hline
-plot\_type & V.trend & SE & z.ratio & p.value\\
-\hline
-Choropleth & -0.026 & 0.056 & -0.459 & 0.646\\
-\hline
-Bivariate & -0.037 & 0.055 & -0.675 & 0.500\\
-\hline
-VSUP & -0.576 & 0.059 & -9.704 & 0.000\\
-\hline
-Pixel & -0.516 & 0.063 & -8.252 & 0.000\\
-\hline
-Transparency & -0.540 & 0.066 & -8.231 & 0.000\\
-\hline
-\end{tabular}
-\end{table}
-
-
+`````
 :::
 :::
 
 
 
-::: {#tbl-v-trend2 .cell tbl-pos='H'}
+::: {#tbl-v-trend2 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 2'}
 ::: {.cell-output-display}
-\begin{table}
 
-\caption{\label{tab:tbl-v-trend2}Results for Standard Deviation Trend by Plot Type at Distance = 2}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
+\begin{tabular}{l|r|r|r|r}
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
@@ -231,219 +257,496 @@ Pixel & -0.639 & 0.047 & -13.736 & 0.000\\
 Transparency & -0.583 & 0.051 & -11.438 & 0.000\\
 \hline
 \end{tabular}
-\end{table}
 
 
 :::
+:::
 
+
+
+::: {#tbl-v-trend3 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 3'}
 ::: {.cell-output-display}
-\begin{table}
+`````{=html}
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> plot_type </th>
+   <th style="text-align:right;"> V.trend </th>
+   <th style="text-align:right;"> SE </th>
+   <th style="text-align:right;"> z.ratio </th>
+   <th style="text-align:right;"> p.value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Choropleth </td>
+   <td style="text-align:right;"> 0.246 </td>
+   <td style="text-align:right;"> 0.193 </td>
+   <td style="text-align:right;"> 1.277 </td>
+   <td style="text-align:right;"> 0.201 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate </td>
+   <td style="text-align:right;"> -0.044 </td>
+   <td style="text-align:right;"> 0.163 </td>
+   <td style="text-align:right;"> -0.272 </td>
+   <td style="text-align:right;"> 0.786 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VSUP </td>
+   <td style="text-align:right;"> -3.122 </td>
+   <td style="text-align:right;"> 0.139 </td>
+   <td style="text-align:right;"> -22.406 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pixel </td>
+   <td style="text-align:right;"> -0.762 </td>
+   <td style="text-align:right;"> 0.078 </td>
+   <td style="text-align:right;"> -9.816 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Transparency </td>
+   <td style="text-align:right;"> -0.626 </td>
+   <td style="text-align:right;"> 0.093 </td>
+   <td style="text-align:right;"> -6.714 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+</tbody>
+</table>
 
-\caption{\label{tab:tbl-v-trend2}Results for Standard Deviation Trend by Plot Type at Distance = 3}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
-\hline
-plot\_type & V.trend & SE & z.ratio & p.value\\
-\hline
-Choropleth & 0.246 & 0.193 & 1.277 & 0.201\\
-\hline
-Bivariate & -0.044 & 0.163 & -0.272 & 0.786\\
-\hline
-VSUP & -3.122 & 0.139 & -22.406 & 0.000\\
-\hline
-Pixel & -0.762 & 0.078 & -9.816 & 0.000\\
-\hline
-Transparency & -0.626 & 0.093 & -6.714 & 0.000\\
-\hline
-\end{tabular}
-\end{table}
-
-
+`````
 :::
 :::
 
 
 
-::: {#tbl-v-trend3 .cell tbl-pos='H'}
+::: {#tbl-v-trend4 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 4'}
 ::: {.cell-output-display}
-\begin{table}
+`````{=html}
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> plot_type </th>
+   <th style="text-align:right;"> V.trend </th>
+   <th style="text-align:right;"> SE </th>
+   <th style="text-align:right;"> z.ratio </th>
+   <th style="text-align:right;"> p.value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Choropleth </td>
+   <td style="text-align:right;"> 0.382 </td>
+   <td style="text-align:right;"> 0.293 </td>
+   <td style="text-align:right;"> 1.304 </td>
+   <td style="text-align:right;"> 0.192 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate </td>
+   <td style="text-align:right;"> -0.048 </td>
+   <td style="text-align:right;"> 0.249 </td>
+   <td style="text-align:right;"> -0.192 </td>
+   <td style="text-align:right;"> 0.848 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VSUP </td>
+   <td style="text-align:right;"> -4.395 </td>
+   <td style="text-align:right;"> 0.209 </td>
+   <td style="text-align:right;"> -20.991 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pixel </td>
+   <td style="text-align:right;"> -0.885 </td>
+   <td style="text-align:right;"> 0.125 </td>
+   <td style="text-align:right;"> -7.108 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Transparency </td>
+   <td style="text-align:right;"> -0.669 </td>
+   <td style="text-align:right;"> 0.150 </td>
+   <td style="text-align:right;"> -4.453 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+</tbody>
+</table>
 
-\caption{\label{tab:tbl-v-trend3}Results for Standard Deviation Trend by Plot Type at Distance = 4}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
-\hline
-plot\_type & V.trend & SE & z.ratio & p.value\\
-\hline
-Choropleth & 0.382 & 0.293 & 1.304 & 0.192\\
-\hline
-Bivariate & -0.048 & 0.249 & -0.192 & 0.848\\
-\hline
-VSUP & -4.395 & 0.209 & -20.991 & 0.000\\
-\hline
-Pixel & -0.885 & 0.125 & -7.108 & 0.000\\
-\hline
-Transparency & -0.669 & 0.150 & -4.453 & 0.000\\
-\hline
-\end{tabular}
-\end{table}
-
-
+`````
 :::
 :::
 
 
 
-::: {#tbl-basicmodel1 .cell}
+::: {#tbl-basicmodel1 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 1'}
 ::: {.cell-output-display}
-\begin{table}
+`````{=html}
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> contrast </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> SE </th>
+   <th style="text-align:right;"> z.ratio </th>
+   <th style="text-align:right;"> p.value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Bivariate </td>
+   <td style="text-align:right;"> 0.012 </td>
+   <td style="text-align:right;"> 0.078 </td>
+   <td style="text-align:right;"> 0.149 </td>
+   <td style="text-align:right;"> 1.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - VSUP </td>
+   <td style="text-align:right;"> 0.551 </td>
+   <td style="text-align:right;"> 0.081 </td>
+   <td style="text-align:right;"> 6.759 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Pixel </td>
+   <td style="text-align:right;"> 0.491 </td>
+   <td style="text-align:right;"> 0.084 </td>
+   <td style="text-align:right;"> 5.861 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Transparency </td>
+   <td style="text-align:right;"> 0.514 </td>
+   <td style="text-align:right;"> 0.086 </td>
+   <td style="text-align:right;"> 5.978 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - VSUP </td>
+   <td style="text-align:right;"> 0.539 </td>
+   <td style="text-align:right;"> 0.081 </td>
+   <td style="text-align:right;"> 6.650 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - Pixel </td>
+   <td style="text-align:right;"> 0.479 </td>
+   <td style="text-align:right;"> 0.083 </td>
+   <td style="text-align:right;"> 5.745 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - Transparency </td>
+   <td style="text-align:right;"> 0.502 </td>
+   <td style="text-align:right;"> 0.086 </td>
+   <td style="text-align:right;"> 5.865 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VSUP - Pixel </td>
+   <td style="text-align:right;"> -0.060 </td>
+   <td style="text-align:right;"> 0.086 </td>
+   <td style="text-align:right;"> -0.697 </td>
+   <td style="text-align:right;"> 0.957 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VSUP - Transparency </td>
+   <td style="text-align:right;"> -0.037 </td>
+   <td style="text-align:right;"> 0.088 </td>
+   <td style="text-align:right;"> -0.416 </td>
+   <td style="text-align:right;"> 0.994 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pixel - Transparency </td>
+   <td style="text-align:right;"> 0.023 </td>
+   <td style="text-align:right;"> 0.090 </td>
+   <td style="text-align:right;"> 0.257 </td>
+   <td style="text-align:right;"> 0.999 </td>
+  </tr>
+</tbody>
+</table>
 
-\caption{\label{tab:tbl-basicmodel1}Results for Standard Deviation Trend by Plot Type at Distance = 1}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
-\hline
-contrast & estimate & SE & z.ratio & p.value\\
-\hline
-Choropleth - Bivariate & 0.012 & 0.078 & 0.149 & 1.000\\
-\hline
-Choropleth - VSUP & 0.551 & 0.081 & 6.759 & 0.000\\
-\hline
-Choropleth - Pixel & 0.491 & 0.084 & 5.861 & 0.000\\
-\hline
-Choropleth - Transparency & 0.514 & 0.086 & 5.978 & 0.000\\
-\hline
-Bivariate - VSUP & 0.539 & 0.081 & 6.650 & 0.000\\
-\hline
-Bivariate - Pixel & 0.479 & 0.083 & 5.745 & 0.000\\
-\hline
-Bivariate - Transparency & 0.502 & 0.086 & 5.865 & 0.000\\
-\hline
-VSUP - Pixel & -0.060 & 0.086 & -0.697 & 0.957\\
-\hline
-VSUP - Transparency & -0.037 & 0.088 & -0.416 & 0.994\\
-\hline
-Pixel - Transparency & 0.023 & 0.090 & 0.257 & 0.999\\
-\hline
-\end{tabular}
-\end{table}
-
-
+`````
 :::
 :::
 
 
 
-::: {#tbl-basicmodel2 .cell}
+::: {#tbl-basicmodel2 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 2'}
 ::: {.cell-output-display}
-\begin{table}
+`````{=html}
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> contrast </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> SE </th>
+   <th style="text-align:right;"> z.ratio </th>
+   <th style="text-align:right;"> p.value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Bivariate </td>
+   <td style="text-align:right;"> 0.151 </td>
+   <td style="text-align:right;"> 0.128 </td>
+   <td style="text-align:right;"> 1.179 </td>
+   <td style="text-align:right;"> 0.764 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - VSUP </td>
+   <td style="text-align:right;"> 1.960 </td>
+   <td style="text-align:right;"> 0.125 </td>
+   <td style="text-align:right;"> 15.695 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Pixel </td>
+   <td style="text-align:right;"> 0.750 </td>
+   <td style="text-align:right;"> 0.108 </td>
+   <td style="text-align:right;"> 6.915 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Transparency </td>
+   <td style="text-align:right;"> 0.693 </td>
+   <td style="text-align:right;"> 0.110 </td>
+   <td style="text-align:right;"> 6.281 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - VSUP </td>
+   <td style="text-align:right;"> 1.809 </td>
+   <td style="text-align:right;"> 0.113 </td>
+   <td style="text-align:right;"> 15.986 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - Pixel </td>
+   <td style="text-align:right;"> 0.599 </td>
+   <td style="text-align:right;"> 0.095 </td>
+   <td style="text-align:right;"> 6.312 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - Transparency </td>
+   <td style="text-align:right;"> 0.542 </td>
+   <td style="text-align:right;"> 0.097 </td>
+   <td style="text-align:right;"> 5.584 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VSUP - Pixel </td>
+   <td style="text-align:right;"> -1.210 </td>
+   <td style="text-align:right;"> 0.090 </td>
+   <td style="text-align:right;"> -13.504 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VSUP - Transparency </td>
+   <td style="text-align:right;"> -1.267 </td>
+   <td style="text-align:right;"> 0.092 </td>
+   <td style="text-align:right;"> -13.755 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pixel - Transparency </td>
+   <td style="text-align:right;"> -0.056 </td>
+   <td style="text-align:right;"> 0.069 </td>
+   <td style="text-align:right;"> -0.821 </td>
+   <td style="text-align:right;"> 0.924 </td>
+  </tr>
+</tbody>
+</table>
 
-\caption{\label{tab:tbl-basicmodel2}Results for Standard Deviation Trend by Plot Type at Distance = 2}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
-\hline
-contrast & estimate & SE & z.ratio & p.value\\
-\hline
-Choropleth - Bivariate & 0.151 & 0.128 & 1.179 & 0.764\\
-\hline
-Choropleth - VSUP & 1.960 & 0.125 & 15.695 & 0.000\\
-\hline
-Choropleth - Pixel & 0.750 & 0.108 & 6.915 & 0.000\\
-\hline
-Choropleth - Transparency & 0.693 & 0.110 & 6.281 & 0.000\\
-\hline
-Bivariate - VSUP & 1.809 & 0.113 & 15.986 & 0.000\\
-\hline
-Bivariate - Pixel & 0.599 & 0.095 & 6.312 & 0.000\\
-\hline
-Bivariate - Transparency & 0.542 & 0.097 & 5.584 & 0.000\\
-\hline
-VSUP - Pixel & -1.210 & 0.090 & -13.504 & 0.000\\
-\hline
-VSUP - Transparency & -1.267 & 0.092 & -13.755 & 0.000\\
-\hline
-Pixel - Transparency & -0.056 & 0.069 & -0.821 & 0.924\\
-\hline
-\end{tabular}
-\end{table}
-
-
+`````
 :::
 :::
 
 
 
-::: {#tbl-basicmodel3 .cell}
+::: {#tbl-basicmodel3 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 3'}
 ::: {.cell-output-display}
-\begin{table}
+`````{=html}
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> contrast </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> SE </th>
+   <th style="text-align:right;"> z.ratio </th>
+   <th style="text-align:right;"> p.value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Bivariate </td>
+   <td style="text-align:right;"> 0.290 </td>
+   <td style="text-align:right;"> 0.252 </td>
+   <td style="text-align:right;"> 1.151 </td>
+   <td style="text-align:right;"> 0.779 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - VSUP </td>
+   <td style="text-align:right;"> 3.368 </td>
+   <td style="text-align:right;"> 0.238 </td>
+   <td style="text-align:right;"> 14.153 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Pixel </td>
+   <td style="text-align:right;"> 1.008 </td>
+   <td style="text-align:right;"> 0.208 </td>
+   <td style="text-align:right;"> 4.852 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Transparency </td>
+   <td style="text-align:right;"> 0.872 </td>
+   <td style="text-align:right;"> 0.214 </td>
+   <td style="text-align:right;"> 4.074 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - VSUP </td>
+   <td style="text-align:right;"> 3.078 </td>
+   <td style="text-align:right;"> 0.214 </td>
+   <td style="text-align:right;"> 14.368 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - Pixel </td>
+   <td style="text-align:right;"> 0.718 </td>
+   <td style="text-align:right;"> 0.180 </td>
+   <td style="text-align:right;"> 3.982 </td>
+   <td style="text-align:right;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - Transparency </td>
+   <td style="text-align:right;"> 0.582 </td>
+   <td style="text-align:right;"> 0.188 </td>
+   <td style="text-align:right;"> 3.102 </td>
+   <td style="text-align:right;"> 0.016 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VSUP - Pixel </td>
+   <td style="text-align:right;"> -2.360 </td>
+   <td style="text-align:right;"> 0.159 </td>
+   <td style="text-align:right;"> -14.863 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VSUP - Transparency </td>
+   <td style="text-align:right;"> -2.496 </td>
+   <td style="text-align:right;"> 0.167 </td>
+   <td style="text-align:right;"> -14.935 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pixel - Transparency </td>
+   <td style="text-align:right;"> -0.136 </td>
+   <td style="text-align:right;"> 0.121 </td>
+   <td style="text-align:right;"> -1.124 </td>
+   <td style="text-align:right;"> 0.794 </td>
+  </tr>
+</tbody>
+</table>
 
-\caption{\label{tab:tbl-basicmodel3}Results for Standard Deviation Trend by Plot Type at Distance = 3}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
-\hline
-contrast & estimate & SE & z.ratio & p.value\\
-\hline
-Choropleth - Bivariate & 0.290 & 0.252 & 1.151 & 0.779\\
-\hline
-Choropleth - VSUP & 3.368 & 0.238 & 14.153 & 0.000\\
-\hline
-Choropleth - Pixel & 1.008 & 0.208 & 4.852 & 0.000\\
-\hline
-Choropleth - Transparency & 0.872 & 0.214 & 4.074 & 0.000\\
-\hline
-Bivariate - VSUP & 3.078 & 0.214 & 14.368 & 0.000\\
-\hline
-Bivariate - Pixel & 0.718 & 0.180 & 3.982 & 0.001\\
-\hline
-Bivariate - Transparency & 0.582 & 0.188 & 3.102 & 0.016\\
-\hline
-VSUP - Pixel & -2.360 & 0.159 & -14.863 & 0.000\\
-\hline
-VSUP - Transparency & -2.496 & 0.167 & -14.935 & 0.000\\
-\hline
-Pixel - Transparency & -0.136 & 0.121 & -1.124 & 0.794\\
-\hline
-\end{tabular}
-\end{table}
-
-
+`````
 :::
 :::
 
 
 
-::: {#tbl-basicmodel4 .cell}
+::: {#tbl-basicmodel4 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 4'}
 ::: {.cell-output-display}
-\begin{table}
+`````{=html}
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> contrast </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> SE </th>
+   <th style="text-align:right;"> z.ratio </th>
+   <th style="text-align:right;"> p.value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Bivariate </td>
+   <td style="text-align:right;"> 0.430 </td>
+   <td style="text-align:right;"> 0.385 </td>
+   <td style="text-align:right;"> 1.118 </td>
+   <td style="text-align:right;"> 0.797 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - VSUP </td>
+   <td style="text-align:right;"> 4.777 </td>
+   <td style="text-align:right;"> 0.360 </td>
+   <td style="text-align:right;"> 13.259 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Pixel </td>
+   <td style="text-align:right;"> 1.267 </td>
+   <td style="text-align:right;"> 0.318 </td>
+   <td style="text-align:right;"> 3.981 </td>
+   <td style="text-align:right;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Choropleth - Transparency </td>
+   <td style="text-align:right;"> 1.051 </td>
+   <td style="text-align:right;"> 0.329 </td>
+   <td style="text-align:right;"> 3.194 </td>
+   <td style="text-align:right;"> 0.012 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - VSUP </td>
+   <td style="text-align:right;"> 4.348 </td>
+   <td style="text-align:right;"> 0.325 </td>
+   <td style="text-align:right;"> 13.362 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - Pixel </td>
+   <td style="text-align:right;"> 0.837 </td>
+   <td style="text-align:right;"> 0.278 </td>
+   <td style="text-align:right;"> 3.008 </td>
+   <td style="text-align:right;"> 0.022 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bivariate - Transparency </td>
+   <td style="text-align:right;"> 0.622 </td>
+   <td style="text-align:right;"> 0.291 </td>
+   <td style="text-align:right;"> 2.137 </td>
+   <td style="text-align:right;"> 0.205 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VSUP - Pixel </td>
+   <td style="text-align:right;"> -3.510 </td>
+   <td style="text-align:right;"> 0.243 </td>
+   <td style="text-align:right;"> -14.455 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VSUP - Transparency </td>
+   <td style="text-align:right;"> -3.726 </td>
+   <td style="text-align:right;"> 0.257 </td>
+   <td style="text-align:right;"> -14.485 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pixel - Transparency </td>
+   <td style="text-align:right;"> -0.216 </td>
+   <td style="text-align:right;"> 0.195 </td>
+   <td style="text-align:right;"> -1.107 </td>
+   <td style="text-align:right;"> 0.803 </td>
+  </tr>
+</tbody>
+</table>
 
-\caption{\label{tab:tbl-basicmodel4}Results for Standard Deviation Trend by Plot Type at Distance = 4}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
-\hline
-contrast & estimate & SE & z.ratio & p.value\\
-\hline
-Choropleth - Bivariate & 0.430 & 0.385 & 1.118 & 0.797\\
-\hline
-Choropleth - VSUP & 4.777 & 0.360 & 13.259 & 0.000\\
-\hline
-Choropleth - Pixel & 1.267 & 0.318 & 3.981 & 0.001\\
-\hline
-Choropleth - Transparency & 1.051 & 0.329 & 3.194 & 0.012\\
-\hline
-Bivariate - VSUP & 4.348 & 0.325 & 13.362 & 0.000\\
-\hline
-Bivariate - Pixel & 0.837 & 0.278 & 3.008 & 0.022\\
-\hline
-Bivariate - Transparency & 0.622 & 0.291 & 2.137 & 0.205\\
-\hline
-VSUP - Pixel & -3.510 & 0.243 & -14.455 & 0.000\\
-\hline
-VSUP - Transparency & -3.726 & 0.257 & -14.485 & 0.000\\
-\hline
-Pixel - Transparency & -0.216 & 0.195 & -1.107 & 0.803\\
-\hline
-\end{tabular}
-\end{table}
-
-
+`````
 :::
 :::
 

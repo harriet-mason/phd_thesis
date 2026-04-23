@@ -64,16 +64,16 @@ Selected & Correct & Total & Dots\\
 \midrule
 \addlinespace[0em]
 \multicolumn{4}{l}{\textbf{}}\\
-\hspace{1em}No number visible & 1 & 324 & 109\\
+\hspace{1em}No number visible & 1 & 324 & 119\\
 \hspace{1em}No number visible & 7 & 306 & 155\\
 \hspace{1em}No number visible & 4 & 282 & 189\\
-\hspace{1em}No number visible & 5 & 258 & 207\\
-\hspace{1em}No number visible & 8 & 251 & 250\\
-\hspace{1em}No number visible & 3 & 228 & 215\\
-\hspace{1em}No number visible & 9 & 227 & 223\\
-\hspace{1em}No number visible & 6 & 220 & 245\\
-\hspace{1em}No number visible & 0 & 207 & 213\\
-\hspace{1em}No number visible & 2 & 165 & 210\\
+\hspace{1em}No number visible & 5 & 258 & 209\\
+\hspace{1em}No number visible & 8 & 251 & 244\\
+\hspace{1em}No number visible & 3 & 228 & 225\\
+\hspace{1em}No number visible & 9 & 227 & 245\\
+\hspace{1em}No number visible & 6 & 220 & 226\\
+\hspace{1em}No number visible & 0 & 207 & 211\\
+\hspace{1em}No number visible & 2 & 165 & 216\\
 \bottomrule
 \end{longtable}
 \endgroup{}
@@ -128,13 +128,10 @@ The demographic analysis indicates no relationship between the demographic detai
 The distance-based results as well as all pairwise comparisons, as mentioned in the main text.
 
 
-::: {.cell tbl-pos='H'}
+::: {#tbl-v-trend1 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 1'}
 ::: {.cell-output-display}
-\begin{table}
 
-\caption{\label{tab:v-trend}Results for Standard Deviation Trend by Plot Type at Distance = 1}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
+\begin{tabular}{l|r|r|r|r}
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
@@ -149,17 +146,17 @@ Pixel & -0.516 & 0.063 & -8.252 & 0.000\\
 Transparency & -0.540 & 0.066 & -8.231 & 0.000\\
 \hline
 \end{tabular}
-\end{table}
 
 
 :::
+:::
 
+
+
+::: {#tbl-v-trend2 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 2'}
 ::: {.cell-output-display}
-\begin{table}
 
-\caption{\label{tab:v-trend}Results for Standard Deviation Trend by Plot Type at Distance = 2}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
+\begin{tabular}{l|r|r|r|r}
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
@@ -174,17 +171,17 @@ Pixel & -0.639 & 0.047 & -13.736 & 0.000\\
 Transparency & -0.583 & 0.051 & -11.438 & 0.000\\
 \hline
 \end{tabular}
-\end{table}
 
 
 :::
+:::
 
+
+
+::: {#tbl-v-trend3 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 3'}
 ::: {.cell-output-display}
-\begin{table}
 
-\caption{\label{tab:v-trend}Results for Standard Deviation Trend by Plot Type at Distance = 3}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
+\begin{tabular}{l|r|r|r|r}
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
@@ -199,17 +196,17 @@ Pixel & -0.762 & 0.078 & -9.816 & 0.000\\
 Transparency & -0.626 & 0.093 & -6.714 & 0.000\\
 \hline
 \end{tabular}
-\end{table}
 
 
 :::
+:::
 
+
+
+::: {#tbl-v-trend4 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 4'}
 ::: {.cell-output-display}
-\begin{table}
 
-\caption{\label{tab:v-trend}Results for Standard Deviation Trend by Plot Type at Distance = 4}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
+\begin{tabular}{l|r|r|r|r}
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
@@ -224,7 +221,6 @@ Pixel & -0.885 & 0.125 & -7.108 & 0.000\\
 Transparency & -0.669 & 0.150 & -4.453 & 0.000\\
 \hline
 \end{tabular}
-\end{table}
 
 
 :::
@@ -232,13 +228,10 @@ Transparency & -0.669 & 0.150 & -4.453 & 0.000\\
 
 
 
-::: {.cell}
+::: {#tbl-basicmodel1 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 1'}
 ::: {.cell-output-display}
-\begin{table}
 
-\caption{\label{tab:basicmodel}Results for Standard Deviation Trend by Plot Type at Distance = 1}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
+\begin{tabular}{l|r|r|r|r}
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
@@ -263,17 +256,17 @@ VSUP - Transparency & -0.037 & 0.088 & -0.416 & 0.994\\
 Pixel - Transparency & 0.023 & 0.090 & 0.257 & 0.999\\
 \hline
 \end{tabular}
-\end{table}
 
 
 :::
+:::
 
+
+
+::: {#tbl-basicmodel2 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 2'}
 ::: {.cell-output-display}
-\begin{table}
 
-\caption{\label{tab:basicmodel}Results for Standard Deviation Trend by Plot Type at Distance = 2}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
+\begin{tabular}{l|r|r|r|r}
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
@@ -298,17 +291,17 @@ VSUP - Transparency & -1.267 & 0.092 & -13.755 & 0.000\\
 Pixel - Transparency & -0.056 & 0.069 & -0.821 & 0.924\\
 \hline
 \end{tabular}
-\end{table}
 
 
 :::
+:::
 
+
+
+::: {#tbl-basicmodel3 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 3'}
 ::: {.cell-output-display}
-\begin{table}
 
-\caption{\label{tab:basicmodel}Results for Standard Deviation Trend by Plot Type at Distance = 3}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
+\begin{tabular}{l|r|r|r|r}
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
@@ -333,17 +326,17 @@ VSUP - Transparency & -2.496 & 0.167 & -14.935 & 0.000\\
 Pixel - Transparency & -0.136 & 0.121 & -1.124 & 0.794\\
 \hline
 \end{tabular}
-\end{table}
 
 
 :::
+:::
 
+
+
+::: {#tbl-basicmodel4 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 4'}
 ::: {.cell-output-display}
-\begin{table}
 
-\caption{\label{tab:basicmodel}Results for Standard Deviation Trend by Plot Type at Distance = 4}
-\centering
-\begin{tabular}[t]{l|r|r|r|r}
+\begin{tabular}{l|r|r|r|r}
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
@@ -368,7 +361,6 @@ VSUP - Transparency & -3.726 & 0.257 & -14.485 & 0.000\\
 Pixel - Transparency & -0.216 & 0.195 & -1.107 & 0.803\\
 \hline
 \end{tabular}
-\end{table}
 
 
 :::
