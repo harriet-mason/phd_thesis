@@ -13,37 +13,37 @@ By connecting our evaluation of uncertainty visualisation back to its primary pu
 Using this context, we illustrate that much of the conflict in the literature comes from a mismatch between the stated goals and evaluation methods utilised by the field.
 These insights allow us to present a cohesive vision for the future of uncertainty visualisation, built upon the goal of visualising uncertainty as "noise".
 
-Second, @sec-second-paper presents two key contributions, a mathematical framework for uncertainty visualisation, and the introduction of the `ggdibbler` R package.
-The mathematical framework presents the argument that the grammar of graphics is a continuous function, and therefore, statistical graphics should adhere to continuous mapping theorem.
+Second, @sec-second-paper presents two key contributions: a mathematical framework for uncertainty visualisation, and the introduction of the `ggdibbler` R package.
+The mathematical framework presents the argument that the grammar of graphics is a continuous function, and therefore, statistical graphics should adhere to the continuous mapping theorem.
 The key insights of this formalisation are translated into the flexible uncertainty visualisation software, `ggdibbler`, the second contribution from this chapter.
-The `ggdibbler` software, allows allows us to substitute any vector of values with a vector of random variables, and make an uncertain version of any graphic that can be made in `ggplot2`.
-This software received the 2025 John Chambers Award for Statistical Software from the ASA Sections on Statistical Computing and Statistical  Graphics, it has 21 stars on GitHub, and has been downloaded over 1800 downloads on CRAN since it was uploaded in July 2025.
+The `ggdibbler` software allows us to substitute any vector of values with a vector of random variables, and make an uncertain version of any graphic that can be made in `ggplot2`.
+This software received the 2025 John Chambers Award for Statistical Software from the ASA Sections on Statistical Computing and Statistical  Graphics, it has 21 stars on GitHub, and has been downloaded over 1800 times on CRAN since it was uploaded in July 2025.
 This indicates the value the statistics community has placed on flexible uncertainty visualisation software that can be used for EDA.
 
 Finally, @sec-third-paper uses the mathematical formalisation of @sec-second-paper in a perceptual evaluation of choropleth maps to confirm the hypotheses discussed in @sec-first-paper.
-Evaluating uncertainty as noise required the development of new experimental methodology, that is able to measure the effect of a latent variable (noise) on an observable variable (signal).
-The results of this paper shows that visualising a distribution as a set of samples is not only the most flexible approach (as established by @sec-second-paper), but it is also the approach that most accurately conveys the results of standard statistical tests.
+Evaluating uncertainty as noise required the development of a new experimental methodology that is able to measure the effect of a latent variable (noise) on an observable variable (signal).
+The results of this paper show that visualising a distribution as a set of samples is not only the most flexible approach (as established by @sec-second-paper), but it is also the approach that most accurately conveys the results of standard statistical tests.
 
 
 ## Future work
-There are several avenues one could take to improve upon this work, we will list the most important ones here.
+There are several avenues one could take to improve upon this work; we will list the most important ones here.
 
 ### `ggdibbler` software
-The full list of improvements and fixes that should be made to `ggdibbler` can be see on the package's [GitHub issues](https://github.com/harriet-mason/ggdibbler/issues).
-In this section, we will touch on some of the high level improvements that could be made to the software.
+The full list of improvements and fixes that should be made to `ggdibbler` can be seen on the package's [GitHub issues](https://github.com/harriet-mason/ggdibbler/issues).
+In this section, we will touch on some of the high-level improvements that could be made to the software.
 
 One of the core assumptions of the software is that it assumes each individual cell of our table is a distribution, and these distributions are completely independent.
-This assumption can be quite strict, and the most natural improvement to the software would be to allow for users to pass joint distributions to allow for dependency between cells in the random matrix.
-The theoretical framework already allows for this, as does the underlying `distributional` package, the only limitation currently imposed is by the `ggdibbler` software.
-However, implementing this change is not straightforward, as it would require us to reach inside of the joint distribution to map variables, and could possibly require bespoke syntax to get the extension working.
+This assumption can be quite strict, and the most natural improvement to the software would be to allow users to pass joint distributions to allow for dependency between cells in the random matrix.
+The theoretical framework already allows for this, as does the underlying `distributional` package; the only limitation currently imposed is by the `ggdibbler` software.
+However, implementing this change is not straightforward, as it would require us to reach inside the joint distribution to map variables, and could possibly require bespoke syntax to get the extension working.
 
 Another improvement to the software is the flexibility to allow any object type.
 Similarly to the joint distributions, this is already allowed by the theoretical foundations as well as `distributional`.
 Practically, this would require us to set up a nested distribution scale for all scale types.
-That is, currently the software replaces `scale_x_continuous` with `scale_x_continuous_distribution`, which works for continuous data, but `ggplot2` also has scales such as `scale_x_datetime` which does not have a `scale_x_datetime_distribution` counterpart.
-While it would be straightforward to implement this with the existing `ggplot2` supported scales, much of the benefit of `ggplot2` comes from it's network of extensions that allow for many different object types.
+That is, currently the software replaces `scale_x_continuous` with `scale_x_continuous_distribution`, which works for continuous data, but `ggplot2` also has scales such as `scale_x_datetime`, which does not have a `scale_x_datetime_distribution` counterpart.
+While it would be straightforward to implement this with the existing `ggplot2` supported scales, much of the benefit of `ggplot2` comes from its network of extensions that allow for many different object types.
 Implementing `ggdibbler` with `ggplot2` extensions is an issue that goes beyond scales, and similar limitations exist with stats and positions.
-Implementing some kind of "function factory" or wrapper solution might give us the flexibility needed to allow `ggdibbler` to work with all input types, however these developments are still a work in progress.
+Implementing some kind of "function factory" or wrapper solution might give us the flexibility needed to allow `ggdibbler` to work with all input types, these developments are still a work in progress.
 
 ### Latent variable testing for all aesthetics
 While a variation of the Ishihara colour blind tests allowed us to measure uncertainty as a latent variable, this approach is only viable when we have mapped our random variable to colour.
@@ -54,7 +54,7 @@ Designing similar experiments for the most commonly used aesthetics (including p
 ### A fundamental theory of visualisation
 Many elements of this thesis point towards a more fundamental theory of visualisation that can be tied to the grammar of graphics.
 This alternative connection would allow us to better formalise our graphics as mathematical objects, which, as illustrated by @sec-second-paper and @sec-third-paper, would facilitate more flexible plot design and more informative perceptual experiments. 
-This fundamental theory of visualisation would allow us to treat visualisations as statistics with desirable statistical properties, such as statistical sufficiency, or bias and variance.
+This fundamental theory of visualisation would allow us to treat visualisations as statistics with desirable statistical properties, such as statistical sufficiency, bias, and variance.
 This line of thinking is similar to the argument made by @Wickham2011 in their discussion of product plots.
 The authors draw a link between statistical graphics and their underlying distributions using the fact that both geometry and probability are born from measure theory.
 Strengthening this connection is likely a good avenue for future research.
