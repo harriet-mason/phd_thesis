@@ -820,8 +820,8 @@ psf <- ggplot(data = Aust_map, aes(geometry = geometry, fill = value)) +
   scale_x_continuous_distribution(limits = c(111,155))
 
 pgraph <- ggraph(graph_sample, weights = weight) + 
-  geom_edge_link(aes(group=drawID), position=jitter, alpha=0.05, 
-                 linewidth=0.3, colour = "#cc3311") + 
+  geom_edge_link(aes(group=drawID), position=jitter, alpha=0.01, 
+                 colour = "#cc3311") + 
   theme_void() +
   theme(aspect.ratio = 1) +
   geom_node_point(size=3) +
