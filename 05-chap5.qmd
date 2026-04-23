@@ -9,7 +9,7 @@ We established the foundations of this vision by approaching the uncertainty vis
 This thesis makes several important contributions to the uncertainty visualisation literature.
 
 First, @sec-first-paper offers a philosophical foundation for the future of uncertainty visualisation that resolves the ongoing conflicts that currently plague the field.
-By connecting our evaluation of uncertainty visualisation back to it's primary purpose, we are able to map out what it actually means to "see" uncertainty in a visualisation.
+By connecting our evaluation of uncertainty visualisation back to its primary purpose, we are able to map out what it actually means to "see" uncertainty in a visualisation.
 Using this context, we illustrate that much of the conflict in the literature comes from a mismatch between the stated goals and evaluation methods utilised by the field.
 These insights allow us to present a cohesive vision for the future of uncertainty visualisation, built upon the goal of visualising uncertainty as "noise".
 
