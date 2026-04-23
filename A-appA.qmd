@@ -337,9 +337,17 @@ The distance-based results as well as all pairwise comparisons, as mentioned in 
 #| cache: true
 #| tbl-pos: "H"
 #| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 1"
-glmer_model <- glmer(correct_original ~  D*V*plot_type +    (1|correct_number) + (1|id),
-                   family="binomial", 
+
+if (file.exists("data/glmer_model.rda")) {
+  load("data/glmer_model.rda")
+} else {
+# Make generalised linear model (random effects)
+  glmer_model <- glmer(correct_original ~  D*V*plot_type +    (1|correct_number) + (1|id),
+                   family="binomial",
                    data = study_data)
+
+  save(glmer_model, file="data/glmer_model.rda")
+}
  
 emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(1))) |> as.data.frame() %>%
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
