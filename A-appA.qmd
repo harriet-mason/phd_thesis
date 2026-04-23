@@ -329,7 +329,7 @@ p6 + p1 + p2 + p3 + p4 + p5 + plot_layout(guides = "collect")
 ## Additional model comparison results
 The distance-based results as well as all pairwise comparisons, as mentioned in the main text.
 
-```{r v-trend}
+```{r tbl-v-trend1}
 #| echo: false
 #| eval: true
 #| message: false
@@ -343,7 +343,14 @@ emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(1))) |> 
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
   kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 1",
         digits=3, format="latex", longtable=FALSE) 
+```
 
+```{r tbl-v-trend2}
+#| echo: false
+#| eval: true
+#| message: false
+#| cache: true
+#| tbl-pos: "H"
 emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(2))) |> as.data.frame() %>%
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
   kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 2",
@@ -353,7 +360,14 @@ emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(3))) |> 
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
   kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 3",
         digits=3, format="latex", longtable=FALSE) 
+```
 
+```{r tbl-v-trend3}
+#| echo: false
+#| eval: true
+#| message: false
+#| cache: true
+#| tbl-pos: "H"
 emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4))) |> as.data.frame() %>%
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
   kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 4",
@@ -361,7 +375,7 @@ emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4))) |> 
 
 ```
 
-```{r basicmodel}
+```{r tbl-basicmodel1}
 #| echo: false
 #| eval: true
 #| message: false
@@ -369,13 +383,28 @@ emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4))) |> 
 
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(1)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
   kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 1", digits=3, format="latex", longtable=FALSE)
+```
 
+```{r tbl-basicmodel2}
+#| echo: false
+#| eval: true
+#| message: false
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(2)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
   kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 2", digits=3, format="latex", longtable=FALSE,)
+```
 
+```{r tbl-basicmodel3}
+#| echo: false
+#| eval: true
+#| message: false
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(3)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
   kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 3", digits=3, format="latex", longtable=FALSE)
+```
 
+```{r tbl-basicmodel4}
+#| echo: false
+#| eval: true
+#| message: false
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(4)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
   kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 4", digits=3, format="latex", longtable=FALSE)
 

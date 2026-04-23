@@ -86,6 +86,7 @@ The third plot is made using `ggdibbler`, <!--and it shows the distribution of t
 #| fig-height: 6
 #| fig-width: 15
 #| out-width: 100%
+#| dev: "png"
 set.seed(1)
 density_data <- data.frame(xmean = rnorm(15, 163, 7),
                            xse = rexp(15,0.5)) |>
@@ -93,21 +94,22 @@ density_data <- data.frame(xmean = rnorm(15, 163, 7),
 tsize = 12
 
 d1 <- ggplot(data = density_data) +
-  geom_density(aes(x = xmean)) +
+  geom_density(aes(x = xmean), linewidth=1) +
   xlab("Height") +
   ggtitle("a. ggplot2") +
   theme(plot.title = element_text(size = tsize))
 
 d2 <- ggplot(data = density_data) +
   stat_slab(aes(xdist = xdist), colour = "black", fill=NA,
-            linewidth = 0.5)+
+            linewidth = 0.5) +
   xlab("Height") + ylab("density") +
   ggtitle("b. ggdist") +
   theme(plot.title = element_text(size = tsize))
 
 d3 <- ggplot(data = density_data) + 
   geom_density_sample(aes(x=xdist), times=100, 
-                      linewidth=0.01) +
+                      linewidth=0.1) +
+  scale_linewidth(range = c(0.1, 0.1)) +
   xlab("Height") +
   ggtitle("c. ggdibbler") +
   theme(plot.title = element_text(size = tsize))

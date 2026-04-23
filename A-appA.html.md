@@ -72,61 +72,61 @@ This seems to suggest that, when participants could not make out the number with
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 324 </td>
-   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:right;"> 113 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 7 </td>
    <td style="text-align:right;"> 306 </td>
-   <td style="text-align:right;"> 146 </td>
+   <td style="text-align:right;"> 164 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 4 </td>
    <td style="text-align:right;"> 282 </td>
-   <td style="text-align:right;"> 198 </td>
+   <td style="text-align:right;"> 192 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 5 </td>
    <td style="text-align:right;"> 258 </td>
-   <td style="text-align:right;"> 216 </td>
+   <td style="text-align:right;"> 219 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 8 </td>
    <td style="text-align:right;"> 251 </td>
-   <td style="text-align:right;"> 251 </td>
+   <td style="text-align:right;"> 238 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 3 </td>
    <td style="text-align:right;"> 228 </td>
-   <td style="text-align:right;"> 211 </td>
+   <td style="text-align:right;"> 208 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 9 </td>
    <td style="text-align:right;"> 227 </td>
-   <td style="text-align:right;"> 249 </td>
+   <td style="text-align:right;"> 241 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 6 </td>
    <td style="text-align:right;"> 220 </td>
-   <td style="text-align:right;"> 239 </td>
+   <td style="text-align:right;"> 231 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 207 </td>
-   <td style="text-align:right;"> 222 </td>
+   <td style="text-align:right;"> 217 </td>
   </tr>
   <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> No number visible </td>
    <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 165 </td>
-   <td style="text-align:right;"> 217 </td>
+   <td style="text-align:right;"> 197 </td>
   </tr>
 </tbody>
 </table>
@@ -181,11 +181,11 @@ The demographic analysis indicates no relationship between the demographic detai
 The distance-based results as well as all pairwise comparisons, as mentioned in the main text.
 
 
-::: {.cell tbl-pos='H'}
+::: {#tbl-v-trend1 .cell tbl-pos='H'}
 ::: {.cell-output-display}
 \begin{table}
 
-\caption{\label{tab:v-trend}Results for Standard Deviation Trend by Plot Type at Distance = 1}
+\caption{\label{tab:tbl-v-trend1}Results for Standard Deviation Trend by Plot Type at Distance = 1}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -206,11 +206,15 @@ Transparency & -0.540 & 0.066 & -8.231 & 0.000\\
 
 
 :::
+:::
 
+
+
+::: {#tbl-v-trend2 .cell tbl-pos='H'}
 ::: {.cell-output-display}
 \begin{table}
 
-\caption{\label{tab:v-trend}Results for Standard Deviation Trend by Plot Type at Distance = 2}
+\caption{\label{tab:tbl-v-trend2}Results for Standard Deviation Trend by Plot Type at Distance = 2}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -235,7 +239,7 @@ Transparency & -0.583 & 0.051 & -11.438 & 0.000\\
 ::: {.cell-output-display}
 \begin{table}
 
-\caption{\label{tab:v-trend}Results for Standard Deviation Trend by Plot Type at Distance = 3}
+\caption{\label{tab:tbl-v-trend2}Results for Standard Deviation Trend by Plot Type at Distance = 3}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -256,11 +260,15 @@ Transparency & -0.626 & 0.093 & -6.714 & 0.000\\
 
 
 :::
+:::
 
+
+
+::: {#tbl-v-trend3 .cell tbl-pos='H'}
 ::: {.cell-output-display}
 \begin{table}
 
-\caption{\label{tab:v-trend}Results for Standard Deviation Trend by Plot Type at Distance = 4}
+\caption{\label{tab:tbl-v-trend3}Results for Standard Deviation Trend by Plot Type at Distance = 4}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -285,11 +293,11 @@ Transparency & -0.669 & 0.150 & -4.453 & 0.000\\
 
 
 
-::: {.cell}
+::: {#tbl-basicmodel1 .cell}
 ::: {.cell-output-display}
 \begin{table}
 
-\caption{\label{tab:basicmodel}Results for Standard Deviation Trend by Plot Type at Distance = 1}
+\caption{\label{tab:tbl-basicmodel1}Results for Standard Deviation Trend by Plot Type at Distance = 1}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -320,11 +328,15 @@ Pixel - Transparency & 0.023 & 0.090 & 0.257 & 0.999\\
 
 
 :::
+:::
 
+
+
+::: {#tbl-basicmodel2 .cell}
 ::: {.cell-output-display}
 \begin{table}
 
-\caption{\label{tab:basicmodel}Results for Standard Deviation Trend by Plot Type at Distance = 2}
+\caption{\label{tab:tbl-basicmodel2}Results for Standard Deviation Trend by Plot Type at Distance = 2}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -355,11 +367,15 @@ Pixel - Transparency & -0.056 & 0.069 & -0.821 & 0.924\\
 
 
 :::
+:::
 
+
+
+::: {#tbl-basicmodel3 .cell}
 ::: {.cell-output-display}
 \begin{table}
 
-\caption{\label{tab:basicmodel}Results for Standard Deviation Trend by Plot Type at Distance = 3}
+\caption{\label{tab:tbl-basicmodel3}Results for Standard Deviation Trend by Plot Type at Distance = 3}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -390,11 +406,15 @@ Pixel - Transparency & -0.136 & 0.121 & -1.124 & 0.794\\
 
 
 :::
+:::
 
+
+
+::: {#tbl-basicmodel4 .cell}
 ::: {.cell-output-display}
 \begin{table}
 
-\caption{\label{tab:basicmodel}Results for Standard Deviation Trend by Plot Type at Distance = 4}
+\caption{\label{tab:tbl-basicmodel4}Results for Standard Deviation Trend by Plot Type at Distance = 4}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
