@@ -11,7 +11,7 @@ A thesis submitted for the degree of {{< meta degreetype >}} at Monash Universit
 
 
 
-Produced on 23 April 2026.
+Produced on 24 April 2026.
 
 © {{< meta author >}} (2026).
 
@@ -39,7 +39,7 @@ These contributions allow us to visualise random variables with as much ease as 
 # Declaration {-}
 I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
 
-This thesis includes three research articles, which are at different stages of publication. @sec-first-paper has been submitted to Annual Reviews of Statistics and Its Applications as an invited contribution. @sec-second-paper is being prepared for submission to the Journal of Computational and Graphical Statistics. @sec-third-paper has been submitted to IEEE VIS 2026. The core theme of this thesis is "visual communication of uncertain data". The ideas, development, and writing up of all the papers in the thesis were the principal responsibility of myself, the student, working within the Department of Econometrics & Business Statistics under the supervision of Professor Dianne Cook, Dr Sarah Goodwin, and Dr Susan VanderPlas (University of Nebraska-Lincoln). @sec-first-paper was also a collaboration with Dr Emi Tanaka, and @sec-third-paper was a collaboration with Dr Rachel Rogers (University of Technology Sydney), Dr Alison Kleffner (Creighton University). In the case of @sec-first-paper, @sec-second-paper, and @sec-third-paper, my contributions are detailed in the table below.
+This thesis includes three research articles, which are at different stages of publication. @sec-first-paper has been submitted to Annual Reviews of Statistics and Its Applications as an invited contribution. @sec-second-paper is being prepared for submission to the Journal of Computational and Graphical Statistics. @sec-third-paper has been submitted to IEEE VIS 2026. The core theme of this thesis is "visual communication of uncertain data". The ideas, development, and writing up of all the papers in the thesis were the principal responsibility of myself, the student, working within the Department of Econometrics & Business Statistics under the supervision of Professor Dianne Cook, Dr Sarah Goodwin, and Dr Susan VanderPlas (University of Nebraska-Lincoln). @sec-first-paper was also a collaboration with Dr Emi Tanaka, and @sec-third-paper was a collaboration with Dr Rachel Rogers (University of Technology Sydney) and Dr Alison Kleffner (Creighton University). In the case of @sec-first-paper, @sec-second-paper, and @sec-third-paper, my contributions are detailed in the table below.
 
 (The inclusion of co-authors reflects the fact that the work came from active collaboration between researchers and acknowledges input into team-based research.)
 
@@ -124,7 +124,7 @@ This thesis includes three research articles, which are at different stages of p
 
 
 
-I have / have not renumbered sections of submitted or published papers in order to generate a consistent presentation within the thesis.
+I have not renumbered sections of submitted or published papers in order to generate a consistent presentation within the thesis.
 
 Student name: Harriet Mason
 
@@ -142,35 +142,32 @@ Date:
 
 
 #### Reproducibility statement
-All materials associated with this thesis are openly available for transparency and following reproducible practice. The thesis is written using Quarto [@quarto] and is available online.
-<!-- at [link](link).  -->
+All materials associated with this thesis are openly available for transparency and following reproducible practice. The thesis is written using Quarto [@quarto] and is available online at [`harriet-mason.github.io/phd_thesis/`](https://harriet-mason.github.io/phd_thesis/).
 All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository [`github.com/harriet-mason/phd_thesis`](https://github.com/harriet-mason/phd_thesis).
 
 This work is licensed under a [Creative Commons  Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 
 # Acknowledgements {-}
-I want to thank the people who made this work possible.
+First, I want to thank my supervision team, who put up with my complete inability to stick to deadlines for almost 4 years. You have all forever shaped the way I think about statistics, software, research, and visualisation, and for that I am incredibly grateful. To Emi and Ursula, even you were not supervisors for the entire duration of the project, your excellent feedback in the early days of my PhD had a significant influence on my approach to research, for which I am very grateful. To Susan, having someone on the supervision team who could understand my half-formed ideas well enough to help me translate them into something other people could understand was genuinely a lifesaver, and I don't think I would have finished the first paper (let alone the entire PhD) without your help. To Sarah, your exuberant energy and openness to unconventional ideas are qualities I truly admire, and I hope to carry that spirit with me throughout my career. To Di, I don't think I have words to express the level of gratitude I have towards you. Thank you for taking me on as a research assistant, then as an honours student, and finally as a PhD student. It is not an overstatement to say I wouldn't even be in research were it not for you. These last 6 years have inspired a level of joy and fulfilment in my work that I didn't think I would ever see in this lifetime, and for that you have my eternal gratitude.
 
-First, I want to thank my supervision team, who put up with my complete inability to stick to deadlines for almost 4 years. You have all forever shaped the way I think about statistics, software, research, and visualisation, and for that I am incredibly grateful. To Emi and Ursula, even though you were not supervisors for the entire duration of the project, some of your feedback in the early days of my PhD had a huge influence on my approach to research. To Susan, having someone on the supervision team who could understand my half-formed ideas well enough to help me translate them into something other people could understand was genuinely a lifesaver, and I don't think I would have finished the first paper (let alone the entire PhD) without your help. To Sarah, your exuberant energy and openness to odd ideas are something that I sincerely hope has rubbed off on me as I try to embody that attitude for the rest of my career. To Di, I don't think I have words to express the level of gratitude I have towards you. Thank you for taking me on as a research assistant, then honours student, and finally PhD student. It is not an overstatement to say I wouldn't even be in research were it not for you. These last 6 years have inspired a level of joy and fulfilment in my work that I didn't think I would ever see in this lifetime.
+Thank you to Rachel and Alison for your help on the third paper. I had given up on the idea of doing an experiment, but your enthusiasm about the project, delightful company, and, most importantly, ability to do the parts of the research that I couldn't, allowed me to include it in my thesis. 
 
-Thank you to Rachel and Alison for your help on the third paper. I had given up on the idea of doing an experiment, but your enthusiasm about the project, delightful company, and, most importantly, ability to do the parts of the research that I couldn't, allowed me to include it in my thesis. The experiment paper was easily the most fun of all the chapters.
+Thank you to my fellow PhD students for always being good company in the office, particularly Sherry, Patrick, Heshani, Ze-yu, Floyd, Fillip, Shelly, Kris, Minh, Cash, Tina, Maliny and Vis. An extra special thank you to Cynthia, Mitch, Jayani, Bets, and Janith, who I occasionally sucked into conversations that went on for so long that my housemates would call to check if I had died.
+Thank you to the NUMBATs research group for being my home while at Monash. In particular, thank you to Michael, Hannah, and Kate for being as easy to talk to as the other PhD students. 
 
-Thank you to my fellow PhD students for always being good company in the office, particularly Sherry, Patrick, Heshani, Ze-yu, Floyd, Fillip, Shelly, Kris, Minh, Cash, Tina, and Vis. In particular, thank you to Cynthia, Mitch, Jayani, Bets, and Janith, who occasionally ended up sucked into conversations with me that went on for so long my housemates would call me to make sure I wasn't dead.
-Thank you to the NUMBATs research group for being my home while at Monash. In particular, thank you to Michael and Kate for being willing to listen to me complain almost as much as the other PhD students.
+To Gael, thank you for letting me into the program (despite my almost failing your class in my Bachelors), and Catherine, David, and Xibin for taking over the program after Gael retired.
+To my panel: Catherine, Jess, Michael, and David, thank you for the helpful feedback at my milestones that greatly improved the work.
+Thank you to everyone at AEMO and the Zema scholarship fund for supporting my research.
 
-To Gael, thank you for letting me into the program (despite my almost failing your class in my Bachelors), and Catherine, David, and Xibin for maintaining the PhD program in the years after.
-Thank you to everyone at AEMO and the Zema scholarship fund for supporting my research (both financially and emotionally).
-To my panel: Catherine, Jess, Michael, and David, thank you for the helpful feedback at my milestones that greatly contributed to improving the work.
-
-To Sophie, Kat, and Kris, sorry for complaining so much in the group chat. I hope this acknowledgement made it all worthwhile.
+To my friends, Sophie, Kat, and Kris, thank you for letting me complain so much in the group chat. And to Chloe, thank you for letting me complain on our walks. I hope this acknowledgement made all my complaining worthwhile.
 To Eliot, thank you for the eight years we have spent getting coffee and walking laps around Monash University. Conversations with you always brighten my day, and my supervisors can thank you for approximately 50% of my visits to campus. 
 
-To my family, Mum, Dad, Grandma, Eloise, Ben, Alastair, Lauren, and Prudence, thank you for offering your homes when I travelled for conferences, participating in my pilot study despite having no idea what it was for, and remaining supportive for this annoyingly long degree.
-To my housemates, Bosco (the dog) and Sophie (the human), for tolerating my erratic work schedule.
-Finally, thank you to my partner Tom, without whom I might have starved to death. 
+To my family, Mum, Dad, Grandma, Eloise, Ben, Alastair, Lauren, and Prudence, thank you for offering your homes when I travelled for conferences, participating in my pilot study despite having no idea what it was for, and remaining supportive for this very long degree.
+To my dog, Bosco, thank you giving me your company while I worked and for being a constant source of joy in my life. 
+Finally, to my partner Tom, thank you for answering my questions on maths definitions (even at three in the morning), helping me bake for the annual NUMBATs group bake off (even at four in the morning), and continuing to give your love and support for the past few months as my entire life was sucked into this thesis.
 
-To all my friends, family, and loved ones, I know these past four years have been almost as hard on you as they have been on me (almost), but I wouldn't have suffered through them with anyone else.
+To all my friends, family, and loved ones, I know these past four years have been almost as hard on you as they have been on me (*almost*), but I wouldn't have gone through them with anyone else.
 
 
 <!--

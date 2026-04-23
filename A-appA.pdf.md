@@ -1,4 +1,4 @@
-# Appendix A — Supplementary Material for “Colour Blinded by the Noise” {#sec-appa}
+# Appendix A — Supplementary Material for “Colour Blinded by the Noise” {#sec-appendix-a}
 
 
 
@@ -92,16 +92,16 @@ Selected & Correct & Total & Dots\\
 \midrule
 \addlinespace[0em]
 \multicolumn{4}{l}{\textbf{}}\\
-\hspace{1em}No number visible & 1 & 324 & 120\\
-\hspace{1em}No number visible & 7 & 306 & 160\\
-\hspace{1em}No number visible & 4 & 282 & 176\\
-\hspace{1em}No number visible & 5 & 258 & 225\\
-\hspace{1em}No number visible & 8 & 251 & 251\\
-\hspace{1em}No number visible & 3 & 228 & 223\\
-\hspace{1em}No number visible & 9 & 227 & 234\\
-\hspace{1em}No number visible & 6 & 220 & 224\\
-\hspace{1em}No number visible & 0 & 207 & 219\\
-\hspace{1em}No number visible & 2 & 165 & 224\\
+\hspace{1em}No number visible & 1 & 324 & 114\\
+\hspace{1em}No number visible & 7 & 306 & 148\\
+\hspace{1em}No number visible & 4 & 282 & 175\\
+\hspace{1em}No number visible & 5 & 258 & 213\\
+\hspace{1em}No number visible & 8 & 251 & 264\\
+\hspace{1em}No number visible & 3 & 228 & 218\\
+\hspace{1em}No number visible & 9 & 227 & 235\\
+\hspace{1em}No number visible & 6 & 220 & 233\\
+\hspace{1em}No number visible & 0 & 207 & 227\\
+\hspace{1em}No number visible & 2 & 165 & 223\\
 \bottomrule
 \end{longtable}
 \endgroup{}
