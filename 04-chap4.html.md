@@ -2,9 +2,17 @@
 
 
 
+
+
+
+
 ::: {.cell}
 
 :::
+
+
+
+
 
 
 ## Introduction
@@ -148,9 +156,7 @@ Our goal is to identify the design choices that lead to effective signal suppres
 
 
 
-::: {.cell}
 
-:::
 
 
 
@@ -158,19 +164,23 @@ Our goal is to identify the design choices that lead to effective signal suppres
 
 :::
 
-
-
 ::: {.cell}
 
 :::
 
+::: {.cell}
 
+:::
 
 ::: {.cell}
 ::: {.cell-output-display}
 ![The five map designs we will be evaluating, illustrated using the state boundaries of Australia. The distributions visualised in the maps are the same data, but randomly generated. Along with an example with each map, we also have the breakdown of how each map is created, a grammar of graphics breakdown of its important components. We can use this table to understand how each map diverges from one another (as well as the standard choropleth map) to understand how our findings translate to generalisable findings about uncertainty visualisation.](04-chap4_files/figure-html/fig-maps-1.png){#fig-maps width=100%}
 :::
 :::
+
+
+
+
 
 
 
@@ -246,9 +256,17 @@ Additionally, as the type of number displayed may affect the readability of the 
 The order of plots was completely randomised for each participant.
 
 
+
+
+
+
 ::: {.cell}
 
 :::
+
+
+
+
 
 
 ::: {#fig-plotexample layout-nrow=2}
@@ -386,12 +404,30 @@ The correct number is also included as a random effect.
 
 
 
+
+
+
+
+
+
+
+
+
+
 ### Participant Information
+
+
+
+
 
 
 ::: {.cell}
 
 :::
+
+
+
+
 
 
 137 individuals completed the study and passed the attention check.
@@ -400,9 +436,17 @@ Because individuals were provided a 'back' button in the case of accidental subm
 A Pearson's chi-squared test for independence indicates a non-significant relationship between plot type and number present in the data, indicating that random assignment of numbers was successful ($p$-value of 0.92).
 
 
+
+
+
+
 ::: {.cell}
 
 :::
+
+
+
+
 
 
 Demographically, participants tended to be younger, use he/him pronouns, and have a tertiary education.
@@ -421,11 +465,18 @@ A large number of participants were from Africa and Europe (41.61% and 30.66%, r
 
 
 
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![The full set of participant responses, coloured by whether or not they were able to identify the correct number in the plot, grouped according to the distance ($D$) between the distributions, and the standard deviation ($V$) in each individual estimate. The theoretical simulation from the $t$-test and Moran's I calculations is also included as a point of reference. We can see that the choropleth and bivariate map have an I-shape, the VSUP map makes an L-shape, and the pixel and transparency maps make an upper triangular shape. The I-shape indicates the variance has no impact on the visibility, the L-shape indicates the variance only has an impact on visibility at its maximum, and the upper triangular shape shows a consistent impact on visibility from the variance. None of the plot types perfectly match the pattern in the theoretical visualisation.](04-chap4_files/figure-html/fig-tileplot-1.png){#fig-tileplot width=100%}
 :::
 :::
+
+
+
+
 
 
 @fig-tileplot shows the percent of participants who were able to make a correct selection for each type of plot, based on the distance ($D$) between the number and non-number groups, and the standard deviation ($V$) of the subsamples.
@@ -451,6 +502,10 @@ It may be more appropriate to also treat our value of $\hat{\alpha}_k$ as a rand
 Therefore, we will use the average number of false positives within each plot type to estimate $\hat{\alpha}_k$.
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![Bootstrapped significance levels for each plot type, shown as jittered dotplots, computed using the null plots, $D=0$. The large points are the full sample values that are used in the power analysis. The vertical line indicates the conventional significance level, 0.05. We can see that all the significance levels seem to hover around 0.03, with pixel maps sitting slightly lower than the other plot types.](04-chap4_files/figure-html/fig-h0calc-1.png){#fig-h0calc width=80%}
@@ -458,20 +513,30 @@ Therefore, we will use the average number of false positives within each plot ty
 :::
 
 
+
+
+
+
 #### Random effects model
+
+
+
+
 
 
 ::: {.cell}
 
 :::
-
-
 
 ::: {.cell}
 ::: {.cell-output-display}
 ![A visualisation of the experimental power curves, estimated using a generalised linear random effects model (top) and generalised linear fixed effects model (bottom) for all 125 experimental factors: V (standard deviation), D (Distance), and K (plot type). The results of the theoretical hypothesis tests, the t-test, and Moran's I test, are shown using two different black dashed lines. We can see that the variance has little impact on the signal visibility in the choropleth and bivariate map, the visibility of the signal in the VSUP map shrinks to zero when V=5, regardless of the effect size, and the pixel and transparency map broadly follow the shape of the theoretical tests.](04-chap4_files/figure-html/fig-mixmodel-1.png){#fig-mixmodel width=75%}
 :::
 :::
+
+
+
+
 
 
 @fig-mixmodel shows the random effects model and fixed effects components for each plot type, $D$ and $V$, with a black dashed line indicating the theoretical power curve of our hypothesis tests.
@@ -509,6 +574,10 @@ This indicates that training could potentially improve the power of plots as sta
 *Relating to H1: Changes to the standard deviation in the distributions will result in no meaningful difference in our ability to read the number in the choropleth and bivariate map.* 
 
 
+
+
+
+
 ::: {#tbl-v-trend .cell tbl-cap='Effect of Standard Deviation (V) by Plot Type, Averaged Over Distance (D)'}
 ::: {.cell-output-display}
 
@@ -533,6 +602,10 @@ Transparency & -0.604 & 0.068 & -8.843 & 0.000\\
 :::
 
 
+
+
+
+
 @tbl-v-trend shows the estimated marginal effect of $V$ for each plot type, averaging over the effect of $D$.
 If the marginal effect is significantly different from zero, then $V$ has some effect on the visibility in the signal in the plot, but if it isn't significantly different from zero, then the variance does not have any impact on signal visibility at all.
 We can see that the effect associated with $V$ for each plot type is insignificant in the case of the bivariate map and choropleth map, but significant for all other map types.
@@ -541,6 +614,10 @@ These distance-based results are available in @sec-appa.
 This indicates that $V$ has no significant effect on the visibility of the signal in the bivariate and choropleth maps, given the generalised linear mixed effects model.
 
 *Relating to H1 and H3: The probability of correctly reading the transparency and pixel map, as well as the probability of correctly reading the choropleth and bivariate map, will be similar.*
+
+
+
+
 
 
 
@@ -560,6 +637,10 @@ Transparency - Pixel & 0.096 & 0.090 & 1.075 & 0.565\\
 
 :::
 :::
+
+
+
+
 
 
 Comparisons of the standard deviation effect between plot types of interest are shown in @tbl-basicmodel.
@@ -660,6 +741,7 @@ This research was supported by the Commonwealth through an Australian Government
 We thank Susan VanderPlas, Sarah Goodwin, and Emily Robinson for their insightful comments and feedback, which substantially improved the work.
 The R packages used for this work were: `tidyverse` [@tidyverse], `distributional` [@distributional], `ggdist` [@Kay2023], `ggdibbler` [@ggdibbler], `patchwork` [@patchwork], `khroma` [@khroma], `colourspace` [@colorspace], `ozmaps` [@ozmaps], `sf` [@sfpack], `ggthemes` [@ggthemes], `MASS` [@MASS], `shadowtext` [@shadowtext], `flextable` [@flextable], `emmeans` [@emmeans], `kableExtra` [@kableExtra], `broom` [@broom], `lme4` [@lme4], `car` [@car], `janitor` [@janitor], `packcircles` [@packcircles], `gglogo` [@gglogo], `scales` [@scales], `glue` [@glue], `digest` [@digest], `ggbeeswarm` [@ggbeeswarm], `conflicted` [@conflicted], `sp` [@sp], and `spdep` [@spdep].
 The GitHub repository for this paper can be found at https://github.com/harriet-mason/uncertainty-experiment, which contains the files required to reproduce this article in full.
+
 
 
 

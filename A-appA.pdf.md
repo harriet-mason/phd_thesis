@@ -1,9 +1,17 @@
 # Appendix A — Supplementary Material for “Colour Blinded by the Noise” {#sec-appa}
 
 
+
+
+
+
 ::: {.cell}
 
 :::
+
+
+
+
 
 
 
@@ -28,6 +36,10 @@ Screenshots from the app, in the order that the participants would experience th
 To understand the influence of the number displayed on the participant response, we can look at a confusion table of the number responses (@tbl-confusion-numbers).
 
 
+
+
+
+
 ::: {#tbl-confusion-numbers .cell tbl-cap='A confusion matrix of the number participants gave, alongside the true number in the plot. The off-diagonal elements are incorrect responses, with any concentration of numbers indicating values that are frequently mistaken for one another: 8 for 3, 6 and 9, and 6 for 5 are the most common.'}
 ::: {.cell-output-display}
 ![](A-appA_files/figure-pdf/tbl-confusion-numbers-1.pdf){fig-pos='H' width=100%}
@@ -35,8 +47,16 @@ To understand the influence of the number displayed on the participant response,
 :::
 
 
+
+
+
+
 For the cases where there actually was a number visible, we can see that participants typically got the number right, or selected no number visible, rather than making an incorrect guess.
 When there was no number, participants seemed to guess 3 more often than the other numbers.
+
+
+
+
 
 
 
@@ -45,12 +65,20 @@ When there was no number, participants seemed to guess 3 more often than the oth
 :::
 
 
+
+
+
+
 There are also a few numbers that participants seemed to get confused more often than others.
 If we focus on the cases where 50 or more incorrect guesses were made, we can see that 3, 6 and 9 were frequently reported as an 8, and 5 was frequently reported as a 6.
 This makes sense as we could consider the dots that make up 3, 6, and 9 to be a subset of those covered by 8, with a similar relationship existing between 5 and 6.
 Interestingly, the converse is not true.
 That is, 8 was not mistaken for a 3, 6, or 9, and 6 was not mistaken for 5.
 This seems to suggest that, when participants could not make out the number with confidence, they seemed to have a tendency to add in structure that wasn't there, rather than miss structure that was there.
+
+
+
+
 
 
 
@@ -64,16 +92,16 @@ Selected & Correct & Total & Dots\\
 \midrule
 \addlinespace[0em]
 \multicolumn{4}{l}{\textbf{}}\\
-\hspace{1em}No number visible & 1 & 324 & 119\\
-\hspace{1em}No number visible & 7 & 306 & 155\\
-\hspace{1em}No number visible & 4 & 282 & 189\\
-\hspace{1em}No number visible & 5 & 258 & 209\\
-\hspace{1em}No number visible & 8 & 251 & 244\\
-\hspace{1em}No number visible & 3 & 228 & 225\\
-\hspace{1em}No number visible & 9 & 227 & 245\\
-\hspace{1em}No number visible & 6 & 220 & 226\\
-\hspace{1em}No number visible & 0 & 207 & 211\\
-\hspace{1em}No number visible & 2 & 165 & 216\\
+\hspace{1em}No number visible & 1 & 324 & 120\\
+\hspace{1em}No number visible & 7 & 306 & 160\\
+\hspace{1em}No number visible & 4 & 282 & 176\\
+\hspace{1em}No number visible & 5 & 258 & 225\\
+\hspace{1em}No number visible & 8 & 251 & 251\\
+\hspace{1em}No number visible & 3 & 228 & 223\\
+\hspace{1em}No number visible & 9 & 227 & 234\\
+\hspace{1em}No number visible & 6 & 220 & 224\\
+\hspace{1em}No number visible & 0 & 207 & 219\\
+\hspace{1em}No number visible & 2 & 165 & 224\\
 \bottomrule
 \end{longtable}
 \endgroup{}
@@ -81,6 +109,10 @@ Selected & Correct & Total & Dots\\
 
 :::
 :::
+
+
+
+
 
 
 
@@ -99,21 +131,31 @@ It is also clear that participants rarely spent more than a few seconds on each 
 This also highlights that, by making uncertainty something that should be visibly seen, a well designed uncertainty visualisation can be correctly within a few seconds.
 
 
+
+
+
+
 ::: {.cell}
 ::: {.cell-output-display}
 ![A heatmap showing the median duration accross each D, V, and plot type.](A-appA_files/figure-pdf/fig-duration-heatmap-1.pdf){#fig-duration-heatmap fig-pos='H' width=100%}
 :::
 :::
 
-
-
 ::: {.cell}
 
 :::
 
 
+
+
+
+
 ## Demographic Analysis
 The demographic analysis indicates no relationship between the demographic details and the proportion of correct responses. 
+
+
+
+
 
 
 ::: {.cell}
@@ -124,8 +166,16 @@ The demographic analysis indicates no relationship between the demographic detai
 
 
 
+
+
+
+
 ## Additional model comparison results
 The distance-based results as well as all pairwise comparisons, as mentioned in the main text.
+
+
+
+
 
 
 ::: {#tbl-v-trend1 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 1'}
@@ -135,23 +185,21 @@ The distance-based results as well as all pairwise comparisons, as mentioned in 
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
-Choropleth & -0.026 & 0.056 & -0.459 & 0.646\\
+Choropleth & -0.026 & 0.056 & -0.460 & 0.646\\
 \hline
-Bivariate & -0.037 & 0.055 & -0.675 & 0.500\\
+Bivariate & -0.039 & 0.055 & -0.701 & 0.484\\
 \hline
-VSUP & -0.576 & 0.059 & -9.704 & 0.000\\
+VSUP & -0.577 & 0.059 & -9.712 & 0.000\\
 \hline
-Pixel & -0.516 & 0.063 & -8.252 & 0.000\\
+Pixel & -0.515 & 0.063 & -8.234 & 0.000\\
 \hline
-Transparency & -0.540 & 0.066 & -8.231 & 0.000\\
+Transparency & -0.538 & 0.066 & -8.216 & 0.000\\
 \hline
 \end{tabular}
 
 
 :::
 :::
-
-
 
 ::: {#tbl-v-trend2 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 2'}
 ::: {.cell-output-display}
@@ -160,23 +208,21 @@ Transparency & -0.540 & 0.066 & -8.231 & 0.000\\
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
-Choropleth & 0.110 & 0.098 & 1.127 & 0.260\\
+Choropleth & 0.110 & 0.097 & 1.132 & 0.258\\
 \hline
-Bivariate & -0.041 & 0.083 & -0.493 & 0.622\\
+Bivariate & -0.042 & 0.082 & -0.511 & 0.609\\
 \hline
-VSUP & -1.849 & 0.077 & -23.915 & 0.000\\
+VSUP & -1.849 & 0.077 & -23.942 & 0.000\\
 \hline
-Pixel & -0.639 & 0.047 & -13.736 & 0.000\\
+Pixel & -0.639 & 0.047 & -13.731 & 0.000\\
 \hline
-Transparency & -0.583 & 0.051 & -11.438 & 0.000\\
+Transparency & -0.581 & 0.051 & -11.454 & 0.000\\
 \hline
 \end{tabular}
 
 
 :::
 :::
-
-
 
 ::: {#tbl-v-trend3 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 3'}
 ::: {.cell-output-display}
@@ -185,23 +231,21 @@ Transparency & -0.583 & 0.051 & -11.438 & 0.000\\
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
-Choropleth & 0.246 & 0.193 & 1.277 & 0.201\\
+Choropleth & 0.245 & 0.190 & 1.288 & 0.198\\
 \hline
-Bivariate & -0.044 & 0.163 & -0.272 & 0.786\\
+Bivariate & -0.045 & 0.160 & -0.278 & 0.781\\
 \hline
-VSUP & -3.122 & 0.139 & -22.406 & 0.000\\
+VSUP & -3.121 & 0.139 & -22.458 & 0.000\\
 \hline
-Pixel & -0.762 & 0.078 & -9.816 & 0.000\\
+Pixel & -0.762 & 0.077 & -9.870 & 0.000\\
 \hline
-Transparency & -0.626 & 0.093 & -6.714 & 0.000\\
+Transparency & -0.624 & 0.092 & -6.753 & 0.000\\
 \hline
 \end{tabular}
 
 
 :::
 :::
-
-
 
 ::: {#tbl-v-trend4 .cell tbl-pos='H' tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 4'}
 ::: {.cell-output-display}
@@ -210,23 +254,21 @@ Transparency & -0.626 & 0.093 & -6.714 & 0.000\\
 \hline
 plot\_type & V.trend & SE & z.ratio & p.value\\
 \hline
-Choropleth & 0.382 & 0.293 & 1.304 & 0.192\\
+Choropleth & 0.381 & 0.290 & 1.316 & 0.188\\
 \hline
-Bivariate & -0.048 & 0.249 & -0.192 & 0.848\\
+Bivariate & -0.047 & 0.245 & -0.193 & 0.847\\
 \hline
-VSUP & -4.395 & 0.209 & -20.991 & 0.000\\
+VSUP & -4.394 & 0.209 & -21.040 & 0.000\\
 \hline
-Pixel & -0.885 & 0.125 & -7.108 & 0.000\\
+Pixel & -0.886 & 0.124 & -7.154 & 0.000\\
 \hline
-Transparency & -0.669 & 0.150 & -4.453 & 0.000\\
+Transparency & -0.667 & 0.149 & -4.475 & 0.000\\
 \hline
 \end{tabular}
 
 
 :::
 :::
-
-
 
 ::: {#tbl-basicmodel1 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 1'}
 ::: {.cell-output-display}
@@ -235,23 +277,23 @@ Transparency & -0.669 & 0.150 & -4.453 & 0.000\\
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
-Choropleth - Bivariate & 0.012 & 0.078 & 0.149 & 1.000\\
+Choropleth - Bivariate & 0.013 & 0.078 & 0.166 & 1.000\\
 \hline
-Choropleth - VSUP & 0.551 & 0.081 & 6.759 & 0.000\\
+Choropleth - VSUP & 0.551 & 0.081 & 6.763 & 0.000\\
 \hline
-Choropleth - Pixel & 0.491 & 0.084 & 5.861 & 0.000\\
+Choropleth - Pixel & 0.490 & 0.084 & 5.847 & 0.000\\
 \hline
-Choropleth - Transparency & 0.514 & 0.086 & 5.978 & 0.000\\
+Choropleth - Transparency & 0.513 & 0.086 & 5.965 & 0.000\\
 \hline
-Bivariate - VSUP & 0.539 & 0.081 & 6.650 & 0.000\\
+Bivariate - VSUP & 0.538 & 0.081 & 6.639 & 0.000\\
 \hline
-Bivariate - Pixel & 0.479 & 0.083 & 5.745 & 0.000\\
+Bivariate - Pixel & 0.476 & 0.083 & 5.715 & 0.000\\
 \hline
-Bivariate - Transparency & 0.502 & 0.086 & 5.865 & 0.000\\
+Bivariate - Transparency & 0.500 & 0.086 & 5.835 & 0.000\\
 \hline
-VSUP - Pixel & -0.060 & 0.086 & -0.697 & 0.957\\
+VSUP - Pixel & -0.062 & 0.086 & -0.716 & 0.953\\
 \hline
-VSUP - Transparency & -0.037 & 0.088 & -0.416 & 0.994\\
+VSUP - Transparency & -0.038 & 0.088 & -0.435 & 0.993\\
 \hline
 Pixel - Transparency & 0.023 & 0.090 & 0.257 & 0.999\\
 \hline
@@ -261,8 +303,6 @@ Pixel - Transparency & 0.023 & 0.090 & 0.257 & 0.999\\
 :::
 :::
 
-
-
 ::: {#tbl-basicmodel2 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 2'}
 ::: {.cell-output-display}
 
@@ -270,23 +310,23 @@ Pixel - Transparency & 0.023 & 0.090 & 0.257 & 0.999\\
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
-Choropleth - Bivariate & 0.151 & 0.128 & 1.179 & 0.764\\
+Choropleth - Bivariate & 0.153 & 0.128 & 1.190 & 0.757\\
 \hline
-Choropleth - VSUP & 1.960 & 0.125 & 15.695 & 0.000\\
+Choropleth - VSUP & 1.960 & 0.125 & 15.674 & 0.000\\
 \hline
-Choropleth - Pixel & 0.750 & 0.108 & 6.915 & 0.000\\
+Choropleth - Pixel & 0.749 & 0.109 & 6.897 & 0.000\\
 \hline
-Choropleth - Transparency & 0.693 & 0.110 & 6.281 & 0.000\\
+Choropleth - Transparency & 0.693 & 0.111 & 6.265 & 0.000\\
 \hline
-Bivariate - VSUP & 1.809 & 0.113 & 15.986 & 0.000\\
+Bivariate - VSUP & 1.807 & 0.113 & 15.974 & 0.000\\
 \hline
-Bivariate - Pixel & 0.599 & 0.095 & 6.312 & 0.000\\
+Bivariate - Pixel & 0.596 & 0.095 & 6.289 & 0.000\\
 \hline
-Bivariate - Transparency & 0.542 & 0.097 & 5.584 & 0.000\\
+Bivariate - Transparency & 0.540 & 0.097 & 5.563 & 0.000\\
 \hline
-VSUP - Pixel & -1.210 & 0.090 & -13.504 & 0.000\\
+VSUP - Pixel & -1.211 & 0.090 & -13.515 & 0.000\\
 \hline
-VSUP - Transparency & -1.267 & 0.092 & -13.755 & 0.000\\
+VSUP - Transparency & -1.267 & 0.092 & -13.766 & 0.000\\
 \hline
 Pixel - Transparency & -0.056 & 0.069 & -0.821 & 0.924\\
 \hline
@@ -296,8 +336,6 @@ Pixel - Transparency & -0.056 & 0.069 & -0.821 & 0.924\\
 :::
 :::
 
-
-
 ::: {#tbl-basicmodel3 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 3'}
 ::: {.cell-output-display}
 
@@ -305,23 +343,23 @@ Pixel - Transparency & -0.056 & 0.069 & -0.821 & 0.924\\
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
-Choropleth - Bivariate & 0.290 & 0.252 & 1.151 & 0.779\\
+Choropleth - Bivariate & 0.292 & 0.253 & 1.157 & 0.776\\
 \hline
-Choropleth - VSUP & 3.368 & 0.238 & 14.153 & 0.000\\
+Choropleth - VSUP & 3.369 & 0.238 & 14.130 & 0.000\\
 \hline
-Choropleth - Pixel & 1.008 & 0.208 & 4.852 & 0.000\\
+Choropleth - Pixel & 1.009 & 0.208 & 4.843 & 0.000\\
 \hline
-Choropleth - Transparency & 0.872 & 0.214 & 4.074 & 0.000\\
+Choropleth - Transparency & 0.873 & 0.215 & 4.068 & 0.000\\
 \hline
-Bivariate - VSUP & 3.078 & 0.214 & 14.368 & 0.000\\
+Bivariate - VSUP & 3.076 & 0.214 & 14.361 & 0.000\\
 \hline
-Bivariate - Pixel & 0.718 & 0.180 & 3.982 & 0.001\\
+Bivariate - Pixel & 0.716 & 0.180 & 3.972 & 0.001\\
 \hline
-Bivariate - Transparency & 0.582 & 0.188 & 3.102 & 0.016\\
+Bivariate - Transparency & 0.580 & 0.188 & 3.094 & 0.017\\
 \hline
-VSUP - Pixel & -2.360 & 0.159 & -14.863 & 0.000\\
+VSUP - Pixel & -2.360 & 0.159 & -14.864 & 0.000\\
 \hline
-VSUP - Transparency & -2.496 & 0.167 & -14.935 & 0.000\\
+VSUP - Transparency & -2.496 & 0.167 & -14.939 & 0.000\\
 \hline
 Pixel - Transparency & -0.136 & 0.121 & -1.124 & 0.794\\
 \hline
@@ -331,8 +369,6 @@ Pixel - Transparency & -0.136 & 0.121 & -1.124 & 0.794\\
 :::
 :::
 
-
-
 ::: {#tbl-basicmodel4 .cell tbl-cap='Results for Standard Deviation Trend by Plot Type at Distance = 4'}
 ::: {.cell-output-display}
 
@@ -340,23 +376,23 @@ Pixel - Transparency & -0.136 & 0.121 & -1.124 & 0.794\\
 \hline
 contrast & estimate & SE & z.ratio & p.value\\
 \hline
-Choropleth - Bivariate & 0.430 & 0.385 & 1.118 & 0.797\\
+Choropleth - Bivariate & 0.432 & 0.385 & 1.122 & 0.795\\
 \hline
-Choropleth - VSUP & 4.777 & 0.360 & 13.259 & 0.000\\
+Choropleth - VSUP & 4.778 & 0.361 & 13.238 & 0.000\\
 \hline
-Choropleth - Pixel & 1.267 & 0.318 & 3.981 & 0.001\\
+Choropleth - Pixel & 1.268 & 0.319 & 3.975 & 0.001\\
 \hline
-Choropleth - Transparency & 1.051 & 0.329 & 3.194 & 0.012\\
+Choropleth - Transparency & 1.052 & 0.330 & 3.191 & 0.012\\
 \hline
-Bivariate - VSUP & 4.348 & 0.325 & 13.362 & 0.000\\
+Bivariate - VSUP & 4.346 & 0.325 & 13.357 & 0.000\\
 \hline
-Bivariate - Pixel & 0.837 & 0.278 & 3.008 & 0.022\\
+Bivariate - Pixel & 0.836 & 0.278 & 3.003 & 0.022\\
 \hline
-Bivariate - Transparency & 0.622 & 0.291 & 2.137 & 0.205\\
+Bivariate - Transparency & 0.620 & 0.291 & 2.133 & 0.206\\
 \hline
-VSUP - Pixel & -3.510 & 0.243 & -14.455 & 0.000\\
+VSUP - Pixel & -3.509 & 0.243 & -14.453 & 0.000\\
 \hline
-VSUP - Transparency & -3.726 & 0.257 & -14.485 & 0.000\\
+VSUP - Transparency & -3.725 & 0.257 & -14.486 & 0.000\\
 \hline
 Pixel - Transparency & -0.216 & 0.195 & -1.107 & 0.803\\
 \hline
@@ -367,8 +403,16 @@ Pixel - Transparency & -0.216 & 0.195 & -1.107 & 0.803\\
 :::
 
 
+
+
+
+
 <!--
 ## Lag effects
+
+
+
+
 
 
 ::: {.cell}
@@ -378,11 +422,23 @@ Pixel - Transparency & -0.216 & 0.195 & -1.107 & 0.803\\
 :::
 
 
+
+
+
+
 ## Also check for tiredness
+
+
+
+
 
 
 ::: {.cell}
 
 :::
+
+
+
+
 
 -->
