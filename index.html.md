@@ -11,7 +11,7 @@ A thesis submitted for the degree of {{< meta degreetype >}} at Monash Universit
 
 
 
-Produced on 24 April 2026.
+Produced on 28 April 2026.
 
 © {{< meta author >}} (2026).
 
@@ -180,22 +180,22 @@ This work is licensed under a [Creative Commons  Attribution-NonCommercial-Share
 
 
 # Acknowledgements {-}
-First, I want to thank my supervision team, who put up with my complete inability to stick to deadlines for almost 4 years. You have all forever shaped the way I think about statistics, software, research, and visualisation, and for that I am incredibly grateful. To Emi and Ursula, even you were not supervisors for the entire duration of the project, your excellent feedback in the early days of my PhD had a significant influence on my approach to research, for which I am very grateful. To Susan, having someone on the supervision team who could understand my half-formed ideas well enough to help me translate them into something other people could understand was genuinely a lifesaver, and I don't think I would have finished the first paper (let alone the entire PhD) without your help. To Sarah, your exuberant energy and openness to unconventional ideas are qualities I truly admire, and I hope to carry that spirit with me throughout my career. To Di, I don't think I have words to express the level of gratitude I have towards you. Thank you for taking me on as a research assistant, then as an honours student, and finally as a PhD student. It is not an overstatement to say I wouldn't even be in research were it not for you. These last 6 years have inspired a level of joy and fulfilment in my work that I didn't think I would ever see in this lifetime, and for that you have my eternal gratitude.
+First, I want to thank my supervision team, who put up with my complete inability to stick to deadlines for almost 4 years. You have all forever shaped the way I think about statistics, software, research, and visualisation. To Emi and Ursula, even you were not supervisors for the entire duration of the project, your excellent feedback in the early days of my PhD had a significant influence on my approach to research, for which I am very grateful. To Susan, having someone on the supervision team who could understand my half-formed ideas well enough to help me translate them into something other people could understand was genuinely a lifesaver, and I don't think I would have finished the first paper (let alone the entire PhD) without your help. To Sarah, your exuberant energy and openness to odd ideas are things that I sincerely hope has rubbed off on me as I try to embody that attitude for the rest of my career. To Di, I don't think I have words to express the level of gratitude I have towards you. Thank you for taking me on as a research assistant, then as an honours student, and finally as a PhD student. It is not an overstatement to say I wouldn't even be in research were it not for you. These last 6 years have inspired a level of joy and fulfilment in my work that I didn't think I would ever see in this lifetime, and for that you have my eternal gratitude.
 
-Thank you to Rachel and Alison for your help on the third paper. I had given up on the idea of doing an experiment, but your enthusiasm about the project, delightful company, and, most importantly, ability to do the parts of the research that I couldn't, allowed me to include it in my thesis. 
+Thank you to Rachel and Alison for your help on the third paper. I had given up on the idea of doing an experiment, but your enthusiasm about the project, delightful company, and, most importantly, ability to do the parts of the research that I couldn't, allowed me to include it in my thesis. The experiment paper was easily the most fun of all the chapters.
 
 Thank you to my fellow PhD students for always being good company in the office, particularly Sherry, Patrick, Heshani, Ze-yu, Floyd, Fillip, Shelly, Kris, Minh, Cash, Tina, Maliny and Vis. An extra special thank you to Cynthia, Mitch, Jayani, Bets, and Janith, who I occasionally sucked into conversations that went on for so long that my housemates would call to check if I had died.
-Thank you to the NUMBATs research group for being my home while at Monash. In particular, thank you to Michael, Hannah, and Kate for being as easy to talk to as the other PhD students. 
+Thank you to the NUMBATs research group for being my home while at Monash. In particular, thank you to Michael, Hannah, and Kate for being as easy to talk to as the other PhD students. Thank you to R-ladies Melbourne for being so friendly and inviting, particularly Dionne and Daidai.
 
 To Gael, thank you for letting me into the program (despite my almost failing your class in my Bachelors), and Catherine, David, and Xibin for taking over the program after Gael retired.
 To my panel: Catherine, Jess, Michael, and David, thank you for the helpful feedback at my milestones that greatly improved the work.
 Thank you to everyone at AEMO and the Zema scholarship fund for supporting my research.
 
-To my friends, Sophie, Kat, and Kris, thank you for letting me complain so much in the group chat. And to Chloe, thank you for letting me complain on our walks. I hope this acknowledgement made all my complaining worthwhile.
+To my friends, Monique, Chloe, Sophie, Kat, and Kris, thank you for letting me complain so much in our various group chats and hang outs. I hope this acknowledgement made all my complaining worthwhile.
 To Eliot, thank you for the eight years we have spent getting coffee and walking laps around Monash University. Conversations with you always brighten my day, and my supervisors can thank you for approximately 50% of my visits to campus. 
 
 To my family, Mum, Dad, Grandma, Eloise, Ben, Alastair, Lauren, and Prudence, thank you for offering your homes when I travelled for conferences, participating in my pilot study despite having no idea what it was for, and remaining supportive for this very long degree.
-To my dog, Bosco, thank you giving me your company while I worked and for being a constant source of joy in my life. 
+To my dog, Bosco, thank you for being a good boy and giving me your company while I worked. 
 Finally, to my partner Tom, thank you for answering my questions on maths definitions (even at three in the morning), helping me bake for the annual NUMBATs group bake off (even at four in the morning), and continuing to give your love and support for the past few months as my entire life was sucked into this thesis.
 
 To all my friends, family, and loved ones, I know these past four years have been almost as hard on you as they have been on me (*almost*), but I wouldn't have gone through them with anyone else.
