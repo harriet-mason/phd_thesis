@@ -942,7 +942,7 @@ This is often because these unquantified uncertainties violate our model assumpt
 Quantifying the effect of these assumption violations on our estimates transforms unquantified uncertainty into quantified uncertainty.
 
 Sometimes we are able to visualise these assumption violations directly.
-For example, we can check for structure in our missing data using the `naniar` package @Tierney2023 that allows us to include missing values as a "shadow" alongside our usual visualisations. 
+For example, we can check for structure in our missing data using the `naniar` package [@Tierney2023] that allows us to include missing values as a "shadow" alongside our usual visualisations. 
 This approach amounts to just "showing the data", which is a simple but effective option for uncertainty visualisation that is largely overlooked.
 While this approach is useful for better understanding data, it will not eliminate visual signals that are rendered invalid due to incorrect assumptions about the model or missing data.
 We can only integrate uncertainty as noise when that uncertainty has been *quantified* as an effect on the estimates we are visualising. 
