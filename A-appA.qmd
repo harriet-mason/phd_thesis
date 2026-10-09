@@ -1,9 +1,9 @@
 # Appendix A — Supplementary Material for “A Mathematical Framework and Software Implementation for Uncertainty Visualisation” {#sec-appendix-a}
 
-### Notation 
+## Notation 
 Scalars are denoted by lowercase letters (e.g., $x$), vectors by bold lowercase letters (e.g., $\textbf{x}$), and matrices by bold uppercase letters (e.g., $\textbf{X}$). Random quantities are distinguished from their deterministic counterparts by a tilde. Accordingly, $\tilde{x}$, $\tilde{\textbf{x}}$, and $\tilde{\textbf{X}}$ denote a random scalar, random vector, and random matrix, respectively. Quantities without a tilde denote deterministic values, vectors, or matrices, as appropriate. The dimensions and domains of these quantities are specified where necessary.
 
-### Human perception is not a metric space {#sec-appb}
+## Human perception is not a metric space {#sec-appb}
 
 ::: {#prp-metric}
 Let $x,y \in \Psi$ be statistical graphics.
