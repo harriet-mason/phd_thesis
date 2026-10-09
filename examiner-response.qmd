@@ -49,6 +49,16 @@ p.24: Standards for experimental practice: The paragraph starting with “Experi
 
 ## Chapter 3
 
+Figure 3.3: There are typos in the sketch — “Bernoulli” should have two Ls. [Fixed]{bg="#9FE2BF"}
+
+Figure 3.5: I’m having a hard time truly grasping what I’m seeing, especially in (c) and (d). And maybe that’s the point of this figure. But still, I would have appreciated a bit more guidance on how to read them. [The caption of Figure 3.5 and the discussion in the body of the text have been updated and are now more explicit in what the figure shows and how it should be read.]{bg="#9FE2BF"}
+
+Figure 3.8: I don’t agree with “transparency works well for text” — or maybe “well” should be better defined here. The transparency plot makes me feel a bit dizzy, so I wouldn’t consider it a great visualisation. That being said, I agree that it’s better than dodging. Just articulating a “works better because …” could go a long way here.  [We have edited the text and figure caption to clarify it is preferred because it maintains the link between uncertainty and reading difficulty.]{bg="#9FE2BF"}
+
+Figure 3.9: Since the caption says it uses code similar to ggplot2, it would be worthwhile to share the code. [Sharing the code for all six plots in the paper would take up far too much space, however, we did add in an example that compares the `ggdibbler` and `ggplot2` code for a pie chart.]{bg="#9FE2BF"}
+
+## Chapter 4
+
 # Examiner B: Prof Alan M MacEachren
 ## Chapter 2
 I found the key contention that signal suppression is the most important goal for uncertainty visualization to be generally well supported. My initial reaction on reading this chapter was that the contention was overstated, that some research and practitioners will argue that there are situations in which allowing the reader to see both the data and its uncertainty will be useful. But in Chapter 3 (Paper 2), there is an acknowledgement that such situations exist, but the representations produced for them should not be labelled as uncertainty visualization. Thus, my only suggestion for this chapter is that the author may want to consider qualifying the point in paper one rather than leaving this to only appear in paper two. For the dissertation as a whole, the current presentation is fine, but for those who may read just one publication without the other, it would be useful to clarify in both papers. 
@@ -88,6 +98,8 @@ p. 19, I think that the left parenthesis needs to be prior to “Tierney” rath
 [Fixed]{bg="#9FE2BF"}
 
 ## Chapter 3
+p. 30: In the explanation for “G”, I believe that “where is the geometry function that maps each” should be “where E is the geometry function that maps each”  [Fixed]{bg="#9FE2BF"}
+
 ## Chapter 4
 
 - [x] p. 57. Again, I question the use of the term “geoscience” here since it does not typically include choropleth mapping, which is the kind of map settled on for empirical analysis in this chapter. Perhaps say “of geospatial data” or “geospatial applications” 

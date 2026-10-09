@@ -21,6 +21,7 @@ book:
     - "05-chap5.qmd"
     - "refs.qmd"
     - "A-appA.qmd"
+    - "B-appB.qmd"
   sidebar:
     style: "docked"
 
