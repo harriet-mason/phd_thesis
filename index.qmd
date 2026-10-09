@@ -44,7 +44,7 @@ library(kableExtra)
 tab <- tribble(
   ~`Thesis chapter`, ~`Publication title`, ~Status, ~`Nature and % of student contribution`, ~`Nature and % of coauthors' contribution`, ~`Coauthors are Monash students`,
   2, "The Noisy Work of Uncertainty Visualisation", "Accepted for publication in Annual Reviews of Statistics and Its Applications", "Concept, writing, editing: 80%", "Dianne Cook: 10%; Sarah Goodwin: 5%; Emi Tanaka: 2.5%; Susan Vanderplas: 2.5%", "No",
-  3, "A Mathematical Framework and Software Implementation for Uncertainty Visualisation", "Prepared for submission to Journal of Computational and Graphical Statistics", "Concept, software design and implementation, writing, editing: 80%", "Dianne Cook: 10%; Sarah Goodwin: 5%; Susan Vanderplas: 5%", "No",
+  3, "A Mathematical Framework and Software Implementation for Uncertainty Visualisation", "Revised and resubmitted to Journal of Computational and Graphical Statistics", "Concept, software design and implementation, writing, editing: 80%", "Dianne Cook: 10%; Sarah Goodwin: 5%; Susan Vanderplas: 5%", "No",
    4, "Colour Blinded by the Noise", "Accepted to IEEE VIS 2026, to appear in IEEE TVCG", "Concept, experiment design and implementation, analysis, writing, editing: 75%", "Rachel Rogers: 10%; Alison Kleffner: 10%; Dianne Cook: 5%", "No"
 )
 ```
