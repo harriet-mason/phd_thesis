@@ -6,7 +6,12 @@ editor_options:
 # A Mathematical Framework and Software Implementation for Uncertainty Visualisation {#sec-second-paper}
 
 
-```{r setup, message=FALSE, warning=FALSE}
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+#| echo: false
+
 library(ggdibbler)
 library(tidyverse)
 library(distributional)
@@ -92,6 +97,7 @@ The second route involves visualising the full data density while carrying forwa
 #| out-width: 90%
 #| fig-pos: "t"
 #| dev: "png"
+#| echo: false
 set.seed(1)
 density_data <- data.frame(xmean = rnorm(15, 163, 7),
                            xse = rexp(15,0.5)) |>
@@ -168,7 +174,7 @@ where:
 :::
 
 
-![Illustration of the steps to render a plot, as defined by the grammar of graphics. For uncertainty visualisation, changes are needed for the highlighted steps: data, scales, statistics, and the position adjustment within the geometry. ](drawings/grammar3.jpeg){#fig-gog fig-pos="t"}
+![Illustration of the steps to render a plot, as defined by the grammar of graphics. For uncertainty visualisation, changes are needed for the highlighted steps: data, scales, statistics, and the position adjustment within the geometry. ](figures/grammar3.jpeg){#fig-gog fig-pos="t"}
 
 ### Random matrices and continuous mapping theorem
 Unlike a standard visualisation, an uncertainty visualisation has a random matrix (@def-random) input, where distributions replace the single values of our deterministic matrix (@def-deterministic).
@@ -260,6 +266,7 @@ Therefore, the `ggdibbler` plot is the random matrix version of the `geom_densit
 #| out-width: 100%
 #| fig-pos: "t"
 #| dev: "png"
+#| echo: false
 set.seed(1)
 density_data <- data.frame(xmean = rnorm(15, 163, 7),
                            xse1 = rexp(15,0.5)) |>
@@ -357,7 +364,7 @@ Let $\tilde{\textbf{X}}$ be a random matrix on the probability space $(\Omega, \
 Then the generalised scale function $M^*$, applied to $\tilde{\textbf{X}}$ will give us $M^*(\tilde{\textbf{X}})$ with the induced probability measure $P_{M^*}(A) = P({M^*}^{-1}(A))$. 
 :::
 
-![An illustration that highlights the difference between scaling distributions and scaling deterministic variables. Scaling deterministic variables only requires us to map individual values, but scaling a distribution requires us to scale the distribution's domain.](drawings/scale.png){#fig-scale width=80%}
+![An illustration that highlights the difference between scaling distributions and scaling deterministic variables. Scaling deterministic variables only requires us to map individual values, but scaling a distribution requires us to scale the distribution's domain.](figures/scale.png){#fig-scale width=80%}
 
 
 
@@ -407,6 +414,7 @@ As the variance increases, these grains dominate the plot, making the visualisat
 #| fig-width: 10
 #| out-width: 100%
 #| fig-pos: "t"
+#| echo: false
 library(colorspace)
 p1a <- ggplot(uncertain_faithfuld, aes(x = waiting, 
                                       y = eruptions, 
@@ -491,6 +499,7 @@ Even if we tried to work around these problems by coming up with some abstract d
 #| fig-width: 10
 #| out-width: 100%
 #| dev: "png"
+#| echo: false
 
 
 # Random intercept
@@ -582,6 +591,7 @@ Plot (b) fixes this by splitting on the $draw$ variable, allowing us to include 
 #| fig-width: 8
 #| out-width: 80%
 #| dev: "png"
+#| echo: false
 
 set.seed(4453)
 
@@ -671,6 +681,7 @@ This suggests the possibility of an underlying orthogonal relationship between u
 #| fig-pos: "t"
 #| fig-cap: "Three different stacked bar charts that illustrate the need for nested position adjustments. Plot (a) shows what a deterministic plot looks like for reference, while plots (b), (c), and (d) use the same visual function, but have a random variable input. We can see that stacking is not viable as plot (b) is unreadable and does not maintain continuity, while dodging (c) and transparency (d) work well. It is clear that we should not use the measurement axis for our samples' position adjustment."
 #| dev: "png"
+#| echo: false
 
 p1 <- ggplot(mpg, aes(class)) + 
   geom_bar_sample(aes(fill = drv), 
@@ -771,6 +782,7 @@ It would be interesting to investigate this further with a perceptual experiment
 #| out-width: 100% 
 #| fig-pos: "t"
 #| dev: "png"
+#| echo: false
 
 set.seed(10)
 textdata <- expand_grid(x = c(1,2,3,4,5), y = c(1,2,3,4,5)) |>
@@ -876,6 +888,7 @@ By establishing a set of rules that will almost always work, we save ourselves f
 #| out-width: 90%
 #| fig-pos: "t"
 #| dev: "png"
+#| echo: false
 
 
 set.seed(10)
@@ -1005,6 +1018,7 @@ ggplot(smaller_diamonds,
 #| fig-width: 4
 #| out-width: 80%
 #| fig-pos: "t"
+#| echo: false
 ggplot(smaller_diamonds, aes(x = "", fill=clarity)) + 
   geom_bar(width =  1) + 
   scale_fill_discrete_sequential(palette = "YlGnBu") +
@@ -1037,6 +1051,7 @@ ggplot(smaller_uncertain_diamonds,
 #| fig-width: 4
 #| out-width: 80%
 #| fig-pos: "t"
+#| echo: false
 
 ggplot(smaller_uncertain_diamonds, aes(x = "", fill=clarity)) + 
   geom_bar_sample(width =  1) + 
@@ -1086,6 +1101,7 @@ toy_temp |>
 
 ::: {#third-column}
 ```{r}
+#| echo: false
 toy_temp_dist |>
   st_drop_geometry() |>
   print(n=3)
@@ -1137,6 +1153,7 @@ Ideally, we would set our `times` argument such that the visualisations made usi
 #| out-width: 90%
 #| fig-pos: "t"
 #| dev: "png"
+#| echo: false
 
 
 # make factors consistent across plots
@@ -1199,6 +1216,7 @@ These kinds of breakdowns appear to be quite common when we try to manually map 
 #| fig-width: 12
 #| out-width: 90%
 #| dev: "png"
+#| echo: false
 
 
 # examples from ggdibbler
