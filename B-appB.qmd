@@ -51,7 +51,8 @@ load("data/study_data.RData")
 
 
 ## Full app screenshots
-Screenshots from the app, in the order that the participants would experience them. 
+
+::: {#fig-appxample}
 
 ![Demographics 1](figures/screenshot_demographic1.png){#fig-app1 width=90%} 
 
@@ -65,6 +66,9 @@ Screenshots from the app, in the order that the participants would experience th
 
 ![End of study comments](figures/screenshot_comments.png){#fig-app6 width=90%} 
 
+Screenshots from the app, in the order that the participants would experience them. 
+
+:::
 
 
 ## Confusion matrix of numbers
@@ -74,12 +78,11 @@ To understand the influence of the number displayed on the participant response,
 #| label: tbl-confusion-numbers
 #| echo: false
 #| warning: false
-#| message: false 
+#| message: false
 #| fig-pos: "H"
 #| out-width: 100%
 #| tbl-cap: "A confusion matrix of the number participants gave, alongside the true number in the plot. The off-diagonal elements are incorrect responses, with any concentration of numbers indicating values that are frequently mistaken for one another: 8 for 3, 6 and 9, and 6 for 5 are the most common."
 # set up
-extrafont::loadfonts(quiet = TRUE)
 confusion_mat <- study_data |>
   group_by(number_selected, correct_number) |>
   summarise(total = n()) |>
@@ -201,23 +204,46 @@ Additionally, the number 1 (and possibly 7) were more frequently reported as no 
 This might be due to those numbers having less circles in the "number" group relative to the "background" group, as we can see the top 3 numbers reported as  "no number" also had the lowest number of "number" dots relative to those in the background.
 However, this trend seems to drop off after 1, 7, and 4.
 
+```{r}
+#| label: tbl-number-correct
+#| echo: false
+#| warning: false
+#| message: false
+#| tbl-pos: "H"
+#| tbl-cap: "Percentage of correct identifications based on number, including all conditions."
+
+number_correct <- study_data |>
+  group_by(correct_number) |>
+  na.omit() |>
+  summarise(total_correct = sum(correct), percentage = paste0(round(sum(correct)/n()*100,2), "%")) |>
+  arrange(total_correct)
+
+test_num_correct <- chisq.test(table(study_data$correct_number, study_data$correct)[1:10,])
+
+number_correct %>% arrange(correct_number) %>% select(correct_number, percentage) %>%
+  kable(booktabs = TRUE, col.names = c("Number", "Percentage Correct")) %>%
+  kable_styling(font_size = 10, full_width = FALSE)
+
+```
+
+Individuals provided more correct answers when the number was 2, followed by 0 and 4 (@tbl-number-correct).
 
 ## Duration Analysis
 The trend in the amount of time participants spent on each question seems to align with the probability of getting the question correct.
-@fig-duration-heatmap shows the median amount of seconds spent on each $D$, $V$, and plot type.
+@fig-dur-heatmap shows the median amount of seconds spent on each $D$, $V$, and plot type.
 Unsurprisingly, the most amount of time across all plots was on the $D=1$ case, when the signal was not particularly strong.
 The pixel and transparency maps have a lower triangle of easy to see numbers, that become harder to extract as both $D$ decreases and $V$ increases.
 It is also clear that participants rarely spent more than a few seconds on each plot.
 This also highlights that, by making uncertainty something that should be visibly seen, a well designed uncertainty visualisation can be correctly within a few seconds.
 
 ```{r}
-#| label: fig-duration-heatmap
+#| label: fig-dur-heatmap
 #| echo: false
 #| warning: false
 #| message: false
 #| fig-width: 8
-#| fig-pos: "H"
 #| out-width: 100%
+#| fig-pos: "H"
 #| fig-cap: "A heatmap showing the median duration accross each D, V, and plot type."
 study_data |>
   filter(!is.na(duration)) |>
@@ -239,7 +265,7 @@ study_data |>
 ```
 
 ```{r}
-#| label: fig-duration-lineplot
+#| label: fig-dur-line
 #| echo: false
 #| eval: false
 #| warning: false
@@ -270,9 +296,9 @@ The demographic analysis indicates no relationship between the demographic detai
 #| warning: false
 #| message: false
 #| fig-width: 15
-#| fig-height: 12 
-#| fig-pos: "H"
+#| fig-height: 12
 #| out-width: 100%
+#| fig-pos: "H"
 #| fig-cap: "Plots showing the overall distribution of correct answers from the participants, as well as the relationship betweeen the five demographic responses and the probability of correctly identifying the number in the stimuli."
 
 # demographics: continent, age, education, colourblind, pronouns
@@ -325,114 +351,113 @@ p6 <- n_correct |>
 p6 + p1 + p2 + p3 + p4 + p5 + plot_layout(guides = "collect")
 ```
 
+## Simulated P-Values by Number
+
+The results of both the t-test (@fig-t-sim) and Moran's I (@fig-mor-sim) broken out by the number shown in the Ishihara plate. While there is variability within the average p-values for different numbers for certain D and V combinations, the patterns remain largely the same.
+
+```{r}
+#| label: fig-t-sim
+#| echo: false
+#| eval: true
+#| message: false
+#| cache: true
+#| fig-width: 15
+#| fig-height: 12
+#| out-width: 100%
+#| fig-pos: "H"
+#| fig-cap: "Plots showing the t-test p-values for each of the 100 simulations of each of the 250 data sets used in the experiment. The alternative hypothesis being tested is that there is a difference in the two group means. The points are colored by there location compared to a typical significance level of 0.05. The figure is broken out by number to compare results across the different numbers." 
+
+
+load("data/bigpvalues.rda")
+
+
+bigpvalues |>
+  filter(test == "t-test") |>
+  group_by(V, D, num) |>
+  mutate(avg_pval = round(mean(pvalue),2),
+         above_0.05 = ifelse(pvalue < 0.05, "yes", "no")) |> 
+  ggplot(aes(x = V, y = D)) +
+  geom_jitter(aes(colour = above_0.05)) + 
+  geom_text(aes(label = avg_pval), fontface = "bold") +
+  facet_wrap(~num)
+```
+
+```{r}
+#| label: fig-mor-sim
+#| echo: false
+#| eval: true
+#| message: false
+#| cache: true
+#| fig-width: 15
+#| fig-height: 12
+#| out-width: 100%
+#| fig-pos: "H"
+#| fig-cap: "Plots showing the Moran's I p-values for each of the 100 simulations of each of the 250 data sets used in the experiment. The alternative hypothesis being tested is that there is positive spatial autocorrelation, or spatial clustering. The points are colored by there location compared to a typical significance level of 0.05. The figure is broken out by number to compare results across the different numbers." 
+
+bigpvalues |>
+  filter(test == "m-test") |>
+  group_by(V, D, num) |>
+  mutate(avg_pval = round(mean(pvalue),2),
+            above_0.05 = ifelse(pvalue < 0.05, "yes", "no")) |> 
+  ggplot(aes(x = V, y = D)) +
+  geom_jitter(aes(colour = above_0.05)) + 
+  geom_text(aes(label = avg_pval), fontface = "bold") +
+  facet_wrap(~num)
+```
+
 
 ## Additional model comparison results
 The distance-based results as well as all pairwise comparisons, as mentioned in the main text.
 
-```{r}
-#| label: tbl-v-trend1
+```{r v-trend}
 #| echo: false
 #| eval: true
 #| message: false
 #| cache: true
-#| tbl-pos: "H"
-#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 1"
 
-if (file.exists("data/glmer_model.rda")) {
-  load("data/glmer_model.rda")
-} else {
-# Make generalised linear model (random effects)
-  glmer_model <- glmer(correct_original ~  D*V*plot_type +    (1|correct_number) + (1|id),
-                   family="binomial",
+glmer_model <- glmer(correct_original ~  D*V*plot_type +    (1|correct_number) + (1|id),
+                   family="binomial", 
                    data = study_data)
-
-  save(glmer_model, file="data/glmer_model.rda")
-}
  
 emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(1))) |> as.data.frame() %>%
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
-  kable(digits=3, format=if_else(knitr::is_latex_output(), "latex", "html"), longtable=FALSE) 
-```
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 1",
+        digits=3, format="latex", longtable=FALSE) 
 
-```{r }
-#| label: tbl-v-trend2
-#| echo: false
-#| eval: true
-#| message: false
-#| cache: true
-#| tbl-pos: "H"
-#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 2"
 emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(2))) |> as.data.frame() %>%
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
-  kable(digits=3, format="latex", longtable=FALSE) 
-```
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 2",
+        digits=3, format="latex", longtable=FALSE) 
 
-```{r }
-#| label: tbl-v-trend3
-#| echo: false
-#| eval: true
-#| message: false
-#| cache: true
-#| tbl-pos: "H"
-#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 3"
 emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(3))) |> as.data.frame() %>%
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
-  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE) 
-```
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 3",
+        digits=3, format="latex", longtable=FALSE) 
 
-```{r }
-#| label: tbl-v-trend4
-#| echo: false
-#| eval: true
-#| message: false
-#| cache: true
-#| tbl-pos: "H"
-#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 4"
 emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4))) |> as.data.frame() %>%
   select(plot_type, V.trend, SE, z.ratio, p.value) %>%
-  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE) 
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 4",
+        digits=3, format="latex", longtable=FALSE) 
 
 ```
 
-```{r }
-#| label: tbl-basicmodel1
+```{r basicmodel}
 #| echo: false
 #| eval: true
 #| message: false
-#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 1"
+
 
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(1)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
-  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE)
-```
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 1", digits=3, format="latex", longtable=FALSE)
 
-```{r }
-#| label: tbl-basicmodel2
-#| echo: false
-#| eval: true
-#| message: false
-#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 2"
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(2)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
-  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE,)
-```
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 2", digits=3, format="latex", longtable=FALSE,)
 
-```{r }
-#| label: tbl-basicmodel3
-#| echo: false
-#| eval: true
-#| message: false
-#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 3"
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(3)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
-  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE)
-```
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 3", digits=3, format="latex", longtable=FALSE)
 
-```{r }
-#| label: tbl-basicmodel4
-#| echo: false
-#| eval: true
-#| message: false
-#| tbl-cap: "Results for Standard Deviation Trend by Plot Type at Distance = 4"
 emtrends(glmer_model, pairwise ~ "plot_type", var = "V", infer=TRUE, at = list(D=c(4)), adjust="Tukey")$contrasts %>% as.data.frame() %>% select(contrast, estimate, SE, z.ratio, p.value) %>% 
-  kable(digits=3, if_else(knitr::is_latex_output(), "latex", "html"),  longtable=FALSE)
+  kable(caption="Results for Standard Deviation Trend by Plot Type at Distance = 4", digits=3, format="latex", longtable=FALSE)
 
 # compare2 <- pairs(emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4), plot_type=c(c("Transparency", "Pixel")))))
 # compare1 <- pairs(emtrends(glmer_model, "plot_type", var = "V", infer=TRUE, at = list(D=c(4), plot_type=c(c("Choropleth", "Bivariate")))))
