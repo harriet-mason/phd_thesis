@@ -1163,7 +1163,7 @@ save(fixed_ci, file="data/fixed_ci.rda")
 #| message: false
 #| fig-width: 7
 #| fig-height: 11
-#| out-width: 90%
+#| out-width: 70%
 #| fig-cap: "The experimental power curves estimated using a generalised linear random effects model (top) and generalised linear fixed effects model (bottom) for all 125 experimental factors: V (standard deviation), D (Distance), and K (plot type). Two different dashed lines represent the results of the theoretical hypothesis tests, the t-test, and Moran's I test. We see that the V has little impact on the signal visibility in the choropleth and bivariate map, the signal visibility in the VSUP map shrinks to zero when V=5, regardless of the effect size, and the pixel and transparency map broadly follow the shape of the theoretical tests."
 
 #AK: Changed fig-height to 11 from 13
@@ -1441,7 +1441,6 @@ We also thank Janith Wanniarachchi for his help troubleshooting shiny server iss
 The R packages used for this work were: `tidyverse` [@tidyverse], `distributional` [@distributional], `ggdist` [@Kay2023], `ggdibbler` [@ggdibbler], `patchwork` [@patchwork], `khroma` [@khroma], `colourspace` [@colorspace], `ozmaps` [@ozmaps], `sf` [@sfpack], `ggthemes` [@ggthemes], `MASS` [@MASS], `shadowtext` [@shadowtext], `flextable` [@flextable], `emmeans` [@emmeans], `kableExtra` [@kableExtra], `broom` [@broom], `lme4` [@lme4], `car` [@car], `janitor` [@janitor], `packcircles` [@packcircles], `gglogo` [@gglogo], `scales` [@scales], `glue` [@glue], `digest` [@digest], `ggbeeswarm` [@ggbeeswarm], `conflicted` [@conflicted], `sp` [@sp], and `spdep` [@sf].
 The GitHub repository for this paper can be found at https://github.com/harriet-mason/uncertainty-experiment, which contains the files required to reproduce this article in full.
 
-## References
 
 ```{r, include=FALSE, eval=FALSE}
 library(spelling)

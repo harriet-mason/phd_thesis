@@ -52,7 +52,7 @@ load("data/study_data.RData")
 
 ## Full app screenshots
 
-::: {#fig-appxample}
+::: {#fig-appxample fig-pos="H" layout-ncol=2}
 
 ![Demographics 1](figures/screenshot_demographic1.png){#fig-app1 width=90%} 
 

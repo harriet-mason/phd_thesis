@@ -6,19 +6,9 @@ A thesis submitted for the degree of {{< meta degreetype >}} at Monash Universit
 
 # Copyright notice {-}
 
-
-
-
-
-
-Produced on 28 April 2026.
+Produced on 10 October 2026.
 
 © {{< meta author >}} (2026).
-
-
-
-
-
 
 # Abstract {-}
 
@@ -44,24 +34,12 @@ This thesis includes three research articles, which are at different stages of p
 (The inclusion of co-authors reflects the fact that the work came from active collaboration between researchers and acknowledges input into team-based research.)
 
 
-
-
-
-
 ::: {.cell}
 
 :::
 
 
-
-
-
-
 ::: {.content-visible when-format="html"}
-
-
-
-
 
 
 ::: {.cell}
@@ -71,9 +49,9 @@ This thesis includes three research articles, which are at different stages of p
 \toprule
 \multicolumn{1}{l}{Thesis chapter} & \multicolumn{1}{l}{Publication title} & \multicolumn{1}{l}{Status} & \multicolumn{1}{l}{Nature and \% of student contribution} & \multicolumn{1}{l}{Nature and \% of coauthors' contribution} & \multicolumn{1}{l}{Coauthors are Monash students}\\
 \midrule
-2 & The Noisy Work of Uncertainty Visualisation & Submitted to Annual Reviews of Statistics and Its Applications & Concept, writing, editing: 80\% & Dianne Cook: 10\%; Sarah Goodwin: 5\%; Emi Tanaka: 2.5\%; Susan Vanderplas: 2.5\% & No\\
-3 & A Mathematical Framework and Software Implementation for Uncertainty Visualisation & Prepared for submission to Journal of Computational and Graphical Statistics & Concept, software design and implementation, writing, editing: 80\% & Dianne Cook: 10\%; Sarah Goodwin: 5\%; Susan Vanderplas: 5\% & No\\
-4 & Colour Blinded by the Noise & Submitted to IEEE VIS 2026 & Concept, experiment design and implementation, analysis, writing, editing: 75\% & Rachel Rogers: 10\%; Alison Kleffner: 10\%; Dianne Cook: 5\% & No\\
+2 & The Noisy Work of Uncertainty Visualisation & Accepted for publication in Annual Reviews of Statistics and Its Applications & Concept, writing, editing: 80\% & Dianne Cook: 10\%; Sarah Goodwin: 5\%; Emi Tanaka: 2.5\%; Susan Vanderplas: 2.5\% & No\\
+3 & A Mathematical Framework and Software Implementation for Uncertainty Visualisation & Revised and resubmitted to Journal of Computational and Graphical Statistics & Concept, software design and implementation, writing, editing: 80\% & Dianne Cook: 10\%; Sarah Goodwin: 5\%; Susan Vanderplas: 5\% & No\\
+4 & Colour Blinded by the Noise & Accepted to IEEE VIS 2026, to appear in IEEE TVCG & Concept, experiment design and implementation, analysis, writing, editing: 75\% & Rachel Rogers: 10\%; Alison Kleffner: 10\%; Dianne Cook: 5\% & No\\
 \bottomrule
 \end{longtable}
 
@@ -82,17 +60,9 @@ This thesis includes three research articles, which are at different stages of p
 :::
 
 
-
-
-
-
 :::
 
 ::: {.content-visible when-format="pdf"}
-
-
-
-
 
 
 ::: {.cell}
@@ -100,24 +70,20 @@ This thesis includes three research articles, which are at different stages of p
 \begingroup\fontsize{10}{12}\selectfont
 
 \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
-\begin{tabu} to \linewidth {>{\raggedleft\arraybackslash}p{1.2cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright}X>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}}
+\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}p{1.2cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}}
 \toprule
 \multicolumn{1}{>{\raggedright\arraybackslash}p{1.2cm}}{\textbf{Thesis chapter}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Publication title}} & \multicolumn{1}{l}{\textbf{Status}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Nature and \% of student contribution}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Nature and \% of coauthors' contribution}} & \multicolumn{1}{>{\raggedright\arraybackslash}p{2.6cm}}{\textbf{Coauthors are Monash students}}\\
 \midrule
-2 & The Noisy Work of Uncertainty Visualisation & Submitted to Annual Reviews of Statistics and Its Applications & Concept, writing, editing: 80\% & Dianne Cook: 10\%; Sarah Goodwin: 5\%; Emi Tanaka: 2.5\%; Susan Vanderplas: 2.5\% & No\\
-3 & A Mathematical Framework and Software Implementation for Uncertainty Visualisation & Prepared for submission to Journal of Computational and Graphical Statistics & Concept, software design and implementation, writing, editing: 80\% & Dianne Cook: 10\%; Sarah Goodwin: 5\%; Susan Vanderplas: 5\% & No\\
-4 & Colour Blinded by the Noise & Submitted to IEEE VIS 2026 & Concept, experiment design and implementation, analysis, writing, editing: 75\% & Rachel Rogers: 10\%; Alison Kleffner: 10\%; Dianne Cook: 5\% & No\\
+2 & The Noisy Work of Uncertainty Visualisation & Accepted for publication in Annual Reviews of Statistics and Its Applications & Concept, writing, editing: 80\% & Dianne Cook: 10\%; Sarah Goodwin: 5\%; Emi Tanaka: 2.5\%; Susan Vanderplas: 2.5\% & No\\
+3 & A Mathematical Framework and Software Implementation for Uncertainty Visualisation & Revised and resubmitted to Journal of Computational and Graphical Statistics & Concept, software design and implementation, writing, editing: 80\% & Dianne Cook: 10\%; Sarah Goodwin: 5\%; Susan Vanderplas: 5\% & No\\
+4 & Colour Blinded by the Noise & Accepted to IEEE VIS 2026, to appear in IEEE TVCG & Concept, experiment design and implementation, analysis, writing, editing: 75\% & Rachel Rogers: 10\%; Alison Kleffner: 10\%; Dianne Cook: 5\% & No\\
 \bottomrule
-\end{tabu}}
+\end{tabularx}}
 \endgroup{}
 
 
 :::
 :::
-
-
-
-
 
 
 :::
